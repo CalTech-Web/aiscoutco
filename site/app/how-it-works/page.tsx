@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowRight, Brain, BarChart3, Zap, CheckCircle, Clock, MessageSquare, FileText, Rocket, Settings } from "lucide-react";
 
 const fadeUp = {
@@ -103,12 +104,21 @@ const colorMap: Record<string, { border: string; bg: string; text: string; tag: 
 };
 
 export default function HowItWorksPage() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 30%"],
+  });
+  const timelineFill = useSpring(scrollYProgress, { stiffness: 60, damping: 25 });
+
   return (
     <div className="min-h-screen pt-16">
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/10 to-transparent" />
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-600/8 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -127,9 +137,14 @@ export default function HowItWorksPage() {
 
       {/* Steps */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="relative">
-          {/* Vertical connector line */}
-          <div className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500/50 via-purple-500/30 to-orange-500/20 hidden md:block" />
+        <div ref={timelineRef} className="relative">
+          {/* Vertical connector track (dim) */}
+          <div className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500/15 via-purple-500/10 to-orange-500/10 hidden md:block" />
+          {/* Animated fill line */}
+          <motion.div
+            className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-orange-400 hidden md:block origin-top"
+            style={{ scaleY: timelineFill }}
+          />
 
           <ol className="space-y-10 list-none">
             {steps.map((step, i) => {
