@@ -106,6 +106,42 @@ function FloatingParticles() {
   );
 }
 
+const integrations = [
+  { name: "Monday.com", color: "text-orange-400" },
+  { name: "Google Workspace", color: "text-blue-400" },
+  { name: "OpenAI / Claude", color: "text-emerald-400" },
+  { name: "Salesforce", color: "text-cyan-400" },
+  { name: "HubSpot", color: "text-orange-300" },
+  { name: "Slack", color: "text-purple-400" },
+  { name: "Vercel / Next.js", color: "text-slate-300" },
+  { name: "Resend / SendGrid", color: "text-blue-300" },
+  { name: "Google Meet", color: "text-green-400" },
+  { name: "Webhooks", color: "text-cyan-300" },
+  { name: "OAuth / SSO", color: "text-purple-300" },
+  { name: "Custom APIs", color: "text-blue-400" },
+];
+
+function IntegrationsMarquee() {
+  const doubled = [...integrations, ...integrations];
+  return (
+    <div className="relative overflow-hidden py-6 border-y border-slate-800/40 bg-slate-900/20">
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0f172a] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0f172a] to-transparent z-10 pointer-events-none" />
+      <div className="text-center mb-4">
+        <span className="text-slate-500 text-xs uppercase tracking-widest font-medium">Works with the tools you already use</span>
+      </div>
+      <div className="animate-marquee">
+        {doubled.map((item, i) => (
+          <div key={i} className="inline-flex items-center gap-3 px-6 flex-shrink-0">
+            <span className={`${item.color} text-sm font-semibold whitespace-nowrap`}>{item.name}</span>
+            <span className="text-slate-700 text-lg">·</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
@@ -199,6 +235,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Integrations Marquee */}
+      <IntegrationsMarquee />
 
       {/* Stats Section */}
       <section className="py-20 bg-slate-900/50 border-y border-slate-800/50">
