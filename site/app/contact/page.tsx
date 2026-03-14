@@ -193,7 +193,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-bold text-base transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-bold text-base transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
                   >
                     {loading ? (
                       <>

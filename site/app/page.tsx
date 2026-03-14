@@ -389,7 +389,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 blue-glow"
+                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 blue-glow btn-shimmer"
               >
                 Book a Discovery Call
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -501,7 +501,7 @@ export default function HomePage() {
 
                   <Link
                     href="/case-study"
-                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
+                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
                   >
                     Read the Full Case Study
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -844,7 +844,7 @@ export default function HomePage() {
             <motion.div variants={fadeUp}>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow"
+                className="group inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow btn-shimmer"
               >
                 Book a Free Discovery Call
                 <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />

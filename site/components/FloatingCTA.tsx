@@ -29,7 +29,7 @@ export default function FloatingCTA() {
     >
       <Link
         href="/contact"
-        className="group flex items-center gap-2.5 pl-4 pr-5 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold shadow-xl shadow-blue-900/40 hover:shadow-blue-500/40 transition-all duration-200"
+        className="group flex items-center gap-2.5 pl-4 pr-5 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold shadow-xl shadow-blue-900/40 hover:shadow-blue-500/40 transition-all duration-200 btn-shimmer"
       >
         <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
           <Calendar size={14} />

@@ -102,3 +102,99 @@ Build passed, committed (`0dea7e2`), pushed, deployed to Vercel (Ready).
 
 Build passed, committed (88d04cb), pushed, deployed to Vercel (Ready).
 [2026-03-14] Run #3 finished
+Run 3 complete. Here's what was done:
+
+| File | Changes |
+|---|---|
+| `app/layout.tsx` | Twitter card metadata + Organization/WebSite JSON-LD |
+| `app/how-it-works/layout.tsx` | OG + Twitter + WebPage JSON-LD |
+| `app/about/layout.tsx` | OG + Twitter + Person JSON-LD |
+| `app/case-study/layout.tsx` | OG + Twitter + Article JSON-LD |
+| `app/contact/layout.tsx` | OG + Twitter + ContactPage JSON-LD |
+| `app/privacy-policy/page.tsx` | OG + Twitter metadata |
+| `app/terms-of-service/page.tsx` | OG + Twitter metadata |
+
+Build passed, committed (`88d04cb`), pushed, deployed to Vercel (Ready).
+[2026-03-14 11:33:23] Run #3 finished
+[2026-03-14 11:33:28] Run #4 starting (model: sonnet)
+
+## Run 4: Heading Hierarchy and Semantic HTML
+**Commit:** 0a641fe
+
+### Changes
+- `app/how-it-works/page.tsx` — FAQ question `div` → `h3` (proper heading hierarchy); steps list `div.space-y-10` → `ol` with `motion.li` (numbered process = ordered list)
+- `app/case-study/page.tsx` — Proposal feature titles `div` → `h3`; 7-features list `div` → `ol` with `li`; testimonial `p` → `blockquote` + `figcaption`
+- `app/page.tsx` — Testimonial `p` → `blockquote` + `figcaption` (consistent with About page)
+
+| File | Change |
+|---|---|
+| `app/how-it-works/page.tsx` | FAQ question headings (h3), steps as ordered list (ol/li) |
+| `app/case-study/page.tsx` | Proposal feature headings (h3), 7-features as ol/li, testimonial blockquote |
+| `app/page.tsx` | Testimonial blockquote + figcaption |
+
+Build passed, committed (0a641fe), pushed, deployed to Vercel (Ready).
+[2026-03-14] Run #4 finished
+Run 4 complete. Here's what was done:
+
+| File | Change |
+|---|---|
+| `app/how-it-works/page.tsx` | FAQ questions `div` → `h3`; numbered steps `div` → `ol/li` |
+| `app/case-study/page.tsx` | Proposal feature titles `div` → `h3`; 7-features list `div` → `ol/li`; testimonial `p` → `blockquote` |
+| `app/page.tsx` | Testimonial `p` → `blockquote` with `figcaption` |
+
+Build passed, committed (`0a641fe`), pushed, deployed to Vercel (Ready).
+[2026-03-14 11:39:43] Run #4 finished
+[2026-03-14 11:39:48] Run #5 starting (model: sonnet)
+
+## Run 5: Image Alt Text and Internal Linking
+**Commit:** 4636c67
+
+### Changes
+
+**Image alt text (case-study/page.tsx):**
+- Before image: `alt="DiamondLinks client report before automation: plain text document in Google Docs with no visual design"` (was generic "Before: Manual Google Docs report")
+- After image: `alt="DiamondLinks client report after automation: branded dashboard with charts, graphs, and color-coded metrics"` (was generic "After: Automated dashboard report")
+
+**Decorative SVG accessibility:**
+- `components/Navbar.tsx` — Added `aria-hidden="true"` to compass logo SVG (decorative, adjacent text provides label)
+- `components/Footer.tsx` — Added `aria-hidden="true"` to compass logo SVG
+
+**Internal linking:**
+- `app/case-study/page.tsx` — "discovery session" in Chapter 3 links to `/how-it-works`; added secondary CTA link "Learn how the five-step process works" → `/how-it-works`
+- `app/how-it-works/page.tsx` — FAQ "Will this replace my employees?" links "DiamondLinks case study" → `/case-study`
+- `app/about/page.tsx` — "genuine discovery" in founder bio links to `/how-it-works`; added "Read the DiamondLinks case study" link → `/case-study` in differentiators section
+- `app/page.tsx` — Final CTA section adds "Learn more about Brandon" link → `/about`
+
+| Page | Links added |
+|---|---|
+| Case Study | `/how-it-works` (contextual + CTA) |
+| How It Works | `/case-study` (FAQ) |
+| About | `/how-it-works` (bio), `/case-study` (differentiators) |
+| Home | `/about` (final CTA) |
+
+Build passed, committed (4636c67), pushed, deployed to Vercel (Ready).
+[2026-03-14] Run #5 finished
+Run 5 complete. Here's what was done:
+
+## Run 5: Image Alt Text & Internal Linking
+**Commit:** `4636c67` | Deployed to Vercel (Ready)
+
+### Image alt text
+| Image | Before | After |
+|---|---|---|
+| case-study before | "Before: Manual Google Docs report" | "DiamondLinks client report before automation: plain text document in Google Docs with no visual design" |
+| case-study after | "After: Automated dashboard report" | "DiamondLinks client report after automation: branded dashboard with charts, graphs, and color-coded metrics" |
+
+- Added `aria-hidden="true"` to decorative SVG compass icons in Navbar and Footer
+
+### Internal links added
+| Page | Link added |
+|---|---|
+| `case-study` | "discovery session" → `/how-it-works`; secondary CTA "Learn how the five-step process works" → `/how-it-works` |
+| `how-it-works` | "DiamondLinks case study" in FAQ → `/case-study` |
+| `about` | "genuine discovery" in bio → `/how-it-works`; "Read the DiamondLinks case study" → `/case-study` |
+| `page` (home) | "Learn more about Brandon" in final CTA → `/about` |
+
+All 5 runs in the SEO agent's Run Order are now complete.
+[2026-03-14 11:46:09] Run #5 finished
+[2026-03-14 11:46:09] Reached max loops (5). Stopping.

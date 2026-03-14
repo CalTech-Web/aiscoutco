@@ -69,7 +69,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
+            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
           >
             Book a Discovery Call
           </Link>

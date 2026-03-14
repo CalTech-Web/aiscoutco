@@ -93,7 +93,7 @@ export default function Footer() {
             </p>
             <Link
               href="/contact"
-              className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"
+              className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors btn-shimmer"
             >
               Book a Call
               <ArrowRight size={14} />
