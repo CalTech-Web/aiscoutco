@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service | AI Scout Co",
+  description: "AI Scout Co terms of service. Read the terms and conditions for using our website and AI consulting services.",
 };
 
 export default function TermsOfServicePage() {
