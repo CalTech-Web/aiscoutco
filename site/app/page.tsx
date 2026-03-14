@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2 } from "lucide-react";
@@ -102,6 +102,110 @@ function FloatingParticles() {
           }}
         />
       ))}
+    </div>
+  );
+}
+
+type TerminalLine = {
+  text: string;
+  color: string;
+  delay: number;
+};
+
+const terminalSequence: TerminalLine[] = [
+  { text: "> Connecting to workflow: client_operations.json", color: "text-slate-400", delay: 0 },
+  { text: "✓ Connected. Scanning 47 active processes...", color: "text-blue-400", delay: 700 },
+  { text: "> Identifying automation opportunities...", color: "text-slate-400", delay: 1500 },
+  { text: "✓ Found: 12 steps eligible for AI automation", color: "text-cyan-400", delay: 2300 },
+  { text: "> Calculating ROI projections...", color: "text-slate-400", delay: 3200 },
+  { text: "✓ Estimated savings: $85,000+/year", color: "text-emerald-400", delay: 4000 },
+  { text: "✓ Manual hours eliminated: 20+/week", color: "text-emerald-400", delay: 4600 },
+  { text: "> Deploying autonomous agent pipeline...", color: "text-slate-400", delay: 5500 },
+  { text: "✓ Agent status: Running | Uptime: 99.9%", color: "text-blue-400", delay: 6400 },
+  { text: "✓ Build complete. 6 weeks to production.", color: "text-purple-400", delay: 7200 },
+];
+
+function AgentTerminal() {
+  const [visibleLines, setVisibleLines] = useState(0);
+  const [typedChars, setTypedChars] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: false, margin: "-100px" });
+  const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const startSequence = useCallback(() => {
+    setVisibleLines(0);
+    setTypedChars(0);
+    timerRefs.current.forEach(clearTimeout);
+    timerRefs.current = [];
+
+    terminalSequence.forEach((line, i) => {
+      const t1 = setTimeout(() => {
+        setVisibleLines(i + 1);
+        setTypedChars(0);
+        let chars = 0;
+        const typeTimer = setInterval(() => {
+          chars++;
+          setTypedChars(chars);
+          if (chars >= line.text.length) clearInterval(typeTimer);
+        }, 18);
+        timerRefs.current.push(typeTimer as unknown as ReturnType<typeof setTimeout>);
+      }, line.delay);
+      timerRefs.current.push(t1);
+    });
+
+    const resetTimer = setTimeout(() => {
+      startSequence();
+    }, terminalSequence[terminalSequence.length - 1].delay + 3500);
+    timerRefs.current.push(resetTimer);
+  }, []);
+
+  useEffect(() => {
+    if (inView) {
+      startSequence();
+    } else {
+      timerRefs.current.forEach(clearTimeout);
+    }
+    return () => timerRefs.current.forEach(clearTimeout);
+  }, [inView, startSequence]);
+
+  return (
+    <div ref={ref} className="w-full max-w-xl mx-auto mt-12">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.2 }}
+        className="rounded-xl border border-slate-700/60 bg-slate-900/80 backdrop-blur-sm overflow-hidden shadow-2xl shadow-blue-900/20"
+      >
+        {/* Terminal header */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-700/50 bg-slate-800/60">
+          <div className="w-3 h-3 rounded-full bg-rose-500/70" />
+          <div className="w-3 h-3 rounded-full bg-amber-500/70" />
+          <div className="w-3 h-3 rounded-full bg-emerald-500/70" />
+          <span className="ml-2 text-slate-500 text-xs font-mono">ai-scout-agent</span>
+          <span className="ml-auto flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-emerald-400 text-xs font-mono">running</span>
+          </span>
+        </div>
+        {/* Terminal body */}
+        <div className="p-4 font-mono text-xs leading-relaxed min-h-[200px]">
+          {terminalSequence.slice(0, visibleLines).map((line, i) => {
+            const isCurrentLine = i === visibleLines - 1;
+            const displayText = isCurrentLine ? line.text.slice(0, typedChars) : line.text;
+            return (
+              <div key={i} className={`${line.color} mb-1`}>
+                {displayText}
+                {isCurrentLine && typedChars < line.text.length && (
+                  <span className="inline-block w-1.5 h-3 bg-current ml-0.5 animate-pulse align-middle" />
+                )}
+              </div>
+            );
+          })}
+          {visibleLines === 0 && (
+            <span className="text-slate-600 text-xs">Initializing...</span>
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }
@@ -220,6 +324,10 @@ export default function HomePage() {
                 See a Real Case Study
                 <ChevronRight size={20} />
               </Link>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="w-full">
+              <AgentTerminal />
             </motion.div>
           </motion.div>
         </div>
