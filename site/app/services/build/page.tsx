@@ -27,11 +27,14 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://aiscoutco.com/services/build#service",
     name: "Custom AI System Development",
     description: "End-to-end autonomous agent architecture design and deployment. Multi-agent orchestration, API integrations, automated reporting, and custom client portal applications.",
     url: "https://aiscoutco.com/services/build",
+    areaServed: "US",
     provider: {
       "@type": "Organization",
+      "@id": "https://aiscoutco.com/#organization",
       name: "AI Scout Co",
       url: "https://aiscoutco.com",
     },

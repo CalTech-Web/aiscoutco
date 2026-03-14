@@ -52,6 +52,7 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "Organization",
+                "@id": "https://aiscoutco.com/#organization",
                 name: "AI Scout Co",
                 url: "https://aiscoutco.com",
                 logo: "https://aiscoutco.com/favicon.ico",
@@ -59,8 +60,46 @@ export default function RootLayout({
                 sameAs: ["https://caltechweb.com"],
                 description:
                   "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
-                founder: { "@type": "Person", name: "Brandon Hopkins" },
+                founder: {
+                  "@type": "Person",
+                  "@id": "https://aiscoutco.com/#brandon-hopkins",
+                  name: "Brandon Hopkins",
+                  url: "https://aiscoutco.com/about",
+                },
                 foundingDate: "2026",
+                hasOfferCatalog: {
+                  "@type": "OfferCatalog",
+                  name: "AI Automation Services",
+                  itemListElement: [
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        "@id": "https://aiscoutco.com/services/discovery#service",
+                        name: "AI Discovery & Strategy",
+                        url: "https://aiscoutco.com/services/discovery",
+                      },
+                    },
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        "@id": "https://aiscoutco.com/services/build#service",
+                        name: "Custom AI System Development",
+                        url: "https://aiscoutco.com/services/build",
+                      },
+                    },
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        "@id": "https://aiscoutco.com/services/support#service",
+                        name: "Ongoing AI System Support",
+                        url: "https://aiscoutco.com/services/support",
+                      },
+                    },
+                  ],
+                },
                 aggregateRating: {
                   "@type": "AggregateRating",
                   ratingValue: "5",
@@ -78,8 +117,10 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
+                "@id": "https://aiscoutco.com/#website",
                 name: "AI Scout Co",
                 url: "https://aiscoutco.com",
+                publisher: { "@id": "https://aiscoutco.com/#organization" },
                 potentialAction: {
                   "@type": "ReserveAction",
                   target: "https://aiscoutco.com/contact",

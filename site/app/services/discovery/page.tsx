@@ -27,11 +27,14 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://aiscoutco.com/services/discovery#service",
     name: "AI Discovery & Strategy",
     description: "A free discovery session that maps your workflows, identifies every automation opportunity, and delivers a prioritized roadmap with ROI projections.",
     url: "https://aiscoutco.com/services/discovery",
+    areaServed: "US",
     provider: {
       "@type": "Organization",
+      "@id": "https://aiscoutco.com/#organization",
       name: "AI Scout Co",
       url: "https://aiscoutco.com",
     },

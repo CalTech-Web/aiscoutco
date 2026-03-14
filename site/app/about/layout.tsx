@@ -24,12 +24,18 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://aiscoutco.com/#brandon-hopkins",
     name: "Brandon Hopkins",
     jobTitle: "Founder & AI Consultant",
     url: "https://aiscoutco.com/about",
     email: "brandon@aiscoutco.com",
+    mainEntityOfPage: {
+      "@type": "ProfilePage",
+      "@id": "https://aiscoutco.com/about",
+    },
     worksFor: {
       "@type": "Organization",
+      "@id": "https://aiscoutco.com/#organization",
       name: "AI Scout Co",
       url: "https://aiscoutco.com",
     },

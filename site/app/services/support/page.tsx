@@ -27,11 +27,14 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://aiscoutco.com/services/support#service",
     name: "Ongoing AI System Support",
     description: "System monitoring, maintenance, performance optimization, and new capability additions to keep your AI automation running and evolving.",
     url: "https://aiscoutco.com/services/support",
+    areaServed: "US",
     provider: {
       "@type": "Organization",
+      "@id": "https://aiscoutco.com/#organization",
       name: "AI Scout Co",
       url: "https://aiscoutco.com",
     },
