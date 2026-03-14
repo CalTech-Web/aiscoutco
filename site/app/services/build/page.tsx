@@ -40,6 +40,7 @@ const jsonLd = [
     "@type": "Service",
     "@id": "https://aiscoutco.com/services/build#service",
     name: "Custom AI System Development",
+    serviceType: "Custom Software Development",
     description: "End-to-end autonomous agent architecture design and deployment. Multi-agent orchestration, API integrations, automated reporting, and custom client portal applications.",
     url: "https://aiscoutco.com/services/build",
     areaServed: "US",

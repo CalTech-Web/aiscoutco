@@ -40,6 +40,7 @@ const jsonLd = [
     "@type": "Service",
     "@id": "https://aiscoutco.com/services/support#service",
     name: "Ongoing AI System Support",
+    serviceType: "IT Support Services",
     description: "System monitoring, maintenance, performance optimization, and new capability additions to keep your AI automation running and evolving.",
     url: "https://aiscoutco.com/services/support",
     areaServed: "US",
@@ -60,7 +61,7 @@ const jsonLd = [
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
-      { "@type": "ListItem", position: 2, name: "Ongoing Support", item: "https://aiscoutco.com/services/support" },
+      { "@type": "ListItem", position: 2, name: "AI System Support", item: "https://aiscoutco.com/services/support" },
     ],
   },
   {
@@ -126,7 +127,7 @@ export default function SupportPage() {
             <span className="gradient-text">Support</span>
           </h1>
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            Launching a system is the beginning, not the end. As your business evolves and new opportunities emerge, your AI systems should evolve with them. Ongoing support keeps everything running and improving.
+            Launching a system is the beginning, not the end. As your business evolves and new opportunities emerge, your AI systems should evolve with them. Ongoing support is the final phase of the <Link href="/how-it-works" className="text-emerald-400 hover:text-emerald-300 transition-colors">five-step AI automation process</Link>, keeping everything running and improving.
           </p>
         </div>
       </section>
@@ -200,7 +201,7 @@ export default function SupportPage() {
           <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 mb-12">
             <h2 className="text-2xl font-extrabold text-white mb-4">After launch</h2>
             <p className="text-slate-300 leading-relaxed mb-4">
-              Every build includes 30 days of post-launch support at no additional cost. After that, ongoing support is available on a retainer basis.
+              Every <Link href="/services/build" className="text-blue-400 hover:text-blue-300 transition-colors">custom AI system build</Link> includes 30 days of post-launch support at no additional cost. After that, ongoing support is available on a retainer basis. See a real example in the <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>.
             </p>
             <p className="text-slate-400 text-sm leading-relaxed">
               Some clients prefer to own and operate their systems independently after launch. That is completely fine. All source code and documentation is delivered at the end of every project.

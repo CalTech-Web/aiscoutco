@@ -77,7 +77,7 @@ export default function AboutPage() {
                       AI Scout Co exists to close that gap. My job starts before the build, with a <Link href="/how-it-works" className="text-blue-400 hover:text-blue-300 transition-colors">genuine discovery</Link> of what your business does, where it gets stuck, and what it would look like if the friction disappeared.
                     </p>
                     <p>
-                      I am not here to pitch you on AI as a buzzword. I am here to find the specific workflows in your business that AI and automation can transform, then build the systems to make that transformation real.
+                      I am not here to pitch you on AI as a buzzword. I am here to find the specific workflows in your business that AI and automation can transform, then build the systems to make that transformation real, and <Link href="/services/support" className="text-blue-400 hover:text-blue-300 transition-colors">support them as your business grows</Link>.
                     </p>
                   </motion.div>
                 </div>

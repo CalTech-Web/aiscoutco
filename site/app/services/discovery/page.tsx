@@ -40,6 +40,7 @@ const jsonLd = [
     "@type": "Service",
     "@id": "https://aiscoutco.com/services/discovery#service",
     name: "AI Discovery & Strategy",
+    serviceType: "AI Consulting",
     description: "A free discovery session that maps your workflows, identifies every automation opportunity, and delivers a prioritized roadmap with ROI projections.",
     url: "https://aiscoutco.com/services/discovery",
     areaServed: "US",
