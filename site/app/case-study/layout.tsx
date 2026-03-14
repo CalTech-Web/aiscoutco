@@ -32,6 +32,8 @@ const jsonLd = {
   datePublished: "2026-03-14",
   dateModified: "2026-03-14",
   inLanguage: "en-US",
+  articleSection: "Case Study",
+  keywords: "AI automation, workflow automation, AI consulting, DiamondLinks, autonomous agents, AI ROI, reporting automation, proposal automation, $85000 savings",
   image: {
     "@type": "ImageObject",
     url: "https://aiscoutco.com/assets/case-study/after-report.png",
@@ -41,26 +43,20 @@ const jsonLd = {
     "@id": "https://aiscoutco.com/#brandon-hopkins",
   },
   publisher: {
-    "@type": "Organization",
-    name: "AI Scout Co",
-    url: "https://aiscoutco.com",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://aiscoutco.com/favicon.ico",
-    },
+    "@id": "https://aiscoutco.com/#organization",
   },
 };
 
 const reviewJsonLd = {
   "@context": "https://schema.org",
   "@type": "Review",
+  "@id": "https://aiscoutco.com/case-study#review",
   itemReviewed: {
     "@type": "Service",
-    name: "Custom AI Automation Systems",
+    "@id": "https://aiscoutco.com/services/build#service",
+    name: "Custom AI System Development",
     provider: {
-      "@type": "Organization",
-      name: "AI Scout Co",
-      url: "https://aiscoutco.com",
+      "@id": "https://aiscoutco.com/#organization",
     },
   },
   reviewBody:
@@ -75,9 +71,7 @@ const reviewJsonLd = {
     bestRating: "5",
   },
   publisher: {
-    "@type": "Organization",
-    name: "AI Scout Co",
-    url: "https://aiscoutco.com",
+    "@id": "https://aiscoutco.com/#organization",
   },
 };
 
