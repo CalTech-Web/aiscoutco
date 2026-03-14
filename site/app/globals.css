@@ -62,3 +62,24 @@ body {
 .cyan-glow {
   box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
 }
+
+@keyframes float-blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.06); }
+  66% { transform: translate(-18px, 14px) scale(0.94); }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.15; }
+  33% { transform: translateY(-18px) translateX(6px); opacity: 0.5; }
+  66% { transform: translateY(-8px) translateX(-4px); opacity: 0.3; }
+}
+
+.animate-blob {
+  animation: float-blob 9s ease-in-out infinite;
+}
+
+.animate-blob-alt {
+  animation: float-blob 11s ease-in-out infinite;
+  animation-delay: -4s;
+}

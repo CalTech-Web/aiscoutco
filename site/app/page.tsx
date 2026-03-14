@@ -67,6 +67,45 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
   );
 }
 
+const heroParticles = [
+  { left: "10%", top: "18%", size: 3, delay: "0s", dur: "12s" },
+  { left: "22%", top: "62%", size: 2, delay: "-3.2s", dur: "15s" },
+  { left: "38%", top: "12%", size: 4, delay: "-7s", dur: "10s" },
+  { left: "52%", top: "78%", size: 2, delay: "-1.5s", dur: "13s" },
+  { left: "68%", top: "32%", size: 3, delay: "-5.5s", dur: "11s" },
+  { left: "83%", top: "55%", size: 4, delay: "-9s", dur: "14s" },
+  { left: "14%", top: "44%", size: 2, delay: "-2.2s", dur: "16s" },
+  { left: "58%", top: "8%", size: 3, delay: "-6.3s", dur: "12s" },
+  { left: "28%", top: "88%", size: 2, delay: "-4.1s", dur: "15s" },
+  { left: "74%", top: "68%", size: 3, delay: "-8.7s", dur: "10s" },
+  { left: "6%", top: "72%", size: 2, delay: "-11s", dur: "13s" },
+  { left: "91%", top: "22%", size: 3, delay: "-3.8s", dur: "11s" },
+  { left: "44%", top: "48%", size: 2, delay: "-7.4s", dur: "14s" },
+  { left: "19%", top: "4%", size: 3, delay: "-1.9s", dur: "16s" },
+  { left: "79%", top: "82%", size: 4, delay: "-9.6s", dur: "12s" },
+];
+
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {heroParticles.map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            width: p.size + "px",
+            height: p.size + "px",
+            left: p.left,
+            top: p.top,
+            background: i % 3 === 0 ? "rgba(59,130,246,0.6)" : i % 3 === 1 ? "rgba(6,182,212,0.6)" : "rgba(139,92,246,0.6)",
+            animation: `float-particle ${p.dur} ease-in-out infinite ${p.delay}`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
@@ -85,8 +124,9 @@ export default function HomePage() {
         {/* Background */}
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 radial-glow" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl animate-blob-alt" />
+        <FloatingParticles />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
