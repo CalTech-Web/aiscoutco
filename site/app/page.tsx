@@ -322,13 +322,39 @@ const stagger = {
 };
 
 export default function HomePage() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [spotlightVisible, setSpotlightVisible] = useState(false);
+
+  const handleHeroMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    setSpotlightVisible(true);
+  }, []);
+
+  const handleHeroMouseLeave = useCallback(() => {
+    setSpotlightVisible(false);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <section
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+        onMouseMove={handleHeroMouseMove}
+        onMouseLeave={handleHeroMouseLeave}
+      >
         {/* Background */}
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 radial-glow" />
+        {/* Mouse spotlight */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            opacity: spotlightVisible ? 1 : 0,
+            transition: "opacity 0.4s ease",
+            background: `radial-gradient(700px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.10) 0%, rgba(6,182,212,0.04) 40%, transparent 70%)`,
+          }}
+        />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-blob" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl animate-blob-alt" />
         <FloatingParticles />
