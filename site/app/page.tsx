@@ -271,6 +271,10 @@ const faqs = [
     q: "What does it cost?",
     a: "Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you're getting and what it's worth to your business. Most clients see a return within the first 60 days.",
   },
+  {
+    q: "Can I see a demo or example?",
+    a: "Absolutely. The DiamondLinks case study on this site includes before and after screenshots and a full breakdown of what was built. During your discovery call, I can also walk you through examples relevant to your industry.",
+  },
 ];
 
 const faqJsonLd = {
@@ -285,6 +289,7 @@ const faqJsonLd = {
     },
   })),
 };
+
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);

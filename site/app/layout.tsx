@@ -56,6 +56,7 @@ export default function RootLayout({
                 url: "https://aiscoutco.com",
                 logo: "https://aiscoutco.com/favicon.ico",
                 email: "brandon@aiscoutco.com",
+                sameAs: ["https://caltechweb.com"],
                 description:
                   "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
                 founder: { "@type": "Person", name: "Brandon Hopkins" },
@@ -79,6 +80,11 @@ export default function RootLayout({
                 "@type": "WebSite",
                 name: "AI Scout Co",
                 url: "https://aiscoutco.com",
+                potentialAction: {
+                  "@type": "ReserveAction",
+                  target: "https://aiscoutco.com/contact",
+                  name: "Book a Free AI Discovery Call",
+                },
               },
             ]),
           }}

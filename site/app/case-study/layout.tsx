@@ -30,6 +30,11 @@ const jsonLd = {
   datePublished: "2026-03-14",
   dateModified: "2026-03-14",
   inLanguage: "en-US",
+  image: {
+    "@type": "ImageObject",
+    url: "https://aiscoutco.com/assets/case-study/after-report.png",
+    description: "DiamondLinks automated reporting dashboard built by AI Scout Co",
+  },
   author: {
     "@type": "Person",
     name: "Brandon Hopkins",
@@ -39,6 +44,10 @@ const jsonLd = {
     "@type": "Organization",
     name: "AI Scout Co",
     url: "https://aiscoutco.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://aiscoutco.com/favicon.ico",
+    },
   },
 };
 
