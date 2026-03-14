@@ -40,6 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased bg-[#0f172a] text-slate-100 font-sans">
+        {/* Ensure content is visible for non-JS crawlers and social preview bots */}
+        <noscript>
+          <style>{`[style*="opacity: 0"] { opacity: 1 !important; } [style*="transform: translateY"] { transform: none !important; }`}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

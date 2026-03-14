@@ -363,7 +363,7 @@ export default function CaseStudyPage() {
               <Star size={20} />
             </div>
             <div>
-              <div className="text-purple-400 text-xs font-bold uppercase tracking-widest">Chapter 4b</div>
+              <div className="text-purple-400 text-xs font-bold uppercase tracking-widest">Chapter 5</div>
               <h2 className="text-3xl font-extrabold text-white">What We Built</h2>
               <p className="text-slate-400 text-lg">The Automated Proposal System</p>
             </div>
@@ -432,7 +432,7 @@ export default function CaseStudyPage() {
               <TrendingUp size={20} />
             </div>
             <div>
-              <div className="text-emerald-400 text-xs font-bold uppercase tracking-widest">Chapter 5</div>
+              <div className="text-emerald-400 text-xs font-bold uppercase tracking-widest">Chapter 6</div>
               <h2 className="text-3xl font-extrabold text-white">The Results</h2>
             </div>
           </motion.div>

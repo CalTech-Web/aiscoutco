@@ -103,3 +103,16 @@ body {
 .animate-scroll-bounce {
   animation: scroll-bounce 1.5s ease-in-out infinite;
 }
+
+/* Ensure below-fold content is visible for crawlers, print, and no-JS contexts.
+   Framer Motion only runs after hydration, so content starting at opacity:0
+   may be invisible in SSR snapshots. This fallback makes content visible
+   unless JavaScript has taken over and added an explicit inline opacity. */
+@media print {
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

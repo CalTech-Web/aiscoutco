@@ -38,31 +38,34 @@ function RotatingText() {
   );
 }
 
-function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
-  const [count, setCount] = useState(0);
+function AnimatedCounter({ end, suffix = "", prefix = "", decimal = "" }: { end: number; suffix?: string; prefix?: string; decimal?: string }) {
+  const [count, setCount] = useState(end);
+  const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   useEffect(() => {
-    if (!inView) return;
-    let start = 0;
+    if (!inView || started) return;
+    setStarted(true);
+    setCount(0);
+    let current = 0;
     const duration = 2000;
     const step = (end / duration) * 16;
     const timer = setInterval(() => {
-      start += step;
-      if (start >= end) {
+      current += step;
+      if (current >= end) {
         setCount(end);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(start));
+        setCount(Math.floor(current));
       }
     }, 16);
     return () => clearInterval(timer);
-  }, [inView, end]);
+  }, [inView, end, started]);
 
   return (
     <span ref={ref}>
-      {prefix}{count.toLocaleString()}{suffix}
+      {prefix}{count.toLocaleString()}{decimal}{suffix}
     </span>
   );
 }
@@ -244,8 +247,8 @@ function IntegrationsMarquee() {
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const stagger = {
@@ -337,14 +340,14 @@ export default function HomePage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
           >
             {[
-              { value: 85000, prefix: "$", suffix: "+/yr", label: "Savings per client" },
-              { value: 7, suffix: "+", label: "New features delivered" },
-              { value: 20, suffix: "+", label: "Manual hours eliminated weekly" },
-              { value: 99, suffix: ".9%", label: "System uptime" },
+              { value: 85000, prefix: "$", suffix: "+/yr", decimal: "", label: "Savings per client" },
+              { value: 7, suffix: "+", decimal: "", label: "New features delivered" },
+              { value: 20, suffix: "+", decimal: "", label: "Manual hours eliminated weekly" },
+              { value: 99, decimal: ".9", suffix: "%", label: "System uptime" },
             ].map((stat, i) => (
               <motion.div key={i} variants={fadeUp} className="flex flex-col items-center">
                 <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-2">
-                  <AnimatedCounter end={stat.value} prefix={stat.prefix || ""} suffix={stat.suffix || ""} />
+                  <AnimatedCounter end={stat.value} prefix={stat.prefix || ""} suffix={stat.suffix || ""} decimal={stat.decimal || ""} />
                 </div>
                 <div className="text-slate-400 text-sm font-medium">{stat.label}</div>
               </motion.div>

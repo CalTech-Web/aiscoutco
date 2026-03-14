@@ -44,10 +44,8 @@ export default function ContactPage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.p variants={fadeUp} className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Get Started</motion.p>
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold mb-6">
-              Book a
-              <br />
-              <span className="gradient-text">Discovery Call</span>
+            <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
+              Book a <span className="gradient-text">Discovery Call</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
               A 30 to 60 minute conversation where I learn your workflows, identify automation opportunities, and show you what your business could look like with the right AI systems in place.
