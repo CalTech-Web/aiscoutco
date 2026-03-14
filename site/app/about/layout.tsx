@@ -27,6 +27,7 @@ const jsonLd = [
     name: "Brandon Hopkins",
     jobTitle: "Founder & AI Consultant",
     url: "https://aiscoutco.com/about",
+    email: "brandon@aiscoutco.com",
     worksFor: {
       "@type": "Organization",
       name: "AI Scout Co",
@@ -34,6 +35,15 @@ const jsonLd = [
     },
     description:
       "Brandon Hopkins is the founder of AI Scout Co, specializing in autonomous AI agents, workflow automation, and API integrations for businesses.",
+    knowsAbout: [
+      "AI automation",
+      "autonomous AI agents",
+      "multi-agent orchestration",
+      "workflow automation",
+      "API integration",
+      "business process automation",
+      "AI consulting",
+    ],
   },
   {
     "@context": "https://schema.org",

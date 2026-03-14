@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI System Support | AI Scout Co",
   description: "AI systems get better over time. Ongoing AI support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+  keywords: "AI system support, AI maintenance, automation optimization, ongoing AI support, AI system monitoring",
   alternates: {
     canonical: "https://aiscoutco.com/services/support",
   },

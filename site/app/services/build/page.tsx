@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Custom AI Systems | AI Scout Co",
   description: "From autonomous agent pipelines to API integrations and client portals, we build production-ready AI systems custom to your business.",
+  keywords: "custom AI systems, autonomous AI agents, AI development, API integration, workflow automation, multi-agent orchestration",
   alternates: {
     canonical: "https://aiscoutco.com/services/build",
   },

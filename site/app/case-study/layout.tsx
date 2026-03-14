@@ -27,6 +27,9 @@ const jsonLd = {
   description:
     "How AI Scout Co automated DiamondLinks' reporting and proposals in 6 weeks, eliminating a $85,000+ salary and delivering 7 new capabilities.",
   url: "https://aiscoutco.com/case-study",
+  datePublished: "2026-03-14",
+  dateModified: "2026-03-14",
+  inLanguage: "en-US",
   author: {
     "@type": "Person",
     name: "Brandon Hopkins",

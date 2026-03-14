@@ -60,6 +60,13 @@ export default function RootLayout({
                   "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
                 founder: { "@type": "Person", name: "Brandon Hopkins" },
                 foundingDate: "2026",
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: "5",
+                  bestRating: "5",
+                  ratingCount: "1",
+                  reviewCount: "1",
+                },
                 contactPoint: {
                   "@type": "ContactPoint",
                   contactType: "customer service",

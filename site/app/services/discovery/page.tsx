@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Discovery & Strategy | AI Scout Co",
   description: "Start with a deep-dive discovery session. We map your workflows, identify every automation opportunity, and deliver a prioritized roadmap with ROI projections.",
+  keywords: "AI discovery, AI strategy, workflow audit, automation roadmap, free AI consultation, AI consulting",
   alternates: {
     canonical: "https://aiscoutco.com/services/discovery",
   },
