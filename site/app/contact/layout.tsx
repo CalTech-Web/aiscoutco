@@ -6,8 +6,35 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://aiscoutco.com/contact",
   },
+  openGraph: {
+    title: "Book a Free Discovery Call | AI Scout Co",
+    description: "Book a free 30 to 60 minute AI discovery call with Brandon Hopkins. Find out exactly where automation can save your business time and money.",
+    url: "https://aiscoutco.com/contact",
+    siteName: "AI Scout Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book a Free Discovery Call | AI Scout Co",
+    description: "Book a free 30 to 60 minute AI discovery call with Brandon Hopkins. Find out exactly where automation can save your business time and money.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Book a Free Discovery Call | AI Scout Co",
+  url: "https://aiscoutco.com/contact",
+  description:
+    "Book a free 30 to 60 minute AI discovery call with Brandon Hopkins. Find out exactly where automation can save your business time and money.",
+  isPartOf: { "@type": "WebSite", name: "AI Scout Co", url: "https://aiscoutco.com" },
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {children}
+    </>
+  );
 }

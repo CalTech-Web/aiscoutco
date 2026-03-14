@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://aiscoutco.com/terms-of-service",
   },
+  openGraph: {
+    title: "Terms of Service | AI Scout Co",
+    description: "AI Scout Co terms of service. Read the terms and conditions for using our website and AI consulting services.",
+    url: "https://aiscoutco.com/terms-of-service",
+    siteName: "AI Scout Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | AI Scout Co",
+    description: "AI Scout Co terms of service. Read the terms and conditions for using our website and AI consulting services.",
+  },
 };
 
 export default function TermsOfServicePage() {

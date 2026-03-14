@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     siteName: "AI Scout Co",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Scout Co | Custom AI Systems & Automation",
+    description: "If you can dream it, I build it. Book a free discovery call and find out where AI can transform your business.",
+  },
 };
 
 export default function RootLayout({
@@ -35,6 +40,29 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="antialiased bg-[#0f172a] text-slate-100 font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "AI Scout Co",
+                url: "https://aiscoutco.com",
+                description:
+                  "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
+                founder: { "@type": "Person", name: "Brandon Hopkins" },
+                foundingDate: "2026",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "AI Scout Co",
+                url: "https://aiscoutco.com",
+              },
+            ]),
+          }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />

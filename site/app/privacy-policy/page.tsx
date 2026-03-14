@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://aiscoutco.com/privacy-policy",
   },
+  openGraph: {
+    title: "Privacy Policy | AI Scout Co",
+    description: "AI Scout Co privacy policy. Learn how we collect and protect your personal information when you use aiscoutco.com.",
+    url: "https://aiscoutco.com/privacy-policy",
+    siteName: "AI Scout Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | AI Scout Co",
+    description: "AI Scout Co privacy policy. Learn how we collect and protect your personal information when you use aiscoutco.com.",
+  },
 };
 
 export default function PrivacyPolicyPage() {
