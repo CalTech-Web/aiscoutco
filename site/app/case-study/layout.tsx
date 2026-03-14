@@ -39,10 +39,41 @@ const jsonLd = {
   },
 };
 
+const reviewJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  itemReviewed: {
+    "@type": "Service",
+    name: "Custom AI Automation Systems",
+    provider: {
+      "@type": "Organization",
+      name: "AI Scout Co",
+      url: "https://aiscoutco.com",
+    },
+  },
+  reviewBody:
+    "We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.",
+  author: {
+    "@type": "Organization",
+    name: "DiamondLinks",
+  },
+  reviewRating: {
+    "@type": "Rating",
+    ratingValue: "5",
+    bestRating: "5",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "AI Scout Co",
+    url: "https://aiscoutco.com",
+  },
+};
+
 export default function CaseStudyLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }} />
       {children}
     </>
   );

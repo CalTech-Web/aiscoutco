@@ -49,6 +49,44 @@ const jsonLd = [
       { "@type": "ListItem", position: 2, name: "AI Discovery & Strategy", item: "https://aiscoutco.com/services/discovery" },
     ],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Is the discovery call really free?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, the initial discovery call is completely free with no commitment required. You keep every insight from the session regardless of what you decide to do next.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens during a discovery call?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, you will have a clear picture of what AI can do for your specific situation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I need to prepare anything before the discovery call?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No preparation is required. Just come ready to talk about how your business operates day to day. The more you can share about your workflows and pain points, the more useful the opportunity map will be.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What do I get after the discovery call?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You receive a detailed opportunity map showing every place AI and automation can save you time or money, with ROI projections for each opportunity and a phased implementation roadmap.",
+        },
+      },
+    ],
+  },
 ];
 
 export default function DiscoveryPage() {
@@ -142,18 +180,18 @@ export default function DiscoveryPage() {
             <p className="text-slate-300 leading-relaxed mb-6">
               Most businesses have a general sense that AI could help them, but they do not know where to start or whether the investment will pay off. The discovery process removes that uncertainty. You walk away knowing exactly what to build, why it matters, and what it will cost, before spending a dollar on development.
             </p>
-            <div className="space-y-3">
+            <ul className="space-y-3 list-none">
               {[
                 "Free initial consultation with no commitment",
                 "You keep every insight regardless of next steps",
                 "Most clients identify savings they did not expect",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-slate-300 text-sm">{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
             <p className="text-slate-400 text-sm mt-4 leading-relaxed">
               See how discovery led to $85,000+/year in savings for one client in the{" "}
               <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">

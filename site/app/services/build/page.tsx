@@ -133,28 +133,28 @@ export default function BuildPage() {
               <Zap size={20} className="text-blue-400" />
               <h2 className="text-2xl font-extrabold text-white">How we work</h2>
             </div>
-            <div className="space-y-4">
+            <ol className="space-y-4 list-none">
               {[
                 { step: "01", title: "Architecture", desc: "We design the full system before writing code, including agent roles, data flows, API connections, and error handling." },
                 { step: "02", title: "Development", desc: "Build in rapid sprints with regular check-ins. You see progress weekly, not just at the end." },
                 { step: "03", title: "Testing", desc: "Every system is stress-tested with real data before going live, including edge cases and failure scenarios." },
                 { step: "04", title: "Deployment", desc: "Production systems deployed to reliable infrastructure with monitoring, logging, and alerting in place." },
               ].map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="text-blue-500/60 text-xs font-bold tracking-widest mt-1 w-8 flex-shrink-0">{item.step}</div>
+                <li key={i} className="flex gap-4">
+                  <span className="text-blue-500/60 text-xs font-bold tracking-widest mt-1 w-8 flex-shrink-0" aria-hidden="true">{item.step}</span>
                   <div>
-                    <div className="text-white font-semibold mb-1">{item.title}</div>
-                    <div className="text-slate-400 text-sm">{item.desc}</div>
+                    <h3 className="text-white font-semibold mb-1">{item.title}</h3>
+                    <p className="text-slate-400 text-sm">{item.desc}</p>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
 
           {/* What Is Included */}
           <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 mb-12">
             <h2 className="text-2xl font-extrabold text-white mb-6">Every build includes</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 list-none">
               {[
                 "Full source code and documentation",
                 "Production deployment on reliable infrastructure",
@@ -163,12 +163,12 @@ export default function BuildPage() {
                 "Monitoring and alerting setup",
                 "Integration testing with your live data",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-slate-300 text-sm">{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* CTA */}

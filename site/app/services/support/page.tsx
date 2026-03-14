@@ -3,22 +3,22 @@ import { ArrowRight, Clock, CheckCircle, Settings2, TrendingUp, Zap, Shield } fr
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ongoing Support | AI Scout Co",
-  description: "AI systems get better over time. Ongoing support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+  title: "AI System Support | AI Scout Co",
+  description: "AI systems get better over time. Ongoing AI support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
   alternates: {
     canonical: "https://aiscoutco.com/services/support",
   },
   openGraph: {
-    title: "Ongoing Support | AI Scout Co",
-    description: "AI systems get better over time. Ongoing support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+    title: "AI System Support | AI Scout Co",
+    description: "AI systems get better over time. Ongoing AI support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
     url: "https://aiscoutco.com/services/support",
     siteName: "AI Scout Co",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ongoing Support | AI Scout Co",
-    description: "AI systems get better over time. Ongoing support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+    title: "AI System Support | AI Scout Co",
+    description: "AI systems get better over time. Ongoing AI support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
   },
 };
 
@@ -124,18 +124,18 @@ export default function SupportPage() {
             <p className="text-slate-300 leading-relaxed mb-6">
               When something breaks or your team needs help, you hear back the same business day. Most issues are resolved within 24 hours.
             </p>
-            <div className="space-y-3">
+            <ul className="space-y-3 list-none">
               {[
                 "Same business day response for all requests",
                 "Critical failures prioritized immediately",
                 "Direct line of communication, no ticket queues",
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-slate-300 text-sm">{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* After Launch */}
