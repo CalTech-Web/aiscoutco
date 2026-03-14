@@ -20,14 +20,14 @@ export default function Footer() {
               AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.
             </p>
             <p className="text-slate-500 text-sm mt-4">
-              Built by{" "}
+              Powered by{" "}
               <a
                 href="https://caltechweb.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                CalTech Web
+                Caltechweb
               </a>
             </p>
           </div>
