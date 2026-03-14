@@ -265,7 +265,7 @@ export default function CaseStudyPage() {
               <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">7</div>
               <h3 className="text-2xl font-bold text-white">New Features Delivered</h3>
             </div>
-            <div className="space-y-4">
+            <ol className="space-y-4 list-none">
               {[
                 {
                   num: "1",
@@ -328,7 +328,7 @@ export default function CaseStudyPage() {
                 };
                 const c = colorMap[feature.color];
                 return (
-                  <div key={feature.num} className={`rounded-2xl border ${c.border} ${c.bg} p-6`}>
+                  <li key={feature.num} className={`rounded-2xl border ${c.border} ${c.bg} p-6`}>
                     <div className="flex items-start gap-4">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5 ${c.bg} border ${c.border} ${c.text}`}>
                         {feature.num}
@@ -343,10 +343,10 @@ export default function CaseStudyPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ol>
           </motion.div>
         </motion.section>
 
@@ -411,7 +411,7 @@ export default function CaseStudyPage() {
               <div key={i} className="flex gap-4 p-5 rounded-xl border border-slate-700/50 bg-slate-900/50">
                 <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
                 <div>
-                  <div className="text-purple-300 font-semibold mb-1">{item.title}</div>
+                  <h3 className="text-purple-300 font-semibold mb-1">{item.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -460,10 +460,10 @@ export default function CaseStudyPage() {
             <div className="flex gap-4 items-start">
               <div className="text-5xl text-blue-400/30 font-serif leading-none mt-1">&ldquo;</div>
               <div>
-                <p className="text-slate-300 text-lg leading-relaxed italic mb-4">
+                <blockquote className="text-slate-300 text-lg leading-relaxed italic mb-4">
                   We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
-                </p>
-                <div className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</div>
+                </blockquote>
+                <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
               </div>
             </div>
           </motion.div>

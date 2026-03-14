@@ -131,11 +131,11 @@ export default function HowItWorksPage() {
           {/* Vertical connector line */}
           <div className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500/50 via-purple-500/30 to-orange-500/20 hidden md:block" />
 
-          <div className="space-y-10">
+          <ol className="space-y-10 list-none">
             {steps.map((step, i) => {
               const c = colorMap[step.color];
               return (
-                <motion.div
+                <motion.li
                   key={i}
                   initial="hidden"
                   whileInView="visible"
@@ -204,10 +204,10 @@ export default function HowItWorksPage() {
                       </div>
                     </div>
                   </motion.div>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ol>
         </div>
 
         {/* FAQ Teaser */}
@@ -246,7 +246,7 @@ export default function HowItWorksPage() {
                 <div className="flex items-start gap-3">
                   <MessageSquare size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-white font-semibold mb-2">{faq.q}</div>
+                    <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
                     <div className="text-slate-400 text-sm leading-relaxed">{faq.a}</div>
                   </div>
                 </div>

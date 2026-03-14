@@ -465,10 +465,10 @@ export default function HomePage() {
             <div className="flex gap-4 items-start">
               <div className="text-5xl text-blue-400/30 font-serif leading-none mt-1">&ldquo;</div>
               <div>
-                <p className="text-slate-300 text-lg leading-relaxed italic mb-4">
+                <blockquote className="text-slate-300 text-lg leading-relaxed italic mb-4">
                   We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
-                </p>
-                <div className="text-slate-500 text-sm font-medium">DiamondLinks Leadership</div>
+                </blockquote>
+                <figcaption className="text-slate-500 text-sm font-medium">DiamondLinks Leadership</figcaption>
               </div>
             </div>
           </motion.div>
