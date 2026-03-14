@@ -853,3 +853,57 @@ Key wins:
 - **Case study → build service link** — Google can now traverse from the case study (which demonstrates the build service) directly to the `/services/build` page via a descriptive anchor "custom AI system"
 - **Case study CTA completeness** — the bottom-of-page CTA now surfaces all three logical next steps: `/contact`, `/how-it-works`, `/services/discovery`, and `/services/build`
 [2026-03-14] Run #19 finished
+**Run 19 complete** — `738c3a7` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `app/page.tsx` | `FAQItem` accepts `ReactNode`; `faqNodes` adds case study links in 2 FAQ answers |
+| `app/case-study/page.tsx` | "custom AI system" in body links to `/services/build`; `/services/build` added to CTA |
+
+Key wins:
+- **FAQ internal links** — "Will this replace my employees?" and "Can I see a demo?" now link "DiamondLinks case study" directly to `/case-study`, turning plain-text mentions into crawlable anchor-text links
+- **Case study body link** — "custom AI system" in the "What We Built" intro now links to `/services/build`, letting Google traverse from the case study directly to the relevant service page
+- **Case study CTA** — now surfaces `/services/build` alongside the existing discovery and how-it-works links, completing the service journey from the case study page
+[2026-03-14 16:44:53] Run #14 finished
+[2026-03-14 16:44:58] Run #15 starting (model: sonnet)
+
+## Run 20: Support H1 Keyword, Legal Page Internal Links, Service Offers Schema
+**Commit:** b43f814 | Deployed to Vercel (Ready)
+
+### Changes
+
+**`app/services/support/page.tsx` — H1 keyword fix:**
+- H1 changed from "Ongoing / Support" to "AI System / Support"
+- Aligns H1 with the page title ("AI System Support | AI Scout Co") and ensures the primary "AI" keyword is present in the H1
+
+**`app/services/build/page.tsx` — Service schema `offers` added:**
+- Added `offers: { "@type": "Offer", priceCurrency: "USD", description: "Custom-scoped pricing..." }` to the Service JSON-LD
+- Matches the pattern already in place on the discovery service (which has `price: "0"`)
+
+**`app/services/support/page.tsx` — Service schema `offers` added:**
+- Added `offers: { "@type": "Offer", priceCurrency: "USD", description: "Available on a monthly retainer basis..." }` to the Service JSON-LD
+- Completes `offers` coverage across all three service schemas
+
+**`app/terms-of-service/page.tsx` — contextual internal links:**
+- Added `import Link from "next/link"`
+- Section 2: "discovery calls" → `/services/discovery`, "development and deployment" → `/services/build`, "ongoing optimization" → `/services/support`
+- Section 10: added "book a free discovery call" → `/contact` alongside the mailto link
+
+**`app/privacy-policy/page.tsx` — contextual internal links:**
+- Added `import Link from "next/link"`
+- Section 1: "book a discovery call" → `/contact`
+- Section 9: added "use our contact page" → `/contact` alongside the mailto link
+
+| File | Change |
+|---|---|
+| `services/support/page.tsx` | H1: "Ongoing Support" → "AI System Support" (adds AI keyword) |
+| `services/build/page.tsx` | Service schema: `offers` with custom pricing description |
+| `services/support/page.tsx` | Service schema: `offers` with retainer description |
+| `terms-of-service/page.tsx` | Contextual links to 3 service pages + /contact |
+| `privacy-policy/page.tsx` | Contextual links to /contact in sections 1 and 9 |
+
+Key wins:
+- **Support H1 keyword** — H1 now matches the title tag keyword ("AI System Support"), removing the mismatch where "AI" appeared in the title but not the H1
+- **Legal page internal links** — privacy policy and terms of service previously had zero outbound internal links; they now link to /services/discovery, /services/build, /services/support, and /contact, improving crawl path from these pages and distributing PageRank to service pages
+- **`offers` on all services** — Google can now identify the offering type and pricing context for all three services, completing the schema parity across the service catalog
+[2026-03-14] Run #20 finished
