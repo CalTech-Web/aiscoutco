@@ -43,6 +43,44 @@ const jsonLd = [
       { "@type": "ListItem", position: 2, name: "Ongoing Support", item: "https://aiscoutco.com/services/support" },
     ],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do I have to commit to ongoing support after the build?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. Every build includes 30 days of post-launch support at no additional cost. After that, ongoing support is available on a retainer basis. Some clients prefer to own and operate their systems independently, and all source code and documentation is delivered at the end of every project.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How fast do you respond when something breaks?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Same business day response for all requests. Critical failures are prioritized immediately. There are no ticket queues or account managers, you communicate directly with the person who built your system.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What does ongoing AI system support include?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Ongoing support covers system monitoring with alerts for failures, maintenance for API changes and model updates, performance optimization, and new capability additions as your business grows. Support clients also get priority access to discuss and build new features.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can you add new features after the initial build?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. As your business grows, new automation opportunities will emerge. Support clients get priority access to discuss and build new additions. The system is designed to evolve with your business, not stay static.",
+        },
+      },
+    ],
+  },
 ];
 
 export default function SupportPage() {

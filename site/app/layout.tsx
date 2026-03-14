@@ -54,10 +54,18 @@ export default function RootLayout({
                 "@type": "Organization",
                 name: "AI Scout Co",
                 url: "https://aiscoutco.com",
+                logo: "https://aiscoutco.com/favicon.ico",
+                email: "brandon@aiscoutco.com",
                 description:
                   "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
                 founder: { "@type": "Person", name: "Brandon Hopkins" },
                 foundingDate: "2026",
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  contactType: "customer service",
+                  email: "brandon@aiscoutco.com",
+                  availableLanguage: "English",
+                },
               },
               {
                 "@context": "https://schema.org",
