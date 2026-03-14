@@ -277,7 +277,9 @@ export default function CaseStudyPage() {
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-8 mb-10">
             <p className="text-slate-300 text-lg leading-relaxed">
-              The previous reports were plain text documents in Google Docs. Bland, hard to read, and missing key metrics. The new system is an autonomous multi-agent workflow that transforms raw data into stunning, comprehensive reports, with zero human intervention.
+              The previous reports were plain text documents in Google Docs. Bland, hard to read, and missing key metrics. The new system is a{" "}
+              <Link href="/services/build" className="text-cyan-400 hover:text-cyan-300 transition-colors">custom AI system</Link>
+              {" "}built as an autonomous multi-agent workflow that transforms raw data into stunning, comprehensive reports, with zero human intervention.
             </p>
           </motion.div>
 
@@ -578,7 +580,14 @@ export default function CaseStudyPage() {
                 href="/services/discovery"
                 className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
               >
-                See the AI Discovery & Strategy service
+                See the AI Discovery &amp; Strategy service
+                <ArrowRight size={14} />
+              </Link>
+              <Link
+                href="/services/build"
+                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
+              >
+                Explore Custom AI Systems
                 <ArrowRight size={14} />
               </Link>
             </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers, ChevronDown } from "lucide-react";
@@ -277,6 +277,23 @@ const faqs = [
   },
 ];
 
+const faqNodes: Record<number, React.ReactNode> = {
+  3: (
+    <span>
+      Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the{" "}
+      <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>
+      , automation can fully replace a role and deliver even more capability than the previous employee provided.
+    </span>
+  ),
+  6: (
+    <span>
+      Absolutely. The{" "}
+      <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>
+      {" "}on this site includes before and after screenshots and a full breakdown of what was built. During your discovery call, I can also walk you through examples relevant to your industry.
+    </span>
+  ),
+};
+
 const webpageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -304,7 +321,7 @@ const faqJsonLd = {
 };
 
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer }: { question: string; answer: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border border-slate-700/50 rounded-2xl overflow-hidden bg-slate-900/50 transition-colors duration-200 hover:border-blue-500/30">
@@ -871,7 +888,7 @@ export default function HomePage() {
           >
             {faqs.map((faq, i) => (
               <motion.div key={i} variants={fadeUp}>
-                <FAQItem question={faq.q} answer={faq.a} />
+                <FAQItem question={faq.q} answer={faqNodes[i] ?? faq.a} />
               </motion.div>
             ))}
           </motion.div>
