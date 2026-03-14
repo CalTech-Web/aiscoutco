@@ -40,6 +40,8 @@ export default function ContactPage() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent" />
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-purple-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -214,6 +216,36 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* What happens next */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="mt-16"
+        >
+          <motion.p variants={fadeUp} className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-10">
+            What happens next
+          </motion.p>
+          <div className="relative flex items-start justify-between max-w-2xl mx-auto px-4">
+            {/* Connecting line */}
+            <div className="absolute top-5 left-12 right-12 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/30 via-purple-500/30 to-emerald-500/30" />
+            {[
+              { icon: <Mail size={16} />, label: "You submit the form", color: "text-blue-400", bg: "bg-blue-500/20", border: "border-blue-500/30" },
+              { icon: <MessageSquare size={16} />, label: "I respond within 1 business day", color: "text-cyan-400", bg: "bg-cyan-500/20", border: "border-cyan-500/30" },
+              { icon: <Clock size={16} />, label: "We schedule your call", color: "text-purple-400", bg: "bg-purple-500/20", border: "border-purple-500/30" },
+              { icon: <CheckCircle size={16} />, label: "You get real insights", color: "text-emerald-400", bg: "bg-emerald-500/20", border: "border-emerald-500/30" },
+            ].map((step, i) => (
+              <motion.div key={i} variants={fadeUp} className="flex flex-col items-center gap-3 z-10 flex-1">
+                <div className={`w-10 h-10 rounded-full ${step.bg} border ${step.border} flex items-center justify-center ${step.color} bg-slate-950`}>
+                  {step.icon}
+                </div>
+                <p className="text-slate-400 text-xs text-center leading-snug max-w-[80px]">{step.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );
