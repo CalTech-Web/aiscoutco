@@ -1,9 +1,42 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle, TrendingUp, Zap, Users, Clock, Star, AlertTriangle, Lightbulb, Code2, BarChart3, Mic, Mail, Brain, RefreshCw, Calendar } from "lucide-react";
+
+function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
+  const [count, setCount] = useState(end);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+
+  useEffect(() => {
+    if (!inView || started) return;
+    setStarted(true);
+    setCount(0);
+    let current = 0;
+    const duration = 1800;
+    const step = (end / duration) * 16;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [inView, end, started]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{count.toLocaleString()}{suffix}
+    </span>
+  );
+}
 
 function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
@@ -38,7 +71,8 @@ export default function CaseStudyPage() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -65,17 +99,28 @@ export default function CaseStudyPage() {
       <section className="bg-slate-900/70 border-y border-slate-800/50 py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "$85,000+", label: "Annual savings", color: "text-emerald-400" },
-              { value: "7", label: "New capabilities added", color: "text-blue-400" },
-              { value: "Seconds", label: "To generate a report", color: "text-cyan-400" },
-              { value: "6 weeks", label: "Discovery to deployment", color: "text-purple-400" },
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className={`text-3xl font-extrabold mb-1 ${stat.color}`}>{stat.value}</div>
-                <div className="text-slate-400 text-sm">{stat.label}</div>
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-extrabold mb-1 text-emerald-400">
+                <AnimatedCounter end={85000} prefix="$" suffix="+" />
               </div>
-            ))}
+              <div className="text-slate-400 text-sm">Annual savings</div>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-extrabold mb-1 text-blue-400">
+                <AnimatedCounter end={7} />
+              </div>
+              <div className="text-slate-400 text-sm">New capabilities added</div>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-extrabold mb-1 text-cyan-400">Seconds</div>
+              <div className="text-slate-400 text-sm">To generate a report</div>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="text-3xl font-extrabold mb-1 text-purple-400">
+                <AnimatedCounter end={6} suffix=" weeks" />
+              </div>
+              <div className="text-slate-400 text-sm">Discovery to deployment</div>
+            </div>
           </div>
         </div>
       </section>
