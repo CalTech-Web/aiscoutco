@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
-import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers, ChevronDown } from "lucide-react";
 
 const rotatingOutcomes = [
   "Eliminate $85,000+/year in labor costs.",
@@ -242,6 +242,71 @@ function IntegrationsMarquee() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+const faqs = [
+  {
+    q: "What does a discovery call look like?",
+    a: "We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I'll have identified several areas where AI and automation can make an immediate impact.",
+  },
+  {
+    q: "Do I need to understand AI to work with you?",
+    a: "Not at all. My job is to understand the technical complexity so you don't have to. You tell me what you want your work and life to look like, and I figure out how to build it.",
+  },
+  {
+    q: "How long does it take to build a system?",
+    a: "It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks. I'll give you a clear timeline during the discovery process.",
+  },
+  {
+    q: "Will this replace my employees?",
+    a: "Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the DiamondLinks case study, automation can fully replace a role and deliver even more capability than the previous employee provided.",
+  },
+  {
+    q: "What tools and platforms do you work with?",
+    a: "I integrate with whatever you already use: Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more. The systems I build connect to your existing workflow through APIs and webhooks, so nothing changes for your team except that manual work disappears.",
+  },
+  {
+    q: "What does it cost?",
+    a: "Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you're getting and what it's worth to your business. Most clients see a return within the first 60 days.",
+  },
+];
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-slate-700/50 rounded-2xl overflow-hidden bg-slate-900/50 transition-colors duration-200 hover:border-blue-500/30">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group"
+        aria-expanded={open}
+      >
+        <span className="text-white font-semibold text-base group-hover:text-blue-300 transition-colors">{question}</span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="flex-shrink-0 text-slate-400 group-hover:text-blue-400 transition-colors"
+        >
+          <ChevronDown size={20} />
+        </motion.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="answer"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -691,6 +756,41 @@ export default function HomePage() {
                 </div>
                 <h3 className={`font-bold text-base mb-2 ${item.color.text}`}>{item.industry}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.pain}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center mb-12"
+          >
+            <motion.p variants={fadeUp} className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-3">Common Questions</motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
+              Frequently asked
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-xl mx-auto">
+              Everything you need to know before booking a call.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="space-y-3"
+          >
+            {faqs.map((faq, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <FAQItem question={faq.q} answer={faq.a} />
               </motion.div>
             ))}
           </motion.div>
