@@ -5,6 +5,39 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight } from "lucide-react";
 
+const rotatingOutcomes = [
+  "Eliminate $85,000+/year in labor costs.",
+  "Save 20+ manual hours every week.",
+  "Generate reports in seconds, not hours.",
+  "Proposals auto-delivered before every meeting.",
+  "Zero manual intervention required.",
+];
+
+function RotatingText() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % rotatingOutcomes.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span
+      className="gradient-text font-bold"
+      style={{ transition: "opacity 0.4s ease", opacity: visible ? 1 : 0 }}
+    >
+      {rotatingOutcomes[index]}
+    </span>
+  );
+}
+
 function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -77,6 +110,10 @@ export default function HomePage() {
               <br />
               <span className="gradient-text">I build it.</span>
             </motion.h1>
+
+            <motion.p variants={fadeUp} className="text-xl md:text-2xl mb-3 min-h-[2rem]">
+              <RotatingText />
+            </motion.p>
 
             <motion.p
               variants={fadeUp}
