@@ -509,7 +509,7 @@ export default function HomePage() {
               { icon: <Brain size={24} />, step: "01", title: "Discovery Call", desc: "We map your workflows and find every opportunity for AI and automation to save you time and money." },
               { icon: <BarChart3 size={24} />, step: "02", title: "Opportunity Map", desc: "You receive a ranked plan with ROI projections and a clear implementation timeline." },
               { icon: <Zap size={24} />, step: "03", title: "Build & Deploy", desc: "I architect autonomous agent systems, API integrations, and intelligent workflows custom to your business." },
-              { icon: <CheckCircle size={24} />, step: "04", title: "Launch & Train", desc: "Systems go live and I walk your team through everything for a seamless transition." },
+              { icon: <CheckCircle size={24} />, step: "04", title: "Launch & Train", desc: "Systems go live and I walk your team through everything. Within a few days, they won't be able to imagine working without it." },
               { icon: <Clock size={24} />, step: "05", title: "Optimize & Evolve", desc: "As your business grows, I keep refining your systems and adding new capabilities." },
             ].map((item, i) => (
               <motion.div
@@ -607,7 +607,7 @@ export default function HomePage() {
                 icon: <Settings2 size={24} />,
                 color: { border: "border-pink-500/30", bg: "bg-pink-500/10", text: "text-pink-400" },
                 title: "Workflow Automation",
-                desc: "End-to-end process automation that eliminates the manual, repetitive work your team handles every day, freeing them for higher-value tasks.",
+                desc: "Your team spends hours on work that follows the same steps every time. I map those workflows and build automation that runs them, so your people can focus on work that actually needs them.",
               },
             ].map((item, i) => (
               <motion.div

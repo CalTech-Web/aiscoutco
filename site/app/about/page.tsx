@@ -66,7 +66,7 @@ export default function AboutPage() {
 
                   <motion.div variants={fadeUp} className="space-y-4 text-slate-300 leading-relaxed">
                     <p>
-                      I have spent the last 5+ years building digital solutions for businesses across industries. In that time, I noticed the same pattern everywhere: businesses drowning in repetitive, manual work that could be automated, but no one was showing them how.
+                      I have spent the last 5+ years building digital solutions for businesses across industries. The same problem kept turning up. Businesses drowning in repetitive, manual work that could be automated, and nobody showing them how to fix it.
                     </p>
                     <p>
                       AI Scout Co exists to close that gap. My job starts before the build, with a genuine discovery of what your business does, where it gets stuck, and what it would look like if the friction disappeared.

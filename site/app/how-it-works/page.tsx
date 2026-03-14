@@ -75,7 +75,7 @@ const steps = [
     tagline: "Your systems go live and your team gets up to speed.",
     color: "emerald",
     duration: "1 to 3 days",
-    desc: "Your new systems go live. I walk your team through everything and make sure the transition is seamless. The goal is that within a few days, your team cannot imagine working without the new systems.",
+    desc: "Your new systems go live. I walk your team through everything, answer every question, and stay close until everyone is confident. Within a few days, they won't be able to imagine working without it.",
     deliverable: "A fully operational system with trained users",
     details: [
       "Production deployment and monitoring setup",
@@ -92,7 +92,7 @@ const steps = [
     tagline: "Your systems grow as your business grows.",
     color: "orange",
     duration: "Ongoing",
-    desc: "As your business evolves, your AI systems evolve with it. I continuously monitor performance, optimize token usage and costs, and add new capabilities as your needs change. You will never outgrow what we built together.",
+    desc: "As your business evolves, your AI systems evolve with it. I monitor performance, tune costs as usage grows, and add new capabilities as your needs change. You will never outgrow what we built together.",
     deliverable: "Continuously improving systems",
     details: [
       "System performance monitoring and tuning",
@@ -241,7 +241,7 @@ export default function HowItWorksPage() {
               },
               {
                 q: "What tools and platforms do you integrate with?",
-                a: "I integrate with whatever you already use: Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more. The systems I build connect to your existing workflow through APIs and webhooks, so nothing changes for your team except that manual work disappears.",
+                a: "I integrate with whatever you already use. Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more. The systems I build connect to your existing workflow through APIs and webhooks, so nothing changes for your team except that manual work disappears.",
               },
               {
                 q: "Will this replace my employees?",
