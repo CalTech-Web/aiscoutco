@@ -26,6 +26,17 @@ export const metadata: Metadata = {
 const jsonLd = [
   {
     "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://aiscoutco.com/services/discovery#webpage",
+    url: "https://aiscoutco.com/services/discovery",
+    name: "AI Discovery & Strategy | AI Scout Co",
+    description: "Start with a deep-dive discovery session. We map your workflows, identify every automation opportunity, and deliver a prioritized roadmap with ROI projections.",
+    isPartOf: { "@id": "https://aiscoutco.com/#website" },
+    about: { "@id": "https://aiscoutco.com/services/discovery#service" },
+    inLanguage: "en-US",
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://aiscoutco.com/services/discovery#service",
     name: "AI Discovery & Strategy",

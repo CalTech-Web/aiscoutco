@@ -26,6 +26,17 @@ export const metadata: Metadata = {
 const jsonLd = [
   {
     "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://aiscoutco.com/services/build#webpage",
+    url: "https://aiscoutco.com/services/build",
+    name: "Custom AI Systems | AI Scout Co",
+    description: "From autonomous agent pipelines to API integrations and client portals, we build production-ready AI systems custom to your business.",
+    isPartOf: { "@id": "https://aiscoutco.com/#website" },
+    about: { "@id": "https://aiscoutco.com/services/build#service" },
+    inLanguage: "en-US",
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://aiscoutco.com/services/build#service",
     name: "Custom AI System Development",

@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <nav aria-label="Footer services">
             <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Services</h3>
             <ul className="space-y-2">
               <li>
@@ -59,10 +59,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Company */}
-          <div>
+          <nav aria-label="Footer company">
             <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Company</h3>
             <ul className="space-y-2">
               <li>
@@ -81,7 +81,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
 
         <div className="border-t border-slate-800/50 mt-10 pt-8">

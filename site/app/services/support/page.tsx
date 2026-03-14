@@ -26,6 +26,17 @@ export const metadata: Metadata = {
 const jsonLd = [
   {
     "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://aiscoutco.com/services/support#webpage",
+    url: "https://aiscoutco.com/services/support",
+    name: "AI System Support | AI Scout Co",
+    description: "AI systems get better over time. Ongoing AI support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+    isPartOf: { "@id": "https://aiscoutco.com/#website" },
+    about: { "@id": "https://aiscoutco.com/services/support#service" },
+    inLanguage: "en-US",
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://aiscoutco.com/services/support#service",
     name: "Ongoing AI System Support",
