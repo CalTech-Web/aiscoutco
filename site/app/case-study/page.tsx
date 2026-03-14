@@ -39,7 +39,7 @@ export default function CaseStudyPage() {
               and got 7 new features
             </motion.h1>
             <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-              A leading SEO and online reputation management company faced a workforce crisis. What happened next changed how their entire business operates.
+              A key employee at DiamondLinks managed all client reporting and proposals. Then they got an outside offer. Six weeks later, the role was automated and the company had seven capabilities it never had before.
             </motion.p>
           </motion.div>
         </div>
@@ -162,7 +162,7 @@ export default function CaseStudyPage() {
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              During the discovery session, we mapped every workflow the employee handled. Two major functions emerged: monthly client reporting and sales proposal creation. Both were entirely manual, time-consuming, and limited by human capacity.
+              During the discovery session, we mapped every workflow the employee handled. Two major functions emerged, monthly client reporting and sales proposal creation. Both were entirely manual, time-consuming, and limited by human capacity.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               The discovery process revealed not just what needed to be replaced, but a dozen ways to do it better. With autonomous agent orchestration, the new system would not just match what the employee did, it would far exceed it.

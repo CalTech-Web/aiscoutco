@@ -114,7 +114,7 @@ export default function AboutPage() {
                 icon: <Code2 size={20} />,
                 title: "Make it feel simple, but build it right",
                 color: "cyan",
-                desc: "My goal is for your team to experience AI as effortless. Behind that simplicity is real technical depth, autonomous agent orchestration, custom API architecture, intelligent fallback logic, and continuous optimization.",
+                desc: "My goal is for your team to experience AI as effortless. Behind that simplicity is real technical depth, autonomous agent orchestration, custom API architecture, intelligent fallback logic, and relentless tuning.",
               },
               {
                 icon: <Users size={20} />,
