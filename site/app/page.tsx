@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight } from "lucide-react";
+import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2 } from "lucide-react";
 
 const rotatingOutcomes = [
   "Eliminate $85,000+/year in labor costs.",
@@ -387,32 +387,38 @@ export default function HomePage() {
           >
             {[
               {
-                icon: "🤖",
+                icon: <Bot size={24} />,
+                color: { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400" },
                 title: "Autonomous Agent Systems",
                 desc: "Multi-agent orchestration with specialized sub-agents that handle complex workflows end-to-end without human intervention. Each agent has defined skills and token budgets.",
               },
               {
-                icon: "🔗",
+                icon: <Link2 size={24} />,
+                color: { border: "border-cyan-500/30", bg: "bg-cyan-500/10", text: "text-cyan-400" },
                 title: "API & Webhook Integrations",
                 desc: "Connect AI to your existing tools, Monday.com, Google Workspace, Salesforce, Slack, and more, through custom API and webhook architectures.",
               },
               {
-                icon: "📊",
+                icon: <BarChart3 size={24} />,
+                color: { border: "border-emerald-500/30", bg: "bg-emerald-500/10", text: "text-emerald-400" },
                 title: "Automated Reporting",
                 desc: "Real-time data pipelines that pull from multiple sources, process through intelligent agents, and deliver polished reports automatically.",
               },
               {
-                icon: "📄",
+                icon: <FileText size={24} />,
+                color: { border: "border-purple-500/30", bg: "bg-purple-500/10", text: "text-purple-400" },
                 title: "Document Generation",
                 desc: "Intelligent proposal and document creation that pulls from call recordings, email threads, and databases to produce custom outputs with smart fallback logic.",
               },
               {
-                icon: "🌐",
+                icon: <Globe size={24} />,
+                color: { border: "border-orange-500/30", bg: "bg-orange-500/10", text: "text-orange-400" },
                 title: "Client Portal Applications",
                 desc: "Secure web applications with SSO/OAuth authentication where your clients can access dashboards, reports, and account information.",
               },
               {
-                icon: "⚙️",
+                icon: <Settings2 size={24} />,
+                color: { border: "border-pink-500/30", bg: "bg-pink-500/10", text: "text-pink-400" },
                 title: "Workflow Automation",
                 desc: "End-to-end process automation that eliminates the manual, repetitive work your team handles every day, freeing them for higher-value tasks.",
               },
@@ -422,7 +428,9 @@ export default function HomePage() {
                 variants={fadeUp}
                 className="p-6 rounded-2xl border border-slate-700/50 bg-slate-900/50 card-hover"
               >
-                <div className="text-3xl mb-4">{item.icon}</div>
+                <div className={`w-12 h-12 rounded-xl ${item.color.bg} border ${item.color.border} flex items-center justify-center ${item.color.text} mb-4`}>
+                  {item.icon}
+                </div>
                 <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
