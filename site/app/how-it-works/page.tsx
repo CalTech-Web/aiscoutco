@@ -31,6 +31,7 @@ const steps = [
       "Opportunity brainstorming and ideation",
     ],
     quote: "Most businesses don't even know what AI and automation is capable of doing. During our discovery call, I identify areas of opportunity and dream with you on how best to accomplish your goals.",
+    serviceLink: { href: "/services/discovery", label: "Learn about our AI Discovery & Strategy service" },
   },
   {
     num: "02",
@@ -62,6 +63,7 @@ const steps = [
       "Automated testing and quality assurance",
     ],
     technical: ["Autonomous agents", "Sub-agent workflows", "API orchestration", "Webhook triggers", "Token budgeting", "Fallback logic"],
+    serviceLink: { href: "/services/build", label: "See our custom AI system development service" },
   },
   {
     num: "04",
@@ -92,6 +94,7 @@ const steps = [
       "New feature development as needs evolve",
       "Regular strategy sessions to identify new opportunities",
     ],
+    serviceLink: { href: "/services/support", label: "Explore ongoing optimization and support" },
   },
 ];
 
@@ -213,6 +216,14 @@ export default function HowItWorksPage() {
                             <div className="rounded-xl border border-slate-700/30 bg-slate-900/50 p-4 mt-4">
                               <p className="text-slate-400 text-sm italic leading-relaxed">&ldquo;{step.quote}&rdquo;</p>
                               <div className="text-slate-500 text-xs mt-2">Brandon Hopkins, Founder</div>
+                            </div>
+                          )}
+                          {step.serviceLink && (
+                            <div className="mt-4">
+                              <Link href={step.serviceLink.href} className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
+                                {step.serviceLink.label}
+                                <ArrowRight size={14} />
+                              </Link>
                             </div>
                           )}
                         </div>

@@ -574,6 +574,13 @@ export default function CaseStudyPage() {
                 Learn how the five-step process works
                 <ArrowRight size={14} />
               </Link>
+              <Link
+                href="/services/discovery"
+                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
+              >
+                See the AI Discovery & Strategy service
+                <ArrowRight size={14} />
+              </Link>
             </motion.div>
           </div>
         </motion.section>

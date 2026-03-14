@@ -631,13 +631,20 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-10"
+            className="text-center mt-10 flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Link
               href="/how-it-works"
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
             >
               Learn more about the process
+              <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/services/discovery"
+              className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-300 font-semibold transition-colors"
+            >
+              Start with a free AI discovery
               <ArrowRight size={18} />
             </Link>
           </motion.div>

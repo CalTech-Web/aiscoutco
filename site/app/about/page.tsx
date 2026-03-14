@@ -113,13 +113,13 @@ export default function AboutPage() {
                 icon: <Brain size={20} />,
                 title: "Discovery first, always",
                 color: "blue",
-                desc: "I never start a project with a pre-built solution in mind. Every engagement begins with genuine curiosity about your specific workflows, goals, and pain points. The best AI systems are ones built around how your business actually works.",
+                desc: <span>I never start a project with a pre-built solution in mind. Every engagement begins with genuine curiosity about your specific workflows, goals, and pain points. The best AI systems are ones built around how your business actually works. <Link href="/services/discovery" className="text-blue-400 hover:text-blue-300 transition-colors">See how the discovery service works.</Link></span>,
               },
               {
                 icon: <Code2 size={20} />,
                 title: "Make it feel simple, but build it right",
                 color: "cyan",
-                desc: "My goal is for your team to experience AI as effortless. Behind that simplicity is real technical depth, autonomous agent orchestration, custom API architecture, intelligent fallback logic, and relentless tuning.",
+                desc: <span>My goal is for your team to experience AI as effortless. Behind that simplicity is real technical depth, autonomous agent orchestration, custom API architecture, intelligent fallback logic, and relentless tuning. <Link href="/services/build" className="text-cyan-400 hover:text-cyan-300 transition-colors">Explore our custom AI systems.</Link></span>,
               },
               {
                 icon: <Users size={20} />,
