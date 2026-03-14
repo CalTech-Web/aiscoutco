@@ -22,24 +22,34 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "AI Discovery & Strategy",
-  description: "A free discovery session that maps your workflows, identifies every automation opportunity, and delivers a prioritized roadmap with ROI projections.",
-  url: "https://aiscoutco.com/services/discovery",
-  provider: {
-    "@type": "Organization",
-    name: "AI Scout Co",
-    url: "https://aiscoutco.com",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI Discovery & Strategy",
+    description: "A free discovery session that maps your workflows, identifies every automation opportunity, and delivers a prioritized roadmap with ROI projections.",
+    url: "https://aiscoutco.com/services/discovery",
+    provider: {
+      "@type": "Organization",
+      name: "AI Scout Co",
+      url: "https://aiscoutco.com",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Free initial discovery call with no commitment required.",
+    },
   },
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Free initial discovery call with no commitment required.",
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
+      { "@type": "ListItem", position: 2, name: "AI Discovery & Strategy", item: "https://aiscoutco.com/services/discovery" },
+    ],
   },
-};
+];
 
 export default function DiscoveryPage() {
   return (
@@ -144,6 +154,13 @@ export default function DiscoveryPage() {
                 </div>
               ))}
             </div>
+            <p className="text-slate-400 text-sm mt-4 leading-relaxed">
+              See how discovery led to $85,000+/year in savings for one client in the{" "}
+              <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">
+                DiamondLinks case study
+              </Link>
+              .
+            </p>
           </div>
 
           {/* CTA */}
@@ -161,10 +178,11 @@ export default function DiscoveryPage() {
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/how-it-works"
+                href="/services/build"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white font-semibold text-lg transition-all duration-200 hover:bg-slate-800/50"
               >
-                See the full process
+                Next: Custom AI Systems
+                <ArrowRight size={20} />
               </Link>
             </div>
           </div>

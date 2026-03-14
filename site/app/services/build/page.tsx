@@ -22,18 +22,28 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Custom AI System Development",
-  description: "End-to-end autonomous agent architecture design and deployment. Multi-agent orchestration, API integrations, automated reporting, and custom client portal applications.",
-  url: "https://aiscoutco.com/services/build",
-  provider: {
-    "@type": "Organization",
-    name: "AI Scout Co",
-    url: "https://aiscoutco.com",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Custom AI System Development",
+    description: "End-to-end autonomous agent architecture design and deployment. Multi-agent orchestration, API integrations, automated reporting, and custom client portal applications.",
+    url: "https://aiscoutco.com/services/build",
+    provider: {
+      "@type": "Organization",
+      name: "AI Scout Co",
+      url: "https://aiscoutco.com",
+    },
   },
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
+      { "@type": "ListItem", position: 2, name: "Custom AI Systems", item: "https://aiscoutco.com/services/build" },
+    ],
+  },
+];
 
 export default function BuildPage() {
   return (
@@ -176,12 +186,24 @@ export default function BuildPage() {
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/case-study"
+                href="/services/support"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white font-semibold text-lg transition-all duration-200 hover:bg-slate-800/50"
               >
-                See a real example
+                Next: Ongoing Support
+                <ArrowRight size={20} />
               </Link>
             </div>
+            <p className="text-center mt-4 text-slate-500 text-sm">
+              Every build starts with{" "}
+              <Link href="/services/discovery" className="text-blue-400 hover:text-blue-300 transition-colors">
+                AI discovery
+              </Link>
+              . See it in action in the{" "}
+              <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">
+                DiamondLinks case study
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>

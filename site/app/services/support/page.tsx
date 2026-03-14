@@ -22,18 +22,28 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Ongoing AI System Support",
-  description: "System monitoring, maintenance, performance optimization, and new capability additions to keep your AI automation running and evolving.",
-  url: "https://aiscoutco.com/services/support",
-  provider: {
-    "@type": "Organization",
-    name: "AI Scout Co",
-    url: "https://aiscoutco.com",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Ongoing AI System Support",
+    description: "System monitoring, maintenance, performance optimization, and new capability additions to keep your AI automation running and evolving.",
+    url: "https://aiscoutco.com/services/support",
+    provider: {
+      "@type": "Organization",
+      name: "AI Scout Co",
+      url: "https://aiscoutco.com",
+    },
   },
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
+      { "@type": "ListItem", position: 2, name: "Ongoing Support", item: "https://aiscoutco.com/services/support" },
+    ],
+  },
+];
 
 export default function SupportPage() {
   return (
@@ -154,10 +164,10 @@ export default function SupportPage() {
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/how-it-works"
+                href="/services/build"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white font-semibold text-lg transition-all duration-200 hover:bg-slate-800/50"
               >
-                See how it works
+                See what we build
               </Link>
             </div>
           </div>
