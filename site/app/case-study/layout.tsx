@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Automation Case Study: DiamondLinks",
   description: "How AI Scout Co automated DiamondLinks' reporting and proposals in 6 weeks, eliminating a $85,000+ salary and delivering 7 new capabilities.",
+  keywords: "AI automation case study, DiamondLinks, AI consulting results, automated reporting system, AI ROI, $85000 savings, workflow automation results",
   alternates: {
     canonical: "https://aiscoutco.com/case-study",
   },
@@ -36,9 +37,7 @@ const jsonLd = {
     description: "DiamondLinks automated reporting dashboard built by AI Scout Co",
   },
   author: {
-    "@type": "Person",
-    name: "Brandon Hopkins",
-    url: "https://aiscoutco.com/about",
+    "@id": "https://aiscoutco.com/#brandon-hopkins",
   },
   publisher: {
     "@type": "Organization",

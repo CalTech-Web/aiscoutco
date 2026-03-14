@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Book a Free Discovery Call | AI Scout Co",
   description: "Book a free 30 to 60 minute AI discovery call with Brandon Hopkins. Find out exactly where automation can save your business time and money.",
+  keywords: "free AI discovery call, AI consultation, book AI consultant, automation discovery session, AI strategy session, free AI audit",
   alternates: {
     canonical: "https://aiscoutco.com/contact",
   },
@@ -27,7 +28,7 @@ const jsonLd = {
   url: "https://aiscoutco.com/contact",
   description:
     "Book a free 30 to 60 minute AI discovery call with Brandon Hopkins. Find out exactly where automation can save your business time and money.",
-  isPartOf: { "@type": "WebSite", name: "AI Scout Co", url: "https://aiscoutco.com" },
+  isPartOf: { "@id": "https://aiscoutco.com/#website" },
 };
 
 const breadcrumbJsonLd = {

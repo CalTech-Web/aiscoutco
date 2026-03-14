@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Automation Process | AI Scout Co",
   description: "See how AI Scout Co takes you from discovery to deployed AI systems in 5 phases. Identify your automation opportunities, then watch them get built.",
+  keywords: "AI automation process, how AI consulting works, AI implementation steps, automation discovery, AI deployment process, AI system development",
   alternates: {
     canonical: "https://aiscoutco.com/how-it-works",
   },
@@ -27,7 +28,7 @@ const jsonLd = {
   url: "https://aiscoutco.com/how-it-works",
   description:
     "See how AI Scout Co takes you from discovery to deployed AI systems in 5 phases. Identify your automation opportunities, then watch them get built.",
-  isPartOf: { "@type": "WebSite", name: "AI Scout Co", url: "https://aiscoutco.com" },
+  isPartOf: { "@id": "https://aiscoutco.com/#website" },
 };
 
 const faqJsonLd = {

@@ -277,6 +277,19 @@ const faqs = [
   },
 ];
 
+const webpageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://aiscoutco.com/",
+  name: "AI Scout Co | Custom AI Systems & Automation",
+  url: "https://aiscoutco.com",
+  isPartOf: { "@id": "https://aiscoutco.com/#website" },
+  about: { "@id": "https://aiscoutco.com/#organization" },
+  description:
+    "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the custom systems to make it happen.",
+  inLanguage: "en-US",
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -355,6 +368,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero Section */}
       <section
