@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, TrendingUp, Zap, Users, Clock, Star, AlertTriangle, Lightbulb, Code2, BarChart3 } from "lucide-react";
+import { ArrowRight, CheckCircle, TrendingUp, Zap, Users, Clock, Star, AlertTriangle, Lightbulb, Code2, BarChart3, Mic, Mail, Brain, RefreshCw, Calendar } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -380,36 +380,38 @@ export default function CaseStudyPage() {
               {
                 title: "Call Intelligence",
                 desc: "Automatically pulls call logs and Google Meet recordings, extracting key discussion points and prospect requirements through an audio analysis sub-agent.",
-                icon: "🎙️",
+                icon: <Mic size={18} />,
               },
               {
                 title: "Email Analysis",
                 desc: "Scans the full email thread between the company and prospect to capture every detail mentioned, using an NLP agent trained on sales context.",
-                icon: "📧",
+                icon: <Mail size={18} />,
               },
               {
                 title: "Smart Compilation",
                 desc: "An orchestration agent combines call insights, email context, standard company pricing, and service descriptions into a polished, personalized proposal.",
-                icon: "🧠",
+                icon: <Brain size={18} />,
               },
               {
                 title: "Fallback Logic",
                 desc: "If certain information does not exist, such as no call recording or no prior emails, the system intelligently removes those sections rather than leaving gaps or errors.",
-                icon: "🔄",
+                icon: <RefreshCw size={18} />,
               },
               {
                 title: "One-Click Generation",
                 desc: "Any team member can generate a proposal instantly by clicking a single button, with no technical knowledge required.",
-                icon: "⚡",
+                icon: <Zap size={18} />,
               },
               {
                 title: "Pre-Meeting Automation",
                 desc: "The system automatically generates and emails the proposal to the salesperson 30 minutes before their next scheduled meeting with the prospect.",
-                icon: "📅",
+                icon: <Calendar size={18} />,
               },
             ].map((item, i) => (
-              <div key={i} className="flex gap-4 p-5 rounded-xl border border-slate-700/50 bg-slate-900/50">
-                <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+              <div key={i} className="flex gap-4 p-5 rounded-xl border border-purple-500/20 bg-slate-900/50 hover:border-purple-500/40 transition-colors">
+                <div className="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 flex-shrink-0 mt-0.5">
+                  {item.icon}
+                </div>
                 <div>
                   <h3 className="text-purple-300 font-semibold mb-1">{item.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
@@ -456,14 +458,25 @@ export default function CaseStudyPage() {
           </motion.div>
 
           {/* Testimonial */}
-          <motion.div variants={fadeUp} className="rounded-2xl border border-slate-700/30 bg-slate-900/30 p-8">
-            <div className="flex gap-4 items-start">
-              <div className="text-5xl text-blue-400/30 font-serif leading-none mt-1">&ldquo;</div>
-              <div>
-                <blockquote className="text-slate-300 text-lg leading-relaxed italic mb-4">
-                  We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
-                </blockquote>
-                <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
+          <motion.div variants={fadeUp} className="rounded-2xl border border-blue-500/20 bg-slate-900/50 overflow-hidden">
+            <div className="h-px bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500" />
+            <div className="p-8">
+              <div className="flex items-center gap-1 mb-5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} fill="#f59e0b" className="text-amber-400" />
+                ))}
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="text-5xl text-blue-400/30 font-serif leading-none mt-1">&ldquo;</div>
+                <div>
+                  <blockquote className="text-slate-300 text-lg leading-relaxed italic mb-5">
+                    We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
+                  </blockquote>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">D</div>
+                    <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
