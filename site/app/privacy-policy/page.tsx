@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | AI Scout Co",
   description: "AI Scout Co privacy policy. Learn how we collect and protect your personal information when you use aiscoutco.com.",
+  alternates: {
+    canonical: "https://aiscoutco.com/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

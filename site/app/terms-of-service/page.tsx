@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service | AI Scout Co",
   description: "AI Scout Co terms of service. Read the terms and conditions for using our website and AI consulting services.",
+  alternates: {
+    canonical: "https://aiscoutco.com/terms-of-service",
+  },
 };
 
 export default function TermsOfServicePage() {

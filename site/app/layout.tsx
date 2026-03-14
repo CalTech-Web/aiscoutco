@@ -11,9 +11,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aiscoutco.com"),
   title: "AI Scout Co | Custom AI Systems & Automation",
   description: "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
   keywords: "AI automation, custom AI systems, business automation, AI consulting, agent orchestration",
+  alternates: {
+    canonical: "https://aiscoutco.com",
+  },
   openGraph: {
     title: "AI Scout Co | Custom AI Systems & Automation",
     description: "If you can dream it, I build it. Book a free discovery call and find out where AI can transform your business.",
