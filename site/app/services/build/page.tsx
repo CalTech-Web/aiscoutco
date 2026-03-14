@@ -43,6 +43,44 @@ const jsonLd = [
       { "@type": "ListItem", position: 2, name: "Custom AI Systems", item: "https://aiscoutco.com/services/build" },
     ],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What kinds of AI systems do you build?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "I build autonomous agent pipelines, API and webhook integrations, automated reporting systems, intelligent document generation, client portal applications, and custom workflow automation. Every system is designed specifically for your business and integrates with the tools you already use.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does a custom build take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks. You will get a clear timeline after your discovery call.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is included in every build?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Every build includes full source code and documentation, production deployment on reliable infrastructure, 30 days of post-launch support, a team training and walkthrough session, monitoring and alerting setup, and integration testing with your live data.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Will the system work with the tools we already use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Every system I build connects to your existing tools through APIs and webhooks. I work with Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more platforms. Your team does not need to switch to anything new.",
+        },
+      },
+    ],
+  },
 ];
 
 export default function BuildPage() {

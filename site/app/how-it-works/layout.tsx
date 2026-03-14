@@ -69,11 +69,64 @@ const faqJsonLd = {
   ],
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
+    { "@type": "ListItem", position: 2, name: "How It Works", item: "https://aiscoutco.com/how-it-works" },
+  ],
+};
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How AI Automation Works: 5-Step Process",
+  description: "How AI Scout Co takes your business from discovery to deployed AI systems in 5 phases.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Discovery Call",
+      text: "We sit down together and I learn your workflows, pain points, and goals, then identify every place AI and automation can help.",
+      url: "https://aiscoutco.com/services/discovery",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Opportunity Map",
+      text: "I deliver a detailed plan showing each automation opportunity ranked by impact, complete with ROI projections and implementation timeline.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Build & Deploy",
+      text: "I architect and build your custom AI systems, integrating autonomous agents, API connections, and intelligent workflows into your existing tools.",
+      url: "https://aiscoutco.com/services/build",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Launch & Train",
+      text: "Your new systems go live. I walk your team through everything and make sure the transition is seamless.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Optimize & Evolve",
+      text: "As your business grows, I continue refining your systems and adding new capabilities.",
+      url: "https://aiscoutco.com/services/support",
+    },
+  ],
+};
+
 export default function HowItWorksLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       {children}
     </>
   );

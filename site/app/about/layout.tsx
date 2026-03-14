@@ -20,20 +20,30 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Brandon Hopkins",
-  jobTitle: "Founder & AI Consultant",
-  url: "https://aiscoutco.com/about",
-  worksFor: {
-    "@type": "Organization",
-    name: "AI Scout Co",
-    url: "https://aiscoutco.com",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Brandon Hopkins",
+    jobTitle: "Founder & AI Consultant",
+    url: "https://aiscoutco.com/about",
+    worksFor: {
+      "@type": "Organization",
+      name: "AI Scout Co",
+      url: "https://aiscoutco.com",
+    },
+    description:
+      "Brandon Hopkins is the founder of AI Scout Co, specializing in autonomous AI agents, workflow automation, and API integrations for businesses.",
   },
-  description:
-    "Brandon Hopkins is the founder of AI Scout Co, specializing in autonomous AI agents, workflow automation, and API integrations for businesses.",
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
+      { "@type": "ListItem", position: 2, name: "About Brandon Hopkins", item: "https://aiscoutco.com/about" },
+    ],
+  },
+];
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
   return (
