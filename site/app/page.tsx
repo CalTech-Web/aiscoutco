@@ -410,17 +410,14 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-3xl font-extrabold mb-4 text-white">DiamondLinks</h3>
                   <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                    A key employee managing all client reporting and proposal creation requested a 25% raise after receiving an outside offer. Instead of paying more, DiamondLinks partnered with AI Scout Co to automate everything, and ended up with a system far more capable than any single employee.
+                    A key employee managing all client reporting and proposal creation received an outside offer and asked for a 25% raise. Instead of absorbing the cost, DiamondLinks automated everything. The replacement system added seven capabilities the old workflow never had, including a branded client portal, and delivered it all without ongoing manual work.
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                     {[
                       "Eliminated $85,000+/year salary",
-                      "7 new features added",
                       "Reports generated in seconds",
                       "Proposals auto-delivered before meetings",
-                      "Zero manual intervention required",
-                      "Beautiful, branded client dashboards",
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-2 text-slate-300 text-sm">
                         <CheckCircle size={16} className="text-emerald-400 flex-shrink-0" />
@@ -577,7 +574,7 @@ export default function HomePage() {
                 icon: <Bot size={24} />,
                 color: { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400" },
                 title: "Autonomous Agent Systems",
-                desc: "Multi-agent orchestration with specialized sub-agents that handle complex workflows end-to-end without human intervention. Each agent has defined skills and token budgets.",
+                desc: "Multi-agent orchestration with specialized sub-agents that handle complex workflows without human intervention. Each agent has defined skills and token budgets.",
               },
               {
                 icon: <Link2 size={24} />,

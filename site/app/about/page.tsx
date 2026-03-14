@@ -167,7 +167,7 @@ export default function AboutPage() {
               Before AI Scout Co, I founded CalTech Web, a web development and digital solutions agency. That experience across dozens of client projects in different industries gave me a ground-level view of where businesses lose time, money, and momentum to manual processes.
             </p>
             <p className="text-slate-400 leading-relaxed mb-8">
-              AI Scout Co is the natural evolution of that work. Instead of just building websites and digital tools, I now build the intelligent systems that run behind them, and behind your entire operation.
+              AI Scout Co is where that work led. Instead of just building websites and digital tools, I now build the intelligent systems that run behind them, and behind your entire operation.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[

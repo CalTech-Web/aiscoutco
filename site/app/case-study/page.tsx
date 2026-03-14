@@ -442,14 +442,14 @@ export default function CaseStudyPage() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <p className="text-slate-300 text-lg leading-relaxed mb-6">
+              Sixty days after launch, the role was gone and seven new capabilities had taken its place. Client satisfaction went up. The team stopped touching reports and proposals entirely. Nothing in the operation required manual intervention anymore.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 "Eliminated a $85,000+/year salary, plus benefits",
-                "Added 7 new capabilities that never existed before",
                 "Reports generated in seconds instead of hours",
-                "Proposals delivered automatically before every meeting",
-                "Client satisfaction increased with beautiful, data-rich reports",
-                "Zero manual intervention required for routine operations",
+                "Proposals auto-delivered before every meeting",
               ].map((result, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-emerald-400 flex-shrink-0 mt-0.5" />
