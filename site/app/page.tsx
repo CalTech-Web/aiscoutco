@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star } from "lucide-react";
+import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers } from "lucide-react";
 
 const rotatingOutcomes = [
   "Eliminate $85,000+/year in labor costs.",
@@ -610,6 +610,87 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <section className="py-24 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.p variants={fadeUp} className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">Who I Help</motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
+              Built for any business<br />
+              <span className="gradient-text">drowning in manual work</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-2xl mx-auto">
+              If your team spends hours on work that follows the same steps every time, you have an automation opportunity.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            {[
+              {
+                icon: <TrendingUp size={22} />,
+                color: { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400", subtle: "bg-blue-500/5" },
+                industry: "SEO & Digital Marketing",
+                pain: "Client reports, campaign summaries, and proposal decks eating up your week.",
+              },
+              {
+                icon: <Briefcase size={22} />,
+                color: { border: "border-purple-500/30", bg: "bg-purple-500/10", text: "text-purple-400", subtle: "bg-purple-500/5" },
+                industry: "Professional Services",
+                pain: "Intake forms, client onboarding, deliverable generation, and status updates done manually.",
+              },
+              {
+                icon: <Building2 size={22} />,
+                color: { border: "border-orange-500/30", bg: "bg-orange-500/10", text: "text-orange-400", subtle: "bg-orange-500/5" },
+                industry: "Real Estate",
+                pain: "Listing updates, lead follow-ups, and market reports that take hours every week.",
+              },
+              {
+                icon: <Activity size={22} />,
+                color: { border: "border-emerald-500/30", bg: "bg-emerald-500/10", text: "text-emerald-400", subtle: "bg-emerald-500/5" },
+                industry: "Healthcare",
+                pain: "Scheduling, documentation, patient communication, and compliance reporting.",
+              },
+              {
+                icon: <ShoppingCart size={22} />,
+                color: { border: "border-cyan-500/30", bg: "bg-cyan-500/10", text: "text-cyan-400", subtle: "bg-cyan-500/5" },
+                industry: "E-commerce",
+                pain: "Inventory updates, customer service responses, order tracking, and performance reports.",
+              },
+              {
+                icon: <Layers size={22} />,
+                color: { border: "border-pink-500/30", bg: "bg-pink-500/10", text: "text-pink-400", subtle: "bg-pink-500/5" },
+                industry: "Any Business",
+                pain: "If your team does the same manual work on a schedule, I can build a system that does it for them.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className={`p-6 rounded-2xl border ${item.color.border} ${item.color.subtle} card-hover group`}
+              >
+                <div className={`w-11 h-11 rounded-xl ${item.color.bg} border ${item.color.border} flex items-center justify-center ${item.color.text} mb-4`}>
+                  {item.icon}
+                </div>
+                <h3 className={`font-bold text-base mb-2 ${item.color.text}`}>{item.industry}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.pain}</p>
               </motion.div>
             ))}
           </motion.div>
