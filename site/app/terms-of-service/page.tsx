@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service | AI Scout Co",
@@ -38,7 +39,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-xl font-bold text-white mb-3">2. Services Description</h2>
             <p>
-              AI Scout Co provides AI consulting, custom AI system development, and automation services to businesses. Our services include discovery calls, opportunity mapping, system architecture, development, deployment, and ongoing optimization.
+              AI Scout Co provides AI consulting, custom AI system development, and automation services to businesses. Our services include <Link href="/services/discovery" className="text-blue-400 hover:text-blue-300 transition-colors">discovery calls</Link>, opportunity mapping, system architecture, <Link href="/services/build" className="text-blue-400 hover:text-blue-300 transition-colors">development and deployment</Link>, and <Link href="/services/support" className="text-blue-400 hover:text-blue-300 transition-colors">ongoing optimization</Link>.
             </p>
             <p className="mt-3">
               Specific service terms, deliverables, timelines, and pricing are defined in individual service agreements executed between AI Scout Co and each client.
@@ -104,7 +105,7 @@ export default function TermsOfServicePage() {
               If you have questions about these terms, please contact us at{" "}
               <a href="mailto:brandon@aiscoutco.com" className="text-blue-400 hover:text-blue-300 transition-colors">
                 brandon@aiscoutco.com
-              </a>.
+              </a>{" "}or <Link href="/contact" className="text-blue-400 hover:text-blue-300 transition-colors">book a free discovery call</Link>.
             </p>
           </section>
         </div>

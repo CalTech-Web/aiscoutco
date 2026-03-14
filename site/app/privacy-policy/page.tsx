@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | AI Scout Co",
@@ -31,7 +32,7 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-xl font-bold text-white mb-3">1. Information We Collect</h2>
             <p>
-              When you contact us through our website or book a discovery call, we collect the information you voluntarily provide, including your name, email address, company name, and any details you share in the contact form.
+              When you contact us through our website or <Link href="/contact" className="text-blue-400 hover:text-blue-300 transition-colors">book a discovery call</Link>, we collect the information you voluntarily provide, including your name, email address, company name, and any details you share in the contact form.
             </p>
             <p className="mt-3">
               We may also collect standard analytics data such as pages visited, browser type, and referring websites. This information is collected in aggregate and is not tied to individual identities.
@@ -97,7 +98,7 @@ export default function PrivacyPolicyPage() {
               If you have questions about this privacy policy or how we handle your information, please contact us at{" "}
               <a href="mailto:brandon@aiscoutco.com" className="text-blue-400 hover:text-blue-300 transition-colors">
                 brandon@aiscoutco.com
-              </a>.
+              </a>{" "}or <Link href="/contact" className="text-blue-400 hover:text-blue-300 transition-colors">use our contact page</Link>.
             </p>
           </section>
         </div>

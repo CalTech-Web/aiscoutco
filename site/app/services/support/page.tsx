@@ -49,6 +49,11 @@ const jsonLd = [
       name: "AI Scout Co",
       url: "https://aiscoutco.com",
     },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      description: "Available on a monthly retainer basis after the initial 30-day post-launch support period included with every build.",
+    },
   },
   {
     "@context": "https://schema.org",
@@ -116,7 +121,7 @@ export default function SupportPage() {
             <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider">Step 3</span>
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
-            Ongoing
+            AI System
             <br />
             <span className="gradient-text">Support</span>
           </h1>

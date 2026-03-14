@@ -49,6 +49,11 @@ const jsonLd = [
       name: "AI Scout Co",
       url: "https://aiscoutco.com",
     },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      description: "Custom-scoped pricing based on project requirements. Transparent pricing with ROI projections provided after discovery call. Most clients see a return within the first 60 days.",
+    },
   },
   {
     "@context": "https://schema.org",
