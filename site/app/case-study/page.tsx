@@ -177,9 +177,7 @@ export default function CaseStudyPage() {
               </div>
               <ul className="space-y-2 text-slate-400 text-sm">
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Monthly reports compiled manually in Google Docs</li>
-                <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Plain text format with no visual design</li>
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Hours of work per client per month</li>
-                <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>No mid-month updates possible</li>
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>No historical dashboard for clients</li>
               </ul>
             </div>
@@ -192,8 +190,6 @@ export default function CaseStudyPage() {
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Proposals written manually before each sales meeting</li>
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Required reviewing call notes, emails, and pricing</li>
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Hours of work per proposal</li>
-                <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Inconsistent quality across salespeople</li>
-                <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>No automation, all manual compilation</li>
               </ul>
             </div>
           </motion.div>

@@ -81,9 +81,7 @@ export default function ContactPage() {
                 {[
                   "30 to 60 minute video call",
                   "No commitment required",
-                  "No sales pressure",
                   "Real insights you keep regardless",
-                  "Follow-up opportunity map if you want to proceed",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-slate-400 text-sm">
                     <CheckCircle size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />

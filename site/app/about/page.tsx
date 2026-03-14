@@ -195,14 +195,11 @@ export default function AboutPage() {
           <motion.h2 variants={fadeUp} className="text-3xl font-extrabold text-white mb-8">
             What makes AI Scout Co different
           </motion.h2>
-          <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              "You work directly with me, the person who builds your systems",
-              "Discovery-first approach finds opportunities you did not know existed",
-              "Every system is custom built, never a template or off-the-shelf tool",
-              "I integrate with the tools you already use, no platform switching",
-              "Real results backed by real case studies with measurable ROI",
-              "Deep expertise in agent orchestration, API architecture, and workflow automation",
+              "You work directly with the builder",
+              "Every system custom built for your business",
+              "Real case studies with measurable ROI",
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} className="flex items-start gap-3 p-4 rounded-xl border border-slate-700/30 bg-slate-900/30">
                 <CheckCircle size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
@@ -210,6 +207,9 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </motion.div>
+          <motion.p variants={fadeUp} className="text-slate-400 text-sm mt-4 leading-relaxed">
+            I integrate with the tools you already use, bring deep expertise in agent orchestration and API architecture, and find opportunities you did not know existed.
+          </motion.p>
         </motion.section>
 
         {/* CTA */}

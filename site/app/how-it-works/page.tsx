@@ -27,8 +27,6 @@ const steps = [
     details: [
       "Workflow audit across all departments",
       "Pain point identification and prioritization",
-      "Technology stack review",
-      "Goal alignment session",
       "Opportunity brainstorming and ideation",
     ],
     quote: "Most businesses don't even know what AI and automation is capable of doing. During our discovery call, I identify areas of opportunity and dream with you on how best to accomplish your goals.",
@@ -46,8 +44,6 @@ const steps = [
       "Ranked list of automation opportunities",
       "ROI projections for each recommendation",
       "Phased implementation timeline",
-      "Technology and integration requirements",
-      "Resource and cost estimates",
     ],
   },
   {
@@ -61,12 +57,10 @@ const steps = [
     deliverable: "Live, production-ready AI systems",
     details: [
       "Custom agent architecture and orchestration design",
-      "Sub-agent development with specialized skills",
       "API and webhook integrations",
       "Automated testing and quality assurance",
-      "Staging environment review with your team",
     ],
-    technical: ["Autonomous agents", "Sub-agent workflows", "API orchestration", "Webhook triggers", "Token optimization", "Fallback logic"],
+    technical: ["Autonomous agents", "Sub-agent workflows", "API orchestration", "Webhook triggers", "Token budgeting", "Fallback logic"],
   },
   {
     num: "04",
@@ -80,9 +74,7 @@ const steps = [
     details: [
       "Production deployment and monitoring setup",
       "Team walkthrough and training sessions",
-      "Documentation and reference guides",
       "48-hour hypercare support post-launch",
-      "Handoff of system credentials and access",
     ],
   },
   {
@@ -96,9 +88,7 @@ const steps = [
     deliverable: "Continuously improving systems",
     details: [
       "System performance monitoring and tuning",
-      "Token usage and cost optimization",
       "New feature development as needs evolve",
-      "Integration of new tools and platforms",
       "Regular strategy sessions to identify new opportunities",
     ],
   },
