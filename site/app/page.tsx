@@ -269,47 +269,33 @@ export default function HomePage() {
         <FloatingParticles />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="flex flex-col items-center"
-          >
-            <motion.div variants={fadeUp} className="mb-6">
+          <div className="flex flex-col items-center">
+            <div className="mb-6">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium">
                 <Zap size={14} />
                 AI Consulting &amp; Automation Systems
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight"
-            >
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
               If you can dream it,
               <br />
               <span className="gradient-text">I build it.</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p variants={fadeUp} className="text-xl md:text-2xl mb-3 min-h-[2rem]">
+            <p className="text-xl md:text-2xl mb-3 min-h-[2rem]">
               <RotatingText />
-            </motion.p>
+            </p>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-xl md:text-2xl text-slate-400 max-w-3xl mb-4 leading-relaxed"
-            >
+            <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mb-4 leading-relaxed">
               The first step is for us to dream together.
-            </motion.p>
+            </p>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-lg text-slate-500 max-w-2xl mb-10 leading-relaxed"
-            >
+            <p className="text-lg text-slate-500 max-w-2xl mb-10 leading-relaxed">
               AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the custom systems to make it happen.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 blue-glow"
@@ -324,12 +310,12 @@ export default function HomePage() {
                 See a Real Case Study
                 <ChevronRight size={20} />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="w-full">
+            <div className="w-full">
               <AgentTerminal />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
