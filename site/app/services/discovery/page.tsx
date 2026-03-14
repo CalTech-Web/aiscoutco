@@ -5,10 +5,46 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Discovery & Strategy | AI Scout Co",
   description: "Start with a deep-dive discovery session. We map your workflows, identify every automation opportunity, and deliver a prioritized roadmap with ROI projections.",
+  alternates: {
+    canonical: "https://aiscoutco.com/services/discovery",
+  },
+  openGraph: {
+    title: "AI Discovery & Strategy | AI Scout Co",
+    description: "Start with a deep-dive discovery session. We map your workflows, identify every automation opportunity, and deliver a prioritized roadmap with ROI projections.",
+    url: "https://aiscoutco.com/services/discovery",
+    siteName: "AI Scout Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Discovery & Strategy | AI Scout Co",
+    description: "Start with a deep-dive discovery session. We map your workflows, identify every automation opportunity, and deliver a prioritized roadmap with ROI projections.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "AI Discovery & Strategy",
+  description: "A free discovery session that maps your workflows, identifies every automation opportunity, and delivers a prioritized roadmap with ROI projections.",
+  url: "https://aiscoutco.com/services/discovery",
+  provider: {
+    "@type": "Organization",
+    name: "AI Scout Co",
+    url: "https://aiscoutco.com",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description: "Free initial discovery call with no commitment required.",
+  },
 };
 
 export default function DiscoveryPage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="min-h-screen pt-16">
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
@@ -135,5 +171,6 @@ export default function DiscoveryPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

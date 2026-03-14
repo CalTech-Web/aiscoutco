@@ -5,10 +5,40 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Ongoing Support | AI Scout Co",
   description: "AI systems get better over time. Ongoing support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+  alternates: {
+    canonical: "https://aiscoutco.com/services/support",
+  },
+  openGraph: {
+    title: "Ongoing Support | AI Scout Co",
+    description: "AI systems get better over time. Ongoing support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+    url: "https://aiscoutco.com/services/support",
+    siteName: "AI Scout Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ongoing Support | AI Scout Co",
+    description: "AI systems get better over time. Ongoing support keeps your systems running, your team unblocked, and your automation evolving as your business grows.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Ongoing AI System Support",
+  description: "System monitoring, maintenance, performance optimization, and new capability additions to keep your AI automation running and evolving.",
+  url: "https://aiscoutco.com/services/support",
+  provider: {
+    "@type": "Organization",
+    name: "AI Scout Co",
+    url: "https://aiscoutco.com",
+  },
 };
 
 export default function SupportPage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="min-h-screen pt-16">
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
@@ -134,5 +164,6 @@ export default function SupportPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

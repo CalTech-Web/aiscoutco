@@ -5,10 +5,40 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Custom AI Systems | AI Scout Co",
   description: "From autonomous agent pipelines to API integrations and client portals, we build production-ready AI systems custom to your business.",
+  alternates: {
+    canonical: "https://aiscoutco.com/services/build",
+  },
+  openGraph: {
+    title: "Custom AI Systems | AI Scout Co",
+    description: "From autonomous agent pipelines to API integrations and client portals, we build production-ready AI systems custom to your business.",
+    url: "https://aiscoutco.com/services/build",
+    siteName: "AI Scout Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom AI Systems | AI Scout Co",
+    description: "From autonomous agent pipelines to API integrations and client portals, we build production-ready AI systems custom to your business.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Custom AI System Development",
+  description: "End-to-end autonomous agent architecture design and deployment. Multi-agent orchestration, API integrations, automated reporting, and custom client portal applications.",
+  url: "https://aiscoutco.com/services/build",
+  provider: {
+    "@type": "Organization",
+    name: "AI Scout Co",
+    url: "https://aiscoutco.com",
+  },
 };
 
 export default function BuildPage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="min-h-screen pt-16">
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
@@ -156,5 +186,6 @@ export default function BuildPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
