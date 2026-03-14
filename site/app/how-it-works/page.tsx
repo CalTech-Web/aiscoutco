@@ -235,7 +235,7 @@ export default function HowItWorksPage() {
               },
               {
                 q: "Will this replace my employees?",
-                a: "Not necessarily. In many cases, automation handles the repetitive work so your team can spend their time on things that actually need a human. In other cases, like the DiamondLinks case study, automation fully replaced a role and delivered more capability than the previous employee provided.",
+                a: <span>Not necessarily. In many cases, automation handles the repetitive work so your team can spend their time on things that actually need a human. In other cases, like the <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>, automation fully replaced a role and delivered more capability than the previous employee provided.</span>,
               },
             ].map((faq, i) => (
               <motion.div

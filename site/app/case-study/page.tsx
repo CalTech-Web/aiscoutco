@@ -162,7 +162,7 @@ export default function CaseStudyPage() {
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              During the discovery session, we mapped every workflow the employee handled. Two major functions emerged, monthly client reporting and sales proposal creation. Both were entirely manual, time-consuming, and limited by human capacity.
+              During the <Link href="/how-it-works" className="text-blue-400 hover:text-blue-300 transition-colors">discovery session</Link>, we mapped every workflow the employee handled. Two major functions emerged, monthly client reporting and sales proposal creation. Both were entirely manual, time-consuming, and limited by human capacity.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               The discovery process revealed not just what needed to be replaced, but a dozen ways to do it better. With autonomous agent orchestration, the new system would not just match what the employee did, it would far exceed it.
@@ -233,7 +233,7 @@ export default function CaseStudyPage() {
                 <div className="p-4">
                   <Image
                     src="/images/case-study/before-report.png"
-                    alt="Before: Manual Google Docs report"
+                    alt="DiamondLinks client report before automation: plain text document in Google Docs with no visual design"
                     width={600}
                     height={400}
                     className="w-full rounded-lg"
@@ -249,7 +249,7 @@ export default function CaseStudyPage() {
                 <div className="p-4">
                   <Image
                     src="/images/case-study/after-report.png"
-                    alt="After: Automated dashboard report"
+                    alt="DiamondLinks client report after automation: branded dashboard with charts, graphs, and color-coded metrics"
                     width={600}
                     height={400}
                     className="w-full rounded-lg"
@@ -485,13 +485,20 @@ export default function CaseStudyPage() {
             <motion.p variants={fadeUp} className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
               Book a free discovery call and find out exactly where AI and automation can transform your operations.
             </motion.p>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25"
               >
                 Book a Discovery Call
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
+              >
+                Learn how the five-step process works
+                <ArrowRight size={14} />
               </Link>
             </motion.div>
           </div>

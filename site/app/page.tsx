@@ -651,7 +651,10 @@ export default function HomePage() {
               </Link>
             </motion.div>
             <motion.p variants={fadeUp} className="text-slate-500 text-sm mt-6">
-              No commitment. No sales pitch. Just a conversation about what&apos;s possible.
+              No commitment. No sales pitch. Just a conversation about what&apos;s possible.{" "}
+              <Link href="/about" className="text-blue-400/70 hover:text-blue-400 transition-colors">
+                Learn more about Brandon.
+              </Link>
             </motion.p>
           </motion.div>
         </div>

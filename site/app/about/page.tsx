@@ -69,7 +69,7 @@ export default function AboutPage() {
                       I have spent the last 5+ years building digital solutions for businesses across industries. The same problem kept turning up. Businesses drowning in repetitive, manual work that could be automated, and nobody showing them how to fix it.
                     </p>
                     <p>
-                      AI Scout Co exists to close that gap. My job starts before the build, with a genuine discovery of what your business does, where it gets stuck, and what it would look like if the friction disappeared.
+                      AI Scout Co exists to close that gap. My job starts before the build, with a <Link href="/how-it-works" className="text-blue-400 hover:text-blue-300 transition-colors">genuine discovery</Link> of what your business does, where it gets stuck, and what it would look like if the friction disappeared.
                     </p>
                     <p>
                       I am not here to pitch you on AI as a buzzword. I am here to find the specific workflows in your business that AI and automation can transform, then build the systems to make that transformation real.
@@ -208,7 +208,7 @@ export default function AboutPage() {
             ))}
           </motion.div>
           <motion.p variants={fadeUp} className="text-slate-400 text-sm mt-4 leading-relaxed">
-            I integrate with the tools you already use, bring deep expertise in agent orchestration and API architecture, and find opportunities you did not know existed.
+            I integrate with the tools you already use, bring deep expertise in agent orchestration and API architecture, and find opportunities you did not know existed. <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">Read the DiamondLinks case study</Link> to see real results.
           </motion.p>
         </motion.section>
 
