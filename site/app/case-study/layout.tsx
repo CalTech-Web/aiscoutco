@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
+  "@id": "https://aiscoutco.com/case-study#article",
   headline: "AI Automation Case Study: DiamondLinks",
   description:
     "How AI Scout Co automated DiamondLinks' reporting and proposals in 6 weeks, eliminating a $85,000+ salary and delivering 7 new capabilities.",

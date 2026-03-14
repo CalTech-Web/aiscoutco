@@ -51,7 +51,7 @@ export default function RootLayout({
             __html: JSON.stringify([
               {
                 "@context": "https://schema.org",
-                "@type": "Organization",
+                "@type": ["Organization", "ProfessionalService"],
                 "@id": "https://aiscoutco.com/#organization",
                 name: "AI Scout Co",
                 url: "https://aiscoutco.com",

@@ -24,11 +24,13 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
+  "@id": "https://aiscoutco.com/contact#contactpage",
   name: "Book a Free Discovery Call | AI Scout Co",
   url: "https://aiscoutco.com/contact",
   description:
     "Book a free 30 to 60 minute AI discovery call with Brandon Hopkins. Find out exactly where automation can save your business time and money.",
   isPartOf: { "@id": "https://aiscoutco.com/#website" },
+  inLanguage: "en-US",
 };
 
 const breadcrumbJsonLd = {

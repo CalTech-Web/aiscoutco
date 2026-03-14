@@ -24,11 +24,13 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
+  "@id": "https://aiscoutco.com/how-it-works#webpage",
   name: "AI Automation Process | AI Scout Co",
   url: "https://aiscoutco.com/how-it-works",
   description:
     "See how AI Scout Co takes you from discovery to deployed AI systems in 5 phases. Identify your automation opportunities, then watch them get built.",
   isPartOf: { "@id": "https://aiscoutco.com/#website" },
+  inLanguage: "en-US",
 };
 
 const faqJsonLd = {

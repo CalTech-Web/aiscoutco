@@ -54,6 +54,16 @@ const jsonLd = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://aiscoutco.com/about#webpage",
+    name: "About Brandon Hopkins | AI Scout Co",
+    url: "https://aiscoutco.com/about",
+    isPartOf: { "@id": "https://aiscoutco.com/#website" },
+    mainEntity: { "@id": "https://aiscoutco.com/#brandon-hopkins" },
+    inLanguage: "en-US",
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
