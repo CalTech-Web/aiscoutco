@@ -27,10 +27,16 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0f172a]/90 backdrop-blur-md border-b border-slate-800/50 shadow-lg shadow-black/20"
+          ? "bg-[#0f172a]/90 backdrop-blur-md shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
+      {/* Gradient border bottom — fades in on scroll */}
+      <div
+        className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent transition-opacity duration-300 ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
@@ -49,13 +55,16 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-200 ${
+              className={`relative pb-1 text-sm font-medium transition-colors duration-200 ${
                 pathname === link.href
                   ? "text-blue-400"
                   : "text-slate-300 hover:text-white"
               }`}
             >
               {link.label}
+              {pathname === link.href && (
+                <span className="nav-underline absolute -bottom-px left-0 right-0 h-[1.5px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" />
+              )}
             </Link>
           ))}
           <Link
