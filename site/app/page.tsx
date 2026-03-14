@@ -170,10 +170,7 @@ function AgentTerminal() {
 
   return (
     <div ref={ref} className="w-full max-w-xl mx-auto mt-12">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 1.2 }}
+      <div
         className="rounded-xl border border-slate-700/60 bg-slate-900/80 backdrop-blur-sm overflow-hidden shadow-2xl shadow-blue-900/20"
       >
         {/* Terminal header */}
@@ -205,7 +202,7 @@ function AgentTerminal() {
             <span className="text-slate-600 text-xs">Initializing...</span>
           )}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -320,13 +317,9 @@ export default function HomePage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 rounded-full border-2 border-slate-600 flex items-start justify-center pt-2"
-          >
+          <div className="animate-scroll-bounce w-6 h-10 rounded-full border-2 border-slate-600 flex items-start justify-center pt-2">
             <div className="w-1 h-3 rounded-full bg-blue-400" />
-          </motion.div>
+          </div>
         </div>
       </section>
 
