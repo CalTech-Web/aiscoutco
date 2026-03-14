@@ -371,7 +371,7 @@ export default function CaseStudyPage() {
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-purple-500/20 bg-purple-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed">
-              The second discovery: proposals were also created manually. Every time a salesperson had a meeting with a prospect, someone had to compile call notes, review email threads, reference pricing, and write a custom proposal. This took hours.
+              Proposals were also entirely manual. Every time a salesperson had a meeting with a prospect, someone had to compile call notes, review email threads, reference pricing, and write a custom proposal. This took hours.
             </p>
           </motion.div>
 
