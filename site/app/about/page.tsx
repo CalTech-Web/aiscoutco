@@ -21,6 +21,8 @@ export default function AboutPage() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 to-transparent" />
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -50,8 +52,11 @@ export default function AboutPage() {
             <div className="p-8 md:p-12">
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 {/* Avatar placeholder */}
-                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">
-                  <span className="text-white text-3xl font-extrabold">B</span>
+                <div className="relative flex-shrink-0">
+                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 opacity-70 blur-sm animate-pulse" />
+                  <div className="relative w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <span className="text-white text-3xl font-extrabold">B</span>
+                  </div>
                 </div>
                 <div>
                   <motion.div variants={fadeUp}>
