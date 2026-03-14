@@ -2,8 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowRight, CheckCircle, TrendingUp, Zap, Users, Clock, Star, AlertTriangle, Lightbulb, Code2, BarChart3, Mic, Mail, Brain, RefreshCw, Calendar } from "lucide-react";
+
+function ScrollProgressBar() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
+
+  return (
+    <motion.div
+      className="fixed top-16 left-0 right-0 h-0.5 z-50 origin-left"
+      style={{
+        scaleX,
+        background: "linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6)",
+      }}
+    />
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -18,6 +33,7 @@ const stagger = {
 export default function CaseStudyPage() {
   return (
     <div className="min-h-screen pt-16">
+      <ScrollProgressBar />
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
