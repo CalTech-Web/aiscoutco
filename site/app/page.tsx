@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2 } from "lucide-react";
+import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star } from "lucide-react";
 
 const rotatingOutcomes = [
   "Eliminate $85,000+/year in labor costs.",
@@ -442,15 +442,26 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 rounded-2xl border border-slate-700/30 bg-slate-900/30 p-8 md:p-10"
+            className="mt-8 rounded-2xl border border-blue-500/20 bg-slate-900/50 overflow-hidden"
           >
-            <div className="flex gap-4 items-start">
-              <div className="text-5xl text-blue-400/30 font-serif leading-none mt-1">&ldquo;</div>
-              <div>
-                <blockquote className="text-slate-300 text-lg leading-relaxed italic mb-4">
-                  We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
-                </blockquote>
-                <figcaption className="text-slate-500 text-sm font-medium">DiamondLinks Leadership</figcaption>
+            <div className="h-px bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500" />
+            <div className="p-8 md:p-10">
+              <div className="flex items-center gap-1 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} fill="#f59e0b" className="text-amber-400" />
+                ))}
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="text-5xl text-blue-400/30 font-serif leading-none mt-1">&ldquo;</div>
+                <div>
+                  <blockquote className="text-slate-300 text-lg leading-relaxed italic mb-6">
+                    We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
+                  </blockquote>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">D</div>
+                    <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
