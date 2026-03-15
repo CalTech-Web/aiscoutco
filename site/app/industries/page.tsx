@@ -92,7 +92,7 @@ const industries = [
     label: "Any Business",
     description: "If your team does the same manual work on a schedule, I can build a system that does it for them. We serve any industry with repetitive workflows.",
     link: "/contact",
-    cta: "Book a free discovery call",
+    cta: "Get My Free Automation Audit",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function IndustriesPage() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
               >
-                Book a Free Discovery Call
+                Get My Free Automation Audit
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -177,13 +177,13 @@ export default function IndustriesPage() {
               Don&apos;t see your industry?
             </h2>
             <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-              If your business has repetitive manual workflows, there is almost certainly an AI system that can handle them. Book a free discovery call and I will identify the opportunities specific to your business.
+              If your business has repetitive manual workflows, there is almost certainly an AI system that can handle them. Get a free automation audit and I will identify the opportunities specific to your business.
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
             >
-              Book a Free Discovery Call
+              Get My Free Automation Audit
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
