@@ -416,16 +416,16 @@ const AUTO_DURATION = 3;
 const AUTO_COST = 0.12;
 
 const EXTRA_TASKS = [
-  { label: "Client proposals", hoursPerMonth: 6 },
-  { label: "Data entry and CRM updates", hoursPerMonth: 12 },
-  { label: "Invoice and billing prep", hoursPerMonth: 4 },
-  { label: "Email follow-ups and outreach", hoursPerMonth: 8 },
-  { label: "Meeting prep and note summaries", hoursPerMonth: 6 },
-  { label: "Social media scheduling", hoursPerMonth: 10 },
-  { label: "Lead qualification and research", hoursPerMonth: 8 },
-  { label: "Client onboarding documents", hoursPerMonth: 5 },
-  { label: "Inventory or catalog updates", hoursPerMonth: 6 },
-  { label: "Performance dashboards", hoursPerMonth: 4 },
+  { label: "Client proposals and pitch decks", hoursPerMonth: 20 },
+  { label: "Data entry and CRM updates", hoursPerMonth: 30 },
+  { label: "Invoice, billing, and collections", hoursPerMonth: 15 },
+  { label: "Email follow-ups and outreach", hoursPerMonth: 25 },
+  { label: "Meeting prep, notes, and follow-ups", hoursPerMonth: 20 },
+  { label: "Social media content and scheduling", hoursPerMonth: 30 },
+  { label: "Lead qualification and research", hoursPerMonth: 25 },
+  { label: "Client onboarding and intake", hoursPerMonth: 15 },
+  { label: "Inventory, catalog, or listing updates", hoursPerMonth: 20 },
+  { label: "Dashboards and performance tracking", hoursPerMonth: 15 },
 ];
 
 // ── App mockup components ──────────────────────────────────────────────────
