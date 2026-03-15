@@ -451,7 +451,7 @@ export default function AiAutomationConsultingPage() {
             <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
               The first step is a free discovery call. In 30 to 60 minutes, we map your workflows, identify every automation opportunity, and you leave with a clear picture of what AI can do for your business.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
@@ -467,6 +467,7 @@ export default function AiAutomationConsultingPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+            <p className="text-amber-400/80 text-xs font-semibold mb-3">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
             <p className="text-slate-500 text-sm">
               Free discovery call. No commitment required.
             </p>
