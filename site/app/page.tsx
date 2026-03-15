@@ -906,7 +906,7 @@ function ReportROIDemo() {
                 <p className="text-red-400 text-xs uppercase tracking-wider font-semibold mb-2">Manual / Year</p>
                 <p className="text-white font-extrabold text-3xl">${annualManualCost.toLocaleString()}</p>
                 <p className="text-slate-500 text-xs mt-1">
-                  {reportsPerMonth} reports × 1.5 hrs × $60/hr{extraAnnualHours > 0 ? ` + ${extraAnnualHours} hrs/mo` : ""} × 12
+                  {Math.round(reportsPerMonth * 1.5 + extraAnnualHours)} manual hrs/mo × $60/hr × 12 mo
                 </p>
               </div>
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-center">
