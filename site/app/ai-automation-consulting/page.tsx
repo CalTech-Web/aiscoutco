@@ -398,6 +398,9 @@ export default function AiAutomationConsultingPage() {
               </Link>{" "}
               <Link href="/business-process-automation" className="text-blue-400 hover:text-blue-300">
                 Explore our business process automation services.
+              </Link>{" "}
+              <Link href="/document-workflow-automation" className="text-blue-400 hover:text-blue-300">
+                See how we automate document workflows.
               </Link>
             </p>
           </div>

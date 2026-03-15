@@ -1,25 +1,25 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Search, Wrench, LifeBuoy, BarChart3, FileText, Brain, Zap, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, Search, Wrench, LifeBuoy, FileText, Brain, Zap, BarChart3, Star } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Business Process Automation Services | AI Scout Co",
-  description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
-  keywords: "business process automation services, business process automation consulting, business process automation consultant, business process automation with ai, intelligent business process automation",
+  title: "Document Workflow Automation | AI Scout Co",
+  description: "AI Scout Co builds custom document workflow automation systems that generate reports, proposals, and documents without manual effort. Free discovery call.",
+  keywords: "document workflow automation, document management workflow, document workflow solutions, document process automation, automated document workflow, intelligent document automation",
   alternates: {
-    canonical: "https://aiscoutco.com/business-process-automation",
+    canonical: "https://aiscoutco.com/document-workflow-automation",
   },
   openGraph: {
-    title: "Business Process Automation Services | AI Scout Co",
-    description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
-    url: "https://aiscoutco.com/business-process-automation",
+    title: "Document Workflow Automation | AI Scout Co",
+    description: "AI Scout Co builds custom document workflow automation systems that generate reports, proposals, and documents without manual effort. Free discovery call.",
+    url: "https://aiscoutco.com/document-workflow-automation",
     siteName: "AI Scout Co",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Process Automation Services | AI Scout Co",
-    description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
+    title: "Document Workflow Automation | AI Scout Co",
+    description: "AI Scout Co builds custom document workflow automation systems that generate reports, proposals, and documents without manual effort. Free discovery call.",
   },
 };
 
@@ -27,10 +27,10 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://aiscoutco.com/business-process-automation#webpage",
-    url: "https://aiscoutco.com/business-process-automation",
-    name: "Business Process Automation Services | AI Scout Co",
-    description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
+    "@id": "https://aiscoutco.com/document-workflow-automation#webpage",
+    url: "https://aiscoutco.com/document-workflow-automation",
+    name: "Document Workflow Automation | AI Scout Co",
+    description: "AI Scout Co builds custom document workflow automation systems that generate reports, proposals, and documents without manual effort. Free discovery call.",
     isPartOf: { "@id": "https://aiscoutco.com/#website" },
     about: { "@id": "https://aiscoutco.com/#organization" },
     inLanguage: "en-US",
@@ -40,22 +40,22 @@ const jsonLd = [
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
-      { "@type": "ListItem", position: 2, name: "Business Process Automation", item: "https://aiscoutco.com/business-process-automation" },
+      { "@type": "ListItem", position: 2, name: "Document Workflow Automation", item: "https://aiscoutco.com/document-workflow-automation" },
     ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://aiscoutco.com/business-process-automation#service",
-    name: "Business Process Automation Services",
-    serviceType: "Business Process Automation",
-    description: "Custom business process automation services: workflow discovery, AI system development, and ongoing optimization for businesses that want to eliminate manual work.",
+    "@id": "https://aiscoutco.com/document-workflow-automation#service",
+    name: "Document Workflow Automation",
+    serviceType: "Document Workflow Automation",
+    description: "Custom document workflow automation: AI systems that generate reports, proposals, and business documents automatically by pulling data from your existing tools.",
     provider: { "@id": "https://aiscoutco.com/#organization" },
     areaServed: "US",
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
-      description: "Free discovery call included. Custom-scoped project pricing based on workflow complexity and automation goals.",
+      description: "Free discovery call included. Custom-scoped project pricing based on document complexity and workflow requirements.",
     },
   },
   {
@@ -64,34 +64,34 @@ const jsonLd = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is business process automation?",
+        name: "What is document workflow automation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Business process automation (BPA) is the use of technology to perform repeatable business tasks with minimal human intervention. Modern BPA uses AI and intelligent agents to handle complex workflows that previously required manual effort, such as report generation, document creation, client communication, and data management.",
+          text: "Document workflow automation is the use of AI and intelligent agents to create, route, and deliver business documents without manual effort. Instead of someone compiling data, writing reports, or assembling proposals by hand, an automated document workflow pulls from your existing systems and produces finished documents automatically.",
         },
       },
       {
         "@type": "Question",
-        name: "What business processes can be automated?",
+        name: "What types of documents can be automated?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Any process that follows a repeatable pattern is a candidate for automation. The most common include: generating reports and dashboards, creating proposals and documents, sending client or customer communications, updating CRM records, processing invoices, scheduling follow-ups, and compiling data from multiple sources.",
+          text: "Any document that follows a repeatable structure is a strong candidate. The most common include: client reports and performance dashboards, sales proposals and quotes, invoices and billing statements, onboarding documents, compliance reports, meeting summaries, and internal status updates.",
         },
       },
       {
         "@type": "Question",
-        name: "How does business process automation consulting work?",
+        name: "How does automated document workflow connect to my existing tools?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It starts with a free discovery call to map your current workflows and identify every process that can be automated. You receive a detailed plan with ROI projections. If you proceed, we build your custom automation system in 4 to 8 weeks. After launch, we provide ongoing optimization and support.",
+          text: "Every system is built with direct API and webhook integrations into the tools you already use, such as Monday.com, Google Workspace, CRM platforms, and project management software. Your team does not need to change platforms or learn new tools. The automation connects to your existing workflow and generates documents in the background.",
         },
       },
       {
         "@type": "Question",
-        name: "How much does business process automation cost?",
+        name: "How long does it take to build a document workflow automation system?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every project is custom scoped after the discovery call. Pricing is transparent with clear ROI projections so you know exactly what each automation is worth before committing. The discovery call is always free. Most clients see a return on investment within 60 days.",
+          text: "Simple document automation can be live in one to two weeks. More complex multi-agent document workflows with multiple data sources and custom formatting typically take four to eight weeks from discovery call to launch. You receive a clear timeline and milestone plan during the discovery phase.",
         },
       },
     ],
@@ -102,22 +102,22 @@ const phases = [
   {
     icon: Search,
     step: "01",
-    title: "Process Discovery",
-    description: "We start with a free 30 to 60 minute call to map every workflow your team handles. I identify the highest-impact automation opportunities, rank them by ROI, and deliver a phased implementation plan.",
+    title: "Document Workflow Discovery",
+    description: "We start with a free 30 to 60 minute call to map every document your team produces manually. I identify which workflows have the highest automation ROI and deliver a prioritized implementation plan.",
     link: { href: "/services/discovery", label: "Learn about the discovery session" },
   },
   {
     icon: Wrench,
     step: "02",
     title: "Custom Automation Development",
-    description: "I architect and build your automation systems from scratch, connecting AI agents, APIs, and intelligent workflows directly into the tools you already use. No templates or off-the-shelf software.",
+    description: "I architect and build your document automation system from scratch, connecting AI agents to your data sources and existing tools. Every document type gets its own intelligent pipeline.",
     link: { href: "/services/build", label: "See what we build" },
   },
   {
     icon: LifeBuoy,
     step: "03",
     title: "Optimization & Support",
-    description: "After launch, I monitor your systems, tune performance, add new capabilities as your business grows, and train your team. Your automation investment compounds over time.",
+    description: "After launch, I monitor your document workflows, tune output quality, and expand automation coverage as your document needs evolve. Your investment compounds over time.",
     link: { href: "/services/support", label: "Explore ongoing support" },
   },
 ];
@@ -125,23 +125,23 @@ const phases = [
 const whatWeAutomate = [
   {
     icon: BarChart3,
-    title: "Reporting & Analytics",
-    description: "Automated report generation that pulls data from your systems, processes it through AI agents, and delivers formatted reports to clients or leadership without manual effort.",
+    title: "Client Reports & Dashboards",
+    description: "AI agents pull performance data from your systems, process it through specialized sub-agents, and assemble fully formatted client reports without any human intervention.",
   },
   {
     icon: FileText,
-    title: "Document & Proposal Creation",
-    description: "AI-driven systems that compile notes, email threads, pricing, and context into polished proposals or documents, generated automatically before every meeting or deadline.",
+    title: "Proposals & Quotes",
+    description: "Automated proposal workflows that compile call notes, email threads, pricing, and context into polished, branded proposals delivered automatically before every meeting.",
   },
   {
     icon: Brain,
-    title: "Workflow Orchestration",
-    description: "Multi-agent systems that coordinate complex processes across your tools, connecting project management, CRM, email, calendar, and databases through APIs and webhooks.",
+    title: "Compliance & Internal Reports",
+    description: "Recurring compliance reports and internal status documents generated on a schedule or on demand, pulling live data from your systems and formatted to your standards.",
   },
   {
     icon: Zap,
-    title: "Client Communication",
-    description: "Automated email sequences, AI-generated summaries, and intelligent follow-ups that keep clients informed and deals moving without your team writing a single message.",
+    title: "Invoices & Billing Documents",
+    description: "Invoice and billing workflows triggered automatically by project milestones or time entries, reducing billing delays and eliminating manual document assembly.",
   },
 ];
 
@@ -160,7 +160,7 @@ const industries = [
   { label: "E-commerce businesses", href: "/industries/ecommerce" },
 ];
 
-export default function BusinessProcessAutomationPage() {
+export default function DocumentWorkflowAutomationPage() {
   return (
     <>
       <script
@@ -179,15 +179,15 @@ export default function BusinessProcessAutomationPage() {
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-6 flex items-center justify-center gap-3">
               <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-                Automation Services
+                Document Automation
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Business Process{" "}
-              <span className="gradient-text">Automation Services</span>
+              Document Workflow{" "}
+              <span className="gradient-text">Automation</span>
             </h1>
             <p className="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Every business has processes that run on manual effort. Reports that take hours. Proposals assembled from scratch. Follow-ups that slip through the cracks. Business process automation replaces that manual work with intelligent systems that run on their own.
+              Every business produces documents manually: reports assembled from spreadsheets, proposals drafted from scratch, invoices created one by one. Document workflow automation replaces that manual work with intelligent systems that generate polished, accurate documents on their own.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -208,30 +208,30 @@ export default function BusinessProcessAutomationPage() {
           </div>
         </section>
 
-        {/* What is BPA */}
+        {/* What is document workflow automation */}
         <section className="py-20 bg-slate-900/50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                What is business process automation?
+                What is document workflow automation?
               </h2>
               <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-                Business process automation uses AI and intelligent software agents to complete repetitive tasks that your team currently handles manually. The goal is not to replace your people, it is to free them from work that a system can do better and faster.
+                Document workflow automation uses AI agents and intelligent pipelines to create, populate, and deliver business documents automatically. Instead of a team member collecting data, writing content, and formatting a final document, an automated system does all of it, triggered by an event, a schedule, or a single click.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               {[
                 {
-                  title: "Process mapping",
-                  description: "Every workflow your team handles is documented and analyzed, from daily tasks to monthly deliverables, to find every automation opportunity.",
+                  title: "Data-driven document generation",
+                  description: "AI agents pull live data from your project management tools, CRM, spreadsheets, and APIs, then assemble it into a finished document without manual copy-paste.",
                 },
                 {
-                  title: "Custom-built systems",
-                  description: "Every automation is built specifically for your business and integrated into the tools you already use. Nothing generic, no new platforms to learn.",
+                  title: "Custom formatting and branding",
+                  description: "Every document follows your exact formatting standards and branding. Reports look polished, proposals look professional, and nothing requires a design review.",
                 },
                 {
-                  title: "Measurable ROI",
-                  description: "Every automation recommendation includes an ROI projection so you know what it is worth before committing to build it.",
+                  title: "Triggered or on-demand delivery",
+                  description: "Documents are generated automatically when a project milestone is hit, on a recurring schedule, or on demand from a single button click in your existing tools.",
                 },
               ].map((item) => (
                 <div key={item.title} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
@@ -251,10 +251,10 @@ export default function BusinessProcessAutomationPage() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                How our business process automation consulting works
+                How our document workflow automation process works
               </h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                Every engagement follows the same three-phase process: discover, build, and optimize.
+                Every document automation engagement follows three phases: discover which documents to automate, build the intelligent pipeline, and optimize output over time.
               </p>
             </div>
             <div className="space-y-8">
@@ -288,15 +288,15 @@ export default function BusinessProcessAutomationPage() {
           </div>
         </section>
 
-        {/* What We Automate */}
+        {/* Document types we automate */}
         <section className="py-20 bg-slate-900/50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Business processes we automate
+                Document workflows we automate
               </h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                Any process that follows a repeatable pattern is a candidate for automation. These are the areas where we deliver the fastest and largest return.
+                Any document that follows a repeatable structure can be automated. These are the workflows where intelligent document automation delivers the fastest return.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -326,14 +326,14 @@ export default function BusinessProcessAutomationPage() {
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                DiamondLinks: business process automation that saved $85,000+/year
+                DiamondLinks: document workflow automation that saved $85,000+/year
               </h2>
               <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                DiamondLinks, an SEO and online reputation management agency, faced a business process problem: all client reporting and proposal creation was manual. When the employee who handled it received an outside offer, they reached out for a{" "}
+                DiamondLinks, an SEO and online reputation management agency, manually produced every client report and sales proposal by hand. A single employee owned both workflows. When that employee received an outside offer, we ran a{" "}
                 <Link href="/services/discovery" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">
                   discovery session
                 </Link>{" "}
-                to explore automation. What started as a retention problem became a complete business process overhaul that eliminated the role entirely and added seven capabilities they never had before.
+                to map every document they produced. The result was a fully automated document workflow system that eliminated the role entirely and added seven capabilities the company never had before.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
                 {results.map((r) => (
@@ -373,7 +373,7 @@ export default function BusinessProcessAutomationPage() {
                 Industries we serve
               </h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                Business process automation applies to any industry where manual work slows teams down. These are the industries we work with most.
+                Document workflow automation applies to any industry that produces recurring documents manually. These are the industries we work with most.
               </p>
             </div>
             <ul className="flex flex-wrap justify-center gap-3 mb-8">
@@ -391,13 +391,10 @@ export default function BusinessProcessAutomationPage() {
             <p className="text-center text-slate-500 text-sm">
               Don&apos;t see your industry?{" "}
               <Link href="/contact" className="text-blue-400 hover:text-blue-300">
-                Any business with repetitive workflows is a fit.
+                Any business that produces documents manually is a fit.
               </Link>{" "}
-              <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300">
-                Learn about our AI automation consulting approach.
-              </Link>{" "}
-              <Link href="/document-workflow-automation" className="text-blue-400 hover:text-blue-300">
-                See our document workflow automation services.
+              <Link href="/business-process-automation" className="text-blue-400 hover:text-blue-300">
+                See our full business process automation services.
               </Link>
             </p>
           </div>
@@ -408,26 +405,26 @@ export default function BusinessProcessAutomationPage() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Common questions about business process automation
+                Common questions about document workflow automation
               </h2>
             </div>
             <div className="space-y-6">
               {[
                 {
-                  q: "What is business process automation?",
-                  a: "Business process automation (BPA) uses AI and intelligent software agents to perform repeatable tasks with minimal human intervention. Modern BPA goes beyond simple rule-based triggers, using AI to handle complex, judgment-based processes like report generation, proposal writing, and multi-step client communications.",
+                  q: "What is document workflow automation?",
+                  a: "Document workflow automation uses AI agents and intelligent pipelines to create, populate, and deliver business documents without manual effort. An automated document workflow pulls live data from your existing systems, processes it through AI, and assembles a finished, formatted document, triggered by an event, a schedule, or a single click.",
                 },
                 {
-                  q: "What business processes can be automated?",
-                  a: "Any process that follows a repeatable pattern is a strong candidate. The most impactful areas are: client and internal reporting, proposal and document generation, CRM updates and follow-up sequences, invoice and billing workflows, data aggregation from multiple sources, and recurring client communications.",
+                  q: "What types of documents can be automated?",
+                  a: "Any document that follows a repeatable structure is a strong candidate. The most common include: client performance reports, sales proposals and quotes, invoices and billing statements, onboarding documents, compliance reports, meeting summaries, and internal status updates.",
                 },
                 {
-                  q: "How does business process automation consulting work?",
-                  a: "It starts with a free discovery call to map your current workflows and identify the highest-ROI automation opportunities. You receive a detailed plan before committing to anything. The build phase takes 4 to 8 weeks depending on scope. After launch, ongoing optimization keeps your systems running as your business grows.",
+                  q: "How does automated document workflow connect to my existing tools?",
+                  a: "Every system is built with direct API and webhook integrations into your existing tools, such as Monday.com, Google Workspace, Salesforce, HubSpot, and more. Your team does not need to switch platforms. The document automation runs in the background and delivers finished documents to wherever your team already works.",
                 },
                 {
-                  q: "How much does business process automation cost?",
-                  a: "Every project is custom scoped after the discovery call, with transparent pricing and ROI projections included. The discovery call is always free. Most clients see a return on investment within 60 days of launching their first automation.",
+                  q: "How long does it take to build a document workflow automation system?",
+                  a: "Simple document automation can be live in one to two weeks. More complex multi-agent document workflows with multiple data sources typically take four to eight weeks from discovery call to launch. You receive a clear timeline and milestone plan during the discovery phase before committing to build.",
                 },
               ].map((item) => (
                 <div key={item.q} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
@@ -443,10 +440,10 @@ export default function BusinessProcessAutomationPage() {
         <section className="py-20 bg-slate-900/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Ready to automate your business processes?
+              Ready to automate your document workflows?
             </h2>
             <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-              The first step is a free discovery call. In 30 to 60 minutes, we map your workflows, identify every automation opportunity, and you leave with a clear picture of what is possible.
+              The first step is a free discovery call. In 30 to 60 minutes, we map every document your team produces, identify which workflows have the highest ROI, and you leave with a clear picture of what can be automated.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link
@@ -457,10 +454,10 @@ export default function BusinessProcessAutomationPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/about"
+                href="/ai-automation-consulting"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-slate-600 hover:border-blue-500 text-slate-300 hover:text-white font-semibold rounded-lg transition-colors"
               >
-                Meet Brandon Hopkins
+                Learn about AI automation consulting
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

@@ -59,6 +59,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/document-workflow-automation" className="text-slate-400 hover:text-white text-sm transition-colors">
+                  Document Workflow Automation
+                </Link>
+              </li>
+              <li>
                 <Link href="/services/discovery" className="text-slate-400 hover:text-white text-sm transition-colors">
                   AI Discovery &amp; Strategy
                 </Link>

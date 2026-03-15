@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/ai-automation-consulting`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/small-business`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/business-process-automation`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/document-workflow-automation`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/privacy-policy`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/terms-of-service`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
   ];
