@@ -157,7 +157,7 @@ export default function HealthcarePage() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
               >
-                Book a Free Discovery Call
+                Get My Free Automation Audit
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -378,7 +378,7 @@ export default function HealthcarePage() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
               >
-                Book a Free Discovery Call
+                Get My Free Automation Audit
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
