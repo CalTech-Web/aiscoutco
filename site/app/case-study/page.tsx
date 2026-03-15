@@ -519,41 +519,20 @@ export default function CaseStudyPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent" />
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Could this be your business?
+              Your business can run like this.
             </h2>
-            <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-              Book a free discovery call and find out exactly where AI and automation can transform your operations.
+            <p className="text-slate-400 text-lg mb-3 max-w-xl mx-auto">
+              In 30 minutes, I&apos;ll map every place AI can save you time and money, and attach real dollar savings to each one. You keep the roadmap whether you hire me or not.
             </p>
-            <div className="flex flex-col items-center gap-4">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
-              >
-                Book a Discovery Call
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/how-it-works"
-                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
-              >
-                Learn how the five-step process works
-                <ArrowRight size={14} />
-              </Link>
-              <Link
-                href="/services/discovery"
-                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
-              >
-                See the AI Discovery &amp; Strategy service
-                <ArrowRight size={14} />
-              </Link>
-              <Link
-                href="/services/build"
-                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-300 text-sm transition-colors"
-              >
-                Explore Custom AI Systems
-                <ArrowRight size={14} />
-              </Link>
-            </div>
+            <p className="text-slate-500 text-sm mb-8">If I can&apos;t find at least 3 automation opportunities, I&apos;ll tell you straight. No pitch, no pressure.</p>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
+            >
+              Book a Free Discovery Call
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <p className="text-amber-400/80 text-xs font-semibold mt-5">Currently accepting new clients for April 2026. Spots are limited.</p>
           </div>
         </section>
       </div>

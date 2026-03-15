@@ -240,10 +240,11 @@ export default function HowItWorksPage() {
 
         {/* CTA */}
         <div className="mt-16 text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
-          <h2 className="text-3xl font-extrabold mb-4">Start with Step 1</h2>
-          <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-            A 30 to 60 minute discovery call costs you nothing. The insights you leave with are yours to keep.
+          <h2 className="text-3xl font-extrabold mb-4">The call is free. The roadmap is yours to keep.</h2>
+          <p className="text-slate-400 text-lg mb-3 max-w-xl mx-auto">
+            In 30 minutes, I map every place AI can save you time and money, with real dollar savings attached. You walk away with the plan whether you hire me or not.
           </p>
+          <p className="text-slate-500 text-sm mb-8">If I can&apos;t find at least 3 automation opportunities, I&apos;ll tell you straight. No pitch, no pressure.</p>
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
@@ -251,12 +252,7 @@ export default function HowItWorksPage() {
             Book a Free Discovery Call
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-slate-500 text-sm mt-6">
-            New to AI automation?{" "}
-            <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300 transition-colors">
-              Learn what AI automation consulting involves.
-            </Link>
-          </p>
+          <p className="text-amber-400/80 text-xs font-semibold mt-5">Currently accepting new clients for April 2026. Spots are limited.</p>
         </div>
       </div>
     </div>
