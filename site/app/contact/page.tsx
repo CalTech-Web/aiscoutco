@@ -47,10 +47,10 @@ export default function ContactPage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Free Discovery Call</p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-            In 30 minutes, know exactly what <span className="gradient-text">AI can save your business</span>
+            Walk away knowing exactly <span className="gradient-text">what AI can save your business</span>
           </h1>
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            You&apos;ll walk away with a personalized map of every place AI can cut costs and eliminate manual work, with real dollar savings attached to each one.
+            One free 30-minute call. I map every place AI can cut costs in your business and attach real dollar savings to each one. You keep the roadmap, no strings attached.
           </p>
           <p className="text-amber-400 text-sm font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
         </div>

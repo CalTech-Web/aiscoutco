@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers, ChevronDown } from "lucide-react";
 
 function useInViewOnce() {
@@ -454,8 +455,8 @@ export default function HomePage() {
                 ))}
               </div>
               <p className="text-slate-400 text-xs leading-snug italic">
-                &ldquo;Brandon saved us $85,000+/year and added 7 capabilities we never had before.&rdquo;
-                <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
+                &ldquo;We were about to give a 25% raise to keep an employee. Brandon automated the role in 6 weeks and gave us 7 capabilities we never had.&rdquo;
+                <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
               </p>
             </div>
 
@@ -684,6 +685,45 @@ export default function HomePage() {
                     <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">D</div>
                     <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
                   </div>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Before/After Visual Proof */}
+          <FadeUp delay={250} className="mt-8">
+            <p className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-4">The actual transformation</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-red-500/20 bg-slate-900/70 overflow-hidden">
+                <div className="bg-red-500/10 border-b border-red-500/20 px-4 py-2.5 flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <span className="text-red-400 text-xs font-semibold uppercase tracking-wider">Before</span>
+                  <span className="text-slate-500 text-xs ml-auto">Manual Google Docs</span>
+                </div>
+                <div className="p-3">
+                  <Image
+                    src="/images/case-study/before-report.png"
+                    alt="DiamondLinks client report before automation: plain text document in Google Docs"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-lg opacity-80"
+                  />
+                </div>
+              </div>
+              <div className="rounded-2xl border border-emerald-500/20 bg-slate-900/70 overflow-hidden">
+                <div className="bg-emerald-500/10 border-b border-emerald-500/20 px-4 py-2.5 flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  <span className="text-emerald-400 text-xs font-semibold uppercase tracking-wider">After</span>
+                  <span className="text-slate-500 text-xs ml-auto">Automated Dashboard Report</span>
+                </div>
+                <div className="p-3">
+                  <Image
+                    src="/images/case-study/after-report.png"
+                    alt="DiamondLinks client report after automation: branded dashboard with charts and metrics"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-lg"
+                  />
                 </div>
               </div>
             </div>
