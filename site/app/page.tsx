@@ -497,13 +497,13 @@ export default function HomePage() {
                 Book a Free Discovery Call
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/case-study"
+              <a
+                href="#case-study"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white font-semibold text-lg transition-all duration-200 hover:bg-slate-800/50"
               >
                 See a Real Case Study
                 <ChevronRight size={20} />
-              </Link>
+              </a>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-5">
@@ -605,7 +605,7 @@ export default function HomePage() {
       </section>
 
       {/* Case Study Preview */}
-      <section className="py-24">
+      <section id="case-study" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <FadeUp delay={0}><p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-3">Real Results</p></FadeUp>

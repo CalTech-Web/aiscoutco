@@ -7,8 +7,6 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
-    industry: "",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +21,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, company: "", industry: "" }),
       });
       if (res.ok) {
         setSubmitted(true);
@@ -49,10 +47,10 @@ export default function ContactPage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Free Discovery Call</p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-            Find your automation <span className="gradient-text">opportunities for free</span>
+            In 30 minutes, know exactly what <span className="gradient-text">AI can save your business</span>
           </h1>
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            In 30 to 60 minutes, you&apos;ll have a personalized map of every place AI can save you time and money, with real ROI projections. No technical knowledge required.
+            You&apos;ll walk away with a personalized map of every place AI can cut costs and eliminate manual work, with real dollar savings attached to each one.
           </p>
           <p className="text-amber-400 text-sm font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
         </div>
@@ -151,29 +149,6 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="jane@company.com"
-                        className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-1.5">Company name</label>
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Acme Inc."
-                        className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-1.5">Industry</label>
-                      <input
-                        type="text"
-                        value={formData.industry}
-                        onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                        placeholder="e.g. SEO Agency, Healthcare"
                         className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                       />
                     </div>
