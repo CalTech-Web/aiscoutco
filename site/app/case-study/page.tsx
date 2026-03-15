@@ -3,14 +3,24 @@
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle, TrendingUp, Zap, Users, Clock, Star, AlertTriangle, Lightbulb, Code2, BarChart3, Mic, Mail, Brain, RefreshCw, Calendar } from "lucide-react";
 
 function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
   const [count, setCount] = useState(end);
+  const [inView, setInView] = useState(false);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { rootMargin: "0px 0px -50px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!inView || started) return;
@@ -39,29 +49,26 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 }
 
 function ScrollProgressBar() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
-
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const update = () => {
+      const el = document.documentElement;
+      const pct = el.scrollTop / (el.scrollHeight - el.clientHeight);
+      setProgress(isNaN(pct) ? 0 : pct);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
   return (
-    <motion.div
+    <div
       className="fixed top-16 left-0 right-0 h-0.5 z-50 origin-left"
       style={{
-        scaleX,
+        transform: `scaleX(${progress})`,
         background: "linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6)",
       }}
     />
   );
 }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 export default function CaseStudyPage() {
   return (
@@ -75,23 +82,21 @@ export default function CaseStudyPage() {
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.div variants={fadeUp} className="mb-6 flex items-center justify-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider">Case Study</span>
-              <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">SEO Agency</span>
-              <span className="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-400 text-xs font-semibold uppercase tracking-wider">6 Weeks</span>
-            </motion.div>
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold mb-6">
-              How DiamondLinks
-              <br />
-              <span className="gradient-text">replaced a $85,000 salary</span>
-              <br />
-              and got 7 new features
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-              A key employee at DiamondLinks managed all client reporting and proposals. Then they got an outside offer. Six weeks later, the role was automated and the company had seven capabilities it never had before.
-            </motion.p>
-          </motion.div>
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider">Case Study</span>
+            <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">SEO Agency</span>
+            <span className="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-400 text-xs font-semibold uppercase tracking-wider">6 Weeks</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
+            How DiamondLinks
+            <br />
+            <span className="gradient-text">replaced a $85,000 salary</span>
+            <br />
+            and got 7 new features
+          </h1>
+          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            A key employee at DiamondLinks managed all client reporting and proposals. Then they got an outside offer. Six weeks later, the role was automated and the company had seven capabilities it never had before.
+          </p>
         </div>
       </section>
 
@@ -129,14 +134,8 @@ export default function CaseStudyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         {/* The Challenge */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-400">
               <AlertTriangle size={20} />
             </div>
@@ -144,18 +143,18 @@ export default function CaseStudyPage() {
               <div className="text-red-400 text-xs font-bold uppercase tracking-widest">Chapter 1</div>
               <h2 className="text-3xl font-extrabold text-white">The Challenge</h2>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-red-500/20 bg-red-500/5 p-8 mb-8">
+          <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
               DiamondLinks, a leading <Link href="/industries/seo-agencies" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">SEO and online reputation management</Link> company, faced a critical crossroads. A key employee who single-handedly managed all client reporting and proposal creation received an outside job offer and requested a <span className="text-red-400 font-semibold">25% raise</span>.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               This was not just a compensation issue. This employee was the linchpin of two core business functions. Without them, the entire client reporting workflow would collapse, and the sales proposal process would grind to a halt.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { icon: <Users size={18} />, title: "Single Point of Failure", desc: "One person controlled all client reporting, creating fragility in a core business function." },
               { icon: <Clock size={18} />, title: "Hours Per Report", desc: "Each monthly client report required significant manual effort to compile and format." },
@@ -172,18 +171,12 @@ export default function CaseStudyPage() {
                 </div>
               </div>
             ))}
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* The Decision */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/30 flex items-center justify-center text-yellow-400">
               <Lightbulb size={20} />
             </div>
@@ -191,27 +184,21 @@ export default function CaseStudyPage() {
               <div className="text-yellow-400 text-xs font-bold uppercase tracking-widest">Chapter 2</div>
               <h2 className="text-3xl font-extrabold text-white">The Decision</h2>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-8">
+          <div className="rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
               Rather than absorb the increased cost, DiamondLinks saw an opportunity. They reached out for a discovery call to explore whether AI and automation could not only replace the departing employee&apos;s responsibilities but genuinely improve upon them.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               The question was not simply &ldquo;can we automate this?&rdquo; It was &ldquo;if we&apos;re rebuilding this anyway, what does the best possible version look like?&rdquo;
             </p>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* The Discovery */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
               <Zap size={20} />
             </div>
@@ -219,18 +206,18 @@ export default function CaseStudyPage() {
               <div className="text-blue-400 text-xs font-bold uppercase tracking-widest">Chapter 3</div>
               <h2 className="text-3xl font-extrabold text-white">The Discovery</h2>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-8 mb-8">
+          <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
               During the <Link href="/how-it-works" className="text-blue-400 hover:text-blue-300 transition-colors">discovery session</Link>, we mapped every workflow the employee handled. Two major functions emerged, monthly client reporting and sales proposal creation. Both were entirely manual, time-consuming, and limited by human capacity.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               The discovery process revealed not just what needed to be replaced, but a dozen ways to do it better. With autonomous agent orchestration, the new system would not just match what the employee did, it would far exceed it.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl border border-slate-700/50 bg-slate-900/50 p-6">
               <div className="text-blue-400 font-bold mb-3 flex items-center gap-2">
                 <BarChart3 size={18} />
@@ -253,18 +240,12 @@ export default function CaseStudyPage() {
                 <li className="flex items-start gap-2"><span className="text-slate-600 mt-1">•</span>Hours of work per proposal</li>
               </ul>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* What We Built: Reporting */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
               <Code2 size={20} />
             </div>
@@ -273,18 +254,18 @@ export default function CaseStudyPage() {
               <h2 className="text-3xl font-extrabold text-white">What We Built</h2>
               <p className="text-slate-400 text-lg">The Automated Reporting System</p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-8 mb-10">
+          <div className="rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-8 mb-10">
             <p className="text-slate-300 text-lg leading-relaxed">
               The previous reports were plain text documents in Google Docs. Bland, hard to read, and missing key metrics. The new system is a{" "}
               <Link href="/services/build" className="text-cyan-400 hover:text-cyan-300 transition-colors">custom AI system</Link>
               {" "}built as an autonomous multi-agent workflow that transforms raw data into stunning, comprehensive reports, with zero human intervention.
             </p>
-          </motion.div>
+          </div>
 
           {/* Before/After screenshots */}
-          <motion.div variants={fadeUp} className="mb-12">
+          <div className="mb-12">
             <h3 className="text-xl font-bold text-white mb-6 text-center">Before &amp; After</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="rounded-2xl border border-red-500/30 bg-slate-900/70 overflow-hidden">
@@ -320,10 +301,10 @@ export default function CaseStudyPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* 7 New Features */}
-          <motion.div variants={fadeUp}>
+          <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">7</div>
               <h3 className="text-2xl font-bold text-white">New Features Delivered</h3>
@@ -410,18 +391,12 @@ export default function CaseStudyPage() {
                 );
               })}
             </ol>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* What We Built: Proposals */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
               <Star size={20} />
             </div>
@@ -430,15 +405,15 @@ export default function CaseStudyPage() {
               <h2 className="text-3xl font-extrabold text-white">What We Built</h2>
               <p className="text-slate-400 text-lg">The Automated Proposal System</p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-purple-500/20 bg-purple-500/5 p-8 mb-8">
+          <div className="rounded-2xl border border-purple-500/20 bg-purple-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed">
               Proposals were also entirely manual. Every time a salesperson had a meeting with a prospect, someone had to compile call notes, review email threads, reference pricing, and write a custom proposal. This took hours.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="space-y-4">
+          <div className="space-y-4">
             {[
               {
                 title: "Call Intelligence",
@@ -481,18 +456,12 @@ export default function CaseStudyPage() {
                 </div>
               </div>
             ))}
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* The Results */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
               <TrendingUp size={20} />
             </div>
@@ -500,9 +469,9 @@ export default function CaseStudyPage() {
               <div className="text-emerald-400 text-xs font-bold uppercase tracking-widest">Chapter 6</div>
               <h2 className="text-3xl font-extrabold text-white">The Results</h2>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 mb-8">
+          <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
               Sixty days after launch, the role was gone and seven new capabilities had taken its place. Client satisfaction went up. The team stopped touching reports and proposals entirely. Nothing in the operation required manual intervention anymore.
             </p>
@@ -518,10 +487,10 @@ export default function CaseStudyPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Testimonial */}
-          <motion.div variants={fadeUp} className="rounded-2xl border border-blue-500/20 bg-slate-900/50 overflow-hidden">
+          <div className="rounded-2xl border border-blue-500/20 bg-slate-900/50 overflow-hidden">
             <div className="h-px bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500" />
             <div className="p-8">
               <div className="flex items-center gap-1 mb-5">
@@ -542,26 +511,20 @@ export default function CaseStudyPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* CTA */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="text-center py-16 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 relative overflow-hidden"
-        >
+        <section className="text-center py-16 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent" />
           <div className="relative">
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-extrabold mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
               Could this be your business?
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
+            </h2>
+            <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
               Book a free discovery call and find out exactly where AI and automation can transform your operations.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
+            </p>
+            <div className="flex flex-col items-center gap-4">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
@@ -590,9 +553,9 @@ export default function CaseStudyPage() {
                 Explore Custom AI Systems
                 <ArrowRight size={14} />
               </Link>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
   );

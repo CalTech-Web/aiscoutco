@@ -1,19 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowRight, Brain, BarChart3, Zap, CheckCircle, Clock, MessageSquare, FileText, Rocket, Settings } from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 const steps = [
   {
@@ -107,13 +95,6 @@ const colorMap: Record<string, { border: string; bg: string; text: string; tag: 
 };
 
 export default function HowItWorksPage() {
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start 80%", "end 30%"],
-  });
-  const timelineFill = useSpring(scrollYProgress, { stiffness: 60, damping: 25 });
-
   return (
     <div className="min-h-screen pt-16">
       {/* Hero */}
@@ -124,47 +105,30 @@ export default function HowItWorksPage() {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-4">The Process</motion.p>
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold mb-6">
-              Simple for you.
-              <br />
-              <span className="gradient-text">Specialized from me.</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-              Every engagement follows the same five-phase process. You describe what you want your business to look like. I handle the autonomous agent orchestration, API architecture, and custom workflow engineering to make it real.
-            </motion.p>
-          </motion.div>
+          <p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-4">The Process</p>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
+            Simple for you.
+            <br />
+            <span className="gradient-text">Specialized from me.</span>
+          </h1>
+          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            Every engagement follows the same five-phase process. You describe what you want your business to look like. I handle the autonomous agent orchestration, API architecture, and custom workflow engineering to make it real.
+          </p>
         </div>
       </section>
 
       {/* Steps */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div ref={timelineRef} className="relative">
-          {/* Vertical connector track (dim) */}
+        <div className="relative">
+          {/* Vertical connector track */}
           <div className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500/15 via-purple-500/10 to-orange-500/10 hidden md:block" />
-          {/* Animated fill line */}
-          <motion.div
-            className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-orange-400 hidden md:block origin-top"
-            style={{ scaleY: timelineFill }}
-          />
 
           <ol className="space-y-10 list-none">
             {steps.map((step, i) => {
               const c = colorMap[step.color];
               return (
-                <motion.li
-                  key={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={stagger}
-                  className="relative"
-                >
-                  <motion.div
-                    variants={fadeUp}
-                    className={`rounded-2xl border ${c.border} ${c.bg} overflow-hidden`}
-                  >
+                <li key={i} className="relative">
+                  <div className={`rounded-2xl border ${c.border} ${c.bg} overflow-hidden`}>
                     {/* Header */}
                     <div className="p-6 md:p-8">
                       <div className="flex items-start gap-5">
@@ -229,23 +193,17 @@ export default function HowItWorksPage() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                </motion.li>
+                  </div>
+                </li>
               );
             })}
           </ol>
         </div>
 
         {/* FAQ Teaser */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mt-20"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl font-extrabold text-center mb-10">Common questions</motion.h2>
-          <motion.div variants={stagger} className="space-y-4">
+        <section className="mt-20">
+          <h2 className="text-3xl font-extrabold text-center mb-10">Common questions</h2>
+          <div className="space-y-4">
             {[
               {
                 q: "How long does it take to build a system?",
@@ -264,9 +222,8 @@ export default function HowItWorksPage() {
                 a: <span>Not necessarily. In many cases, automation handles the repetitive work so your team can spend their time on things that actually need a human. In other cases, like the <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>, automation fully replaced a role and delivered more capability than the previous employee provided.</span>,
               },
             ].map((faq, i) => (
-              <motion.div
+              <div
                 key={i}
-                variants={fadeUp}
                 className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6"
               >
                 <div className="flex items-start gap-3">
@@ -276,18 +233,13 @@ export default function HowItWorksPage() {
                     <div className="text-slate-400 text-sm leading-relaxed">{faq.a}</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12"
-        >
+        <div className="mt-16 text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
           <h2 className="text-3xl font-extrabold mb-4">Start with Step 1</h2>
           <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
             A 30 to 60 minute discovery call costs you nothing. The insights you leave with are yours to keep.
@@ -305,7 +257,7 @@ export default function HowItWorksPage() {
               Learn what AI automation consulting involves.
             </Link>
           </p>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

@@ -1,18 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowRight, Brain, Clock, CheckCircle, Mail, MessageSquare } from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -44,37 +33,29 @@ export default function ContactPage() {
         <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-purple-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Get Started</motion.p>
-            <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-              Book a <span className="gradient-text">Discovery Call</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-              A 30 to 60 minute conversation where I learn your workflows, identify automation opportunities, and show you what your business could look like with the right AI systems in place.
-            </motion.p>
-          </motion.div>
+          <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Get Started</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
+            Book a <span className="gradient-text">Discovery Call</span>
+          </h1>
+          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            A 30 to 60 minute conversation where I learn your workflows, identify automation opportunities, and show you what your business could look like with the right AI systems in place.
+          </p>
         </div>
       </section>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           {/* Left info panel */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="lg:col-span-2 space-y-6"
-          >
-            <motion.div variants={fadeUp} className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6">
+          <div className="lg:col-span-2 space-y-6">
+            <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6">
               <Brain size={24} className="text-blue-400 mb-3" />
               <h3 className="text-white font-bold mb-2">What happens on the call</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                 We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I will have identified several areas where AI and automation can make an immediate impact.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
               <Clock size={24} className="text-cyan-400 mb-3" />
               <h3 className="text-white font-bold mb-2">What to expect</h3>
               <ul className="space-y-2">
@@ -89,9 +70,9 @@ export default function ContactPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
               <MessageSquare size={24} className="text-purple-400 mb-3" />
               <h3 className="text-white font-bold mb-2">Prefer email?</h3>
               <p className="text-slate-400 text-sm mb-3">Reach out directly and I will get back to you within one business day.</p>
@@ -102,17 +83,11 @@ export default function ContactPage() {
                 <Mail size={14} />
                 brandon@aiscoutco.com
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-3"
-          >
+          <div className="lg:col-span-3">
             <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8">
               {submitted ? (
                 <div className="text-center py-12">
@@ -214,20 +189,14 @@ export default function ContactPage() {
                 </form>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* What happens next */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mt-16"
-        >
-          <motion.p variants={fadeUp} className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-10">
+        <div className="mt-16">
+          <p className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-10">
             What happens next
-          </motion.p>
+          </p>
           <div className="relative flex items-start justify-between max-w-2xl mx-auto px-4">
             {/* Connecting line */}
             <div className="absolute top-5 left-12 right-12 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/30 via-purple-500/30 to-emerald-500/30" />
@@ -237,15 +206,15 @@ export default function ContactPage() {
               { icon: <Clock size={16} />, label: "We schedule your call", color: "text-purple-400", bg: "bg-purple-500/20", border: "border-purple-500/30" },
               { icon: <CheckCircle size={16} />, label: "You get real insights", color: "text-emerald-400", bg: "bg-emerald-500/20", border: "border-emerald-500/30" },
             ].map((step, i) => (
-              <motion.div key={i} variants={fadeUp} className="flex flex-col items-center gap-3 z-10 flex-1">
+              <div key={i} className="flex flex-col items-center gap-3 z-10 flex-1">
                 <div className={`w-10 h-10 rounded-full ${step.bg} border ${step.border} flex items-center justify-center ${step.color} bg-slate-950`}>
                   {step.icon}
                 </div>
                 <p className="text-slate-400 text-xs text-center leading-snug max-w-[80px]">{step.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

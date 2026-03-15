@@ -1,18 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, Zap, Code2, Brain, Users, CheckCircle } from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 export default function AboutPage() {
   return (
@@ -25,29 +14,21 @@ export default function AboutPage() {
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.p variants={fadeUp} className="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-4">About</motion.p>
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold mb-6">
-              You work directly
-              <br />
-              <span className="gradient-text">with the builder.</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-              No account managers. No salespeople. Just you and the person who will actually design, build, and deploy your systems.
-            </motion.p>
-          </motion.div>
+          <p className="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-4">About</p>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
+            You work directly
+            <br />
+            <span className="gradient-text">with the builder.</span>
+          </h1>
+          <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+            No account managers. No salespeople. Just you and the person who will actually design, build, and deploy your systems.
+          </p>
         </div>
       </section>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         {/* Founder Bio */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
+        <section className="mb-20">
           <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 overflow-hidden">
             <div className="p-8 md:p-12">
               <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -59,17 +40,15 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div>
-                  <motion.div variants={fadeUp}>
-                    <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <h2 className="text-3xl font-extrabold text-white">Brandon Hopkins</h2>
-                    </div>
-                    <div className="flex items-center gap-3 mb-6 flex-wrap">
-                      <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold">Founder, AI Scout Co</span>
-                      <span className="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-400 text-xs font-semibold">Founder, CalTech Web</span>
-                    </div>
-                  </motion.div>
+                  <div className="flex items-center gap-3 mb-2 flex-wrap">
+                    <h2 className="text-3xl font-extrabold text-white">Brandon Hopkins</h2>
+                  </div>
+                  <div className="flex items-center gap-3 mb-6 flex-wrap">
+                    <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold">Founder, AI Scout Co</span>
+                    <span className="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-400 text-xs font-semibold">Founder, CalTech Web</span>
+                  </div>
 
-                  <motion.div variants={fadeUp} className="space-y-4 text-slate-300 leading-relaxed">
+                  <div className="space-y-4 text-slate-300 leading-relaxed">
                     <p>
                       I have spent the last 5+ years building digital solutions for businesses across industries. The same problem kept turning up. Businesses drowning in repetitive, manual work that could be automated, and nobody showing them how to fix it.
                     </p>
@@ -79,7 +58,7 @@ export default function AboutPage() {
                     <p>
                       I am not here to pitch you on AI as a buzzword. I am here to find the specific workflows in your business that AI and automation can transform, then build the systems to make that transformation real, and <Link href="/services/support" className="text-blue-400 hover:text-blue-300 transition-colors">support them as your business grows</Link>.
                     </p>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,20 +73,14 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Philosophy */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl font-extrabold text-white mb-8">
+        <section className="mb-20">
+          <h2 className="text-3xl font-extrabold text-white mb-8">
             How I think about AI consulting
-          </motion.h2>
-          <motion.div variants={stagger} className="space-y-6">
+          </h2>
+          <div className="space-y-6">
             {[
               {
                 icon: <Brain size={20} />,
@@ -142,7 +115,7 @@ export default function AboutPage() {
               };
               const c = colors[item.color];
               return (
-                <motion.div key={i} variants={fadeUp} className={`rounded-2xl border ${c.border} ${c.bg} p-6`}>
+                <div key={i} className={`rounded-2xl border ${c.border} ${c.bg} p-6`}>
                   <div className="flex items-start gap-4">
                     <div className={`w-10 h-10 rounded-xl ${c.bg} border ${c.border} flex items-center justify-center ${c.text} flex-shrink-0`}>
                       {item.icon}
@@ -152,21 +125,15 @@ export default function AboutPage() {
                       <p className="text-slate-300 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* CalTech Web Background */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.div variants={fadeUp} className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 md:p-10">
+        <section className="mb-20">
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 md:p-10">
             <h2 className="text-2xl font-extrabold text-white mb-4">Built on 5+ years of digital expertise</h2>
             <p className="text-slate-400 leading-relaxed mb-6">
               Before AI Scout Co, I founded CalTech Web, a web development and digital solutions agency. That experience across dozens of client projects in different industries gave me a ground-level view of where businesses lose time, money, and momentum to manual processes.
@@ -186,44 +153,33 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* What makes this different */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="mb-20"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl font-extrabold text-white mb-8">
+        <section className="mb-20">
+          <h2 className="text-3xl font-extrabold text-white mb-8">
             What makes AI Scout Co different
-          </motion.h2>
-          <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               "You work directly with the builder",
               "Every system custom built for your business",
               "Real case studies with measurable ROI",
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} className="flex items-start gap-3 p-4 rounded-xl border border-slate-700/30 bg-slate-900/30">
+              <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-slate-700/30 bg-slate-900/30">
                 <CheckCircle size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">{item}</span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-          <motion.p variants={fadeUp} className="text-slate-400 text-sm mt-4 leading-relaxed">
+          </div>
+          <p className="text-slate-400 text-sm mt-4 leading-relaxed">
             I integrate with the tools you already use, bring deep expertise in agent orchestration and API architecture, and find opportunities you did not know existed. <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">Read the DiamondLinks case study</Link> to see real results.
-          </motion.p>
-        </motion.section>
+          </p>
+        </section>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12"
-        >
+        <div className="text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
           <h2 className="text-3xl font-extrabold mb-4">Let&apos;s dream together</h2>
           <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
             Book a free discovery call and find out what AI and automation can unlock for your business.
@@ -241,7 +197,7 @@ export default function AboutPage() {
               See how AI automation consulting works.
             </Link>
           </p>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
