@@ -339,6 +339,12 @@ const faqNodes: Record<number, React.ReactNode> = {
       , automation can fully replace a role and deliver even more capability than the previous employee provided.
     </span>
   ),
+  5: (
+    <span>
+      Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you&apos;re getting and what it&apos;s worth to your business. Most clients see a return within the first 60 days.{" "}
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book your free discovery call to get a custom quote.</Link>
+    </span>
+  ),
   6: (
     <span>
       Absolutely. The{" "}
@@ -833,13 +839,17 @@ export default function HomePage() {
             ))}
           </div>
 
-          <FadeUp delay={200} className="text-center mt-10">
+          <FadeUp delay={200} className="mt-10 rounded-2xl border border-slate-700/40 bg-slate-900/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <p className="text-white font-bold text-lg">Not sure which of these applies to you?</p>
+              <p className="text-slate-400 text-sm mt-1">That&apos;s exactly what the discovery call is for. I&apos;ll identify the highest-ROI opportunities in your specific workflow.</p>
+            </div>
             <Link
-              href="/services/build"
-              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+              href="/contact"
+              className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
             >
-              Explore our custom AI systems
-              <ArrowRight size={18} />
+              Book a Free Discovery Call
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
         </div>

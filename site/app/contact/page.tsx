@@ -26,7 +26,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-12 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent" />
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl animate-blob" />
@@ -57,12 +57,12 @@ export default function ContactPage() {
 
             <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
               <Clock size={24} className="text-cyan-400 mb-3" />
-              <h3 className="text-white font-bold mb-2">What to expect</h3>
+              <h3 className="text-white font-bold mb-2">What you&apos;ll walk away with</h3>
               <ul className="space-y-2">
                 {[
-                  "30 to 60 minute video call",
-                  "No commitment required",
-                  "Walk away with a personalized roadmap",
+                  "Personalized opportunity map with ROI estimates",
+                  "Priority list of what to automate first",
+                  "No commitment, no sales pressure",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-slate-400 text-sm">
                     <CheckCircle size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -163,6 +163,18 @@ export default function ContactPage() {
                       placeholder="Tell me about the manual, repetitive work your team handles. What takes the most time? What falls through the cracks?"
                       className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
                     />
+                  </div>
+
+                  <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-4 flex items-start gap-3">
+                    <div className="flex-shrink-0 flex gap-0.5 mt-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" className="text-amber-400"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      ))}
+                    </div>
+                    <p className="text-slate-300 text-xs leading-snug italic">
+                      &ldquo;Brandon built us a system that replaced every function and added seven new capabilities we never had before.&rdquo;
+                      <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
+                    </p>
                   </div>
 
                   <button
