@@ -349,6 +349,100 @@ const faqJsonLd = {
 };
 
 
+function ROICalculator() {
+  const [employees, setEmployees] = useState(2);
+  const [hoursPerWeek, setHoursPerWeek] = useState(10);
+  const [hourlyCost, setHourlyCost] = useState(35);
+
+  const annualSavings = Math.round(employees * hoursPerWeek * hourlyCost * 52 * 0.7);
+
+  return (
+    <section className="py-24 bg-slate-900/50 border-y border-slate-800/50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <FadeUp delay={0}><p className="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-3">Quick Estimate</p></FadeUp>
+          <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">What is manual work costing you?</h2></FadeUp>
+          <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-2xl mx-auto">Move the sliders to see your estimated annual savings from automation.</p></FadeUp>
+        </div>
+
+        <FadeUp delay={150}>
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-slate-300 text-sm font-medium">Employees on repetitive work</label>
+                  <span className="text-white font-bold text-lg">{employees}</span>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="20"
+                  value={employees}
+                  onChange={(e) => setEmployees(Number(e.target.value))}
+                  className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
+                />
+                <div className="flex justify-between text-slate-600 text-xs mt-1"><span>1</span><span>20</span></div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-slate-300 text-sm font-medium">Manual hours per employee/week</label>
+                  <span className="text-white font-bold text-lg">{hoursPerWeek} hrs</span>
+                </div>
+                <input
+                  type="range"
+                  min="2"
+                  max="40"
+                  value={hoursPerWeek}
+                  onChange={(e) => setHoursPerWeek(Number(e.target.value))}
+                  className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
+                />
+                <div className="flex justify-between text-slate-600 text-xs mt-1"><span>2 hrs</span><span>40 hrs</span></div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-slate-300 text-sm font-medium">Average hourly cost</label>
+                  <span className="text-white font-bold text-lg">${hourlyCost}/hr</span>
+                </div>
+                <input
+                  type="range"
+                  min="15"
+                  max="150"
+                  step="5"
+                  value={hourlyCost}
+                  onChange={(e) => setHourlyCost(Number(e.target.value))}
+                  className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
+                />
+                <div className="flex justify-between text-slate-600 text-xs mt-1"><span>$15</span><span>$150</span></div>
+              </div>
+            </div>
+
+            <div className="text-center rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6 mb-8">
+              <p className="text-slate-400 text-sm mb-2">Estimated annual savings from automation</p>
+              <div className="text-5xl md:text-6xl font-extrabold gradient-text mb-2">
+                ${annualSavings.toLocaleString()}+/yr
+              </div>
+              <p className="text-slate-500 text-xs">Based on automating 70% of identified manual work. A free audit gives you exact numbers.</p>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
+              >
+                Get My Exact ROI Projection
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <p className="text-slate-500 text-xs mt-3">Free 30-min call. No commitment required.</p>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
 function FAQItem({ question, answer }: { question: string; answer: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
@@ -561,6 +655,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <ROICalculator />
 
       {/* Why AI Scout Co */}
       <section className="py-20">

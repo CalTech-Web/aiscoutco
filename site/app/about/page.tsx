@@ -200,7 +200,7 @@ export default function AboutPage() {
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
           >
-            Book a Free Discovery Call
+            Get My Free Automation Audit
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
           <p className="text-amber-400/80 text-xs font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
