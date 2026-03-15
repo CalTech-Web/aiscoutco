@@ -1469,7 +1469,7 @@ export default function HomePage() {
             <div>
               <p className="text-white font-bold text-xl">Your business can run like this.</p>
               <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
-              <p className="text-amber-400/80 text-xs font-medium mt-1.5">{["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots available now.</p>
+              <p className="text-amber-400/80 text-xs font-medium mt-1.5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
             </div>
             <Link
               href="/contact"
