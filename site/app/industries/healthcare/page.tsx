@@ -333,6 +333,37 @@ export default function HealthcarePage() {
           </div>
         </section>
 
+        {/* Other Industries */}
+        <section className="py-12 bg-slate-900/30">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-slate-400 text-sm font-semibold uppercase tracking-wider mb-6">
+              Other industries we serve
+            </p>
+            <ul className="flex flex-wrap justify-center gap-3">
+              <li>
+                <Link href="/industries/seo-agencies" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">
+                  SEO &amp; digital marketing agencies
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries/professional-services" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">
+                  Professional services firms
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries/real-estate" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">
+                  Real estate agents
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries/ecommerce" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">
+                  E-commerce businesses
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

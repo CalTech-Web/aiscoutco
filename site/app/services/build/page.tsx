@@ -230,6 +230,19 @@ export default function BuildPage() {
             </ul>
           </div>
 
+          {/* Industries */}
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 mb-12">
+            <h2 className="text-xl font-extrabold text-white mb-3">Industries we work with</h2>
+            <p className="text-slate-400 text-sm mb-6">Every system is custom built around your industry, your tools, and your workflows. Not a template.</p>
+            <ul className="flex flex-wrap gap-3">
+              <li><Link href="/industries/seo-agencies" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">SEO &amp; digital marketing agencies</Link></li>
+              <li><Link href="/industries/professional-services" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">Professional services firms</Link></li>
+              <li><Link href="/industries/real-estate" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">Real estate agents</Link></li>
+              <li><Link href="/industries/healthcare" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">Healthcare practices</Link></li>
+              <li><Link href="/industries/ecommerce" className="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white text-sm transition-colors">E-commerce businesses</Link></li>
+            </ul>
+          </div>
+
           {/* CTA */}
           <div className="text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
             <h2 className="text-3xl font-extrabold text-white mb-4">Ready to build something?</h2>
