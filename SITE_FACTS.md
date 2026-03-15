@@ -36,6 +36,8 @@
 | **Combined Team Expertise** | 10+ years |
 | **Other Company** | CalTech Web, a web development and digital solutions agency |
 
+**Headshot:** /images/brandon-hopkins.jpg
+
 **Brandon's philosophy quote on site:**
 > "Most businesses don't even know what AI and automation is capable of doing. During our discovery call, I identify areas of opportunity and dream with you on how best to accomplish your goals."
 
@@ -75,9 +77,27 @@
 | Monday.com | Project Management / Workflow |
 | Google Workspace | Email / Calendar / Meet |
 | OpenAI / Claude API | AI Model Orchestration |
+| Salesforce | CRM |
+| HubSpot | CRM / Marketing |
+| Slack | Team Communication |
+| Microsoft 365 | Productivity Suite |
+| QuickBooks | Accounting |
+| Ahrefs | SEO Analytics |
+| Mailchimp | Email Marketing |
+| Stripe | Payments |
+| Notion | Knowledge Management |
+| Google Analytics | Web Analytics |
+| Zapier | Workflow Automation |
+| Shopify | E-commerce |
+| Calendly | Scheduling |
+| Zoom | Video Conferencing |
+| Twilio | SMS / Voice |
+| Google Meet | Video Conferencing |
 | Vercel / Next.js | Web Application Hosting |
 | Resend / SendGrid | Automated Email |
 | OAuth / SSO Providers | Authentication |
+| Webhooks | Event-driven Integrations |
+| Custom APIs | Custom Integrations |
 
 ---
 
@@ -121,12 +141,12 @@
 
 | Industry | URL |
 |---|---|
-| SEO & Digital Marketing Agencies | `` |
-| Professional Services | `` |
-| Real Estate | `` |
-| Healthcare | `` |
-| E-commerce | `` |
-| Any business with repetitive manual workflows | `` |
+| SEO & Digital Marketing Agencies | `/industries/seo-agencies` |
+| Professional Services | `/industries/professional-services` |
+| Real Estate | `/industries/real-estate` |
+| Healthcare | `/industries/healthcare` |
+| E-commerce | `/industries/ecommerce` |
+| Any business with repetitive manual workflows | `/small-business` |
 
 **Geographic focus:** Remote, serving clients nationwide.
 
@@ -134,9 +154,9 @@
 
 ## Client Testimonials
 
-### DiamondLinks Leadership
+### Hilary Spross, DiamondLinks
 > "We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now."
-- Headshot: none
+- Headshot: /images/hilary-spross.jpg
 - Case: Key employee departure threatened client reporting and proposal workflows
 - Result: Fully automated reporting and proposal system with 7+ new features, saving $85,000+/year
 
@@ -183,8 +203,14 @@ Absolutely. The DiamondLinks case study on this site includes before and after s
 - How It Works (`/how-it-works/`)
 - About (`/about/`)
 
+### SEO Landing Pages
+- AI Automation Consulting (`/ai-automation-consulting`)
+- Business Process Automation (`/business-process-automation`)
+- Document Workflow Automation (`/document-workflow-automation`)
+- AI for Small Business (`/small-business`)
+
 ### CTAs
-- Book a Discovery Call -> (`/contact/`)
+- Get My Free Automation Audit -> (`/contact/`)
 
 ### Footer Links - Services
 - AI Discovery & Strategy (`/services/discovery/`)
