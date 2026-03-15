@@ -1113,3 +1113,161 @@ Key wins:
 - **Industries index page** makes the `/industries` BreadcrumbList item a real URL, resolving a structured data gap where all three industry page breadcrumbs referenced a non-existent middle page
 - **Keyword targets verified with Ahrefs** — "ai in professional services automation" has KD 1 (near-zero competition)
 [2026-03-14] Run #24 finished
+**Run 24 complete** — `a8b3738` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `app/industries/professional-services/page.tsx` | New — full industry landing page, 6 content sections, FAQPage schema, BreadcrumbList |
+| `app/industries/page.tsx` | New — industries hub page linking to all industry pages |
+| `app/sitemap.ts` | Added `/industries` + `/industries/professional-services` (14 pages total) |
+| `app/page.tsx` | Professional Services card → `/industries/professional-services` |
+
+Key wins:
+- **Professional services page** targets "ai workflow automation professional services" (80 vol) and "ai professional services automation" (KD 16), "ai in professional services automation" (KD 1, near-zero competition)
+- **Industries index page** fixes the structured data gap where all three industry BreadcrumbLists referenced `/industries` as a middle item but no page existed there
+- **Homepage Professional Services card** now links to a dedicated page, matching the SEO agencies and real estate cards
+[2026-03-14 17:20:06] Run #19 finished
+[2026-03-14 17:20:11] Run #20 starting (model: sonnet)
+
+## Run 25: Healthcare and E-commerce Industry Landing Pages
+**Commit:** 4b61259 | Deployed to Vercel (Ready)
+
+### Changes
+
+**New page `/app/industries/healthcare/page.tsx`:**
+- Targets keywords: "ai automation for healthcare" (60 vol), "ai automation healthcare" (80 vol), "ai workflow automation healthcare" (10 vol), "ai services for healthcare workflow automation" (10 vol) — all null KD (near-zero competition)
+- Full metadata: title (46 chars), description (155 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Industries > Healthcare), FAQPage (3 Q&As)
+- Content sections: hero, 3 pain points (scheduling, intake, billing), proof point with DiamondLinks stats + testimonial, 4 automation callouts (scheduling/reminders, intake/onboarding, post-visit comms, billing workflow), integrations tools list, "who we work with" grid (medical practices, mental health, dental/specialty, healthcare staffing), CTA
+- Links to: `/contact`, `/how-it-works`, `/case-study`, `/services/discovery`
+
+**New page `/app/industries/ecommerce/page.tsx`:**
+- Targets keywords: "ecommerce ai automation" (70 vol), "ai automation for ecommerce" (30 vol), "ai for ecommerce automation" (20 vol), "hire ai expert for automation in ecommerce" (20 vol) — all null KD (near-zero competition)
+- Full metadata: title (44 chars), description (150 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Industries > E-commerce), FAQPage (3 Q&As)
+- Content sections: hero, 3 pain points (customer service volume, inventory management, manual reporting), proof point with DiamondLinks stats + testimonial, 4 automation callouts (customer service AI, inventory/reorder, order tracking/updates, automated reporting), integrations tools list, CTA
+- Links to: `/contact`, `/how-it-works`, `/case-study`, `/services/discovery`
+
+**`app/sitemap.ts`:**
+- Added `/industries/healthcare` (priority 0.8) and `/industries/ecommerce` (priority 0.8) — sitemap now covers 16 pages
+
+**`app/industries/page.tsx` — industries index updated:**
+- Healthcare card: `link: null` → `link: "/industries/healthcare"`, added `cta: "See how we help healthcare businesses"`
+- E-commerce card: `link: null` → `link: "/industries/ecommerce"`, added `cta: "See how we help e-commerce stores"`
+
+**`app/page.tsx` (homepage):**
+- Healthcare industry card: added `link: "/industries/healthcare"`
+- E-commerce industry card: added `link: "/industries/ecommerce"`
+
+| File | Change |
+|---|---|
+| `app/industries/healthcare/page.tsx` | New — full industry landing page, 6 content sections, FAQPage schema, BreadcrumbList |
+| `app/industries/ecommerce/page.tsx` | New — full industry landing page, 5 content sections, FAQPage schema, BreadcrumbList |
+| `app/sitemap.ts` | Added `/industries/healthcare` + `/industries/ecommerce` (16 pages total) |
+| `app/industries/page.tsx` | Healthcare and e-commerce cards now link to dedicated pages |
+| `app/page.tsx` | Healthcare and e-commerce homepage cards now link to dedicated pages |
+
+Key wins:
+- **Healthcare page** targets "ai automation for healthcare" (80 vol) and "ai automation healthcare" (60 vol) with null KD — zero-competition keywords
+- **E-commerce page** targets "ecommerce ai automation" (70 vol) and "ai automation for ecommerce" (30 vol) with null KD — zero-competition keywords
+- **All homepage industry cards now have dedicated pages** — every industry card on the homepage and industries index now links to a dedicated landing page (except "Any Business" which correctly links to /contact)
+- **Industries index complete** — all 5 specific industry cards on /industries now have link/cta fields pointing to dedicated pages
+[2026-03-14] Run #25 finished
+**Run 25 complete** — `4b61259` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `app/industries/healthcare/page.tsx` | New — full industry landing page, FAQPage schema, BreadcrumbList, 6 content sections |
+| `app/industries/ecommerce/page.tsx` | New — full industry landing page, FAQPage schema, BreadcrumbList, 5 content sections |
+| `app/sitemap.ts` | Added `/industries/healthcare` + `/industries/ecommerce` (16 pages total) |
+| `app/industries/page.tsx` | Healthcare and e-commerce cards now link to dedicated pages |
+| `app/page.tsx` | Healthcare and e-commerce homepage cards now link to dedicated pages |
+
+**Keyword targets (Ahrefs-verified, all null KD):**
+- Healthcare: "ai automation healthcare" (80 vol), "ai automation for healthcare" (60 vol)
+- E-commerce: "ecommerce ai automation" (70 vol), "ai automation for ecommerce" (30 vol)
+
+Every homepage industry card now links to a dedicated landing page. The only card without one is "Any Business" which correctly sends to `/contact`.
+[2026-03-14 17:28:13] Run #20 finished
+[2026-03-14 17:28:18] Run #21 starting (model: sonnet)
+
+## Run 26: Industry Cross-Linking and Service Page → Industry Links
+**Commit:** 947c078
+
+### Changes
+
+**All 5 industry pages** — added "Other industries we serve" cross-link section before the final CTA/process section:
+- `/app/industries/seo-agencies/page.tsx` — links to: professional services firms, real estate agents, healthcare practices, e-commerce businesses
+- `/app/industries/real-estate/page.tsx` — links to: SEO & digital marketing agencies, professional services firms, healthcare practices, e-commerce businesses
+- `/app/industries/healthcare/page.tsx` — links to: SEO & digital marketing agencies, professional services firms, real estate agents, e-commerce businesses
+- `/app/industries/ecommerce/page.tsx` — links to: SEO & digital marketing agencies, professional services firms, real estate agents, healthcare practices
+- `/app/industries/professional-services/page.tsx` — links to: SEO & digital marketing agencies, real estate agents, healthcare practices, e-commerce businesses
+
+**All 3 service pages** — added "Industries we work with" section before CTA, linking to all 5 industry pages:
+- `/app/services/discovery/page.tsx`
+- `/app/services/build/page.tsx`
+- `/app/services/support/page.tsx`
+
+### SEO Impact
+- Every industry page now links bidirectionally to every other industry page (20 new cross-links total)
+- Every service page now links to all 5 industry pages (15 new service→industry links)
+- Improves crawl coverage and distributes link equity across all industry pages
+- Descriptive anchor text: "SEO & digital marketing agencies", "professional services firms", "real estate agents", "healthcare practices", "e-commerce businesses"
+**Run 26 complete.** Commit `947c078` — deployed and Ready.
+
+### Changes
+
+**5 industry pages** — each now has an "Other industries we serve" section before the CTA, linking to the other 4 industry pages:
+- 20 new cross-links total between industry pages
+- Anchor text: "SEO & digital marketing agencies", "professional services firms", "real estate agents", "healthcare practices", "e-commerce businesses"
+
+**3 service pages** (discovery, build, support) — each now has an "Industries we work with" section before the CTA, linking to all 5 industry pages:
+- 15 new service → industry links
+
+**SEO impact:** Every industry page is now bidirectionally linked to every other, distributing link equity across all industry landing pages and improving crawlability. Service pages now pass internal link equity to industry pages, reinforcing topical authority for industry-specific keywords.
+[2026-03-14 17:32:54] Run #21 finished
+[2026-03-14 17:32:59] Run #22 starting (model: sonnet)
+
+## Run 27: AI Automation Consulting Pillar Page
+**Commit:** 06ac252 | Deployed to Vercel (Ready)
+
+### Keyword research findings (Ahrefs)
+- "ai automation consulting" — 300 vol, KD 7
+- "ai automation consulting services" — 100 vol, KD 6
+- "ai automation for small business" — 250 vol, KD 12 (next target)
+
+### Changes
+
+**New page `/app/ai-automation-consulting/page.tsx`:**
+- Targets keywords: "ai automation consulting" (300 vol, KD 7), "ai automation consulting services" (100 vol, KD 6), "ai workflow automation consulting" (20 vol), "hire ai automation consultant"
+- Full metadata: title (42 chars), description (155 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with @id + isPartOf: #website, BreadcrumbList (Home > AI Automation Consulting), Service JSON-LD (serviceType: "AI Automation Consulting", areaServed: "US", offers), FAQPage (4 Q&As)
+- Content sections: hero, "What AI automation consulting means" (3 pillars), "How the consulting engagement works" (3-phase journey with links to each service page), "What AI automation consulting delivers" (4 automation types), DiamondLinks case study callout, Industries section (links to all 5 industry pages), FAQ, CTA
+- Links to: /contact, /how-it-works, /services/discovery, /services/build, /services/support, /case-study, all 5 industry pages, /about
+
+**`app/sitemap.ts`:**
+- Added `/ai-automation-consulting` (priority 0.9, UPDATED date) — sitemap now covers 17 pages
+
+**`components/Footer.tsx`:**
+- Added "AI Automation Consulting" as first item in Services nav column, linking to `/ai-automation-consulting`
+
+**`app/about/page.tsx`:**
+- CTA section: added secondary text link "See how AI automation consulting works" → `/ai-automation-consulting`
+
+**`app/how-it-works/page.tsx`:**
+- CTA section: added secondary text link "Learn what AI automation consulting involves" → `/ai-automation-consulting`
+
+| File | Change |
+|---|---|
+| `app/ai-automation-consulting/page.tsx` | New — pillar page with WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/ai-automation-consulting` added (17 pages total, priority 0.9) |
+| `components/Footer.tsx` | "AI Automation Consulting" added to Services nav |
+| `app/about/page.tsx` | CTA: secondary link → `/ai-automation-consulting` |
+| `app/how-it-works/page.tsx` | CTA: secondary link → `/ai-automation-consulting` |
+
+Key wins:
+- **300 vol / KD 7** — "ai automation consulting" is the highest-volume low-competition keyword found to date. KD 7 means minimal competition and high likelihood of ranking for a new site.
+- **Pillar page structure** — the page covers the full consulting engagement (discovery → build → support) and links to all three service pages, all five industry pages, the case study, and contact, maximizing internal PageRank flow
+- **Service JSON-LD** — declares "AI Automation Consulting" as a Service entity with @id, areaServed: "US", and Offer, completing the service catalog in structured data
+- **Footer link** — makes this the most prominently linked page in the footer Services column, ensuring it receives link equity on every page
+[2026-03-14] Run #27 finished
