@@ -35,12 +35,12 @@ export default function ContactPage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Free Discovery Call</p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-            See what AI can <span className="gradient-text">save your business</span>
+            Find your automation <span className="gradient-text">opportunities for free</span>
           </h1>
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            In 30 to 60 minutes, you&apos;ll know exactly where AI and automation can cut your costs, eliminate manual work, and free up your team. No technical knowledge required.
+            In 30 to 60 minutes, you&apos;ll have a personalized map of every place AI can save you time and money, with real ROI projections. No technical knowledge required.
           </p>
-          <p className="text-amber-400/80 text-sm font-medium mt-4">Currently accepting new clients for March 2026. Spots are limited.</p>
+          <p className="text-amber-400 text-sm font-semibold mt-4">Currently accepting new clients for March 2026. Spots are limited.</p>
         </div>
       </section>
 
@@ -104,7 +104,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <h2 className="text-2xl font-extrabold text-white mb-1">Book your discovery call</h2>
-                    <p className="text-slate-400 text-sm">Fill out the form below and I will reach out to schedule a time.</p>
+                    <p className="text-slate-400 text-sm">Takes about 2 minutes. I&apos;ll respond within one business day to schedule your call.</p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

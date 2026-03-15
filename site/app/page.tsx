@@ -473,13 +473,21 @@ export default function HomePage() {
               <RotatingText />
             </p>
 
-            <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mb-4 leading-relaxed">
-              The first step is for us to dream together.
+            <p className="text-lg text-slate-400 max-w-2xl mb-6 leading-relaxed">
+              I find every place AI can eliminate your most expensive manual work, show you the ROI before a single line of code is written, then build the custom systems to make it happen.
             </p>
 
-            <p className="text-lg text-slate-500 max-w-2xl mb-10 leading-relaxed">
-              AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the custom systems to make it happen.
-            </p>
+            <div className="flex items-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
+              <div className="flex-shrink-0 flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={13} fill="#f59e0b" className="text-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-400 text-xs leading-snug italic">
+                &ldquo;Brandon built us a system that replaced every function and added seven new capabilities.&rdquo;
+                <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -511,19 +519,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <p className="text-slate-500 text-xs italic mt-3">I personally take on a limited number of clients. Spots fill each month.</p>
-
-            <div className="flex items-center gap-3 mt-6 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
-              <div className="flex-shrink-0 flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={13} fill="#f59e0b" className="text-amber-400" />
-                ))}
-              </div>
-              <p className="text-slate-400 text-xs leading-snug italic">
-                &ldquo;Brandon built us a system that replaced every function and added seven new capabilities.&rdquo;
-                <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
-              </p>
-            </div>
+            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for March 2026. Spots are limited.</p>
 
             <div className="w-full">
               <AgentTerminal />
@@ -1003,6 +999,7 @@ export default function HomePage() {
                 Learn more about Brandon.
               </Link>
             </p>
+            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for March 2026. Spots are limited.</p>
           </FadeUp>
         </div>
       </section>
