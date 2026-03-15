@@ -16,18 +16,25 @@ Verify with: curl -s -o /dev/null -w "%{http_code}" https://REPO-NAME.vercel.app
 
 If it doesn't return 200, check the git remote for clues but never fall back to a custom domain like example.com.
 
-## Analyzing with PageSpeed Insights
+## Analyzing with Lighthouse API
 
-Use a headless Playwright browser to run PageSpeed Insights. The Lighthouse REST API requires a Google Cloud API key that is not configured for this project.
+Use the PageSpeed Insights REST API with the Google Cloud API key.
 
-1. Navigate to https://pagespeed.web.dev/
-2. Enter the site URL into the input field
-3. Click "Analyze"
-4. Wait for the results to load (this can take 30 to 60 seconds)
-5. Take a screenshot of the results
-6. Extract the performance score (0 to 100) and the top failing audits from the results page
+API key: `AIzaSyBc_dd5AKpBawdFj5j0-cD4I0WiRqewWo4`
 
-If the page takes too long or errors out, retry once. If it fails again, note it in the log and move to the next page.
+To get the performance score for a page:
+
+```
+curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance&key=AIzaSyBc_dd5AKpBawdFj5j0-cD4I0WiRqewWo4" | jq '{score: (.lighthouseResult.categories.performance.score * 100), metrics: {FCP: .lighthouseResult.audits["first-contentful-paint"].displayValue, LCP: .lighthouseResult.audits["largest-contentful-paint"].displayValue, TBT: .lighthouseResult.audits["total-blocking-time"].displayValue, CLS: .lighthouseResult.audits["cumulative-layout-shift"].displayValue, SI: .lighthouseResult.audits["speed-index"].displayValue}}'
+```
+
+To get the top failing audits:
+
+```
+curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance&key=AIzaSyBc_dd5AKpBawdFj5j0-cD4I0WiRqewWo4" | jq '[.lighthouseResult.audits | to_entries[] | select(.value.score < 0.9 and .value.score >= 0) | {id: .key, title: .value.title, score: .value.score, detail: .value.displayValue}] | sort_by(.score) | .[0:5]'
+```
+
+Each API call takes 15 to 30 seconds. Run them sequentially, not in parallel.
 
 ## Pages to test
 
@@ -41,12 +48,12 @@ Record the score for each page. Focus your fix on the lowest-scoring page or the
 ## Process
 
 1. Get the site URL
-2. Run PageSpeed Insights via Playwright against all three pages and record scores
+2. Run PageSpeed Insights via the Lighthouse API against all three pages and record scores
 3. Identify the single highest-impact failing audit
 4. Implement the fix in the codebase
 5. Commit and push
 6. Wait 90 seconds for the deploy to finish
-7. Run PageSpeed Insights again via Playwright against the same three pages
+7. Run PageSpeed Insights again via the Lighthouse API against the same three pages
 8. Compare the new scores to the previous scores
 9. Log all scores and what you changed to output/agent-log.md
 
