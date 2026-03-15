@@ -62,7 +62,7 @@ export default function ContactPage() {
                 {[
                   "30 to 60 minute video call",
                   "No commitment required",
-                  "Real insights you keep regardless",
+                  "Walk away with a personalized roadmap",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-slate-400 text-sm">
                     <CheckCircle size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -177,7 +177,7 @@ export default function ContactPage() {
                       </>
                     ) : (
                       <>
-                        Request a Discovery Call
+                        Claim My Free Discovery Call
                         <ArrowRight size={18} />
                       </>
                     )}

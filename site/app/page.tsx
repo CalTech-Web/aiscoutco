@@ -689,6 +689,21 @@ export default function HomePage() {
               </div>
             </div>
           </FadeUp>
+
+          {/* Mid-page CTA strip */}
+          <FadeUp delay={300} className="mt-8 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-900/20 to-cyan-900/10 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <p className="text-white font-bold text-xl">Could your business run like this?</p>
+              <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
+            </div>
+            <Link
+              href="/contact"
+              className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
+            >
+              Book a Free Discovery Call
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeUp>
         </div>
       </section>
 
