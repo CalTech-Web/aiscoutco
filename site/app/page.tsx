@@ -384,10 +384,6 @@ const MANUAL_STEPS = [
   "Writing client performance summary...",
   "Formatting tables and headers...",
   "Composing email with attached report...",
-  "Opening next client's Ahrefs project...",
-  "Pulling second client's traffic data...",
-  "Cross-referencing Search Console...",
-  "Still going...",
 ];
 
 const AUTO_STEPS = [
@@ -397,14 +393,13 @@ const AUTO_STEPS = [
   "Sending to client...",
 ];
 
-const STEP_MOCKUPS = ["ahrefs-login", "ahrefs-data", "ahrefs-copy", "sheets", "docs", "docs", "docs", "gmail", "ahrefs-data", "ahrefs-copy", "ahrefs-data", "ahrefs-data"] as const;
+const STEP_MOCKUPS = ["ahrefs-login", "ahrefs-data", "ahrefs-copy", "sheets", "docs", "docs", "docs", "gmail"] as const;
 type MockupKey = typeof STEP_MOCKUPS[number];
 
 const MINUTES_PER_REAL_SEC = 5;
 const HOURLY_RATE = 85;
 const TOTAL_MINUTES = 60;
 const TOTAL_REAL_SECS = TOTAL_MINUTES / MINUTES_PER_REAL_SEC;
-const DEMO_REAL_SECS = 30;
 const DOLLAR_PER_REAL_SEC = (HOURLY_RATE / 60) * MINUTES_PER_REAL_SEC;
 const AUTO_DURATION = 3;
 const AUTO_COST = 0.12;
@@ -414,7 +409,7 @@ const AUTO_COST = 0.12;
 function MockupAhrefsLogin() {
   return (
     <div className="w-full h-36 bg-[#1b1b2e] rounded-lg flex flex-col items-center justify-center gap-3 overflow-hidden">
-      <Image src="/images/ahrefs-icon.png" alt="Ahrefs" width={36} height={36} className="rounded-lg" />
+      <span className="text-[#ff6a35] font-extrabold text-xl tracking-tight select-none">ahrefs</span>
       <div className="w-44 space-y-1.5">
         <div className="bg-white/10 border border-white/20 rounded px-2.5 py-1.5 text-[11px] text-white/50 font-mono">agency@diamondlinks.com</div>
         <div className="bg-white/10 border border-white/20 rounded px-2.5 py-1.5 text-[11px] text-white/50">••••••••</div>
@@ -437,7 +432,7 @@ function MockupAhrefsData({ copying }: { copying: boolean }) {
   return (
     <div className="w-full h-36 bg-[#1b1b2e] rounded-lg overflow-hidden flex">
       <div className="w-[72px] flex-shrink-0 bg-[#12121f] border-r border-white/10 p-2 flex flex-col gap-0.5">
-        <Image src="/images/ahrefs-icon.png" alt="Ahrefs" width={20} height={20} className="rounded mb-1" />
+        <span className="text-[#ff6a35] font-extrabold text-[11px] mb-1.5 px-0.5">ahrefs</span>
         {["Site Explorer", "Keywords", "Rank Tracker", "Site Audit"].map((item, i) => (
           <div key={i} className={`text-[10px] px-1 py-0.5 rounded truncate ${i === 0 ? "bg-[#ff6a35]/20 text-[#ff6a35]" : "text-white/30"}`}>{item}</div>
         ))}
@@ -621,7 +616,7 @@ function ReportROIDemo() {
     const manualInterval = setInterval(() => {
       setManualSeconds(s => {
         const next = parseFloat((s + 0.1).toFixed(1));
-        if (next >= DEMO_REAL_SECS) { clearInterval(manualInterval); setManualComplete(true); return DEMO_REAL_SECS; }
+        if (next >= TOTAL_REAL_SECS) { clearInterval(manualInterval); setManualComplete(true); return TOTAL_REAL_SECS; }
         return next;
       });
     }, 100);
@@ -644,7 +639,7 @@ function ReportROIDemo() {
           prevMockupRef.current = newMockup;
           setMockupKey(k => k + 1);
         }
-      }, Math.floor((DEMO_REAL_SECS * 1000 / MANUAL_STEPS.length) * i));
+      }, Math.floor((TOTAL_REAL_SECS * 1000 / MANUAL_STEPS.length) * i));
       timeoutRefs.current.push(t);
     });
 
@@ -656,8 +651,8 @@ function ReportROIDemo() {
 
   useEffect(() => () => clearAll(), [clearAll]);
 
-  const manualMins = manualSeconds * MINUTES_PER_REAL_SEC;
-  const manualDollars = manualSeconds * DOLLAR_PER_REAL_SEC;
+  const manualMins = Math.min(manualSeconds * MINUTES_PER_REAL_SEC, TOTAL_MINUTES);
+  const manualDollars = Math.min(manualSeconds * DOLLAR_PER_REAL_SEC, HOURLY_RATE);
   const autoDollars = autoComplete ? AUTO_COST : (autoSeconds / AUTO_DURATION) * AUTO_COST;
 
   const formatTime = (totalMinutes: number) => {
@@ -686,7 +681,7 @@ function ReportROIDemo() {
             {/* LEFT: Manual */}
             <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${started ? "border-red-500/40" : "border-slate-700/50"}`}>
               <div className={`px-5 py-3 border-b flex items-center gap-3 transition-all ${started ? "border-red-500/30 bg-red-500/10" : "border-slate-700/50 bg-slate-800/40"}`}>
-                <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${started ? "bg-red-400 animate-pulse" : "bg-slate-600"}`} />
+                <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${started && !manualComplete ? "bg-red-400 animate-pulse" : started ? "bg-red-500" : "bg-slate-600"}`} />
                 <span className={`font-bold text-sm ${started ? "text-red-300" : "text-slate-400"}`}>The Old Way</span>
                 <span className="ml-auto text-slate-500 text-xs">Manual report creation</span>
               </div>
@@ -695,18 +690,18 @@ function ReportROIDemo() {
                 <div className="grid grid-cols-2 gap-2">
                   <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
                     <div className="text-slate-500 text-xs mb-0.5">Time elapsed</div>
-                    <div className={`font-mono font-bold text-2xl leading-tight ${started ? "text-red-400" : "text-slate-600"}`}>{formatTime(manualMins)}</div>
-                    <div className="text-slate-600 text-xs">{started && manualMins > 60 ? "and counting..." : "minutes"}</div>
+                    <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>{formatTime(manualMins)}</div>
+                    <div className="text-slate-600 text-xs">of 60:00</div>
                   </div>
                   <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
                     <div className="text-slate-500 text-xs mb-0.5">Cost burned</div>
-                    <div className={`font-mono font-bold text-2xl leading-tight ${started ? "text-red-400" : "text-slate-600"}`}>${manualDollars.toFixed(2)}</div>
-                    <div className="text-slate-600 text-xs">{started && manualDollars > 85 ? "and climbing..." : "cost"}</div>
+                    <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>${manualDollars.toFixed(2)}</div>
+                    <div className="text-slate-600 text-xs">of $85.00</div>
                   </div>
                 </div>
                 {/* Progress bar */}
                 <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-red-700 to-red-400 rounded-full" style={{ width: `${Math.min((manualSeconds / TOTAL_REAL_SECS) * 100, 100)}%`, transition: "width 100ms linear" }} />
+                  <div className="h-full bg-gradient-to-r from-red-700 to-red-400 rounded-full" style={{ width: `${(manualSeconds / TOTAL_REAL_SECS) * 100}%`, transition: "width 100ms linear" }} />
                 </div>
                 {/* App mockup */}
                 <div key={mockupKey} className="animate-mockup-fade">
@@ -775,12 +770,8 @@ function ReportROIDemo() {
                   </div>
                 )}
                 {autoComplete && (
-                  <div className="animate-mockup-fade w-full h-36 flex flex-col items-center justify-center gap-2 bg-emerald-950/20 border border-emerald-500/30 rounded-lg">
-                    <div className="w-14 h-14 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center">
-                      <CheckCircle size={28} className="text-emerald-400" />
-                    </div>
-                    <span className="text-emerald-300 font-bold text-lg">Done</span>
-                    <span className="text-slate-500 text-xs">Report delivered to client</span>
+                  <div className="animate-mockup-fade">
+                    <AutoReportPreview />
                   </div>
                 )}
                 {/* Step label */}
