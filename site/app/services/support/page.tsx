@@ -242,6 +242,7 @@ export default function SupportPage() {
                 See what we build
               </Link>
             </div>
+            <p className="text-amber-400/80 text-xs font-semibold mt-5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
           </div>
         </div>
       </section>
