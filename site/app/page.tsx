@@ -1475,7 +1475,7 @@ export default function HomePage() {
               href="/contact"
               className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
             >
-              Get a Free Automation Audit
+              Get My Free Automation Audit
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
@@ -1616,7 +1616,7 @@ export default function HomePage() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
               >
-                Get a Free Automation Audit
+                Get My Free Automation Audit
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/case-study" className="text-slate-500 hover:text-blue-400 text-xs transition-colors">
@@ -1717,7 +1717,7 @@ export default function HomePage() {
               href="/contact"
               className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
             >
-              Get a Free Automation Audit
+              Get My Free Automation Audit
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
@@ -1748,7 +1748,7 @@ export default function HomePage() {
               href="/contact"
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
             >
-              Get a Free Automation Audit
+              Get My Free Automation Audit
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
