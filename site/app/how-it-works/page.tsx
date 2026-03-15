@@ -244,7 +244,7 @@ export default function HowItWorksPage() {
           <p className="text-slate-400 text-lg mb-3 max-w-xl mx-auto">
             In 30 minutes, I map every place AI can save you time and money, with real dollar savings attached. You walk away with the plan whether you hire me or not.
           </p>
-          <p className="text-slate-500 text-sm mb-8">If I can&apos;t find at least 3 automation opportunities, I&apos;ll tell you straight. No pitch, no pressure.</p>
+          <p className="text-slate-500 text-sm mb-8">If I can&apos;t find at least 3 automation wins in your business, I&apos;ll say so. You walk away with honest insights either way. No pitch, no pressure.</p>
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
