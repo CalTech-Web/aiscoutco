@@ -825,6 +825,7 @@ export default function HomePage() {
                 color: { border: "border-orange-500/30", bg: "bg-orange-500/10", text: "text-orange-400", subtle: "bg-orange-500/5" },
                 industry: "Real Estate",
                 pain: "Listing updates, lead follow-ups, and market reports that take hours every week.",
+                link: "/industries/real-estate",
               },
               {
                 icon: <Activity size={22} />,
