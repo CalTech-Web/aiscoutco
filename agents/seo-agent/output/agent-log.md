@@ -1271,3 +1271,113 @@ Key wins:
 - **Service JSON-LD** — declares "AI Automation Consulting" as a Service entity with @id, areaServed: "US", and Offer, completing the service catalog in structured data
 - **Footer link** — makes this the most prominently linked page in the footer Services column, ensuring it receives link equity on every page
 [2026-03-14] Run #27 finished
+**Run 27 complete** — `06ac252` | Deployed (Ready)
+
+## What was done
+
+| File | Change |
+|---|---|
+| `app/ai-automation-consulting/page.tsx` | New pillar page — WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/ai-automation-consulting` added (17 pages total, priority 0.9) |
+| `components/Footer.tsx` | "AI Automation Consulting" added to Services nav on every page |
+| `app/about/page.tsx` | CTA: secondary link → `/ai-automation-consulting` |
+| `app/how-it-works/page.tsx` | CTA: secondary link → `/ai-automation-consulting` |
+
+**Why this matters:** Ahrefs shows "ai automation consulting" has 300 monthly searches at KD 7, the highest-volume/lowest-competition keyword found across all research runs. The page covers the full engagement lifecycle (discovery → build → support), links to all service and industry pages, and sits in the footer on every page of the site — making it both a topical authority signal and a high-PageRank target from day one.
+[2026-03-14 17:38:32] Run #22 finished
+[2026-03-14 17:38:37] Run #23 starting (model: sonnet)
+
+## Run 28: AI Automation for Small Business Landing Page
+**Commit:** 3a77b85 | Deployed to Vercel (Ready)
+
+### Keyword research findings (Ahrefs)
+- "ai automation for small business" — 250 vol, KD 12
+- "ai workflow automation for small business" — 60 vol, null KD (near-zero competition)
+- "ai automation small business" — 50 vol, null KD
+- "ai workflow automation small business" — 40 vol, null KD
+- "ai automation services small business" — 20 vol, null KD
+
+### Changes
+
+**New page `/app/small-business/page.tsx`:**
+- Targets keywords: "ai automation for small business" (250 vol, KD 12), "ai workflow automation small business" (60 vol), "ai automation small business" (50 vol), "ai automation services small business" (20 vol)
+- Full metadata: title (46 chars), description (155 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > AI Automation for Small Business), Service JSON-LD (serviceType: "AI Business Automation", areaServed: "US", offers), FAQPage (3 Q&As)
+- Content sections: hero, 3 pain points (manual work, capacity constraints, data access), DiamondLinks proof point (full testimonial + 4 stats), 4 automation callouts (reporting, proposal generation, client comms, workflow/data entry), integrations list, industries cross-links, FAQ, CTA
+- Links to: `/contact`, `/how-it-works`, `/services/discovery`, `/case-study`, `/ai-automation-consulting`, all 5 industry pages
+
+**`app/sitemap.ts`:**
+- Added `/small-business` (priority 0.9, UPDATED date) — sitemap now covers 18 pages
+
+**`components/Footer.tsx`:**
+- Added "AI for Small Business" link to Services nav column — makes this page receive link equity from every page on the site
+
+**`app/ai-automation-consulting/page.tsx`:**
+- Added "See AI automation for small businesses" link → `/small-business` in the Industries section note
+
+| File | Change |
+|---|---|
+| `app/small-business/page.tsx` | New — full landing page with WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/small-business` added (18 pages total, priority 0.9) |
+| `components/Footer.tsx` | "AI for Small Business" added to Services nav |
+| `app/ai-automation-consulting/page.tsx` | Industries section: link → `/small-business` |
+
+**Run 28 complete** — `3a77b85` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `app/small-business/page.tsx` | New landing page with WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/small-business` added (18 pages total, priority 0.9) |
+| `components/Footer.tsx` | "AI for Small Business" added to Services nav |
+| `app/ai-automation-consulting/page.tsx` | Link to `/small-business` in Industries section |
+
+**Keyword targets (Ahrefs-verified):**
+- "ai automation for small business" — 250 vol, KD 12 (primary)
+- "ai workflow automation for small business" — 60 vol, null KD
+- "ai automation small business" — 50 vol, null KD
+
+The page sits in the footer Services column on every page of the site alongside the AI Automation Consulting pillar page, giving it strong internal link equity from day one. It links to all 5 industry pages and back to the consulting pillar, completing a two-level hierarchy: consulting pillar → small business page → industry-specific pages.
+[2026-03-14 17:46:06] Run #23 finished
+[2026-03-14 17:46:11] Run #24 starting (model: sonnet)
+
+## Run 29: Business Process Automation Landing Page
+**Commit:** 3951ab5 | Deployed to Vercel (Ready)
+
+### Keyword research findings (Ahrefs)
+- "business process automation services" — 1,500 vol, KD 4 (primary)
+- "business process automation consulting" — 500 vol, KD 0 (near-zero competition)
+- "business process automation consultant" — 250 vol, KD 0 (near-zero competition)
+- "business process automation with ai" — 200 vol, KD 17
+- "business process automation benefits" — 500 vol, KD 8
+
+### Changes
+
+**New page `/app/business-process-automation/page.tsx`:**
+- Targets keywords: "business process automation services" (1,500 vol, KD 4), "business process automation consulting" (500 vol, KD 0), "business process automation consultant" (250 vol, KD 0)
+- Full metadata: title (52 chars), description (143 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Business Process Automation), Service JSON-LD (serviceType: "Business Process Automation", areaServed: "US", offers), FAQPage (4 Q&As)
+- Content sections: hero, "What is business process automation" (3 pillars), 3-phase consulting process (links to each service page), 4 automation callouts, DiamondLinks case study callout with full testimonial + stats, industries cross-links (all 5 industry pages), FAQ, CTA
+- Links to: `/contact`, `/how-it-works`, `/services/discovery`, `/services/build`, `/services/support`, `/case-study`, `/ai-automation-consulting`, all 5 industry pages, `/about`
+
+**`app/sitemap.ts`:**
+- Added `/business-process-automation` (priority 0.9, UPDATED date) — sitemap now covers 19 pages
+
+**`components/Footer.tsx`:**
+- Added "Business Process Automation" as third item in Services nav column — link equity on every page
+
+**`app/ai-automation-consulting/page.tsx`:**
+- Industries section note: added link "Explore our business process automation services" → `/business-process-automation`
+
+| File | Change |
+|---|---|
+| `app/business-process-automation/page.tsx` | New — full landing page with WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/business-process-automation` added (19 pages total, priority 0.9) |
+| `components/Footer.tsx` | "Business Process Automation" added to Services nav |
+| `app/ai-automation-consulting/page.tsx` | Cross-link → `/business-process-automation` |
+
+Key wins:
+- **1,500 vol / KD 4** — highest-volume keyword targeted to date. "Business process automation services" at KD 4 is extremely low competition for a term with this volume.
+- **Secondary keywords at KD 0** — "business process automation consulting" (500 vol) and "business process automation consultant" (250 vol) both have near-zero competition, combining for an additional 750 searches/month
+- **Consulting page cross-linked** — the pillar page now passes internal equity to the new BPA page via descriptive anchor text
+- **Footer placement** — the page receives site-wide link equity from day one alongside the two existing pillar pages
+[2026-03-14] Run #29 finished
