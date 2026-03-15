@@ -223,16 +223,16 @@ export default function SupportPage() {
 
           {/* CTA */}
           <div className="text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
-            <h2 className="text-3xl font-extrabold text-white mb-4">Start with a free discovery call</h2>
+            <h2 className="text-3xl font-extrabold text-white mb-4">Get your free automation audit</h2>
             <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-              Learn what is possible for your business before making any commitment.
+              Walk away with a personalized map of every automation opportunity in your business, no commitment required.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
               >
-                Book a Discovery Call
+                Get My Free Automation Audit
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
