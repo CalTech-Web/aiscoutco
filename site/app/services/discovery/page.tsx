@@ -252,6 +252,7 @@ export default function DiscoveryPage() {
                 <ArrowRight size={20} />
               </Link>
             </div>
+            <p className="text-amber-400/80 text-xs font-semibold mt-4">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
           </div>
         </div>
       </section>
