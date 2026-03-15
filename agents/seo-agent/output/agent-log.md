@@ -1059,3 +1059,57 @@ Key wins:
 - **Homepage Real Estate card linked** — the card now drives to a dedicated page instead of being a dead-end card, matching the pattern set by the SEO agencies card
 - **Pre-appointment packages angle** — the DiamondLinks proposal-delivered-30-min-before-meetings feature translates directly to a real estate use case (pre-showing/listing appointment packages), making the case study proof point applicable to this audience
 [2026-03-14] Run #23 finished
+**Run 23 complete** — `9c1fa9f` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `app/industries/real-estate/page.tsx` | New — real estate industry landing page with metadata, JSON-LD, BreadcrumbList, FAQPage, 5 content sections |
+| `app/sitemap.ts` | `/industries/real-estate` added (12 pages total) |
+| `app/page.tsx` | Real Estate industry card now links to `/industries/real-estate` |
+
+**Keyword targets** (Ahrefs-verified before writing):
+- "ai automation for real estate" — 40 vol, KD 33
+- "ai crm workflow automation real estate" — 30 vol, KD 20
+- "ai workflow automation for real estate" — 20 vol
+- "ai automation for real estate agents" — 20 vol
+
+The pre-appointment packages feature (auto-generated 30 min before meetings) directly translates the DiamondLinks proposal automation proof point into a real estate-relevant use case, keeping the case study relevant even though it's for an SEO agency.
+[2026-03-14 17:14:30] Run #18 finished
+[2026-03-14 17:14:35] Run #19 starting (model: sonnet)
+
+## Run 24: Professional Services Industry Page, Industries Index Page
+**Commit:** a8b3738 | Deployed to Vercel (Ready)
+
+### Changes
+
+**New page `/app/industries/professional-services/page.tsx`:**
+- Targets keywords: "ai workflow automation professional services" (80 vol), "ai professional services automation" (KD 16), "ai in professional services automation" (KD 1), "ai automation platform professional services" (30 vol)
+- Full metadata: title (56 chars), description (155 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Industries > Professional Services), FAQPage (3 Q&As)
+- Content sections: hero, 3 pain points (intake, documents, status updates), proof point framing DiamondLinks results, 4 automation callouts, integration tools list (Clio, MyCase, QuickBooks, Xero, DocuSign, etc.), "who we work with" grid (law, accounting, consulting, financial advisors), CTA
+- Links to: `/contact`, `/how-it-works`, `/case-study`, `/services/discovery`
+
+**New page `/app/industries/page.tsx`:**
+- Industries index hub linking to all industry pages
+- WebPage JSON-LD + BreadcrumbList (Home > Industries)
+- Lists all 6 industry cards; SEO agencies, professional services, and real estate link to dedicated pages; others link to /contact
+- Makes the `/industries` BreadcrumbList item (referenced by all three industry pages) a real, indexable URL
+
+**`app/sitemap.ts`:**
+- Added `/industries` (priority 0.8) and `/industries/professional-services` (priority 0.8) — sitemap now covers 14 pages
+
+**`app/page.tsx` (homepage):**
+- Professional Services industry card: added `link: "/industries/professional-services"` — card now links to dedicated page
+
+| File | Change |
+|---|---|
+| `app/industries/professional-services/page.tsx` | New — full industry landing page with metadata, JSON-LD, BreadcrumbList, FAQPage, 6 content sections |
+| `app/industries/page.tsx` | New — industries index page with WebPage JSON-LD, BreadcrumbList, all 6 industry cards |
+| `app/sitemap.ts` | `/industries` + `/industries/professional-services` added (14 pages total) |
+| `app/page.tsx` | Professional Services card now links to `/industries/professional-services` |
+
+Key wins:
+- **New indexable page** targeting "ai workflow automation professional services" (80 vol) and "ai professional services automation" (KD 16, KD 1) — zero-competition keywords
+- **Industries index page** makes the `/industries` BreadcrumbList item a real URL, resolving a structured data gap where all three industry page breadcrumbs referenced a non-existent middle page
+- **Keyword targets verified with Ahrefs** — "ai in professional services automation" has KD 1 (near-zero competition)
+[2026-03-14] Run #24 finished
