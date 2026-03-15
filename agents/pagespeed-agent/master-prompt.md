@@ -16,15 +16,18 @@ Verify with: curl -s -o /dev/null -w "%{http_code}" https://REPO-NAME.vercel.app
 
 If it doesn't return 200, check the git remote for clues but never fall back to a custom domain like example.com.
 
-## Analyzing with PageSpeed Insights API
+## Analyzing with PageSpeed Insights
 
-Use the Lighthouse API directly to get performance scores. This avoids quota limits and UI scraping fragility.
+Use a headless Playwright browser to run PageSpeed Insights. The Lighthouse REST API requires a Google Cloud API key that is not configured for this project.
 
-For each URL, run:
+1. Navigate to https://pagespeed.web.dev/
+2. Enter the site URL into the input field
+3. Click "Analyze"
+4. Wait for the results to load (this can take 30 to 60 seconds)
+5. Take a screenshot of the results
+6. Extract the performance score (0 to 100) and the top failing audits from the results page
 
-curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance" | jq '{score: .lighthouseResult.categories.performance.score, audits: [.lighthouseResult.audits | to_entries[] | select(.value.score != null and .value.score < 0.9) | {id: .key, title: .value.title, score: .value.score, displayValue: .value.displayValue}] | sort_by(.score) | .[0:5]}'
-
-This returns the overall performance score (0 to 1) and the top 5 failing audits sorted by severity.
+If the page takes too long or errors out, retry once. If it fails again, note it in the log and move to the next page.
 
 ## Pages to test
 
@@ -38,20 +41,20 @@ Record the score for each page. Focus your fix on the lowest-scoring page or the
 ## Process
 
 1. Get the site URL
-2. Run the Lighthouse API against all three pages and record scores
+2. Run PageSpeed Insights via Playwright against all three pages and record scores
 3. Identify the single highest-impact failing audit
 4. Implement the fix in the codebase
 5. Commit and push
 6. Wait 90 seconds for the deploy to finish
-7. Run the Lighthouse API again against the same three pages
+7. Run PageSpeed Insights again via Playwright against the same three pages
 8. Compare the new scores to the previous scores
 9. Log all scores and what you changed to output/agent-log.md
 
 ## Rules
 
 - Fix one issue per run
-- Always start by running the Lighthouse API to get current scores
-- Always end by rerunning the Lighthouse API to confirm the fix helped
+- Always start by running PageSpeed Insights to get current scores
+- Always end by rerunning PageSpeed Insights to confirm the fix helped
 - If any page's score went down by more than 2 points, revert the change and try a different fix
 - Focus on the highest impact items first (Largest Contentful Paint, Cumulative Layout Shift, Total Blocking Time, unused JavaScript)
 - Read SITE_FACTS.md for brand context before making any visual changes
