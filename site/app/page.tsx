@@ -297,6 +297,10 @@ const faqs = [
     q: "Can I see a demo or example?",
     a: "Absolutely. The DiamondLinks case study on this site includes before and after screenshots and a full breakdown of what was built. During your discovery call, I can also walk you through examples relevant to your industry.",
   },
+  {
+    q: "Why can't I just use ChatGPT, Zapier, or Make?",
+    a: "ChatGPT and tools like Zapier are great for simple, one-step tasks. But the businesses I work with have workflows with 10, 15, or 20 interconnected steps, data coming from multiple sources, edge cases that break simple automations, and outputs that need to match their specific standards. What I build are multi-agent systems that orchestrate entire workflows from start to finish, make intelligent decisions at each step, and run without anyone touching them. Most clients have already experimented with these tools and hit their ceiling. The discovery call is where we figure out what actually needs to be built.",
+  },
 ];
 
 const faqNodes: Record<number, React.ReactNode> = {
@@ -708,7 +712,7 @@ export default function HomePage() {
 
             <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. April spots are available now.</p>
 
-            <div className="w-full">
+            <div className="w-full hidden sm:block">
               <AgentTerminal />
             </div>
           </div>
