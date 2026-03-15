@@ -375,81 +375,272 @@ const faqJsonLd = {
 };
 
 
-function ROICalculator() {
-  const [employees, setEmployees] = useState(2);
-  const [hoursPerWeek, setHoursPerWeek] = useState(10);
-  const [hourlyCost, setHourlyCost] = useState(35);
+const MANUAL_STEPS = [
+  "Opening Google Analytics...",
+  "Pulling traffic data to spreadsheet...",
+  "Copying ranking metrics from Search Console...",
+  "Building performance comparison tables...",
+  "Writing client summary paragraph...",
+  "Formatting charts and screenshots...",
+  "Proofreading and revising draft...",
+  "Emailing finished report to client...",
+];
 
-  const annualSavings = Math.round(employees * hoursPerWeek * hourlyCost * 52 * 0.7);
+const AUTO_STEPS = [
+  "Connecting to data sources...",
+  "Fetching metrics automatically...",
+  "Generating formatted report...",
+  "Sending to client...",
+];
+
+const MINUTES_PER_REAL_SEC = 5;
+const HOURLY_RATE = 85;
+const TOTAL_MINUTES = 60;
+const TOTAL_REAL_SECS = TOTAL_MINUTES / MINUTES_PER_REAL_SEC;
+const DOLLAR_PER_REAL_SEC = (HOURLY_RATE / 60) * MINUTES_PER_REAL_SEC;
+const AUTO_DURATION = 3;
+const AUTO_COST = 0.12;
+
+function ReportROIDemo() {
+  const [started, setStarted] = useState(false);
+  const [manualSeconds, setManualSeconds] = useState(0);
+  const [autoSeconds, setAutoSeconds] = useState(0);
+  const [autoComplete, setAutoComplete] = useState(false);
+  const [manualComplete, setManualComplete] = useState(false);
+  const [manualStepIdx, setManualStepIdx] = useState(0);
+  const [autoStepIdx, setAutoStepIdx] = useState(0);
+  const [reportsPerMonth, setReportsPerMonth] = useState(10);
+
+  const intervalRefs = useRef<ReturnType<typeof setInterval>[]>([]);
+  const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const clearAll = useCallback(() => {
+    intervalRefs.current.forEach(clearInterval);
+    timeoutRefs.current.forEach(clearTimeout);
+    intervalRefs.current = [];
+    timeoutRefs.current = [];
+  }, []);
+
+  const start = useCallback(() => {
+    clearAll();
+    setManualSeconds(0);
+    setAutoSeconds(0);
+    setAutoComplete(false);
+    setManualComplete(false);
+    setManualStepIdx(0);
+    setAutoStepIdx(0);
+    setStarted(true);
+
+    const manualInterval = setInterval(() => {
+      setManualSeconds(s => {
+        const next = parseFloat((s + 0.1).toFixed(1));
+        if (next >= TOTAL_REAL_SECS) { clearInterval(manualInterval); setManualComplete(true); return TOTAL_REAL_SECS; }
+        return next;
+      });
+    }, 100);
+    intervalRefs.current.push(manualInterval);
+
+    const autoInterval = setInterval(() => {
+      setAutoSeconds(s => {
+        const next = parseFloat((s + 0.1).toFixed(1));
+        if (next >= AUTO_DURATION) { clearInterval(autoInterval); setAutoComplete(true); return AUTO_DURATION; }
+        return next;
+      });
+    }, 100);
+    intervalRefs.current.push(autoInterval);
+
+    MANUAL_STEPS.forEach((_, i) => {
+      const t = setTimeout(() => setManualStepIdx(i), Math.floor((TOTAL_REAL_SECS * 1000 / MANUAL_STEPS.length) * i));
+      timeoutRefs.current.push(t);
+    });
+
+    AUTO_STEPS.forEach((_, i) => {
+      const t = setTimeout(() => setAutoStepIdx(i), Math.floor((AUTO_DURATION * 1000 / AUTO_STEPS.length) * i));
+      timeoutRefs.current.push(t);
+    });
+  }, [clearAll]);
+
+  useEffect(() => () => clearAll(), [clearAll]);
+
+  const manualMins = Math.min(manualSeconds * MINUTES_PER_REAL_SEC, TOTAL_MINUTES);
+  const manualDollars = Math.min(manualSeconds * DOLLAR_PER_REAL_SEC, HOURLY_RATE);
+  const autoDollars = autoComplete ? AUTO_COST : (autoSeconds / AUTO_DURATION) * AUTO_COST;
+
+  const formatTime = (totalMinutes: number) => {
+    const m = Math.floor(totalMinutes);
+    const s = Math.floor((totalMinutes - m) * 60);
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  };
+
+  const annualManualCost = reportsPerMonth * HOURLY_RATE * 12;
+  const annualAutoCost = reportsPerMonth * AUTO_COST * 12;
+  const annualSavings = Math.round(annualManualCost - annualAutoCost);
 
   return (
     <section className="py-24 bg-slate-900/50 border-y border-slate-800/50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <FadeUp delay={0}><p className="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-3">Quick Estimate</p></FadeUp>
-          <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">What is manual work costing you?</h2></FadeUp>
-          <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-2xl mx-auto">Move the sliders to see your estimated annual savings from automation.</p></FadeUp>
+          <FadeUp delay={0}><p className="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-3">Live Demo</p></FadeUp>
+          <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">Watch the cost disappear.</h2></FadeUp>
+          <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-2xl mx-auto">One client report. Two approaches. The difference is everything.</p></FadeUp>
         </div>
 
         <FadeUp delay={150}>
-          <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 md:p-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="text-slate-300 text-sm font-medium">Employees on repetitive work</label>
-                  <span className="text-white font-bold text-lg">{employees}</span>
-                </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="20"
-                  value={employees}
-                  onChange={(e) => setEmployees(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
-                />
-                <div className="flex justify-between text-slate-600 text-xs mt-1"><span>1</span><span>20</span></div>
+          {/* Side-by-side panels */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {/* LEFT: Manual */}
+            <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${started ? "border-red-500/40" : "border-slate-700/50"}`}>
+              <div className={`px-5 py-3 border-b flex items-center gap-3 transition-all ${started ? "border-red-500/30 bg-red-500/10" : "border-slate-700/50 bg-slate-800/40"}`}>
+                <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${started && !manualComplete ? "bg-red-400 animate-pulse" : started ? "bg-red-500" : "bg-slate-600"}`} />
+                <span className={`font-bold text-sm ${started ? "text-red-300" : "text-slate-400"}`}>The Old Way</span>
+                <span className="ml-auto text-slate-500 text-xs">Manual report creation</span>
               </div>
-
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="text-slate-300 text-sm font-medium">Manual hours per employee/week</label>
-                  <span className="text-white font-bold text-lg">{hoursPerWeek} hrs</span>
+              <div className="p-5 bg-slate-900/40">
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className={`rounded-xl p-3 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-1">Time elapsed</div>
+                    <div className={`font-mono font-bold text-2xl ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>
+                      {formatTime(manualMins)}
+                    </div>
+                    <div className="text-slate-600 text-xs">of 60:00</div>
+                  </div>
+                  <div className={`rounded-xl p-3 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-1">Cost burned</div>
+                    <div className={`font-mono font-bold text-2xl ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>
+                      ${manualDollars.toFixed(2)}
+                    </div>
+                    <div className="text-slate-600 text-xs">of $85.00</div>
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min="2"
-                  max="40"
-                  value={hoursPerWeek}
-                  onChange={(e) => setHoursPerWeek(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
-                />
-                <div className="flex justify-between text-slate-600 text-xs mt-1"><span>2 hrs</span><span>40 hrs</span></div>
-              </div>
-
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="text-slate-300 text-sm font-medium">Average hourly cost</label>
-                  <span className="text-white font-bold text-lg">${hourlyCost}/hr</span>
+                <div className="mb-4">
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-red-700 to-red-400 rounded-full"
+                      style={{ width: `${(manualSeconds / TOTAL_REAL_SECS) * 100}%`, transition: "width 100ms linear" }}
+                    />
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min="15"
-                  max="150"
-                  step="5"
-                  value={hourlyCost}
-                  onChange={(e) => setHourlyCost(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
-                />
-                <div className="flex justify-between text-slate-600 text-xs mt-1"><span>$15</span><span>$150</span></div>
+                <div className={`rounded-xl p-3 border min-h-[48px] flex items-center gap-2 transition-all ${started ? "border-slate-700/50 bg-slate-800/40" : "border-slate-700/20 bg-slate-800/10"}`}>
+                  {started ? (
+                    <>
+                      {!manualComplete && <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />}
+                      {manualComplete && <span className="text-red-400 flex-shrink-0 text-sm">✓</span>}
+                      <span className="text-slate-300 font-mono text-xs">{manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]}</span>
+                    </>
+                  ) : (
+                    <span className="text-slate-600 text-xs mx-auto">Press play to start</span>
+                  )}
+                </div>
+                <p className="text-slate-600 text-xs text-center mt-3">1 hr × $85/hr per report</p>
               </div>
             </div>
 
-            <div className="text-center rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6 mb-8">
-              <p className="text-slate-400 text-sm mb-2">What manual work is costing your business each year</p>
-              <div className="text-5xl md:text-6xl font-extrabold gradient-text mb-2">
-                ${annualSavings.toLocaleString()}+/yr
+            {/* RIGHT: Automated */}
+            <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${autoComplete ? "border-emerald-500/40" : started ? "border-emerald-500/20" : "border-slate-700/50"}`}>
+              <div className={`px-5 py-3 border-b flex items-center gap-3 transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-500/10" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/50 bg-slate-800/40"}`}>
+                <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${autoComplete ? "bg-emerald-400" : started ? "bg-emerald-400 animate-pulse" : "bg-slate-600"}`} />
+                <span className={`font-bold text-sm ${autoComplete || started ? "text-emerald-300" : "text-slate-400"}`}>The AI Way</span>
+                <span className="ml-auto text-slate-500 text-xs">AI agent automation</span>
               </div>
-              <p className="text-slate-500 text-xs">Conservative estimate based on real automation results. Your free audit gives you the exact number.</p>
+              <div className="p-5 bg-slate-900/40">
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className={`rounded-xl p-3 text-center border transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/30" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-1">Time elapsed</div>
+                    <div className={`font-mono font-bold text-2xl ${autoComplete || started ? "text-emerald-400" : "text-slate-600"}`}>
+                      {formatTime(autoSeconds / 60)}
+                    </div>
+                    <div className="text-slate-600 text-xs">of 0:03</div>
+                  </div>
+                  <div className={`rounded-xl p-3 text-center border transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/30" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-1">Cost burned</div>
+                    <div className={`font-mono font-bold text-2xl ${autoComplete || started ? "text-emerald-400" : "text-slate-600"}`}>
+                      ${autoDollars.toFixed(2)}
+                    </div>
+                    <div className="text-slate-600 text-xs">of $0.12</div>
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-emerald-700 to-emerald-400 rounded-full"
+                      style={{ width: autoComplete ? "100%" : `${(autoSeconds / AUTO_DURATION) * 100}%`, transition: "width 100ms linear" }}
+                    />
+                  </div>
+                </div>
+                <div className={`rounded-xl p-3 border min-h-[48px] flex items-center gap-2 transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/20" : started ? "border-slate-700/50 bg-slate-800/40" : "border-slate-700/20 bg-slate-800/10"}`}>
+                  {!started ? (
+                    <span className="text-slate-600 text-xs mx-auto">Press play to start</span>
+                  ) : autoComplete ? (
+                    <div className="flex items-center gap-2 mx-auto">
+                      <span className="text-emerald-400 text-base">✓</span>
+                      <span className="text-emerald-300 font-semibold text-xs">Report delivered to client</span>
+                    </div>
+                  ) : (
+                    <>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+                      <span className="text-slate-300 font-mono text-xs">{AUTO_STEPS[autoStepIdx]}</span>
+                    </>
+                  )}
+                </div>
+                <p className="text-slate-600 text-xs text-center mt-3">3 seconds × $0.12 API cost per report</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Play / Replay button */}
+          <div className="text-center mb-10">
+            <button
+              onClick={start}
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
+            >
+              {started ? "↺ Replay" : (
+                <>
+                  <span>▶</span>
+                  Watch the Demo
+                  <span className="text-blue-300 text-sm font-normal">~15 sec</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Multiplier calculator */}
+          <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 sm:p-8">
+            <div className="text-center mb-6">
+              <p className="text-white font-bold text-2xl mb-1">Now multiply that.</p>
+              <p className="text-slate-400 text-sm">How many client reports does your team send per month?</p>
+            </div>
+
+            <div className="max-w-xs mx-auto mb-8">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-slate-300 text-sm font-medium">Reports per month</span>
+                <span className="text-white font-bold text-2xl">{reportsPerMonth}</span>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value={reportsPerMonth}
+                onChange={(e) => setReportsPerMonth(Number(e.target.value))}
+                className="w-full h-2 bg-slate-700 rounded-full appearance-none cursor-pointer accent-blue-500"
+              />
+              <div className="flex justify-between text-slate-600 text-xs mt-1"><span>1</span><span>100</span></div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-4 text-center">
+                <p className="text-red-400 text-xs uppercase tracking-wider font-semibold mb-2">Manual / Year</p>
+                <p className="text-white font-extrabold text-3xl">${annualManualCost.toLocaleString()}</p>
+                <p className="text-slate-500 text-xs mt-1">{reportsPerMonth} reports × 1 hr × $85 × 12 mo</p>
+              </div>
+              <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-center">
+                <p className="text-emerald-400 text-xs uppercase tracking-wider font-semibold mb-2">Automated / Year</p>
+                <p className="text-white font-extrabold text-3xl">${annualAutoCost.toFixed(2)}</p>
+                <p className="text-slate-500 text-xs mt-1">{reportsPerMonth} reports × $0.12 API × 12 mo</p>
+              </div>
+              <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-4 text-center">
+                <p className="text-blue-400 text-xs uppercase tracking-wider font-semibold mb-2">You Save / Year</p>
+                <p className="text-4xl font-extrabold gradient-text">${annualSavings.toLocaleString()}</p>
+              </div>
             </div>
 
             <div className="text-center">
@@ -997,8 +1188,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ROI Calculator */}
-      <ROICalculator />
+      {/* Report ROI Demo */}
+      <ReportROIDemo />
 
       {/* How It Works Overview */}
       <section className="py-24 bg-slate-900/30">
