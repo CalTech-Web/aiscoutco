@@ -376,14 +376,14 @@ const faqJsonLd = {
 
 
 const MANUAL_STEPS = [
-  "Opening Google Analytics...",
-  "Pulling traffic data to spreadsheet...",
-  "Copying ranking metrics from Search Console...",
-  "Building performance comparison tables...",
-  "Writing client summary paragraph...",
-  "Formatting charts and screenshots...",
-  "Proofreading and revising draft...",
-  "Emailing finished report to client...",
+  "Logging into Ahrefs...",
+  "Navigating to organic keywords report...",
+  "Selecting and copying ranking data...",
+  "Pasting data into Google Sheets...",
+  "Opening Google Docs template...",
+  "Writing client performance summary...",
+  "Formatting tables and headers...",
+  "Composing email with attached report...",
 ];
 
 const AUTO_STEPS = [
@@ -393,6 +393,9 @@ const AUTO_STEPS = [
   "Sending to client...",
 ];
 
+const STEP_MOCKUPS = ["ahrefs-login", "ahrefs-data", "ahrefs-copy", "sheets", "docs", "docs", "docs", "gmail"] as const;
+type MockupKey = typeof STEP_MOCKUPS[number];
+
 const MINUTES_PER_REAL_SEC = 5;
 const HOURLY_RATE = 85;
 const TOTAL_MINUTES = 60;
@@ -400,6 +403,181 @@ const TOTAL_REAL_SECS = TOTAL_MINUTES / MINUTES_PER_REAL_SEC;
 const DOLLAR_PER_REAL_SEC = (HOURLY_RATE / 60) * MINUTES_PER_REAL_SEC;
 const AUTO_DURATION = 3;
 const AUTO_COST = 0.12;
+
+// ── App mockup components ──────────────────────────────────────────────────
+
+function MockupAhrefsLogin() {
+  return (
+    <div className="w-full h-36 bg-[#1b1b2e] rounded-lg flex flex-col items-center justify-center gap-3 overflow-hidden">
+      <span className="text-[#ff6a35] font-extrabold text-xl tracking-tight select-none">ahrefs</span>
+      <div className="w-44 space-y-1.5">
+        <div className="bg-white/10 border border-white/20 rounded px-2.5 py-1.5 text-[11px] text-white/50 font-mono">agency@diamondlinks.com</div>
+        <div className="bg-white/10 border border-white/20 rounded px-2.5 py-1.5 text-[11px] text-white/50">••••••••</div>
+        <div className="bg-[#ff6a35] rounded px-2.5 py-1.5 text-[11px] text-white flex items-center justify-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full border border-white/30 border-t-white animate-spin flex-shrink-0" />
+          Signing in...
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MockupAhrefsData({ copying }: { copying: boolean }) {
+  const rows = [
+    { kw: "link building services", pos: "3", vol: "2.4K" },
+    { kw: "buy backlinks", pos: "7", vol: "5.9K" },
+    { kw: "white hat link building", pos: "12", vol: "1.2K" },
+    { kw: "guest posting service", pos: "5", vol: "880" },
+  ];
+  return (
+    <div className="w-full h-36 bg-[#1b1b2e] rounded-lg overflow-hidden flex">
+      <div className="w-[72px] flex-shrink-0 bg-[#12121f] border-r border-white/10 p-2 flex flex-col gap-0.5">
+        <span className="text-[#ff6a35] font-extrabold text-[11px] mb-1.5 px-0.5">ahrefs</span>
+        {["Site Explorer", "Keywords", "Rank Tracker", "Site Audit"].map((item, i) => (
+          <div key={i} className={`text-[10px] px-1 py-0.5 rounded truncate ${i === 0 ? "bg-[#ff6a35]/20 text-[#ff6a35]" : "text-white/30"}`}>{item}</div>
+        ))}
+      </div>
+      <div className="flex-1 p-2 overflow-hidden min-w-0">
+        <div className="text-white/40 text-[10px] mb-1.5 truncate font-mono">diamondlinks.com › Organic Keywords (2,847)</div>
+        <div className="space-y-0.5">
+          {rows.map((row, i) => (
+            <div key={i} className={`flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded transition-all duration-300 ${copying && i < 3 ? "bg-blue-500/20 text-white" : "text-white/40"}`}>
+              <span className="flex-1 truncate min-w-0">{row.kw}</span>
+              <span className="text-emerald-400 w-4 text-right flex-shrink-0">{row.pos}</span>
+              <span className="text-white/30 w-8 text-right flex-shrink-0">{row.vol}</span>
+            </div>
+          ))}
+        </div>
+        {copying && <div className="text-[10px] text-blue-400 mt-1 animate-pulse">⌘C — Copying 3 rows...</div>}
+      </div>
+    </div>
+  );
+}
+
+function MockupGoogleSheets() {
+  return (
+    <div className="w-full h-36 bg-white rounded-lg overflow-hidden flex flex-col border border-gray-200">
+      <div className="bg-white px-2 py-1 flex items-center gap-1.5 border-b border-gray-200">
+        <div className="w-4 h-4 bg-[#0f9d58] rounded-sm flex items-center justify-center flex-shrink-0">
+          <span className="text-white text-[9px] font-extrabold leading-none">S</span>
+        </div>
+        <span className="text-gray-700 text-[11px] truncate">DiamondLinks_April_Report.xlsx</span>
+      </div>
+      <div className="flex-1 overflow-hidden">
+        <div className="flex border-b border-gray-200 bg-gray-50">
+          <div className="w-5 border-r border-gray-200 bg-gray-100" />
+          {["Keyword", "Pos", "Volume", "Change"].map(c => (
+            <div key={c} className="flex-1 text-center text-gray-400 border-r border-gray-100 py-0.5 text-[9px] px-0.5 truncate">{c}</div>
+          ))}
+        </div>
+        {[
+          { n: "1", cells: ["link building services", "3", "2,400", "+2"] },
+          { n: "2", cells: ["buy backlinks", "7", "5,900", "0"] },
+          { n: "3", cells: ["white hat link building", "12", "1,200", "-1"] },
+          { n: "4", cells: ["guest post service", "5", "880|", ""] },
+        ].map((row, ri) => (
+          <div key={row.n} className="flex border-b border-gray-100">
+            <div className="w-5 text-center text-gray-400 border-r border-gray-200 bg-gray-50 text-[9px] py-0.5">{row.n}</div>
+            {row.cells.map((cell, ci) => (
+              <div key={ci} className={`flex-1 border-r border-gray-100 px-0.5 py-0.5 truncate text-[9px] text-gray-700 ${ri === 3 && ci === 2 ? "text-blue-500 animate-pulse" : ""}`}>{cell}</div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MockupGoogleDocs() {
+  return (
+    <div className="w-full h-36 bg-[#f0f4f9] rounded-lg overflow-hidden flex flex-col">
+      <div className="bg-white px-2 py-1 flex items-center gap-1.5 border-b border-gray-200">
+        <div className="w-4 h-4 bg-[#4285f4] rounded-sm flex items-center justify-center flex-shrink-0">
+          <span className="text-white text-[9px] font-extrabold leading-none">D</span>
+        </div>
+        <span className="text-gray-700 text-[11px] truncate">April_Report_DiamondLinks.docx</span>
+      </div>
+      <div className="bg-white border-b border-gray-200 px-2 py-0.5 flex gap-0.5">
+        {["Normal ▾", "Arial ▾", "B", "I", "U"].map(t => (
+          <span key={t} className="text-gray-400 text-[9px] px-0.5 border border-gray-200 rounded">{t}</span>
+        ))}
+      </div>
+      <div className="flex-1 bg-white mx-2 my-1 shadow-sm rounded px-3 py-2 overflow-hidden">
+        <div className="font-bold text-[11px] text-gray-800 mb-0.5">April 2025 SEO Performance Report</div>
+        <div className="text-gray-400 text-[10px] mb-1.5">DiamondLinks — Prepared by Agency Team</div>
+        <div className="text-gray-700 text-[10px] leading-relaxed">
+          This month saw strong growth across all tracked keywords. Organic traffic increased <strong>14%</strong> vs. March, with 3 keywords reaching page 1 for the first time. Top mover: &ldquo;link building services&rdquo; moved from #5 → #3
+          <span className="inline-block w-0.5 h-3 bg-blue-500 animate-pulse align-middle ml-0.5" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MockupGmail() {
+  return (
+    <div className="w-full h-36 bg-[#f6f8fc] rounded-lg overflow-hidden flex flex-col border border-gray-200">
+      <div className="bg-white px-2 py-1 flex items-center gap-1.5 border-b border-gray-200">
+        <span className="font-extrabold text-[11px]" style={{ color: "#EA4335" }}>M</span>
+        <span className="font-medium text-[11px] text-gray-600">Gmail</span>
+        <span className="ml-auto text-[10px] text-gray-400 border border-gray-300 rounded px-1 py-0.5">+ Compose</span>
+      </div>
+      <div className="flex-1 relative overflow-hidden p-1.5">
+        <div className="text-[10px] text-gray-300 text-center mt-1">Inbox (47)</div>
+        <div className="absolute bottom-0 right-0 w-52 border border-gray-300 rounded-t-lg shadow-xl bg-white overflow-hidden">
+          <div className="bg-[#404040] text-white px-2.5 py-1.5 flex justify-between items-center">
+            <span className="text-[10px] font-medium">New Message</span>
+            <span className="text-white/50 text-[10px]">— ⤢ ✕</span>
+          </div>
+          <div className="border-b border-gray-200 px-2 py-0.5 text-[10px]"><span className="text-gray-500">To: </span><span className="text-blue-600">sarah@diamondlinks.com</span></div>
+          <div className="border-b border-gray-200 px-2 py-0.5 text-[10px] text-gray-600 truncate">April SEO Report — DiamondLinks</div>
+          <div className="px-2 py-1 text-[10px] text-gray-700 leading-relaxed">
+            Hi Sarah, your April report is attached. Traffic +14%, 3 new page 1 rankings!
+            <span className="inline-block w-0.5 h-3 bg-gray-800 animate-pulse align-middle ml-0.5" />
+          </div>
+          <div className="border-t border-gray-200 px-2 py-1.5 flex items-center gap-1.5">
+            <div className="bg-[#0b57d0] text-white text-[10px] px-2.5 py-0.5 rounded-full">Send</div>
+            <span className="text-gray-400 text-[10px] truncate">📎 April_Report.docx</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AutoReportPreview() {
+  return (
+    <div className="w-full h-36 bg-gradient-to-br from-[#0f172a] to-[#1e293b] rounded-lg overflow-hidden border border-emerald-500/20">
+      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 px-3 py-1.5 flex items-center justify-between">
+        <div>
+          <div className="text-white font-bold text-xs">DiamondLinks</div>
+          <div className="text-white/70 text-[10px]">April 2025 Performance Report</div>
+        </div>
+        <div className="text-white/50 text-[10px]">AI Scout</div>
+      </div>
+      <div className="p-2 grid grid-cols-3 gap-1.5">
+        {[
+          { label: "Traffic", value: "+14%", color: "text-emerald-400" },
+          { label: "Page 1 KW", value: "24", color: "text-blue-400" },
+          { label: "New Top 3", value: "3", color: "text-cyan-400" },
+        ].map((m, i) => (
+          <div key={i} className="bg-white/5 rounded-lg p-1.5 text-center">
+            <div className={`font-bold text-sm ${m.color}`}>{m.value}</div>
+            <div className="text-slate-400 text-[10px]">{m.label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="px-2">
+        <div className="flex items-end gap-0.5 h-9 bg-white/5 rounded px-1.5 py-1">
+          {[40, 55, 48, 62, 58, 71, 75, 70, 80, 83, 78, 90].map((h, i) => (
+            <div key={i} className="flex-1 bg-gradient-to-t from-blue-600 to-cyan-400 rounded-sm opacity-90" style={{ height: `${h}%` }} />
+          ))}
+        </div>
+        <div className="text-slate-500 text-[9px] text-center mt-0.5">Organic traffic — 12 months</div>
+      </div>
+    </div>
+  );
+}
 
 function ReportROIDemo() {
   const [started, setStarted] = useState(false);
@@ -409,10 +587,12 @@ function ReportROIDemo() {
   const [manualComplete, setManualComplete] = useState(false);
   const [manualStepIdx, setManualStepIdx] = useState(0);
   const [autoStepIdx, setAutoStepIdx] = useState(0);
+  const [mockupKey, setMockupKey] = useState(0);
   const [reportsPerMonth, setReportsPerMonth] = useState(10);
 
   const intervalRefs = useRef<ReturnType<typeof setInterval>[]>([]);
   const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const prevMockupRef = useRef<MockupKey | "idle">("idle");
 
   const clearAll = useCallback(() => {
     intervalRefs.current.forEach(clearInterval);
@@ -429,6 +609,8 @@ function ReportROIDemo() {
     setManualComplete(false);
     setManualStepIdx(0);
     setAutoStepIdx(0);
+    setMockupKey(k => k + 1);
+    prevMockupRef.current = "ahrefs-login";
     setStarted(true);
 
     const manualInterval = setInterval(() => {
@@ -450,7 +632,14 @@ function ReportROIDemo() {
     intervalRefs.current.push(autoInterval);
 
     MANUAL_STEPS.forEach((_, i) => {
-      const t = setTimeout(() => setManualStepIdx(i), Math.floor((TOTAL_REAL_SECS * 1000 / MANUAL_STEPS.length) * i));
+      const t = setTimeout(() => {
+        setManualStepIdx(i);
+        const newMockup = STEP_MOCKUPS[i];
+        if (newMockup !== prevMockupRef.current) {
+          prevMockupRef.current = newMockup;
+          setMockupKey(k => k + 1);
+        }
+      }, Math.floor((TOTAL_REAL_SECS * 1000 / MANUAL_STEPS.length) * i));
       timeoutRefs.current.push(t);
     });
 
@@ -476,6 +665,8 @@ function ReportROIDemo() {
   const annualAutoCost = reportsPerMonth * AUTO_COST * 12;
   const annualSavings = Math.round(annualManualCost - annualAutoCost);
 
+  const currentMockup: MockupKey | "idle" = started ? STEP_MOCKUPS[manualStepIdx] : "idle";
+
   return (
     <section className="py-24 bg-slate-900/50 border-y border-slate-800/50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -486,7 +677,6 @@ function ReportROIDemo() {
         </div>
 
         <FadeUp delay={150}>
-          {/* Side-by-side panels */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {/* LEFT: Manual */}
             <div className={`rounded-2xl border overflow-hidden transition-all duration-300 ${started ? "border-red-500/40" : "border-slate-700/50"}`}>
@@ -495,43 +685,46 @@ function ReportROIDemo() {
                 <span className={`font-bold text-sm ${started ? "text-red-300" : "text-slate-400"}`}>The Old Way</span>
                 <span className="ml-auto text-slate-500 text-xs">Manual report creation</span>
               </div>
-              <div className="p-5 bg-slate-900/40">
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className={`rounded-xl p-3 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
-                    <div className="text-slate-500 text-xs mb-1">Time elapsed</div>
-                    <div className={`font-mono font-bold text-2xl ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>
-                      {formatTime(manualMins)}
-                    </div>
+              <div className="p-4 bg-slate-900/40 space-y-3">
+                {/* Counters */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-0.5">Time elapsed</div>
+                    <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>{formatTime(manualMins)}</div>
                     <div className="text-slate-600 text-xs">of 60:00</div>
                   </div>
-                  <div className={`rounded-xl p-3 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
-                    <div className="text-slate-500 text-xs mb-1">Cost burned</div>
-                    <div className={`font-mono font-bold text-2xl ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>
-                      ${manualDollars.toFixed(2)}
-                    </div>
+                  <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-0.5">Cost burned</div>
+                    <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>${manualDollars.toFixed(2)}</div>
                     <div className="text-slate-600 text-xs">of $85.00</div>
                   </div>
                 </div>
-                <div className="mb-4">
-                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-red-700 to-red-400 rounded-full"
-                      style={{ width: `${(manualSeconds / TOTAL_REAL_SECS) * 100}%`, transition: "width 100ms linear" }}
-                    />
-                  </div>
+                {/* Progress bar */}
+                <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-red-700 to-red-400 rounded-full" style={{ width: `${(manualSeconds / TOTAL_REAL_SECS) * 100}%`, transition: "width 100ms linear" }} />
                 </div>
-                <div className={`rounded-xl p-3 border min-h-[48px] flex items-center gap-2 transition-all ${started ? "border-slate-700/50 bg-slate-800/40" : "border-slate-700/20 bg-slate-800/10"}`}>
-                  {started ? (
-                    <>
-                      {!manualComplete && <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />}
-                      {manualComplete && <span className="text-red-400 flex-shrink-0 text-sm">✓</span>}
-                      <span className="text-slate-300 font-mono text-xs">{manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]}</span>
-                    </>
-                  ) : (
-                    <span className="text-slate-600 text-xs mx-auto">Press play to start</span>
+                {/* App mockup */}
+                <div key={mockupKey} className="animate-mockup-fade">
+                  {currentMockup === "idle" && (
+                    <div className="w-full h-36 flex items-center justify-center text-slate-600 text-sm border border-slate-700/30 rounded-lg bg-slate-800/10">
+                      Press play to start
+                    </div>
                   )}
+                  {currentMockup === "ahrefs-login" && <MockupAhrefsLogin />}
+                  {currentMockup === "ahrefs-data" && <MockupAhrefsData copying={false} />}
+                  {currentMockup === "ahrefs-copy" && <MockupAhrefsData copying={true} />}
+                  {currentMockup === "sheets" && <MockupGoogleSheets />}
+                  {currentMockup === "docs" && <MockupGoogleDocs />}
+                  {currentMockup === "gmail" && <MockupGmail />}
                 </div>
-                <p className="text-slate-600 text-xs text-center mt-3">1 hr × $85/hr per report</p>
+                {/* Step label */}
+                <div className="flex items-center gap-2 min-h-[20px]">
+                  {started && !manualComplete && <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />}
+                  {started && manualComplete && <span className="text-red-400 flex-shrink-0 text-xs">✓</span>}
+                  <span className="text-slate-500 font-mono text-xs truncate">
+                    {started ? (manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]) : "1 hr × $85/hr per report"}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -542,63 +735,65 @@ function ReportROIDemo() {
                 <span className={`font-bold text-sm ${autoComplete || started ? "text-emerald-300" : "text-slate-400"}`}>The AI Way</span>
                 <span className="ml-auto text-slate-500 text-xs">AI agent automation</span>
               </div>
-              <div className="p-5 bg-slate-900/40">
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className={`rounded-xl p-3 text-center border transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/30" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/40 bg-slate-800/30"}`}>
-                    <div className="text-slate-500 text-xs mb-1">Time elapsed</div>
-                    <div className={`font-mono font-bold text-2xl ${autoComplete || started ? "text-emerald-400" : "text-slate-600"}`}>
-                      {formatTime(autoSeconds / 60)}
-                    </div>
+              <div className="p-4 bg-slate-900/40 space-y-3">
+                {/* Counters */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div className={`rounded-xl p-2.5 text-center border transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/30" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-0.5">Time elapsed</div>
+                    <div className={`font-mono font-bold text-2xl leading-tight ${autoComplete || started ? "text-emerald-400" : "text-slate-600"}`}>{formatTime(autoSeconds / 60)}</div>
                     <div className="text-slate-600 text-xs">of 0:03</div>
                   </div>
-                  <div className={`rounded-xl p-3 text-center border transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/30" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/40 bg-slate-800/30"}`}>
-                    <div className="text-slate-500 text-xs mb-1">Cost burned</div>
-                    <div className={`font-mono font-bold text-2xl ${autoComplete || started ? "text-emerald-400" : "text-slate-600"}`}>
-                      ${autoDollars.toFixed(2)}
-                    </div>
+                  <div className={`rounded-xl p-2.5 text-center border transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/30" : started ? "border-emerald-500/20 bg-emerald-900/10" : "border-slate-700/40 bg-slate-800/30"}`}>
+                    <div className="text-slate-500 text-xs mb-0.5">Cost burned</div>
+                    <div className={`font-mono font-bold text-2xl leading-tight ${autoComplete || started ? "text-emerald-400" : "text-slate-600"}`}>${autoDollars.toFixed(2)}</div>
                     <div className="text-slate-600 text-xs">of $0.12</div>
                   </div>
                 </div>
-                <div className="mb-4">
-                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-emerald-700 to-emerald-400 rounded-full"
-                      style={{ width: autoComplete ? "100%" : `${(autoSeconds / AUTO_DURATION) * 100}%`, transition: "width 100ms linear" }}
-                    />
-                  </div>
+                {/* Progress bar */}
+                <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-emerald-700 to-emerald-400 rounded-full" style={{ width: autoComplete ? "100%" : `${(autoSeconds / AUTO_DURATION) * 100}%`, transition: "width 100ms linear" }} />
                 </div>
-                <div className={`rounded-xl p-3 border min-h-[48px] flex items-center gap-2 transition-all ${autoComplete ? "border-emerald-500/30 bg-emerald-950/20" : started ? "border-slate-700/50 bg-slate-800/40" : "border-slate-700/20 bg-slate-800/10"}`}>
-                  {!started ? (
-                    <span className="text-slate-600 text-xs mx-auto">Press play to start</span>
-                  ) : autoComplete ? (
-                    <div className="flex items-center gap-2 mx-auto">
-                      <span className="text-emerald-400 text-base">✓</span>
-                      <span className="text-emerald-300 font-semibold text-xs">Report delivered to client</span>
+                {/* Visual area */}
+                {!started && (
+                  <div className="w-full h-36 flex flex-col items-center justify-center gap-3 bg-slate-800/20 border border-slate-700/30 rounded-lg">
+                    <div className="text-slate-500 text-xs">Automated Report System</div>
+                    <div className="px-6 py-2.5 rounded-xl bg-emerald-600/80 text-white font-bold text-sm flex items-center gap-2 cursor-default">
+                      <span>📊</span> Create Report
                     </div>
-                  ) : (
-                    <>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                      <span className="text-slate-300 font-mono text-xs">{AUTO_STEPS[autoStepIdx]}</span>
-                    </>
-                  )}
+                    <div className="text-slate-600 text-xs">One click. All clients.</div>
+                  </div>
+                )}
+                {started && !autoComplete && (
+                  <div className="w-full h-36 flex flex-col items-center justify-center gap-3 bg-slate-800/20 border border-emerald-500/20 rounded-lg">
+                    <div className="w-5 h-5 rounded-full border-2 border-emerald-400/30 border-t-emerald-400 animate-spin" />
+                    <span className="text-emerald-300 text-xs font-mono text-center px-4">{AUTO_STEPS[autoStepIdx]}</span>
+                  </div>
+                )}
+                {autoComplete && (
+                  <div className="animate-mockup-fade">
+                    <AutoReportPreview />
+                  </div>
+                )}
+                {/* Step label */}
+                <div className="flex items-center gap-2 min-h-[20px]">
+                  {autoComplete && <span className="text-emerald-400 flex-shrink-0 text-xs">✓</span>}
+                  {started && !autoComplete && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />}
+                  <span className="text-slate-500 font-mono text-xs truncate">
+                    {!started ? "3 seconds × $0.12 API cost per report" : autoComplete ? "Report delivered to client" : AUTO_STEPS[autoStepIdx]}
+                  </span>
                 </div>
-                <p className="text-slate-600 text-xs text-center mt-3">3 seconds × $0.12 API cost per report</p>
               </div>
             </div>
           </div>
 
-          {/* Play / Replay button */}
+          {/* Play / Replay */}
           <div className="text-center mb-10">
             <button
               onClick={start}
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
             >
               {started ? "↺ Replay" : (
-                <>
-                  <span>▶</span>
-                  Watch the Demo
-                  <span className="text-blue-300 text-sm font-normal">~15 sec</span>
-                </>
+                <><span>▶</span> Watch the Demo <span className="text-blue-300 text-sm font-normal">~15 sec</span></>
               )}
             </button>
           </div>
@@ -609,7 +804,6 @@ function ReportROIDemo() {
               <p className="text-white font-bold text-2xl mb-1">Now multiply that.</p>
               <p className="text-slate-400 text-sm">How many client reports does your team send per month?</p>
             </div>
-
             <div className="max-w-xs mx-auto mb-8">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-slate-300 text-sm font-medium">Reports per month</span>
@@ -625,7 +819,6 @@ function ReportROIDemo() {
               />
               <div className="flex justify-between text-slate-600 text-xs mt-1"><span>1</span><span>100</span></div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-4 text-center">
                 <p className="text-red-400 text-xs uppercase tracking-wider font-semibold mb-2">Manual / Year</p>
@@ -642,7 +835,6 @@ function ReportROIDemo() {
                 <p className="text-4xl font-extrabold gradient-text">${annualSavings.toLocaleString()}</p>
               </div>
             </div>
-
             <div className="text-center">
               <Link
                 href="/contact"
