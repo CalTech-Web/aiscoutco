@@ -410,9 +410,23 @@ const MINUTES_PER_REAL_SEC = 5;
 const HOURLY_RATE = 60;
 const TOTAL_MINUTES = 90;
 const TOTAL_REAL_SECS = TOTAL_MINUTES / MINUTES_PER_REAL_SEC;
-const DOLLAR_PER_REAL_SEC = (HOURLY_RATE / 60) * MINUTES_PER_REAL_SEC;
+const COST_PER_REPORT = HOURLY_RATE * (TOTAL_MINUTES / 60);
+const DOLLAR_PER_REAL_SEC = COST_PER_REPORT / TOTAL_REAL_SECS;
 const AUTO_DURATION = 3;
 const AUTO_COST = 0.12;
+
+const EXTRA_TASKS = [
+  { label: "Client proposals", hoursPerMonth: 6 },
+  { label: "Data entry and CRM updates", hoursPerMonth: 12 },
+  { label: "Invoice and billing prep", hoursPerMonth: 4 },
+  { label: "Email follow-ups and outreach", hoursPerMonth: 8 },
+  { label: "Meeting prep and note summaries", hoursPerMonth: 6 },
+  { label: "Social media scheduling", hoursPerMonth: 10 },
+  { label: "Lead qualification and research", hoursPerMonth: 8 },
+  { label: "Client onboarding documents", hoursPerMonth: 5 },
+  { label: "Inventory or catalog updates", hoursPerMonth: 6 },
+  { label: "Performance dashboards", hoursPerMonth: 4 },
+];
 
 // ── App mockup components ──────────────────────────────────────────────────
 
@@ -604,6 +618,7 @@ function ReportROIDemo() {
   const [autoStepIdx, setAutoStepIdx] = useState(0);
   const [mockupKey, setMockupKey] = useState(0);
   const [reportsPerMonth, setReportsPerMonth] = useState(10);
+  const [checkedTasks, setCheckedTasks] = useState<boolean[]>(new Array(EXTRA_TASKS.length).fill(false));
 
   const intervalRefs = useRef<ReturnType<typeof setInterval>[]>([]);
   const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -667,7 +682,7 @@ function ReportROIDemo() {
   useEffect(() => () => clearAll(), [clearAll]);
 
   const manualMins = Math.min(manualSeconds * MINUTES_PER_REAL_SEC, TOTAL_MINUTES);
-  const manualDollars = Math.min(manualSeconds * DOLLAR_PER_REAL_SEC, HOURLY_RATE);
+  const manualDollars = Math.min(manualSeconds * DOLLAR_PER_REAL_SEC, COST_PER_REPORT);
   const autoDollars = autoComplete ? AUTO_COST : (autoSeconds / AUTO_DURATION) * AUTO_COST;
 
   const formatTime = (totalMinutes: number) => {
@@ -676,7 +691,10 @@ function ReportROIDemo() {
     return `${m}:${s.toString().padStart(2, "0")}`;
   };
 
-  const annualManualCost = reportsPerMonth * HOURLY_RATE * 1.5 * 12;
+  const reportAnnualCost = reportsPerMonth * COST_PER_REPORT * 12;
+  const extraAnnualHours = EXTRA_TASKS.reduce((sum, task, i) => sum + (checkedTasks[i] ? task.hoursPerMonth : 0), 0);
+  const extraAnnualCost = extraAnnualHours * HOURLY_RATE * 12;
+  const annualManualCost = reportAnnualCost + extraAnnualCost;
   const annualAutoCost = reportsPerMonth * AUTO_COST * 12;
   const annualSavings = Math.round(annualManualCost - annualAutoCost);
 
@@ -856,11 +874,40 @@ function ReportROIDemo() {
               />
               <div className="flex justify-between text-slate-600 text-xs mt-1"><span>1</span><span>100</span></div>
             </div>
+
+            {/* Extra manual tasks */}
+            <div className="mb-8">
+              <p className="text-slate-300 text-sm font-medium mb-1">What else is your team doing manually?</p>
+              <p className="text-slate-500 text-xs mb-4">Check any that apply. These can be automated too.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {EXTRA_TASKS.map((task, i) => (
+                  <label
+                    key={i}
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-xl border cursor-pointer transition-all ${checkedTasks[i] ? "border-blue-500/40 bg-blue-500/10" : "border-slate-700/40 bg-slate-800/20 hover:border-slate-600/60"}`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checkedTasks[i]}
+                      onChange={() => setCheckedTasks(prev => { const next = [...prev]; next[i] = !next[i]; return next; })}
+                      className="sr-only"
+                    />
+                    <div className={`w-4 h-4 rounded border-2 flex-shrink-0 flex items-center justify-center transition-all ${checkedTasks[i] ? "border-blue-400 bg-blue-500" : "border-slate-600"}`}>
+                      {checkedTasks[i] && <svg viewBox="0 0 12 12" className="w-2.5 h-2.5 text-white"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+                    </div>
+                    <span className={`text-sm flex-1 ${checkedTasks[i] ? "text-white" : "text-slate-400"}`}>{task.label}</span>
+                    <span className={`text-xs flex-shrink-0 ${checkedTasks[i] ? "text-blue-400" : "text-slate-600"}`}>{task.hoursPerMonth} hrs/mo</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-4 text-center">
                 <p className="text-red-400 text-xs uppercase tracking-wider font-semibold mb-2">Manual / Year</p>
                 <p className="text-white font-extrabold text-3xl">${annualManualCost.toLocaleString()}</p>
-                <p className="text-slate-500 text-xs mt-1">{reportsPerMonth} reports × 1.5 hrs × $60/hr × 12 mo</p>
+                <p className="text-slate-500 text-xs mt-1">
+                  {reportsPerMonth} reports × 1.5 hrs × $60/hr{extraAnnualHours > 0 ? ` + ${extraAnnualHours} hrs/mo` : ""} × 12
+                </p>
               </div>
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-center">
                 <p className="text-emerald-400 text-xs uppercase tracking-wider font-semibold mb-2">Automated / Year</p>
