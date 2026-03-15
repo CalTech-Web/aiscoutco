@@ -34,7 +34,7 @@ export default function FloatingCTA() {
         <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
           <Calendar size={14} />
         </span>
-        Book a Free Discovery Call
+        Get a Free Automation Audit
       </Link>
     </div>
   );

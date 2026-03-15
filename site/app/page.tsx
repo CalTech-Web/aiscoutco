@@ -270,10 +270,6 @@ function IntegrationsMarquee() {
 
 const faqs = [
   {
-    q: "Do I need to understand AI to work with you?",
-    a: "Not at all. My job is to understand the technical complexity so you don't have to. You tell me what you want your work and life to look like, and I figure out how to build it.",
-  },
-  {
     q: "What does it cost?",
     a: "Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you're getting and what it's worth to your business. Most clients see a return within the first 60 days.",
   },
@@ -282,12 +278,16 @@ const faqs = [
     a: "We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I'll have identified several areas where AI and automation can make an immediate impact.",
   },
   {
-    q: "Will this replace my employees?",
-    a: "Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the DiamondLinks case study, automation can fully replace a role and deliver even more capability than the previous employee provided.",
+    q: "Do I need to understand AI to work with you?",
+    a: "Not at all. My job is to understand the technical complexity so you don't have to. You tell me what you want your work and life to look like, and I figure out how to build it.",
   },
   {
     q: "How long does it take to build a system?",
     a: "It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks. I'll give you a clear timeline during the discovery process.",
+  },
+  {
+    q: "Will this replace my employees?",
+    a: "Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the DiamondLinks case study, automation can fully replace a role and deliver even more capability than the previous employee provided.",
   },
   {
     q: "Is my business too small or too large for this?",
@@ -300,13 +300,13 @@ const faqs = [
 ];
 
 const faqNodes: Record<number, React.ReactNode> = {
-  1: (
+  0: (
     <span>
       Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you&apos;re getting and what it&apos;s worth to your business. Most clients see a return within the first 60 days.{" "}
-      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book your free discovery call to get a custom quote.</Link>
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Get your free automation audit to see a custom estimate.</Link>
     </span>
   ),
-  3: (
+  4: (
     <span>
       Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the{" "}
       <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>
@@ -465,7 +465,7 @@ export default function HomePage() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 blue-glow btn-shimmer"
               >
-                Book a Free Discovery Call
+                Get a Free Automation Audit
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
@@ -481,7 +481,7 @@ export default function HomePage() {
               {[
                 "Free 30-60 min call",
                 "Walk away with a prioritized roadmap",
-                "Guaranteed: I find 3+ opportunities or say so upfront",
+                "No commitment required",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-slate-400 text-sm">
                   <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
@@ -490,7 +490,12 @@ export default function HomePage() {
               ))}
             </div>
 
-            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for April 2026. Spots are limited.</p>
+            <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
+              <CheckCircle size={12} />
+              Guaranteed: I find 3+ automation opportunities or I tell you straight
+            </div>
+
+            <p className="text-amber-400/70 text-xs font-medium mt-2">Currently accepting new clients for April 2026. Spots are limited.</p>
 
             <div className="w-full">
               <AgentTerminal />
@@ -739,7 +744,7 @@ export default function HomePage() {
               href="/contact"
               className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
             >
-              Book a Free Discovery Call
+              Get a Free Automation Audit
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
@@ -797,7 +802,7 @@ export default function HomePage() {
               href="/contact"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
             >
-              Start Step 1: Book a Free Discovery Call
+              Start with a Free Automation Audit
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <p className="text-slate-500 text-sm mt-3">30 minutes. No commitment. Walk away with a prioritized roadmap.</p>
@@ -877,7 +882,7 @@ export default function HomePage() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
               >
-                Book a Free Discovery Call
+                Get a Free Automation Audit
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/case-study" className="text-slate-500 hover:text-blue-400 text-xs transition-colors">
@@ -978,7 +983,7 @@ export default function HomePage() {
               href="/contact"
               className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
             >
-              Book a Free Discovery Call
+              Get a Free Automation Audit
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
@@ -1004,12 +1009,12 @@ export default function HomePage() {
 
           <FadeUp delay={100} className="mt-10 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-transparent p-8 text-center">
             <p className="text-white font-bold text-xl mb-2">Still have questions?</p>
-            <p className="text-slate-400 text-sm mb-5">Book a free call and I&apos;ll answer everything specific to your business, your workflows, and your goals.</p>
+            <p className="text-slate-400 text-sm mb-5">Get a free audit and I&apos;ll answer everything specific to your business, your workflows, and your goals.</p>
             <Link
               href="/contact"
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
             >
-              Book a Free Discovery Call
+              Get a Free Automation Audit
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
@@ -1051,15 +1056,16 @@ export default function HomePage() {
               href="/contact"
               className="group inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow btn-shimmer"
             >
-              Book a Free Discovery Call
+              Get My Free Automation Audit
               <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeUp>
           <FadeUp delay={450}>
-            <p className="text-slate-300 text-sm mt-6">
-              If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
-            </p>
-            <p className="text-emerald-400/80 text-xs font-medium mt-2">Most clients see ROI within 60 days of going live.</p>
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
+              <CheckCircle size={12} />
+              Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
+            </div>
+            <p className="text-emerald-400/80 text-xs font-medium mt-3">Most clients see ROI within 60 days of going live.</p>
             <p className="text-slate-500 text-xs mt-3">
               No commitment.{" "}
               <Link href="/about" className="text-blue-400/70 hover:text-blue-400 transition-colors">
