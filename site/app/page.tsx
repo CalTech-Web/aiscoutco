@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
-import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers, ChevronDown } from "lucide-react";
 
 const rotatingOutcomes = [
@@ -38,11 +37,55 @@ function RotatingText() {
   );
 }
 
+function useInViewOnce() {
+  const ref = useRef<Element>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { rootMargin: "0px 0px -50px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, inView] as const;
+}
+
+function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const [ref, inView] = useInViewOnce();
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={className}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(20px)",
+        transition: `opacity 0.5s ease ${delay}ms, transform 0.5s ease ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 function AnimatedCounter({ end, suffix = "", prefix = "", decimal = "" }: { end: number; suffix?: string; prefix?: string; decimal?: string }) {
   const [count, setCount] = useState(end);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { rootMargin: "0px 0px -50px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!inView || started) return;
@@ -132,8 +175,19 @@ function AgentTerminal() {
   const [visibleLines, setVisibleLines] = useState(0);
   const [typedChars, setTypedChars] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, margin: "-100px" });
+  const [inView, setInView] = useState(false);
   const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { rootMargin: "-100px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const startSequence = useCallback(() => {
     setVisibleLines(0);
@@ -331,43 +385,28 @@ function FAQItem({ question, answer }: { question: string; answer: React.ReactNo
         aria-expanded={open}
       >
         <span className="text-white font-semibold text-base group-hover:text-blue-300 transition-colors">{question}</span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.25 }}
+        <span
           className="flex-shrink-0 text-slate-400 group-hover:text-blue-400 transition-colors"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s ease" }}
         >
           <ChevronDown size={20} />
-        </motion.span>
+        </span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="answer"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
-              {answer}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className="overflow-hidden"
+        style={{
+          maxHeight: open ? "600px" : "0",
+          opacity: open ? 1 : 0,
+          transition: "max-height 0.3s ease, opacity 0.3s ease",
+        }}
+      >
+        <div className="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+          {answer}
+        </div>
+      </div>
     </div>
   );
 }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
 
 export default function HomePage() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -473,56 +512,34 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="py-20 bg-slate-900/50 border-y border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: 85000, prefix: "$", suffix: "+/yr", decimal: "", label: "Savings per client" },
               { value: 7, suffix: "+", decimal: "", label: "New features delivered" },
               { value: 20, suffix: "+", decimal: "", label: "Manual hours eliminated weekly" },
               { value: 99, decimal: ".9", suffix: "%", label: "System uptime" },
             ].map((stat, i) => (
-              <motion.div key={i} variants={fadeUp} className="flex flex-col items-center">
+              <FadeUp key={i} delay={i * 150} className="flex flex-col items-center">
                 <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-2">
                   <AnimatedCounter end={stat.value} prefix={stat.prefix || ""} suffix={stat.suffix || ""} decimal={stat.decimal || ""} />
                 </div>
                 <div className="text-slate-400 text-sm font-medium">{stat.label}</div>
-              </motion.div>
+              </FadeUp>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Case Study Preview */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.p variants={fadeUp} className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-3">Real Results</motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
-              Proof it works
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-2xl mx-auto">
-              One client. Six weeks. A complete transformation of how their business operates.
-            </motion.p>
-          </motion.div>
+          <div className="text-center mb-16">
+            <FadeUp delay={0}><p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-3">Real Results</p></FadeUp>
+            <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">Proof it works</h2></FadeUp>
+            <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-2xl mx-auto">One client. Six weeks. A complete transformation of how their business operates.</p></FadeUp>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-2xl border border-slate-700/50 bg-slate-900/50 overflow-hidden card-hover"
-          >
+          <FadeUp className="relative rounded-2xl border border-slate-700/50 bg-slate-900/50 overflow-hidden card-hover">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-600/5" />
             <div className="relative p-8 md:p-12">
               <div className="flex flex-col lg:flex-row gap-10 items-start">
@@ -575,16 +592,10 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </FadeUp>
 
           {/* Testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 rounded-2xl border border-blue-500/20 bg-slate-900/50 overflow-hidden"
-          >
+          <FadeUp delay={200} className="mt-8 rounded-2xl border border-blue-500/20 bg-slate-900/50 overflow-hidden">
             <div className="h-px bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500" />
             <div className="p-8 md:p-10">
               <div className="flex items-center gap-1 mb-6">
@@ -605,37 +616,29 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </FadeUp>
         </div>
       </section>
 
       {/* How It Works Overview */}
       <section className="py-24 bg-slate-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.p variants={fadeUp} className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">The Process</motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
-              Simple for you,<br />
-              <span className="gradient-text">specialized from us</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-2xl mx-auto">
-              You describe what you want your business to look like. I figure out the autonomous agents, API orchestration, and custom workflows to make it real.
-            </motion.p>
-          </motion.div>
+          <div className="text-center mb-16">
+            <FadeUp delay={0}><p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">The Process</p></FadeUp>
+            <FadeUp delay={150}>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                Simple for you,<br />
+                <span className="gradient-text">specialized from us</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={300}>
+              <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+                You describe what you want your business to look like. I figure out the autonomous agents, API orchestration, and custom workflows to make it real.
+              </p>
+            </FadeUp>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-5 gap-4"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {[
               { icon: <Brain size={24} />, step: "01", title: "Discovery Call", desc: "We map your workflows and find every opportunity for AI and automation to save you time and money." },
               { icon: <BarChart3 size={24} />, step: "02", title: "Opportunity Map", desc: "You receive a ranked plan with ROI projections and a clear implementation timeline." },
@@ -643,9 +646,9 @@ export default function HomePage() {
               { icon: <CheckCircle size={24} />, step: "04", title: "Launch & Train", desc: "Systems go live and I walk your team through everything. Within a few days, they won't be able to imagine working without it." },
               { icon: <Clock size={24} />, step: "05", title: "Optimize & Evolve", desc: "As your business grows, I keep refining your systems and adding new capabilities." },
             ].map((item, i) => (
-              <motion.div
+              <FadeUp
                 key={i}
-                variants={fadeUp}
+                delay={i * 100}
                 className="relative flex flex-col items-center text-center p-6 rounded-2xl border border-slate-700/50 bg-slate-900/50 card-hover"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4">
@@ -659,16 +662,11 @@ export default function HomePage() {
                     <ChevronRight size={20} />
                   </div>
                 )}
-              </motion.div>
+              </FadeUp>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-10 flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
+          <FadeUp delay={200} className="text-center mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               href="/how-it-works"
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
@@ -683,33 +681,19 @@ export default function HomePage() {
               Start with a free AI discovery
               <ArrowRight size={18} />
             </Link>
-          </motion.div>
+          </FadeUp>
         </div>
       </section>
 
       {/* What I Build */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.p variants={fadeUp} className="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-3">Capabilities</motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
-              What I build
-            </motion.h2>
-          </motion.div>
+          <div className="text-center mb-16">
+            <FadeUp delay={0}><p className="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-3">Capabilities</p></FadeUp>
+            <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">What I build</h2></FadeUp>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 icon: <Bot size={24} />,
@@ -748,9 +732,9 @@ export default function HomePage() {
                 desc: "Your team spends hours on work that follows the same steps every time. I map those workflows and build automation that runs them, so your people can focus on work that actually needs them.",
               },
             ].map((item, i) => (
-              <motion.div
+              <FadeUp
                 key={i}
-                variants={fadeUp}
+                delay={i * 100}
                 className="p-6 rounded-2xl border border-slate-700/50 bg-slate-900/50 card-hover"
               >
                 <div className={`w-12 h-12 rounded-xl ${item.color.bg} border ${item.color.border} flex items-center justify-center ${item.color.text} mb-4`}>
@@ -758,16 +742,11 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </FadeUp>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-10"
-          >
+          <FadeUp delay={200} className="text-center mt-10">
             <Link
               href="/services/build"
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
@@ -775,37 +754,29 @@ export default function HomePage() {
               Explore our custom AI systems
               <ArrowRight size={18} />
             </Link>
-          </motion.div>
+          </FadeUp>
         </div>
       </section>
 
       {/* Industries We Serve */}
       <section className="py-24 bg-slate-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.p variants={fadeUp} className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">Who I Help</motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
-              Built for any business<br />
-              <span className="gradient-text">drowning in manual work</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-2xl mx-auto">
-              If your team spends hours on work that follows the same steps every time, you have an automation opportunity.
-            </motion.p>
-          </motion.div>
+          <div className="text-center mb-16">
+            <FadeUp delay={0}><p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">Who I Help</p></FadeUp>
+            <FadeUp delay={150}>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                Built for any business<br />
+                <span className="gradient-text">drowning in manual work</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={300}>
+              <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+                If your team spends hours on work that follows the same steps every time, you have an automation opportunity.
+              </p>
+            </FadeUp>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 icon: <TrendingUp size={22} />,
@@ -849,9 +820,9 @@ export default function HomePage() {
                 pain: "If your team does the same manual work on a schedule, I can build a system that does it for them.",
               },
             ].map((item, i) => (
-              <motion.div
+              <FadeUp
                 key={i}
-                variants={fadeUp}
+                delay={i * 100}
                 className={`p-6 rounded-2xl border ${item.color.border} ${item.color.subtle} card-hover group`}
               >
                 <div className={`w-11 h-11 rounded-xl ${item.color.bg} border ${item.color.border} flex items-center justify-center ${item.color.text} mb-4`}>
@@ -864,44 +835,28 @@ export default function HomePage() {
                     See how we help <ArrowRight className="w-3 h-3" />
                   </Link>
                 )}
-              </motion.div>
+              </FadeUp>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="text-center mb-12"
-          >
-            <motion.p variants={fadeUp} className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-3">Common Questions</motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-4">
-              Frequently asked
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl max-w-xl mx-auto">
-              Everything you need to know before booking a call.
-            </motion.p>
-          </motion.div>
+          <div className="text-center mb-12">
+            <FadeUp delay={0}><p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-3">Common Questions</p></FadeUp>
+            <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">Frequently asked</h2></FadeUp>
+            <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-xl mx-auto">Everything you need to know before booking a call.</p></FadeUp>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="space-y-3"
-          >
+          <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <motion.div key={i} variants={fadeUp}>
+              <FadeUp key={i} delay={i * 75}>
                 <FAQItem question={faq.q} answer={faqNodes[i] ?? faq.a} />
-              </motion.div>
+              </FadeUp>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -910,35 +865,34 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-cyan-900/10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/10 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-extrabold mb-6">
+          <FadeUp delay={0}>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
               Ready to find out what<br />
               <span className="gradient-text">AI can do for your business?</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl mb-10 max-w-2xl mx-auto">
+            </h2>
+          </FadeUp>
+          <FadeUp delay={150}>
+            <p className="text-slate-400 text-xl mb-10 max-w-2xl mx-auto">
               Book a free 30 to 60 minute discovery call. I&apos;ll identify where automation can make an immediate impact and show you exactly what it would look like.
-            </motion.p>
-            <motion.div variants={fadeUp}>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow btn-shimmer"
-              >
-                Book a Free Discovery Call
-                <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-            <motion.p variants={fadeUp} className="text-slate-500 text-sm mt-6">
+            </p>
+          </FadeUp>
+          <FadeUp delay={300}>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow btn-shimmer"
+            >
+              Book a Free Discovery Call
+              <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeUp>
+          <FadeUp delay={450}>
+            <p className="text-slate-500 text-sm mt-6">
               No commitment. No sales pitch. Just a conversation about what&apos;s possible.{" "}
               <Link href="/about" className="text-blue-400/70 hover:text-blue-400 transition-colors">
                 Learn more about Brandon.
               </Link>
-            </motion.p>
-          </motion.div>
+            </p>
+          </FadeUp>
         </div>
       </section>
     </div>
