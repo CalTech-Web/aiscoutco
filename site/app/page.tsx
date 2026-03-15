@@ -494,9 +494,9 @@ export default function HomePage() {
 
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-5">
               {[
-                "Free 30-min call",
-                "No commitment",
-                "Custom ROI insights included",
+                "Free 30-60 min call",
+                "Walk away with a prioritized roadmap",
+                "No pitch, no obligation",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-slate-400 text-sm">
                   <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
@@ -504,6 +504,8 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
+
+            <p className="text-slate-500 text-xs italic mt-3">I personally take on a limited number of clients. Spots fill each month.</p>
 
             <div className="flex items-center gap-3 mt-6 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
               <div className="flex-shrink-0 flex items-center gap-0.5">
@@ -549,6 +551,51 @@ export default function HomePage() {
                   <AnimatedCounter end={stat.value} prefix={stat.prefix || ""} suffix={stat.suffix || ""} decimal={stat.decimal || ""} />
                 </div>
                 <div className="text-slate-400 text-sm font-medium">{stat.label}</div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why AI Scout Co */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <FadeUp delay={0}><p className="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-3">Why AI Scout Co</p></FadeUp>
+            <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">Not an agency. <span className="gradient-text">A direct expert.</span></h2></FadeUp>
+            <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-2xl mx-auto">Most AI agencies hand your project to junior staff after the sale. Here, you work with the person who builds it.</p></FadeUp>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: <Brain size={24} />,
+                color: { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400" },
+                title: "You work directly with the builder",
+                desc: "No account managers, no handoffs, no junior staff. When you hire AI Scout Co, you work directly with Brandon, the person who designs and builds every system.",
+              },
+              {
+                icon: <Zap size={24} />,
+                color: { border: "border-emerald-500/30", bg: "bg-emerald-500/10", text: "text-emerald-400" },
+                title: "I find what you didn't know to look for",
+                desc: "Most businesses don't know what AI is capable of until we start exploring together. My discovery-first approach surfaces opportunities you didn't even know existed.",
+              },
+              {
+                icon: <BarChart3 size={24} />,
+                color: { border: "border-cyan-500/30", bg: "bg-cyan-500/10", text: "text-cyan-400" },
+                title: "Every recommendation comes with ROI",
+                desc: "You see exactly what each automation will save, in time and money, before a single line of code is written. No guessing, no vague promises.",
+              },
+            ].map((item, i) => (
+              <FadeUp
+                key={i}
+                delay={i * 150}
+                className={`p-6 rounded-2xl border ${item.color.border} bg-slate-900/50 card-hover`}
+              >
+                <div className={`w-12 h-12 rounded-xl ${item.color.bg} border ${item.color.border} flex items-center justify-center ${item.color.text} mb-4`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </FadeUp>
             ))}
           </div>
@@ -897,9 +944,23 @@ export default function HomePage() {
             </h2>
           </FadeUp>
           <FadeUp delay={150}>
-            <p className="text-slate-400 text-xl mb-10 max-w-2xl mx-auto">
-              Book a free 30 to 60 minute discovery call. I&apos;ll identify where automation can make an immediate impact and show you exactly what it would look like.
+            <p className="text-slate-400 text-xl mb-8 max-w-2xl mx-auto">
+              Book a free 30 to 60 minute discovery call. I&apos;ll audit your workflows, identify every automation opportunity, and deliver a prioritized roadmap, no obligation required.
             </p>
+          </FadeUp>
+          <FadeUp delay={200}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10 text-left">
+              {[
+                "Full workflow audit to find every AI opportunity",
+                "ROI projections tailored to your specific business",
+                "Prioritized roadmap, zero obligation to proceed",
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <CheckCircle size={15} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-300 text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
           </FadeUp>
           <FadeUp delay={300}>
             <Link
