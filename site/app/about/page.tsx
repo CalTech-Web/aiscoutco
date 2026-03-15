@@ -203,7 +203,7 @@ export default function AboutPage() {
             Get My Free Automation Audit
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-amber-400/80 text-xs font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
+          <p className="text-amber-400/80 text-xs font-semibold mt-4">I take on 3 to 5 new clients per month. April spots are available now.</p>
           <p className="text-slate-500 text-sm mt-3">
             Want to learn more first?{" "}
             <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300 transition-colors">

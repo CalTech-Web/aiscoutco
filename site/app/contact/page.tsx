@@ -52,7 +52,7 @@ export default function ContactPage() {
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             One free 30-minute call. I map every place AI can cut costs in your business and attach real dollar savings to each one. You keep the roadmap, no strings attached.
           </p>
-          <p className="text-amber-400 text-sm font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
+          <p className="text-amber-400 text-sm font-semibold mt-4">I take on 3 to 5 new clients per month. April spots are available now.</p>
         </div>
       </section>
 
@@ -177,7 +177,7 @@ export default function ContactPage() {
                     </p>
                   </div>
 
-                  <p className="text-amber-400/80 text-xs font-medium text-center">Currently accepting new clients for April 2026. Spots are limited.</p>
+                  <p className="text-amber-400/80 text-xs font-medium text-center">I take on 3 to 5 new clients per month. April spots are available now.</p>
                   <button
                     type="submit"
                     disabled={loading}

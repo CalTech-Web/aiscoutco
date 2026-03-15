@@ -431,7 +431,7 @@ function ROICalculator() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
               >
-                Get My Exact ROI Projection
+                Claim My Free ${annualSavings.toLocaleString()}+ Roadmap
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <p className="text-slate-500 text-xs mt-3">Free 30-min call. No commitment required.</p>
@@ -542,18 +542,6 @@ export default function HomePage() {
               Your team is losing hours every week to manual work that never changes. In 30 minutes, I find every automation opportunity in your business and show you the exact dollar savings. You walk away with a roadmap whether you hire me or not.
             </p>
 
-            <div className="flex items-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
-              <div className="flex-shrink-0 flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={13} fill="#f59e0b" className="text-amber-400" />
-                ))}
-              </div>
-              <p className="text-slate-400 text-xs leading-snug italic">
-                &ldquo;We were about to give a 25% raise to keep an employee. Brandon automated the role in 6 weeks and gave us 7 capabilities we never had.&rdquo;
-                <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
-              </p>
-            </div>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
@@ -569,6 +557,18 @@ export default function HomePage() {
                 See $85K Saved in 6 Weeks
                 <ChevronRight size={20} />
               </a>
+            </div>
+
+            <div className="flex items-center gap-3 mt-5 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
+              <div className="flex-shrink-0 flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={13} fill="#f59e0b" className="text-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-400 text-xs leading-snug italic">
+                &ldquo;We were about to give a 25% raise to keep an employee. Brandon automated the role in 6 weeks and gave us 7 capabilities we never had.&rdquo;
+                <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
+              </p>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-5">
@@ -589,7 +589,7 @@ export default function HomePage() {
               Guaranteed: I find 3+ automation opportunities or I tell you straight
             </div>
 
-            <p className="text-amber-400/70 text-xs font-medium mt-2">Currently accepting new clients for April 2026. Spots are limited.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. April spots are available now.</p>
 
             <div className="w-full">
               <AgentTerminal />
@@ -1169,7 +1169,7 @@ export default function HomePage() {
                 Learn more about Brandon.
               </Link>
             </p>
-            <p className="text-amber-400/70 text-xs font-medium mt-2">Currently accepting new clients for April 2026. Spots are limited.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. April spots are available now.</p>
           </FadeUp>
         </div>
       </section>
