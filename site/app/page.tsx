@@ -474,7 +474,7 @@ export default function HomePage() {
             </p>
 
             <p className="text-lg text-slate-400 max-w-2xl mb-6 leading-relaxed">
-              I find every place AI can eliminate your most expensive manual work, show you the ROI before a single line of code is written, then build the custom systems to make it happen.
+              In one free call, I map every place AI can replace manual work in your business and attach real dollar savings to each one. Walk away with a prioritized plan, no commitment required.
             </p>
 
             <div className="flex items-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
@@ -950,6 +950,18 @@ export default function HomePage() {
               </FadeUp>
             ))}
           </div>
+
+          <FadeUp delay={100} className="mt-10 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-transparent p-8 text-center">
+            <p className="text-white font-bold text-xl mb-2">Still have questions?</p>
+            <p className="text-slate-400 text-sm mb-5">Book a free call and I&apos;ll answer everything specific to your business, your workflows, and your goals.</p>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
+            >
+              Book a Free Discovery Call
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeUp>
         </div>
       </section>
 

@@ -111,10 +111,18 @@ export default function ContactPage() {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4">
                     <CheckCircle size={28} className="text-emerald-400" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-white mb-3">Request received!</h3>
-                  <p className="text-slate-400 leading-relaxed max-w-sm mx-auto">
-                    I will be in touch within one business day to schedule your discovery call. Looking forward to learning about your business.
+                  <h3 className="text-2xl font-extrabold text-white mb-3">You&apos;re on my list.</h3>
+                  <p className="text-slate-400 leading-relaxed max-w-sm mx-auto mb-6">
+                    I&apos;ll reach out within one business day to schedule your call. While you wait, see exactly what&apos;s possible.
                   </p>
+                  <a
+                    href="/case-study"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-blue-500/30 bg-blue-500/10 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors"
+                  >
+                    Read the DiamondLinks Case Study
+                    <ArrowRight size={14} />
+                  </a>
+                  <p className="text-slate-600 text-xs mt-6">$85,000+/year saved. 7 new capabilities delivered. 6 weeks.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
