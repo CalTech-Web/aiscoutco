@@ -907,3 +907,155 @@ Key wins:
 - **Legal page internal links** — privacy policy and terms of service previously had zero outbound internal links; they now link to /services/discovery, /services/build, /services/support, and /contact, improving crawl path from these pages and distributing PageRank to service pages
 - **`offers` on all services** — Google can now identify the offering type and pricing context for all three services, completing the schema parity across the service catalog
 [2026-03-14] Run #20 finished
+**Run 20 complete** — `b43f814` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `services/support/page.tsx` | H1: "Ongoing Support" → "AI System Support" (adds AI keyword to H1) |
+| `services/build/page.tsx` | Service schema: `offers` with custom pricing description |
+| `services/support/page.tsx` | Service schema: `offers` with retainer pricing description |
+| `terms-of-service/page.tsx` | Contextual links → `/services/discovery`, `/services/build`, `/services/support`, `/contact` |
+| `privacy-policy/page.tsx` | Contextual links → `/contact` in sections 1 and 9 |
+
+Key wins:
+- **Support H1 keyword** — H1 now says "AI System Support" to match the title tag, removing the mismatch where "AI" was in the title but missing from the H1
+- **Legal page internal links** — both legal pages had zero internal outbound links; they now link to all three service pages and the contact page, improving crawl paths and PageRank flow
+- **`offers` schema on all services** — completes parity across the full service catalog; build and support now match discovery's schema depth
+[2026-03-14 16:49:05] Run #15 finished
+[2026-03-14 16:49:10] Run #16 starting (model: sonnet)
+
+## Run 21: Support Page Links, About Support Link, serviceType on All Services
+**Commit:** ee94140 | Deployed to Vercel (Ready)
+
+### Changes
+
+**`app/services/support/page.tsx` — breadcrumb fix + contextual links:**
+- BreadcrumbList item 2: `name: "Ongoing Support"` → `name: "AI System Support"` — matches H1 and title tag
+- Hero paragraph: added link to `/how-it-works` on "five-step AI automation process" — the support page badges itself as "Step 3" but previously had no crawlable link back to the process page
+- "After launch" section: "Every build" → `<Link href="/services/build">custom AI system build</Link>` — adds body link to build service from related support page
+- "After launch" section: added "See a real example in the DiamondLinks case study" linking to `/case-study` — support was the only service page without a case study reference
+
+**`app/about/page.tsx` — support service link:**
+- Bio last sentence: "then build the systems to make that transformation real" → appended "and support them as your business grows" linking to `/services/support`
+- About page now links to all three service pages (discovery, build, support) and the full service journey
+
+**Three Service JSON-LD schemas — `serviceType` added:**
+- `services/discovery/page.tsx`: `serviceType: "AI Consulting"`
+- `services/build/page.tsx`: `serviceType: "Custom Software Development"`
+- `services/support/page.tsx`: `serviceType: "IT Support Services"`
+
+| File | Change |
+|---|---|
+| `services/support/page.tsx` | Breadcrumb: "Ongoing Support" → "AI System Support" |
+| `services/support/page.tsx` | Hero paragraph: link to `/how-it-works` |
+| `services/support/page.tsx` | "After launch" body: link to `/services/build` + `/case-study` |
+| `about/page.tsx` | Bio: appended link to `/services/support` |
+| `services/discovery/page.tsx` | Service schema: `serviceType: "AI Consulting"` |
+| `services/build/page.tsx` | Service schema: `serviceType: "Custom Software Development"` |
+| `services/support/page.tsx` | Service schema: `serviceType: "IT Support Services"` |
+
+Key wins:
+- **Breadcrumb consistency** — support breadcrumb name now matches H1 and title tag, eliminating the mismatch Google would see between structured data and visible content
+- **Support → process page link** — the five-step process is now linked from the support page, completing the circular crawl path: process → service pages → process
+- **Support page case study link** — support was the only service page with zero links to the case study; now all three service pages reference DiamondLinks
+- **About page full service coverage** — about page now links to all three service pages, completing the internal graph from the brand/founder page to every service
+- **`serviceType` on all services** — Google uses this property for service matching in Knowledge Panels and vertical search; all three services now have machine-readable service category labels
+[2026-03-14] Run #21 finished
+**Run 21 complete** — `ee94140` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `services/support/page.tsx` | Breadcrumb: "Ongoing Support" → "AI System Support" |
+| `services/support/page.tsx` | Hero paragraph: link to `/how-it-works` |
+| `services/support/page.tsx` | "After launch": body links to `/services/build` + `/case-study` |
+| `about/page.tsx` | Bio: appended link to `/services/support` |
+| `services/discovery/page.tsx` | Service schema: `serviceType: "AI Consulting"` |
+| `services/build/page.tsx` | Service schema: `serviceType: "Custom Software Development"` |
+| `services/support/page.tsx` | Service schema: `serviceType: "IT Support Services"` |
+
+Key wins:
+- **Breadcrumb consistency** — support page breadcrumb name now matches H1 and title tag, removing a structured data mismatch
+- **Support page internal links** — support was missing links to `/how-it-works` and `/case-study`; both are now in the body with descriptive anchor text. Support was the only service page without a case study reference.
+- **About page full service coverage** — about page now links to all three services (discovery, build, support), completing the internal graph from the founder page to every service
+- **`serviceType` on all Service schemas** — Google uses this for service matching in Knowledge Panels and vertical search; all three services now have machine-readable category labels
+[2026-03-14 16:57:40] Run #16 finished
+[2026-03-14 16:57:45] Run #17 starting (model: sonnet)
+
+## Run 22: Industry Landing Page — SEO & Digital Marketing Agencies
+**Commit:** 689fb28 | Deployed to Vercel (Ready)
+
+### Changes
+
+**New page `/app/industries/seo-agencies/page.tsx`:**
+- Targets keywords: "ai automation for seo agencies", "seo agency automation", "seo reporting automation", "ai for digital marketing agencies"
+- Full metadata: title (50 chars), description (149 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Industries > SEO Agencies), FAQPage (3 Q&As)
+- Content sections: hero with pain-point framing, DiamondLinks proof point (4 result stats + full testimonial), 4 automation callouts (reporting, email summaries, proposals, client portal), integration tools list, process/CTA section
+- Links to: `/contact`, `/case-study`, `/how-it-works`, `/services/discovery`
+
+**`app/sitemap.ts`:**
+- Added `/industries/seo-agencies` (priority 0.8, UPDATED date) — sitemap now covers 11 pages
+
+**`app/page.tsx` (homepage):**
+- SEO & Digital Marketing industry card: added `link: "/industries/seo-agencies"` field
+- Render updated: cards with a `link` field display a "See how we help" link with ArrowRight icon
+
+**`app/case-study/page.tsx`:**
+- Case study intro: "SEO and online reputation management" → link to `/industries/seo-agencies` with descriptive anchor text
+
+| File | Change |
+|---|---|
+| `app/industries/seo-agencies/page.tsx` | New — full industry landing page with metadata, JSON-LD, content |
+| `app/sitemap.ts` | `/industries/seo-agencies` added (11 pages total) |
+| `app/page.tsx` | SEO industry card links to `/industries/seo-agencies` |
+| `app/case-study/page.tsx` | Case study intro links to `/industries/seo-agencies` |
+
+Key wins:
+- **New indexable page** targeting low-competition long-tail keywords ("ai automation for seo agencies", "seo reporting automation") that the existing pages don't cover
+- **DiamondLinks case study leveraged** — the new page converts the site's only case study into a targeted industry landing page for the exact audience (SEO agencies) most likely to need what was built
+- **Homepage industry card linked** — the SEO & Digital Marketing card now drives to a dedicated page instead of being a dead-end card
+- **Cross-link from case study** — Google can now traverse from the case study article directly to the industry page via descriptive anchor text
+[2026-03-14] Run #22 finished
+**Run 22 complete** — `689fb28` | Deployed (Ready)
+
+| File | Change |
+|---|---|
+| `app/industries/seo-agencies/page.tsx` | New — full industry landing page with metadata, JSON-LD, BreadcrumbList, FAQPage, 5 content sections |
+| `app/sitemap.ts` | `/industries/seo-agencies` added (11 pages total) |
+| `app/page.tsx` | SEO industry card now links to `/industries/seo-agencies` |
+| `app/case-study/page.tsx` | Case study intro "SEO and online reputation management" → links to industry page |
+
+**Why this matters:** The site now has zero organic rankings (brand new). The highest-leverage move is creating new pages targeting low-KD, long-tail keywords. Ahrefs showed "ai automation for seo agencies" and related terms have near-zero competition. The DiamondLinks case study is the site's only proof point and it's for an SEO agency, making this industry page a natural extension that converts that case study into a targeted landing page for exactly that audience.
+[2026-03-14 17:05:39] Run #17 finished
+[2026-03-14 17:05:44] Run #18 starting (model: sonnet)
+
+## Run 23: Real Estate Industry Landing Page
+**Commit:** 9c1fa9f | Deployed to Vercel (Ready)
+
+### Changes
+
+**New page `/app/industries/real-estate/page.tsx`:**
+- Targets keywords: "ai automation for real estate" (40 vol, KD 33), "ai workflow automation real estate" (20 vol), "ai crm workflow automation real estate" (30 vol, KD 20), "ai automation for real estate agents" (20 vol)
+- Full metadata: title (50 chars), description (153 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Industries > Real Estate), FAQPage (3 Q&As)
+- Content sections: hero, 3 pain points (follow-ups, market reports, CRM updates), proof point framing DiamondLinks results, 4 automation callouts (lead follow-up, market reports, CRM auto-population, pre-appointment packages), integration tools list, process/CTA section
+- Links to: `/contact`, `/how-it-works`, `/case-study`, `/industries/seo-agencies`, `/services/discovery`, `/services/build`, `/services/support`
+
+**`app/sitemap.ts`:**
+- Added `/industries/real-estate` (priority 0.8, UPDATED date) — sitemap now covers 12 pages
+
+**`app/page.tsx` (homepage):**
+- Real Estate industry card: added `link: "/industries/real-estate"` field — the card now links to the dedicated page
+
+| File | Change |
+|---|---|
+| `app/industries/real-estate/page.tsx` | New — full industry landing page with metadata, JSON-LD, BreadcrumbList, FAQPage, 5 content sections |
+| `app/sitemap.ts` | `/industries/real-estate` added (12 pages total) |
+| `app/page.tsx` | Real Estate industry card now links to `/industries/real-estate` |
+
+Key wins:
+- **New indexable page** targeting "ai automation for real estate" cluster (combined ~350 monthly searches, KD 20-33) that the existing pages don't cover
+- **Ahrefs keyword research informed** — all target keywords verified before writing; "ai crm workflow automation real estate" (KD 20) and "ai automation for real estate" (KD 33) are the primary targets
+- **Homepage Real Estate card linked** — the card now drives to a dedicated page instead of being a dead-end card, matching the pattern set by the SEO agencies card
+- **Pre-appointment packages angle** — the DiamondLinks proposal-delivered-30-min-before-meetings feature translates directly to a real estate use case (pre-showing/listing appointment packages), making the case study proof point applicable to this audience
+[2026-03-14] Run #23 finished
