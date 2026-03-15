@@ -8,7 +8,7 @@ import FloatingCTA from "@/components/FloatingCTA";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "optional",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
