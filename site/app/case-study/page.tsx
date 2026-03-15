@@ -266,7 +266,7 @@ export default function CaseStudyPage() {
           <div className="mb-12">
             <h3 className="text-xl font-bold text-white mb-6 text-center">Before &amp; After</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-2xl border border-red-500/30 bg-slate-900/70 overflow-hidden">
+              <div className="rounded-2xl border border-red-500/30 bg-slate-900/70 overflow-hidden self-start">
                 <div className="bg-red-500/10 border-b border-red-500/20 px-4 py-3 flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-400" />
                   <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Before</span>
@@ -278,11 +278,11 @@ export default function CaseStudyPage() {
                     alt="DiamondLinks client report before automation: plain text document in Google Docs with no visual design"
                     width={600}
                     height={400}
-                    className="w-full rounded-lg"
+                    className="w-full rounded-lg max-h-[500px] object-cover object-top"
                   />
                 </div>
               </div>
-              <div className="rounded-2xl border border-emerald-500/30 bg-slate-900/70 overflow-hidden">
+              <div className="rounded-2xl border border-emerald-500/30 bg-slate-900/70 overflow-hidden self-start">
                 <div className="bg-emerald-500/10 border-b border-emerald-500/20 px-4 py-3 flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-emerald-400" />
                   <span className="text-emerald-400 text-sm font-semibold uppercase tracking-wider">After</span>
@@ -294,7 +294,7 @@ export default function CaseStudyPage() {
                     alt="DiamondLinks client report after automation: branded dashboard with charts, graphs, and color-coded metrics"
                     width={600}
                     height={400}
-                    className="w-full rounded-lg"
+                    className="w-full rounded-lg max-h-[500px] object-cover object-top"
                   />
                 </div>
               </div>
@@ -400,8 +400,8 @@ export default function CaseStudyPage() {
             </div>
             <div>
               <div className="text-purple-400 text-xs font-bold uppercase tracking-widest">Chapter 5</div>
-              <h2 className="text-3xl font-extrabold text-white">What We Built</h2>
-              <p className="text-slate-400 text-lg">The Automated Proposal System</p>
+              <h2 className="text-3xl font-extrabold text-white">The Proposal System</h2>
+              <p className="text-slate-400 text-lg">Automated Proposal Generation</p>
             </div>
           </div>
 
@@ -530,7 +530,7 @@ export default function CaseStudyPage() {
               Book a Free Discovery Call
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <p className="text-amber-400/80 text-xs font-semibold mt-5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
+            <p className="text-amber-400/80 text-xs font-semibold mt-5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
           </div>
         </section>
       </div>

@@ -73,7 +73,7 @@ export default function AboutPage() {
               <div className="flex gap-4 items-start">
                 <div className="text-5xl text-blue-400/30 font-serif leading-none">&ldquo;</div>
                 <blockquote className="text-slate-300 text-lg leading-relaxed italic">
-                  Most businesses don&apos;t even know what AI and automation is capable of doing. During our discovery call, I identify areas of opportunity and dream with you on how best to accomplish your goals.
+                  Most businesses don&apos;t even know what AI and automation is capable of doing. During our discovery call, I identify areas of opportunity and dream with you on how best to accomplish your goals.&rdquo;
                 </blockquote>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function AboutPage() {
             Get My Free Automation Audit
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-amber-400/80 text-xs font-semibold mt-4">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
+          <p className="text-amber-400/80 text-xs font-semibold mt-4">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
           <p className="text-slate-500 text-sm mt-3">
             Want to learn more first?{" "}
             <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300 transition-colors">

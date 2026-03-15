@@ -39,11 +39,12 @@ function FadeUp({ children, className = "", delay = 0 }: { children: React.React
 }
 
 function AnimatedCounter({ end, suffix = "", prefix = "", decimal = "" }: { end: number; suffix?: string; prefix?: string; decimal?: string }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const animatedRef = useRef(false);
 
   useEffect(() => {
+    setCount(0);
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -72,9 +73,11 @@ function AnimatedCounter({ end, suffix = "", prefix = "", decimal = "" }: { end:
     return () => obs.disconnect();
   }, [end]);
 
+  const finalValue = `${prefix}${end.toLocaleString()}${decimal}${suffix}`;
+
   return (
-    <span ref={ref}>
-      {prefix}{count.toLocaleString()}{decimal}{suffix}
+    <span ref={ref} aria-label={finalValue}>
+      <span aria-hidden="true">{prefix}{count.toLocaleString()}{decimal}{suffix}</span>
     </span>
   );
 }
@@ -406,9 +409,9 @@ const AUTO_STEPS = [
 const STEP_MOCKUPS = ["ahrefs-login", "ahrefs-data", "ahrefs-copy", "sheets", "docs", "docs", "docs", "gmail"] as const;
 type MockupKey = typeof STEP_MOCKUPS[number];
 
-const MINUTES_PER_REAL_SEC = 5;
-const HOURLY_RATE = 60;
-const TOTAL_MINUTES = 90;
+const MINUTES_PER_REAL_SEC = 8;
+const HOURLY_RATE = 85;
+const TOTAL_MINUTES = 120;
 const TOTAL_REAL_SECS = TOTAL_MINUTES / MINUTES_PER_REAL_SEC;
 const COST_PER_REPORT = HOURLY_RATE * (TOTAL_MINUTES / 60);
 const DOLLAR_PER_REAL_SEC = COST_PER_REPORT / TOTAL_REAL_SECS;
@@ -724,12 +727,12 @@ function ReportROIDemo() {
                   <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
                     <div className="text-slate-500 text-xs mb-0.5">Time elapsed</div>
                     <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>{formatTime(manualMins)}</div>
-                    <div className="text-slate-600 text-xs">of 90:00</div>
+                    <div className="text-slate-600 text-xs">of 120:00</div>
                   </div>
                   <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
                     <div className="text-slate-500 text-xs mb-0.5">Cost burned</div>
                     <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>${manualDollars.toFixed(2)}</div>
-                    <div className="text-slate-600 text-xs">of $90.00</div>
+                    <div className="text-slate-600 text-xs">of $170.00</div>
                   </div>
                 </div>
                 {/* Progress bar */}
@@ -777,7 +780,7 @@ function ReportROIDemo() {
                   {started && !manualComplete && <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />}
                   {started && manualComplete && <span className="text-red-400 flex-shrink-0 text-xs">✓</span>}
                   <span className="text-slate-500 font-mono text-xs truncate">
-                    {started ? (manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]) : "1.5 hrs × $60/hr per report"}
+                    {started ? (manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]) : "2 hrs × $85/hr per report"}
                   </span>
                 </div>
               </div>
@@ -906,7 +909,7 @@ function ReportROIDemo() {
                 <p className="text-red-400 text-xs uppercase tracking-wider font-semibold mb-2">Manual / Year</p>
                 <p className="text-white font-extrabold text-3xl">${annualManualCost.toLocaleString()}</p>
                 <p className="text-slate-500 text-xs mt-1">
-                  {Math.round(reportsPerMonth * 1.5 + extraAnnualHours)} manual hrs/mo × $60/hr × 12 mo
+                  {Math.round(reportsPerMonth * 2 + extraAnnualHours)} manual hrs/mo × $85/hr × 12 mo
                 </p>
               </div>
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-center">
@@ -1036,7 +1039,14 @@ function MobileStickyBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!dismissed) setVisible(window.scrollY > 600);
+      if (dismissed) return;
+      const footer = document.querySelector("footer");
+      let footerVisible = false;
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        footerVisible = rect.top < window.innerHeight;
+      }
+      setVisible(window.scrollY > 600 && !footerVisible);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -1206,12 +1216,12 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
-              <CheckCircle size={12} />
+            <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold text-left">
+              <CheckCircle size={12} className="flex-shrink-0" />
               Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
             </div>
 
-            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
 
             <div className="w-full hidden sm:block">
               <AgentTerminal />
@@ -1419,7 +1429,7 @@ export default function HomePage() {
           <FadeUp delay={250} className="mt-8">
             <p className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-4">The actual transformation</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-red-500/20 bg-slate-900/70 overflow-hidden">
+              <div className="rounded-2xl border border-red-500/20 bg-slate-900/70 overflow-hidden self-start">
                 <div className="bg-red-500/10 border-b border-red-500/20 px-4 py-2.5 flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
                   <span className="text-red-400 text-xs font-semibold uppercase tracking-wider">Before</span>
@@ -1431,11 +1441,11 @@ export default function HomePage() {
                     alt="DiamondLinks client report before automation: plain text document in Google Docs"
                     width={600}
                     height={400}
-                    className="w-full rounded-lg opacity-80"
+                    className="w-full rounded-lg opacity-80 max-h-[400px] object-cover object-top"
                   />
                 </div>
               </div>
-              <div className="rounded-2xl border border-emerald-500/20 bg-slate-900/70 overflow-hidden">
+              <div className="rounded-2xl border border-emerald-500/20 bg-slate-900/70 overflow-hidden self-start">
                 <div className="bg-emerald-500/10 border-b border-emerald-500/20 px-4 py-2.5 flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                   <span className="text-emerald-400 text-xs font-semibold uppercase tracking-wider">After</span>
@@ -1447,7 +1457,7 @@ export default function HomePage() {
                     alt="DiamondLinks client report after automation: branded dashboard with charts and metrics"
                     width={600}
                     height={400}
-                    className="w-full rounded-lg"
+                    className="w-full rounded-lg max-h-[400px] object-cover object-top"
                   />
                 </div>
               </div>
@@ -1459,7 +1469,7 @@ export default function HomePage() {
             <div>
               <p className="text-white font-bold text-xl">Your business can run like this.</p>
               <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
-              <p className="text-amber-400/80 text-xs font-medium mt-1.5">{["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots available now.</p>
+              <p className="text-amber-400/80 text-xs font-medium mt-1.5">{["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots available now.</p>
             </div>
             <Link
               href="/contact"
@@ -1779,8 +1789,8 @@ export default function HomePage() {
             <QuickCaptureForm />
           </FadeUp>
           <FadeUp delay={450}>
-            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
-              <CheckCircle size={12} />
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold text-left">
+              <CheckCircle size={12} className="flex-shrink-0" />
               Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
             </div>
             <p className="text-emerald-400/80 text-xs font-medium mt-3">Most clients see ROI within 60 days of going live.</p>
@@ -1790,7 +1800,7 @@ export default function HomePage() {
                 Learn more about Brandon.
               </Link>
             </p>
-            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
           </FadeUp>
         </div>
       </section>
