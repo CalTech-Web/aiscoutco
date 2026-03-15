@@ -316,6 +316,12 @@ const faqNodes: Record<number, React.ReactNode> = {
       <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call to get started.</Link>
     </span>
   ),
+  3: (
+    <span>
+      It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks.{" "}
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call and I&apos;ll give you a clear timeline for your specific workflow.</Link>
+    </span>
+  ),
   4: (
     <span>
       Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the{" "}
@@ -323,11 +329,23 @@ const faqNodes: Record<number, React.ReactNode> = {
       , automation can fully replace a role and deliver even more capability than the previous employee provided.
     </span>
   ),
+  5: (
+    <span>
+      Neither. What matters isn&apos;t the size of your company, it&apos;s whether your team does manual, repetitive work. A business with two employees doing the same data entry every week is a perfect fit. So is a company with fifty people losing hours to manual reporting every month.{" "}
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call and find out what applies to you.</Link>
+    </span>
+  ),
   6: (
     <span>
       Absolutely. The{" "}
       <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>
       {" "}on this site includes before and after screenshots and a full breakdown of what was built. During your discovery call, I can also walk you through examples relevant to your industry.
+    </span>
+  ),
+  7: (
+    <span>
+      ChatGPT and tools like Zapier are great for simple, one-step tasks. But the businesses I work with have workflows with 10, 15, or 20 interconnected steps, data coming from multiple sources, edge cases that break simple automations, and outputs that need to match their specific standards. What I build are multi-agent systems that orchestrate entire workflows from start to finish, make intelligent decisions at each step, and run without anyone touching them. Most clients have already experimented with these tools and hit their ceiling.{" "}
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">The discovery call is where we map out what actually needs to be built.</Link>
     </span>
   ),
 };
@@ -429,11 +447,11 @@ function ROICalculator() {
             </div>
 
             <div className="text-center rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6 mb-8">
-              <p className="text-slate-400 text-sm mb-2">Estimated annual savings from automation</p>
+              <p className="text-slate-400 text-sm mb-2">What manual work is costing your business each year</p>
               <div className="text-5xl md:text-6xl font-extrabold gradient-text mb-2">
                 ${annualSavings.toLocaleString()}+/yr
               </div>
-              <p className="text-slate-500 text-xs">Based on automating 70% of identified manual work. A free audit gives you exact numbers.</p>
+              <p className="text-slate-500 text-xs">Conservative estimate based on real automation results. Your free audit gives you the exact number.</p>
             </div>
 
             <div className="text-center">
@@ -559,7 +577,7 @@ function MobileStickyBar() {
         href="/contact"
         className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors btn-shimmer"
       >
-        Get a Free Automation Audit
+        Get My Free Automation Audit
         <ArrowRight size={16} />
       </Link>
       <button
@@ -678,7 +696,7 @@ export default function HomePage() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 blue-glow btn-shimmer"
               >
-                Get a Free Automation Audit
+                Get My Free Automation Audit
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
@@ -706,7 +724,7 @@ export default function HomePage() {
               {[
                 "Free 30-60 min call",
                 "Walk away with a prioritized roadmap",
-                "No commitment required",
+                "Keep the roadmap regardless",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-slate-400 text-sm">
                   <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
