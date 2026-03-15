@@ -519,7 +519,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for March 2026. Spots are limited.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for April 2026. Spots are limited.</p>
 
             <div className="w-full">
               <AgentTerminal />
@@ -999,7 +999,7 @@ export default function HomePage() {
                 Learn more about Brandon.
               </Link>
             </p>
-            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for March 2026. Spots are limited.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for April 2026. Spots are limited.</p>
           </FadeUp>
         </div>
       </section>

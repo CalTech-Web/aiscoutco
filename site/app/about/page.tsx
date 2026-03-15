@@ -180,10 +180,21 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
-          <h2 className="text-3xl font-extrabold mb-4">Let&apos;s dream together</h2>
-          <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-            Book a free discovery call and find out what AI and automation can unlock for your business.
+          <h2 className="text-3xl font-extrabold mb-4">Let&apos;s find your opportunities</h2>
+          <p className="text-slate-400 text-lg mb-6 max-w-xl mx-auto">
+            In 30 to 60 minutes, you&apos;ll have a personalized map of every place AI can save you time and money. No technical knowledge required.
           </p>
+          <div className="flex items-center justify-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-sm mx-auto">
+            <div className="flex gap-0.5 flex-shrink-0">
+              {[0,1,2,3,4].map((i) => (
+                <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              ))}
+            </div>
+            <p className="text-slate-400 text-xs leading-snug italic">
+              &ldquo;Replaced every function and added seven new capabilities we never had before.&rdquo;
+              <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
+            </p>
+          </div>
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
@@ -191,7 +202,8 @@ export default function AboutPage() {
             Book a Free Discovery Call
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-slate-500 text-sm mt-6">
+          <p className="text-amber-400/80 text-xs font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
+          <p className="text-slate-500 text-sm mt-3">
             Want to learn more first?{" "}
             <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300 transition-colors">
               See how AI automation consulting works.

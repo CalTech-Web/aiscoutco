@@ -13,14 +13,28 @@ export default function ContactPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate form submission
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    setSubmitted(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,7 +54,7 @@ export default function ContactPage() {
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             In 30 to 60 minutes, you&apos;ll have a personalized map of every place AI can save you time and money, with real ROI projections. No technical knowledge required.
           </p>
-          <p className="text-amber-400 text-sm font-semibold mt-4">Currently accepting new clients for March 2026. Spots are limited.</p>
+          <p className="text-amber-400 text-sm font-semibold mt-4">Currently accepting new clients for April 2026. Spots are limited.</p>
         </div>
       </section>
 
@@ -197,8 +211,14 @@ export default function ContactPage() {
                     )}
                   </button>
 
+                  {error && (
+                    <p className="text-red-400 text-xs text-center">
+                      Something went wrong. Please email me directly at{" "}
+                      <a href="mailto:brandon@aiscoutco.com" className="underline hover:text-red-300">brandon@aiscoutco.com</a>.
+                    </p>
+                  )}
                   <p className="text-slate-500 text-xs text-center">
-                    No spam. No commitment. I typically respond within one business day.
+                    If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
                   </p>
                 </form>
               )}
