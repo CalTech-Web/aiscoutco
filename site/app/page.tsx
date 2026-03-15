@@ -780,31 +780,31 @@ export default function HomePage() {
                 icon: <Bot size={24} />,
                 color: { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400" },
                 title: "Autonomous Agent Systems",
-                desc: "Multi-agent orchestration with specialized sub-agents that handle complex workflows without human intervention. Each agent has defined skills and token budgets.",
+                desc: "Complex, multi-step work that once required human oversight now runs on its own. Data flows in, decisions get made, outputs go out, while your team focuses on higher-value work.",
               },
               {
                 icon: <Link2 size={24} />,
                 color: { border: "border-cyan-500/30", bg: "bg-cyan-500/10", text: "text-cyan-400" },
                 title: "API & Webhook Integrations",
-                desc: "Connect AI to your existing tools, Monday.com, Google Workspace, Salesforce, Slack, and more, through custom API and webhook architectures.",
+                desc: "Your existing tools, Monday.com, Google Workspace, Salesforce, Slack, and more, finally work together without manual copy-paste or data re-entry between systems.",
               },
               {
                 icon: <BarChart3 size={24} />,
                 color: { border: "border-emerald-500/30", bg: "bg-emerald-500/10", text: "text-emerald-400" },
                 title: "Automated Reporting",
-                desc: "Real-time data pipelines that pull from multiple sources, process through intelligent agents, and deliver polished reports automatically.",
+                desc: "Reports that used to take hours to compile, format, and send now arrive automatically. Clients get polished, branded reports without anyone on your team lifting a finger.",
               },
               {
                 icon: <FileText size={24} />,
                 color: { border: "border-purple-500/30", bg: "bg-purple-500/10", text: "text-purple-400" },
                 title: "Document Generation",
-                desc: "Intelligent proposal and document creation that pulls from call recordings, email threads, and databases to produce custom outputs with smart fallback logic.",
+                desc: "Proposals, contracts, and client documents written and delivered automatically, pulling from your calls, emails, and existing data. Ready 30 minutes before every meeting.",
               },
               {
                 icon: <Globe size={24} />,
                 color: { border: "border-orange-500/30", bg: "bg-orange-500/10", text: "text-orange-400" },
                 title: "Client Portal Applications",
-                desc: "Secure web applications with SSO/OAuth authentication where your clients can access dashboards, reports, and account information.",
+                desc: "A branded web app where your clients log in with their existing Google or Microsoft account and see their reports, history, and status, without calling your team.",
               },
               {
                 icon: <Settings2 size={24} />,
@@ -1019,6 +1019,7 @@ export default function HomePage() {
             <p className="text-slate-300 text-sm mt-6">
               If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
             </p>
+            <p className="text-emerald-400/80 text-xs font-medium mt-2">Most clients see ROI within 60 days of going live.</p>
             <p className="text-slate-500 text-xs mt-3">
               No commitment.{" "}
               <Link href="/about" className="text-blue-400/70 hover:text-blue-400 transition-colors">

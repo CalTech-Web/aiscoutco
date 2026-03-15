@@ -177,6 +177,7 @@ export default function ContactPage() {
                     </p>
                   </div>
 
+                  <p className="text-amber-400/80 text-xs font-medium text-center">Currently accepting new clients for April 2026. Spots are limited.</p>
                   <button
                     type="submit"
                     disabled={loading}

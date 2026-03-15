@@ -60,7 +60,7 @@ const steps = [
     tagline: "Your systems go live and your team gets up to speed.",
     color: "emerald",
     duration: "1 to 3 days",
-    desc: "Your new systems go live. I walk your team through everything, answer every question, and stay close until everyone is confident. Within a few days, they won't be able to imagine working without it.",
+    desc: "Your new systems go live. I walk your team through everything, answer every question, and make sure the transition is seamless. By day one, manual work that used to take hours runs automatically.",
     deliverable: "A fully operational system with trained users",
     details: [
       "Production deployment and monitoring setup",
