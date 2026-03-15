@@ -706,22 +706,30 @@ function QuickCaptureForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-3 max-w-lg mx-auto">
       <div className="flex flex-col sm:flex-row gap-3">
-        <input
-          type="text"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          className="flex-1 rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-        />
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Work email"
-          className="flex-1 rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-        />
+        <div className="flex-1">
+          <label htmlFor="hero-name" className="block text-slate-400 text-xs font-medium mb-1.5">Your name</label>
+          <input
+            id="hero-name"
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+          />
+        </div>
+        <div className="flex-1">
+          <label htmlFor="hero-email" className="block text-slate-400 text-xs font-medium mb-1.5">Work email</label>
+          <input
+            id="hero-email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Work email"
+            className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+          />
+        </div>
       </div>
       <button
         type="submit"
@@ -905,7 +913,7 @@ export default function HomePage() {
               </div>
               <p className="text-slate-400 text-xs leading-snug italic">
                 &ldquo;We were about to give a 25% raise to keep an employee. Brandon automated the role in 6 weeks and gave us 7 capabilities we never had.&rdquo;
-                <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
+                <span className="text-slate-500 not-italic ml-1">— Hilary Spross, DiamondLinks</span>
               </p>
             </div>
 
@@ -1123,8 +1131,8 @@ export default function HomePage() {
                     We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
                   </blockquote>
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">D</div>
-                    <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
+                    <Image src="/images/hilary-spross.jpg" alt="Hilary Spross" width={36} height={36} className="w-9 h-9 rounded-full object-cover flex-shrink-0" />
+                    <figcaption className="text-slate-400 text-sm font-semibold">Hilary Spross, DiamondLinks</figcaption>
                   </div>
                 </div>
               </div>
@@ -1199,7 +1207,7 @@ export default function HomePage() {
             <FadeUp delay={150}>
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
                 Simple for you.<br />
-                <span className="gradient-text">Sophisticated results.</span>
+                <span className="gradient-text">Specialized from me.</span>
               </h2>
             </FadeUp>
             <FadeUp delay={300}>

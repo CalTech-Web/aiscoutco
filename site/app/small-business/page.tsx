@@ -245,7 +245,7 @@ export default function SmallBusinessPage() {
                 <p className="text-slate-300 italic leading-relaxed">
                   "We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now."
                 </p>
-                <footer className="mt-3 text-slate-400 text-sm">DiamondLinks Leadership</footer>
+                <footer className="mt-3 text-slate-400 text-sm">Hilary Spross, DiamondLinks</footer>
               </blockquote>
               <div className="flex items-center gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (

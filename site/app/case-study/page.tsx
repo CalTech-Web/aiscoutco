@@ -503,8 +503,8 @@ export default function CaseStudyPage() {
                     We were about to give a key employee a 25% raise just to keep them. Instead, Brandon built us a system that not only replaced every function that employee handled but added seven new capabilities we never had before. Our reports went from bland Google Docs to stunning automated dashboards, and proposals practically write themselves now.
                   </blockquote>
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">D</div>
-                    <figcaption className="text-slate-400 text-sm font-semibold">DiamondLinks Leadership</figcaption>
+                    <Image src="/images/hilary-spross.jpg" alt="Hilary Spross" width={36} height={36} className="w-9 h-9 rounded-full object-cover flex-shrink-0" />
+                    <figcaption className="text-slate-400 text-sm font-semibold">Hilary Spross, DiamondLinks</figcaption>
                   </div>
                 </div>
               </div>

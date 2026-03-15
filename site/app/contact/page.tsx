@@ -173,7 +173,7 @@ export default function ContactPage() {
                     </div>
                     <p className="text-slate-300 text-xs leading-snug italic">
                       &ldquo;Brandon built us a system that replaced every function and added seven new capabilities we never had before.&rdquo;
-                      <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
+                      <span className="text-slate-500 not-italic ml-1">— Hilary Spross, DiamondLinks</span>
                       <span className="block text-slate-600 not-italic mt-0.5">$85,000+/year saved. 6 weeks.</span>
                     </p>
                   </div>
