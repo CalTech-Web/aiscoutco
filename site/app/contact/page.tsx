@@ -89,7 +89,7 @@ export default function ContactPage() {
               <CheckCircle size={24} className="text-amber-400 mb-3" />
               <h3 className="text-white font-bold mb-2">My guarantee</h3>
               <p className="text-slate-300 text-sm leading-relaxed">
-                If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
+                If I can&apos;t find at least 3 automation wins in your business, I&apos;ll say so. You walk away with honest insights either way. No pitch, no pressure.
               </p>
             </div>
 
