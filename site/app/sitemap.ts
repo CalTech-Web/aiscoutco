@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/industries/healthcare`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/industries/ecommerce`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/ai-automation-consulting`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/small-business`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/privacy-policy`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/terms-of-service`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
   ];

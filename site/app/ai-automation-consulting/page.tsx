@@ -392,6 +392,9 @@ export default function AiAutomationConsultingPage() {
               Don&apos;t see your industry?{" "}
               <Link href="/contact" className="text-blue-400 hover:text-blue-300">
                 Any business with repetitive workflows is a fit.
+              </Link>{" "}
+              <Link href="/small-business" className="text-blue-400 hover:text-blue-300">
+                See AI automation for small businesses.
               </Link>
             </p>
           </div>
