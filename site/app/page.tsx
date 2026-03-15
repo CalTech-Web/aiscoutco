@@ -474,7 +474,7 @@ export default function HomePage() {
             </p>
 
             <p className="text-lg text-slate-400 max-w-2xl mb-6 leading-relaxed">
-              In one free call, I map every place AI can replace manual work in your business and attach real dollar savings to each one. Walk away with a prioritized plan, no commitment required.
+              In one free call, I map every place AI can replace manual work in your business and attach real dollar savings to each opportunity. You walk away with a prioritized roadmap. Whether you hire me afterward is entirely up to you.
             </p>
 
             <div className="flex items-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
@@ -501,7 +501,7 @@ export default function HomePage() {
                 href="#case-study"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500/50 text-slate-300 hover:text-white font-semibold text-lg transition-all duration-200 hover:bg-slate-800/50"
               >
-                See a Real Case Study
+                See $85K Saved in 6 Weeks
                 <ChevronRight size={20} />
               </a>
             </div>
@@ -541,6 +541,7 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="py-20 bg-slate-900/50 border-y border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-8">DiamondLinks, 6 weeks after deployment</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: 85000, prefix: "$", suffix: "+/yr", decimal: "", label: "Savings per client" },

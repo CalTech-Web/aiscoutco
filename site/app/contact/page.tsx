@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Brain, Clock, CheckCircle, Mail, MessageSquare } from "lucide-react";
+import { ArrowRight, Brain, CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -155,13 +155,12 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-0.5">What are the biggest time sinks in your business?</label>
-                    <p className="text-slate-500 text-xs mb-1.5">This helps me prepare so we can make the most of our time together. Even a sentence or two is helpful.</p>
+                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Anything you&apos;d like me to know? <span className="text-slate-500 font-normal">(Optional)</span></label>
                     <textarea
-                      rows={4}
+                      rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell me about the manual, repetitive work your team handles. What takes the most time? What falls through the cracks?"
+                      placeholder="What takes the most time in your business? Even one sentence helps me prepare."
                       className="w-full rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
                     />
                   </div>
@@ -211,28 +210,9 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* What happens next */}
-        <div className="mt-16">
-          <p className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-10">
-            What happens next
-          </p>
-          <div className="relative flex items-start justify-between max-w-2xl mx-auto px-4">
-            {/* Connecting line */}
-            <div className="absolute top-5 left-12 right-12 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/30 via-purple-500/30 to-emerald-500/30" />
-            {[
-              { icon: <Mail size={16} />, label: "You submit the form", color: "text-blue-400", bg: "bg-blue-500/20", border: "border-blue-500/30" },
-              { icon: <MessageSquare size={16} />, label: "I respond within 1 business day", color: "text-cyan-400", bg: "bg-cyan-500/20", border: "border-cyan-500/30" },
-              { icon: <Clock size={16} />, label: "We schedule your call", color: "text-purple-400", bg: "bg-purple-500/20", border: "border-purple-500/30" },
-              { icon: <CheckCircle size={16} />, label: "You get real insights", color: "text-emerald-400", bg: "bg-emerald-500/20", border: "border-emerald-500/30" },
-            ].map((step, i) => (
-              <div key={i} className="flex flex-col items-center gap-3 z-10 flex-1">
-                <div className={`w-10 h-10 rounded-full ${step.bg} border ${step.border} flex items-center justify-center ${step.color} bg-slate-950`}>
-                  {step.icon}
-                </div>
-                <p className="text-slate-400 text-xs text-center leading-snug max-w-[80px]">{step.label}</p>
-              </div>
-            ))}
-          </div>
+        {/* Reassurance */}
+        <div className="mt-12 text-center">
+          <p className="text-slate-500 text-sm">I personally respond to every inquiry, typically same day. Once you submit, I&apos;ll reach out to find a time that works.</p>
         </div>
       </div>
     </div>
