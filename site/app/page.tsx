@@ -544,7 +544,7 @@ export default function HomePage() {
           <p className="text-center text-slate-500 text-xs uppercase tracking-widest font-semibold mb-8">DiamondLinks, 6 weeks after deployment</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 85000, prefix: "$", suffix: "+/yr", decimal: "", label: "Savings per client" },
+              { value: 85000, prefix: "$", suffix: "+/yr", decimal: "", label: "Annual savings unlocked" },
               { value: 7, suffix: "+", decimal: "", label: "New features delivered" },
               { value: 20, suffix: "+", decimal: "", label: "Manual hours eliminated weekly" },
               { value: 99, decimal: ".9", suffix: "%", label: "System uptime" },
@@ -756,21 +756,15 @@ export default function HomePage() {
             ))}
           </div>
 
-          <FadeUp delay={200} className="text-center mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <FadeUp delay={200} className="text-center mt-10">
             <Link
-              href="/how-it-works"
-              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+              href="/contact"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
             >
-              Learn more about the process
-              <ArrowRight size={18} />
+              Start Step 1: Book a Free Discovery Call
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link
-              href="/services/discovery"
-              className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-300 font-semibold transition-colors"
-            >
-              Start with a free AI discovery
-              <ArrowRight size={18} />
-            </Link>
+            <p className="text-slate-500 text-sm mt-3">30 minutes. No commitment. Walk away with a prioritized roadmap.</p>
           </FadeUp>
         </div>
       </section>
@@ -932,6 +926,20 @@ export default function HomePage() {
               </FadeUp>
             ))}
           </div>
+
+          <FadeUp delay={200} className="mt-10 rounded-2xl border border-slate-700/40 bg-slate-900/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div>
+              <p className="text-white font-bold text-lg">Don&apos;t see your industry?</p>
+              <p className="text-slate-400 text-sm mt-1">Industry doesn&apos;t matter. Repetitive manual work does. If your team does the same steps on a schedule, I can build a system that does it for them.</p>
+            </div>
+            <Link
+              href="/contact"
+              className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
+            >
+              Book a Free Discovery Call
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeUp>
         </div>
       </section>
 
@@ -973,13 +981,13 @@ export default function HomePage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeUp delay={0}>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-              Ready to find out what<br />
-              <span className="gradient-text">AI can do for your business?</span>
+              The call is free.<br />
+              <span className="gradient-text">The roadmap is yours to keep.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={150}>
             <p className="text-slate-400 text-xl mb-8 max-w-2xl mx-auto">
-              Book a free 30 to 60 minute discovery call. I&apos;ll audit your workflows, identify every automation opportunity, and deliver a prioritized roadmap, no obligation required.
+              In 30 minutes I&apos;ll audit your workflows, find every automation opportunity, and show you the exact dollar savings attached to each one. You walk away with the roadmap whether you hire me or not.
             </p>
           </FadeUp>
           <FadeUp delay={200}>

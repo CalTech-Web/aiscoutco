@@ -202,7 +202,7 @@ export default function ContactPage() {
                     </p>
                   )}
                   <p className="text-slate-500 text-xs text-center">
-                    No commitment. No obligation. Just a conversation about what&apos;s possible.
+                    I respond within one business day. No commitment, no obligation.
                   </p>
                 </form>
               )}
@@ -210,10 +210,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Reassurance */}
-        <div className="mt-12 text-center">
-          <p className="text-slate-500 text-sm">I personally respond to every inquiry, typically same day. Once you submit, I&apos;ll reach out to find a time that works.</p>
-        </div>
       </div>
     </div>
   );
