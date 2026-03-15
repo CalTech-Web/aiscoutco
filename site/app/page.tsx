@@ -408,7 +408,7 @@ const AUTO_COST = 0.12;
 
 function MockupAhrefsLogin() {
   return (
-    <div className="w-full h-36 bg-[#1b1b2e] rounded-lg flex flex-col items-center justify-center gap-3 overflow-hidden">
+    <div className="w-full h-36 bg-[#1b1b2e] flex flex-col items-center justify-center gap-3 overflow-hidden">
       <span className="text-[#ff6a35] font-extrabold text-xl tracking-tight select-none">ahrefs</span>
       <div className="w-44 space-y-1.5">
         <div className="bg-white/10 border border-white/20 rounded px-2.5 py-1.5 text-[11px] text-white/50 font-mono">agency@diamondlinks.com</div>
@@ -430,7 +430,7 @@ function MockupAhrefsData({ copying }: { copying: boolean }) {
     { kw: "guest posting service", pos: "5", vol: "880" },
   ];
   return (
-    <div className="w-full h-36 bg-[#1b1b2e] rounded-lg overflow-hidden flex">
+    <div className="w-full h-36 bg-[#1b1b2e] overflow-hidden flex">
       <div className="w-[72px] flex-shrink-0 bg-[#12121f] border-r border-white/10 p-2 flex flex-col gap-0.5">
         <span className="text-[#ff6a35] font-extrabold text-[11px] mb-1.5 px-0.5">ahrefs</span>
         {["Site Explorer", "Keywords", "Rank Tracker", "Site Audit"].map((item, i) => (
@@ -456,7 +456,7 @@ function MockupAhrefsData({ copying }: { copying: boolean }) {
 
 function MockupGoogleSheets() {
   return (
-    <div className="w-full h-36 bg-white rounded-lg overflow-hidden flex flex-col border border-gray-200">
+    <div className="w-full h-36 bg-white overflow-hidden flex flex-col">
       <div className="bg-white px-2 py-1 flex items-center gap-1.5 border-b border-gray-200">
         <div className="w-4 h-4 bg-[#0f9d58] rounded-sm flex items-center justify-center flex-shrink-0">
           <span className="text-white text-[9px] font-extrabold leading-none">S</span>
@@ -490,12 +490,13 @@ function MockupGoogleSheets() {
 
 function MockupGoogleDocs() {
   return (
-    <div className="w-full h-36 bg-[#f0f4f9] rounded-lg overflow-hidden flex flex-col">
+    <div className="w-full h-36 bg-[#f0f4f9] overflow-hidden flex flex-col">
       <div className="bg-white px-2 py-1 flex items-center gap-1.5 border-b border-gray-200">
         <div className="w-4 h-4 bg-[#4285f4] rounded-sm flex items-center justify-center flex-shrink-0">
           <span className="text-white text-[9px] font-extrabold leading-none">D</span>
         </div>
         <span className="text-gray-700 text-[11px] truncate">April_Report_DiamondLinks.docx</span>
+        <span className="ml-auto text-gray-400 text-[9px]">Saving...</span>
       </div>
       <div className="bg-white border-b border-gray-200 px-2 py-0.5 flex gap-0.5">
         {["Normal ▾", "Arial ▾", "B", "I", "U"].map(t => (
@@ -504,10 +505,19 @@ function MockupGoogleDocs() {
       </div>
       <div className="flex-1 bg-white mx-2 my-1 shadow-sm rounded px-3 py-2 overflow-hidden">
         <div className="font-bold text-[11px] text-gray-800 mb-0.5">April 2025 SEO Performance Report</div>
-        <div className="text-gray-400 text-[10px] mb-1.5">DiamondLinks — Prepared by Agency Team</div>
+        <div className="text-gray-400 text-[10px] mb-1">DiamondLinks — Prepared by Agency Team</div>
         <div className="text-gray-700 text-[10px] leading-relaxed">
-          This month saw strong growth across all tracked keywords. Organic traffic increased <strong>14%</strong> vs. March, with 3 keywords reaching page 1 for the first time. Top mover: &ldquo;link building services&rdquo; moved from #5 → #3
+          This month saw strong growth across all tracked keywords. Organic traffic increased <strong>14%</strong> vs. March, with 3 keywords reaching page 1 for the first time.
           <span className="inline-block w-0.5 h-3 bg-blue-500 animate-pulse align-middle ml-0.5" />
+        </div>
+        <div className="mt-1 flex gap-1">
+          <div className="h-1 w-24 bg-gray-200 rounded" />
+          <div className="h-1 w-16 bg-gray-200 rounded" />
+          <div className="h-1 w-20 bg-gray-200 rounded" />
+        </div>
+        <div className="mt-0.5 flex gap-1">
+          <div className="h-1 w-28 bg-gray-200 rounded" />
+          <div className="h-1 w-12 bg-gray-200 rounded" />
         </div>
       </div>
     </div>
@@ -516,15 +526,24 @@ function MockupGoogleDocs() {
 
 function MockupGmail() {
   return (
-    <div className="w-full h-36 bg-[#f6f8fc] rounded-lg overflow-hidden flex flex-col border border-gray-200">
+    <div className="w-full h-36 bg-[#f6f8fc] overflow-hidden flex flex-col">
       <div className="bg-white px-2 py-1 flex items-center gap-1.5 border-b border-gray-200">
         <span className="font-extrabold text-[11px]" style={{ color: "#EA4335" }}>M</span>
         <span className="font-medium text-[11px] text-gray-600">Gmail</span>
-        <span className="ml-auto text-[10px] text-gray-400 border border-gray-300 rounded px-1 py-0.5">+ Compose</span>
+        <span className="ml-auto text-[10px] text-gray-400">Inbox (47)</span>
       </div>
-      <div className="flex-1 relative overflow-hidden p-1.5">
-        <div className="text-[10px] text-gray-300 text-center mt-1">Inbox (47)</div>
-        <div className="absolute bottom-0 right-0 w-52 border border-gray-300 rounded-t-lg shadow-xl bg-white overflow-hidden">
+      <div className="flex-1 relative overflow-hidden">
+        {/* Faded inbox rows behind compose */}
+        <div className="px-2 pt-1 space-y-0.5 opacity-30">
+          {["Team standup notes", "Invoice #4021 attached", "Re: Q1 backlink targets"].map((subj, i) => (
+            <div key={i} className="flex items-center gap-1 text-[9px] text-gray-500 truncate">
+              <span className="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0" />
+              {subj}
+            </div>
+          ))}
+        </div>
+        {/* Compose window overlay */}
+        <div className="absolute bottom-0 right-0 left-2 border border-gray-300 rounded-t-lg shadow-xl bg-white overflow-hidden">
           <div className="bg-[#404040] text-white px-2.5 py-1.5 flex justify-between items-center">
             <span className="text-[10px] font-medium">New Message</span>
             <span className="text-white/50 text-[10px]">— ⤢ ✕</span>
@@ -535,9 +554,9 @@ function MockupGmail() {
             Hi Sarah, your April report is attached. Traffic +14%, 3 new page 1 rankings!
             <span className="inline-block w-0.5 h-3 bg-gray-800 animate-pulse align-middle ml-0.5" />
           </div>
-          <div className="border-t border-gray-200 px-2 py-1.5 flex items-center gap-1.5">
+          <div className="border-t border-gray-200 px-2 py-1 flex items-center gap-1.5">
             <div className="bg-[#0b57d0] text-white text-[10px] px-2.5 py-0.5 rounded-full">Send</div>
-            <span className="text-gray-400 text-[10px] truncate">📎 April_Report.docx</span>
+            <span className="text-gray-400 text-[10px] truncate">📎 April_Report.docx (2.4 MB)</span>
           </div>
         </div>
       </div>
@@ -547,33 +566,19 @@ function MockupGmail() {
 
 function AutoReportPreview() {
   return (
-    <div className="w-full h-36 bg-gradient-to-br from-[#0f172a] to-[#1e293b] rounded-lg overflow-hidden border border-emerald-500/20">
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 px-3 py-1.5 flex items-center justify-between">
-        <div>
-          <div className="text-white font-bold text-xs">DiamondLinks</div>
-          <div className="text-white/70 text-[10px]">April 2025 Performance Report</div>
-        </div>
-        <div className="text-white/50 text-[10px]">AI Scout</div>
-      </div>
-      <div className="p-2 grid grid-cols-3 gap-1.5">
-        {[
-          { label: "Traffic", value: "+14%", color: "text-emerald-400" },
-          { label: "Page 1 KW", value: "24", color: "text-blue-400" },
-          { label: "New Top 3", value: "3", color: "text-cyan-400" },
-        ].map((m, i) => (
-          <div key={i} className="bg-white/5 rounded-lg p-1.5 text-center">
-            <div className={`font-bold text-sm ${m.color}`}>{m.value}</div>
-            <div className="text-slate-400 text-[10px]">{m.label}</div>
-          </div>
-        ))}
-      </div>
-      <div className="px-2">
-        <div className="flex items-end gap-0.5 h-9 bg-white/5 rounded px-1.5 py-1">
-          {[40, 55, 48, 62, 58, 71, 75, 70, 80, 83, 78, 90].map((h, i) => (
-            <div key={i} className="flex-1 bg-gradient-to-t from-blue-600 to-cyan-400 rounded-sm opacity-90" style={{ height: `${h}%` }} />
-          ))}
-        </div>
-        <div className="text-slate-500 text-[9px] text-center mt-0.5">Organic traffic — 12 months</div>
+    <div className="w-full h-36 rounded-lg overflow-hidden relative border border-emerald-500/30">
+      <Image
+        src="/images/case-study/after-report.png"
+        alt="Auto-generated SEO report"
+        fill
+        className="object-cover object-top"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent" />
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center">
+        <span className="inline-flex items-center gap-1.5 text-emerald-300 text-[11px] font-semibold bg-slate-900/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-emerald-500/30">
+          <CheckCircle size={12} className="text-emerald-400" />
+          Auto-generated in 3 seconds
+        </span>
       </div>
     </div>
   );
@@ -703,19 +708,41 @@ function ReportROIDemo() {
                 <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-gradient-to-r from-red-700 to-red-400 rounded-full" style={{ width: `${(manualSeconds / TOTAL_REAL_SECS) * 100}%`, transition: "width 100ms linear" }} />
                 </div>
-                {/* App mockup */}
-                <div key={mockupKey} className="animate-mockup-fade">
-                  {currentMockup === "idle" && (
-                    <div className="w-full h-36 flex items-center justify-center text-slate-600 text-sm border border-slate-700/30 rounded-lg bg-slate-800/10">
-                      Press play to start
-                    </div>
-                  )}
-                  {currentMockup === "ahrefs-login" && <MockupAhrefsLogin />}
-                  {currentMockup === "ahrefs-data" && <MockupAhrefsData copying={false} />}
-                  {currentMockup === "ahrefs-copy" && <MockupAhrefsData copying={true} />}
-                  {currentMockup === "sheets" && <MockupGoogleSheets />}
-                  {currentMockup === "docs" && <MockupGoogleDocs />}
-                  {currentMockup === "gmail" && <MockupGmail />}
+                {/* Browser frame with tabs */}
+                <div className="rounded-lg border border-slate-600/40 overflow-hidden bg-slate-800/60">
+                  {/* Tab bar */}
+                  <div className="flex items-end gap-0 px-1 pt-1 bg-slate-700/40">
+                    {[
+                      { label: "Ahrefs", keys: ["ahrefs-login", "ahrefs-data", "ahrefs-copy"] as string[], color: "text-[#ff6a35]" },
+                      { label: "Sheets", keys: ["sheets"] as string[], color: "text-[#0f9d58]" },
+                      { label: "Docs", keys: ["docs"] as string[], color: "text-[#4285f4]" },
+                      { label: "Gmail", keys: ["gmail"] as string[], color: "text-[#EA4335]" },
+                    ].map((tab, i) => {
+                      const isActive = started && tab.keys.includes(currentMockup);
+                      return (
+                        <div key={i} className={`px-3 py-1 text-[10px] rounded-t transition-all ${isActive ? "bg-slate-800/80 font-semibold " + tab.color : "text-slate-500 bg-transparent"}`}>
+                          {tab.label}
+                        </div>
+                      );
+                    })}
+                    {started && (
+                      <div className="ml-auto px-1 py-1 text-slate-600 text-[10px]">+</div>
+                    )}
+                  </div>
+                  {/* Mockup content */}
+                  <div key={mockupKey} className="animate-mockup-fade">
+                    {currentMockup === "idle" && (
+                      <div className="w-full h-36 flex items-center justify-center text-slate-600 text-sm">
+                        Press play to start
+                      </div>
+                    )}
+                    {currentMockup === "ahrefs-login" && <MockupAhrefsLogin />}
+                    {currentMockup === "ahrefs-data" && <MockupAhrefsData copying={false} />}
+                    {currentMockup === "ahrefs-copy" && <MockupAhrefsData copying={true} />}
+                    {currentMockup === "sheets" && <MockupGoogleSheets />}
+                    {currentMockup === "docs" && <MockupGoogleDocs />}
+                    {currentMockup === "gmail" && <MockupGmail />}
+                  </div>
                 </div>
                 {/* Step label */}
                 <div className="flex items-center gap-2 min-h-[20px]">
