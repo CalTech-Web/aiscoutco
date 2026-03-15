@@ -819,6 +819,7 @@ export default function HomePage() {
                 color: { border: "border-purple-500/30", bg: "bg-purple-500/10", text: "text-purple-400", subtle: "bg-purple-500/5" },
                 industry: "Professional Services",
                 pain: "Intake forms, client onboarding, deliverable generation, and status updates done manually.",
+                link: "/industries/professional-services",
               },
               {
                 icon: <Building2 size={22} />,

@@ -14,8 +14,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services/discovery`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/services/build`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/services/support`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/industries`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/industries/seo-agencies`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/industries/real-estate`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/industries/professional-services`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/terms-of-service`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
   ];
