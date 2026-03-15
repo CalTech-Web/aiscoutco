@@ -54,6 +54,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/business-process-automation" className="text-slate-400 hover:text-white text-sm transition-colors">
+                  Business Process Automation
+                </Link>
+              </li>
+              <li>
                 <Link href="/services/discovery" className="text-slate-400 hover:text-white text-sm transition-colors">
                   AI Discovery &amp; Strategy
                 </Link>

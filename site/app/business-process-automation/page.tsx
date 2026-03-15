@@ -3,23 +3,23 @@ import { ArrowRight, CheckCircle, Search, Wrench, LifeBuoy, BarChart3, FileText,
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Automation Consulting | AI Scout Co",
-  description: "Brandon Hopkins provides AI automation consulting for businesses ready to eliminate manual work. Free discovery call. Custom AI systems. Real results backed by case studies.",
-  keywords: "ai automation consulting, ai automation consulting services, ai workflow automation consulting, hire ai automation consultant, business automation consulting, ai process automation consultant",
+  title: "Business Process Automation Services | AI Scout Co",
+  description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
+  keywords: "business process automation services, business process automation consulting, business process automation consultant, business process automation with ai, intelligent business process automation",
   alternates: {
-    canonical: "https://aiscoutco.com/ai-automation-consulting",
+    canonical: "https://aiscoutco.com/business-process-automation",
   },
   openGraph: {
-    title: "AI Automation Consulting | AI Scout Co",
-    description: "Brandon Hopkins provides AI automation consulting for businesses ready to eliminate manual work. Free discovery call. Custom AI systems. Real results.",
-    url: "https://aiscoutco.com/ai-automation-consulting",
+    title: "Business Process Automation Services | AI Scout Co",
+    description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
+    url: "https://aiscoutco.com/business-process-automation",
     siteName: "AI Scout Co",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation Consulting | AI Scout Co",
-    description: "Brandon Hopkins provides AI automation consulting for businesses ready to eliminate manual work. Free discovery call. Custom AI systems. Real results.",
+    title: "Business Process Automation Services | AI Scout Co",
+    description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
   },
 };
 
@@ -27,10 +27,10 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://aiscoutco.com/ai-automation-consulting#webpage",
-    url: "https://aiscoutco.com/ai-automation-consulting",
-    name: "AI Automation Consulting | AI Scout Co",
-    description: "Brandon Hopkins provides AI automation consulting services for businesses ready to eliminate manual work. Free discovery call. Custom AI systems. Real results.",
+    "@id": "https://aiscoutco.com/business-process-automation#webpage",
+    url: "https://aiscoutco.com/business-process-automation",
+    name: "Business Process Automation Services | AI Scout Co",
+    description: "AI Scout Co delivers business process automation services that eliminate manual work. Custom-built AI systems, free discovery call, real ROI.",
     isPartOf: { "@id": "https://aiscoutco.com/#website" },
     about: { "@id": "https://aiscoutco.com/#organization" },
     inLanguage: "en-US",
@@ -40,16 +40,16 @@ const jsonLd = [
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://aiscoutco.com" },
-      { "@type": "ListItem", position: 2, name: "AI Automation Consulting", item: "https://aiscoutco.com/ai-automation-consulting" },
+      { "@type": "ListItem", position: 2, name: "Business Process Automation", item: "https://aiscoutco.com/business-process-automation" },
     ],
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://aiscoutco.com/ai-automation-consulting#service",
-    name: "AI Automation Consulting",
-    serviceType: "AI Automation Consulting",
-    description: "End-to-end AI automation consulting: workflow discovery, custom AI system development, and ongoing optimization for businesses that want to eliminate manual work.",
+    "@id": "https://aiscoutco.com/business-process-automation#service",
+    name: "Business Process Automation Services",
+    serviceType: "Business Process Automation",
+    description: "Custom business process automation services: workflow discovery, AI system development, and ongoing optimization for businesses that want to eliminate manual work.",
     provider: { "@id": "https://aiscoutco.com/#organization" },
     areaServed: "US",
     offers: {
@@ -64,34 +64,34 @@ const jsonLd = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is AI automation consulting?",
+        name: "What is business process automation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "AI automation consulting is the process of auditing your business workflows, identifying where AI and automation can eliminate manual work, and then building the custom systems to make it happen. A consultant handles the full lifecycle: discovery, architecture, development, and ongoing optimization.",
+          text: "Business process automation (BPA) is the use of technology to perform repeatable business tasks with minimal human intervention. Modern BPA uses AI and intelligent agents to handle complex workflows that previously required manual effort, such as report generation, document creation, client communication, and data management.",
         },
       },
       {
         "@type": "Question",
-        name: "How do I know if I need AI automation consulting?",
+        name: "What business processes can be automated?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "If your team spends time on work that follows a repeatable pattern, such as generating reports, sending follow-up emails, updating records, or assembling documents, that work is automatable. The first step is a free discovery call to find out exactly where AI can help your specific business.",
+          text: "Any process that follows a repeatable pattern is a candidate for automation. The most common include: generating reports and dashboards, creating proposals and documents, sending client or customer communications, updating CRM records, processing invoices, scheduling follow-ups, and compiling data from multiple sources.",
         },
       },
       {
         "@type": "Question",
-        name: "What does an AI automation consulting engagement look like?",
+        name: "How does business process automation consulting work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It starts with a free 30 to 60 minute discovery call to map your workflows and identify automation opportunities. From there, you receive a detailed opportunity map with ROI projections. If you proceed, we architect and build your custom AI system, typically in 4 to 8 weeks. After launch, we provide ongoing optimization and support.",
+          text: "It starts with a free discovery call to map your current workflows and identify every process that can be automated. You receive a detailed plan with ROI projections. If you proceed, we build your custom automation system in 4 to 8 weeks. After launch, we provide ongoing optimization and support.",
         },
       },
       {
         "@type": "Question",
-        name: "How much does AI automation consulting cost?",
+        name: "How much does business process automation cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every project is custom scoped after the discovery call. Pricing is transparent, with clear ROI projections so you can see exactly what you are getting and what it is worth. The discovery call itself is always free. Most clients see a return on investment within the first 60 days.",
+          text: "Every project is custom scoped after the discovery call. Pricing is transparent with clear ROI projections so you know exactly what each automation is worth before committing. The discovery call is always free. Most clients see a return on investment within 60 days.",
         },
       },
     ],
@@ -102,22 +102,22 @@ const phases = [
   {
     icon: Search,
     step: "01",
-    title: "Discovery & Strategy",
-    description: "We start with a free 30 to 60 minute call to map your workflows and identify every place AI and automation can help. You receive a detailed opportunity map with ROI projections and a phased implementation plan.",
+    title: "Process Discovery",
+    description: "We start with a free 30 to 60 minute call to map every workflow your team handles. I identify the highest-impact automation opportunities, rank them by ROI, and deliver a phased implementation plan.",
     link: { href: "/services/discovery", label: "Learn about the discovery session" },
   },
   {
     icon: Wrench,
     step: "02",
-    title: "Custom AI System Development",
-    description: "We architect and build your custom AI systems from scratch, integrating autonomous agents, API connections, and intelligent workflows directly into the tools you already use. No templates, no off-the-shelf software.",
+    title: "Custom Automation Development",
+    description: "I architect and build your automation systems from scratch, connecting AI agents, APIs, and intelligent workflows directly into the tools you already use. No templates or off-the-shelf software.",
     link: { href: "/services/build", label: "See what we build" },
   },
   {
     icon: LifeBuoy,
     step: "03",
-    title: "Ongoing Optimization & Support",
-    description: "After launch, we monitor your systems, tune performance, add new capabilities as your needs evolve, and train your team. The system grows with your business.",
+    title: "Optimization & Support",
+    description: "After launch, I monitor your systems, tune performance, add new capabilities as your business grows, and train your team. Your automation investment compounds over time.",
     link: { href: "/services/support", label: "Explore ongoing support" },
   },
 ];
@@ -126,22 +126,22 @@ const whatWeAutomate = [
   {
     icon: BarChart3,
     title: "Reporting & Analytics",
-    description: "Automated report generation that pulls data from your APIs, processes it through AI agents, and delivers formatted reports to clients or stakeholders without human intervention.",
+    description: "Automated report generation that pulls data from your systems, processes it through AI agents, and delivers formatted reports to clients or leadership without manual effort.",
   },
   {
     icon: FileText,
-    title: "Document & Proposal Generation",
-    description: "AI systems that compile call notes, email threads, pricing, and context into polished proposals or documents, delivered automatically before every meeting.",
+    title: "Document & Proposal Creation",
+    description: "AI-driven systems that compile notes, email threads, pricing, and context into polished proposals or documents, generated automatically before every meeting or deadline.",
   },
   {
     icon: Brain,
     title: "Workflow Orchestration",
-    description: "Multi-agent systems that coordinate complex workflows across your tools: project management, CRM, email, calendar, and custom databases, connected through APIs and webhooks.",
+    description: "Multi-agent systems that coordinate complex processes across your tools, connecting project management, CRM, email, calendar, and databases through APIs and webhooks.",
   },
   {
     icon: Zap,
-    title: "Client & Customer Communication",
-    description: "Automated email sequences, intelligent follow-ups, and AI-generated summaries that keep clients informed without your team writing a single message.",
+    title: "Client Communication",
+    description: "Automated email sequences, AI-generated summaries, and intelligent follow-ups that keep clients informed and deals moving without your team writing a single message.",
   },
 ];
 
@@ -160,7 +160,7 @@ const industries = [
   { label: "E-commerce businesses", href: "/industries/ecommerce" },
 ];
 
-export default function AiAutomationConsultingPage() {
+export default function BusinessProcessAutomationPage() {
   return (
     <>
       <script
@@ -179,15 +179,15 @@ export default function AiAutomationConsultingPage() {
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-6 flex items-center justify-center gap-3">
               <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-                AI Consulting Services
+                Automation Services
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              AI Automation{" "}
-              <span className="gradient-text">Consulting</span>
+              Business Process{" "}
+              <span className="gradient-text">Automation Services</span>
             </h1>
             <p className="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Most businesses know they should be using AI. They just don&apos;t know where to start. That&apos;s exactly what AI automation consulting solves: discovering where automation can make the biggest impact, then building the systems to make it real.
+              Every business has processes that run on manual effort. Reports that take hours. Proposals assembled from scratch. Follow-ups that slip through the cracks. Business process automation replaces that manual work with intelligent systems that run on their own.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -208,30 +208,30 @@ export default function AiAutomationConsultingPage() {
           </div>
         </section>
 
-        {/* What AI Automation Consulting Is */}
+        {/* What is BPA */}
         <section className="py-20 bg-slate-900/50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                What AI automation consulting actually means
+                What is business process automation?
               </h2>
               <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-                It&apos;s not about buying software. It&apos;s about understanding your workflows, finding where manual work is slowing you down, and building custom AI systems that eliminate it.
+                Business process automation uses AI and intelligent software agents to complete repetitive tasks that your team currently handles manually. The goal is not to replace your people, it is to free them from work that a system can do better and faster.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               {[
                 {
-                  title: "Workflow audit",
-                  description: "Every workflow your team handles is mapped and analyzed for automation potential, from reporting and proposals to follow-ups and data entry.",
+                  title: "Process mapping",
+                  description: "Every workflow your team handles is documented and analyzed, from daily tasks to monthly deliverables, to find every automation opportunity.",
                 },
                 {
-                  title: "Custom system design",
-                  description: "No templates. Every AI system is architected specifically for your business, integrated with the tools you already use.",
+                  title: "Custom-built systems",
+                  description: "Every automation is built specifically for your business and integrated into the tools you already use. Nothing generic, no new platforms to learn.",
                 },
                 {
                   title: "Measurable ROI",
-                  description: "Every recommendation comes with an ROI projection so you know what each automation is worth before you commit to building it.",
+                  description: "Every automation recommendation includes an ROI projection so you know what it is worth before committing to build it.",
                 },
               ].map((item) => (
                 <div key={item.title} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
@@ -246,12 +246,12 @@ export default function AiAutomationConsultingPage() {
           </div>
         </section>
 
-        {/* How the Engagement Works */}
+        {/* How It Works */}
         <section className="py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                How the consulting engagement works
+                How our business process automation consulting works
               </h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
                 Every engagement follows the same three-phase process: discover, build, and optimize.
@@ -293,10 +293,10 @@ export default function AiAutomationConsultingPage() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                What AI automation consulting delivers
+                Business processes we automate
               </h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                Every project is different, but these are the most common areas where AI delivers the fastest and largest return.
+                Any process that follows a repeatable pattern is a candidate for automation. These are the areas where we deliver the fastest and largest return.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -326,14 +326,14 @@ export default function AiAutomationConsultingPage() {
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                DiamondLinks: from manual work to $85,000+/year in savings
+                DiamondLinks: business process automation that saved $85,000+/year
               </h2>
               <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                DiamondLinks, an SEO and online reputation management agency, reached out for a{" "}
+                DiamondLinks, an SEO and online reputation management agency, faced a business process problem: all client reporting and proposal creation was manual. When the employee who handled it received an outside offer, they reached out for a{" "}
                 <Link href="/services/discovery" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">
                   discovery session
                 </Link>{" "}
-                after a key employee who handled all client reporting and proposals received an outside job offer. What started as a retention problem became an AI automation consulting engagement that replaced the role entirely and added seven capabilities they never had before.
+                to explore automation. What started as a retention problem became a complete business process overhaul that eliminated the role entirely and added seven capabilities they never had before.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
                 {results.map((r) => (
@@ -370,10 +370,10 @@ export default function AiAutomationConsultingPage() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Industries we work with
+                Industries we serve
               </h2>
               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                AI automation consulting applies to any business with repetitive manual workflows. These are the industries we serve most often.
+                Business process automation applies to any industry where manual work slows teams down. These are the industries we work with most.
               </p>
             </div>
             <ul className="flex flex-wrap justify-center gap-3 mb-8">
@@ -393,11 +393,8 @@ export default function AiAutomationConsultingPage() {
               <Link href="/contact" className="text-blue-400 hover:text-blue-300">
                 Any business with repetitive workflows is a fit.
               </Link>{" "}
-              <Link href="/small-business" className="text-blue-400 hover:text-blue-300">
-                See AI automation for small businesses.
-              </Link>{" "}
-              <Link href="/business-process-automation" className="text-blue-400 hover:text-blue-300">
-                Explore our business process automation services.
+              <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300">
+                Learn about our AI automation consulting approach.
               </Link>
             </p>
           </div>
@@ -408,26 +405,26 @@ export default function AiAutomationConsultingPage() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Common questions about AI automation consulting
+                Common questions about business process automation
               </h2>
             </div>
             <div className="space-y-6">
               {[
                 {
-                  q: "What is AI automation consulting?",
-                  a: "It is the process of auditing your business workflows, identifying where AI can eliminate manual work, and building the custom systems to make it happen. The consultant handles the full engagement from discovery through development and ongoing support.",
+                  q: "What is business process automation?",
+                  a: "Business process automation (BPA) uses AI and intelligent software agents to perform repeatable tasks with minimal human intervention. Modern BPA goes beyond simple rule-based triggers, using AI to handle complex, judgment-based processes like report generation, proposal writing, and multi-step client communications.",
                 },
                 {
-                  q: "How do I know if I need it?",
-                  a: "If your team repeats the same tasks weekly, such as generating reports, sending follow-ups, updating records, or assembling documents, those tasks are strong automation candidates. The discovery call is specifically designed to find every opportunity in your business.",
+                  q: "What business processes can be automated?",
+                  a: "Any process that follows a repeatable pattern is a strong candidate. The most impactful areas are: client and internal reporting, proposal and document generation, CRM updates and follow-up sequences, invoice and billing workflows, data aggregation from multiple sources, and recurring client communications.",
                 },
                 {
-                  q: "What does an engagement look like from start to finish?",
-                  a: "It starts with a free discovery call to map your workflows. From there, you receive an opportunity map with ROI projections. If you proceed, the build phase takes 4 to 8 weeks depending on scope. After launch, ongoing optimization keeps the system performing as your business grows.",
+                  q: "How does business process automation consulting work?",
+                  a: "It starts with a free discovery call to map your current workflows and identify the highest-ROI automation opportunities. You receive a detailed plan before committing to anything. The build phase takes 4 to 8 weeks depending on scope. After launch, ongoing optimization keeps your systems running as your business grows.",
                 },
                 {
-                  q: "What does AI automation consulting cost?",
-                  a: "The discovery call is always free. Project pricing is custom scoped after the call, with transparent ROI projections included. Most clients see a return on investment within 60 days of launch.",
+                  q: "How much does business process automation cost?",
+                  a: "Every project is custom scoped after the discovery call, with transparent pricing and ROI projections included. The discovery call is always free. Most clients see a return on investment within 60 days of launching their first automation.",
                 },
               ].map((item) => (
                 <div key={item.q} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
@@ -443,10 +440,10 @@ export default function AiAutomationConsultingPage() {
         <section className="py-20 bg-slate-900/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Ready to start your AI automation consulting engagement?
+              Ready to automate your business processes?
             </h2>
             <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-              The first step is a free discovery call. In 30 to 60 minutes, we map your workflows, identify every automation opportunity, and you leave with a clear picture of what AI can do for your business.
+              The first step is a free discovery call. In 30 to 60 minutes, we map your workflows, identify every automation opportunity, and you leave with a clear picture of what is possible.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link
