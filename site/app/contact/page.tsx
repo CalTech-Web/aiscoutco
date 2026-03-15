@@ -62,22 +62,14 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           {/* Left info panel */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6">
-              <Brain size={24} className="text-blue-400 mb-3" />
-              <h3 className="text-white font-bold mb-2">What happens on the call</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I will have identified several areas where AI and automation can make an immediate impact.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
-              <Clock size={24} className="text-cyan-400 mb-3" />
+            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+              <CheckCircle size={24} className="text-emerald-400 mb-3" />
               <h3 className="text-white font-bold mb-2">What you&apos;ll walk away with</h3>
               <ul className="space-y-2">
                 {[
-                  "Personalized opportunity map with ROI estimates",
+                  "Personalized automation map with ROI estimates",
                   "Priority list of what to automate first",
-                  "No commitment, no sales pressure",
+                  "Real numbers, not vague promises",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-slate-400 text-sm">
                     <CheckCircle size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -87,18 +79,28 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6">
-              <MessageSquare size={24} className="text-purple-400 mb-3" />
-              <h3 className="text-white font-bold mb-2">Prefer email?</h3>
-              <p className="text-slate-400 text-sm mb-3">Reach out directly and I will get back to you within one business day.</p>
-              <a
-                href="mailto:brandon@aiscoutco.com"
-                className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors flex items-center gap-1"
-              >
-                <Mail size={14} />
+            <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6">
+              <Brain size={24} className="text-blue-400 mb-3" />
+              <h3 className="text-white font-bold mb-2">What happens on the call</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I will have identified several areas where AI and automation can make an immediate impact.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-6">
+              <CheckCircle size={24} className="text-amber-400 mb-3" />
+              <h3 className="text-white font-bold mb-2">My guarantee</h3>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
+              </p>
+            </div>
+
+            <p className="text-slate-500 text-xs text-center">
+              Prefer email?{" "}
+              <a href="mailto:brandon@aiscoutco.com" className="text-blue-400 hover:text-blue-300 transition-colors">
                 brandon@aiscoutco.com
               </a>
-            </div>
+            </p>
           </div>
 
           {/* Form */}
@@ -117,8 +119,8 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <h2 className="text-2xl font-extrabold text-white mb-1">Book your discovery call</h2>
-                    <p className="text-slate-400 text-sm">Takes about 2 minutes. I&apos;ll respond within one business day to schedule your call.</p>
+                    <h2 className="text-2xl font-extrabold text-white mb-1">Get your free automation roadmap</h2>
+                    <p className="text-slate-400 text-sm">Takes about 2 minutes. I&apos;ll respond within one business day to schedule your 30 to 60 minute call.</p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -205,7 +207,7 @@ export default function ContactPage() {
                       </>
                     ) : (
                       <>
-                        Claim My Free Discovery Call
+                        Get My Free Automation Roadmap
                         <ArrowRight size={18} />
                       </>
                     )}
@@ -218,7 +220,7 @@ export default function ContactPage() {
                     </p>
                   )}
                   <p className="text-slate-500 text-xs text-center">
-                    If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
+                    No commitment. No obligation. Just a conversation about what&apos;s possible.
                   </p>
                 </form>
               )}

@@ -484,7 +484,7 @@ export default function HomePage() {
                 ))}
               </div>
               <p className="text-slate-400 text-xs leading-snug italic">
-                &ldquo;Brandon built us a system that replaced every function and added seven new capabilities.&rdquo;
+                &ldquo;Brandon saved us $85,000+/year and added 7 capabilities we never had before.&rdquo;
                 <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
               </p>
             </div>
@@ -993,13 +993,16 @@ export default function HomePage() {
             </Link>
           </FadeUp>
           <FadeUp delay={450}>
-            <p className="text-slate-500 text-sm mt-6">
-              No commitment. No sales pitch. Just a conversation about what&apos;s possible.{" "}
+            <p className="text-slate-300 text-sm mt-6">
+              If I can&apos;t find at least 3 automation opportunities in your business, I&apos;ll tell you straight. No pitch, no pressure.
+            </p>
+            <p className="text-slate-500 text-xs mt-3">
+              No commitment.{" "}
               <Link href="/about" className="text-blue-400/70 hover:text-blue-400 transition-colors">
                 Learn more about Brandon.
               </Link>
             </p>
-            <p className="text-amber-400/70 text-xs font-medium mt-3">Currently accepting new clients for April 2026. Spots are limited.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">Currently accepting new clients for April 2026. Spots are limited.</p>
           </FadeUp>
         </div>
       </section>
