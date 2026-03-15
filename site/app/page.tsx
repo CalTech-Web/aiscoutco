@@ -480,7 +480,7 @@ export default function HomePage() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 blue-glow btn-shimmer"
               >
-                Book a Discovery Call
+                Book a Free Discovery Call
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -490,6 +490,31 @@ export default function HomePage() {
                 See a Real Case Study
                 <ChevronRight size={20} />
               </Link>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-5">
+              {[
+                "Free 30-min call",
+                "No commitment",
+                "Custom ROI insights included",
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-1.5 text-slate-400 text-sm">
+                  <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3 mt-6 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
+              <div className="flex-shrink-0 flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={13} fill="#f59e0b" className="text-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-400 text-xs leading-snug italic">
+                &ldquo;Brandon built us a system that replaced every function and added seven new capabilities.&rdquo;
+                <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
+              </p>
             </div>
 
             <div className="w-full">
