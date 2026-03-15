@@ -111,7 +111,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-2xl font-extrabold text-white mb-3">You&apos;re on my list.</h3>
                   <p className="text-slate-400 leading-relaxed max-w-sm mx-auto mb-6">
-                    I&apos;ll reach out within one business day to schedule your call. While you wait, see exactly what&apos;s possible.
+                    I&apos;ll reach out same day to schedule your call. While you wait, see exactly what&apos;s possible.
                   </p>
                   <a
                     href="/case-study"
@@ -174,6 +174,7 @@ export default function ContactPage() {
                     <p className="text-slate-300 text-xs leading-snug italic">
                       &ldquo;Brandon built us a system that replaced every function and added seven new capabilities we never had before.&rdquo;
                       <span className="text-slate-500 not-italic ml-1">— DiamondLinks Leadership</span>
+                      <span className="block text-slate-600 not-italic mt-0.5">$85,000+/year saved. 6 weeks.</span>
                     </p>
                   </div>
 

@@ -310,6 +310,12 @@ const faqNodes: Record<number, React.ReactNode> = {
       <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Get your free automation audit to see a custom estimate.</Link>
     </span>
   ),
+  2: (
+    <span>
+      Not at all. My job is to understand the technical complexity so you don&apos;t have to. You tell me what you want your work and life to look like, and I figure out how to build it.{" "}
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call to get started.</Link>
+    </span>
+  ),
   4: (
     <span>
       Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the{" "}
@@ -481,7 +487,11 @@ function QuickCaptureForm() {
         </div>
         <p className="text-white font-bold text-xl mb-2">You&apos;re on my list.</p>
         <p className="text-slate-400 text-sm">I&apos;ll reach out same day to schedule your call.</p>
-        <p className="text-slate-600 text-xs mt-4">$85,000+/year saved. 7 new capabilities. 6 weeks.</p>
+        <p className="text-slate-500 text-xs mt-3 mb-2">While you wait:</p>
+        <Link href="/case-study" className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors">
+          Read the DiamondLinks case study <ArrowRight size={14} />
+        </Link>
+        <p className="text-slate-600 text-xs mt-3">$85,000+/year saved. 7 new capabilities. 6 weeks.</p>
       </div>
     );
   }
@@ -707,7 +717,7 @@ export default function HomePage() {
 
             <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
               <CheckCircle size={12} />
-              Guaranteed: I find 3+ automation opportunities or I tell you straight
+              Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
             </div>
 
             <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. April spots are available now.</p>
@@ -954,6 +964,7 @@ export default function HomePage() {
             <div>
               <p className="text-white font-bold text-xl">Your business can run like this.</p>
               <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
+              <p className="text-amber-400/80 text-xs font-medium mt-1.5">April spots available now.</p>
             </div>
             <Link
               href="/contact"
