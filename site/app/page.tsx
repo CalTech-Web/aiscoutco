@@ -443,6 +443,122 @@ function ROICalculator() {
   );
 }
 
+function QuickCaptureForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message: "", company: "", industry: "" }),
+      });
+      if (res.ok) setSubmitted(true);
+      else setError(true);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="text-center py-6">
+        <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle size={24} className="text-emerald-400" />
+        </div>
+        <p className="text-white font-bold text-xl mb-2">You&apos;re on my list.</p>
+        <p className="text-slate-400 text-sm">I&apos;ll reach out within one business day to schedule your call.</p>
+        <p className="text-slate-600 text-xs mt-4">$85,000+/year saved. 7 new capabilities. 6 weeks.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-3 max-w-lg mx-auto">
+      <div className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="text"
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your name"
+          className="flex-1 rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+        />
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Work email"
+          className="flex-1 rounded-xl border border-slate-700 bg-slate-800/50 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-bold text-lg transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow btn-shimmer"
+      >
+        {loading ? (
+          <div className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+        ) : (
+          <>
+            Get My Free Automation Audit
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </>
+        )}
+      </button>
+      {error && (
+        <p className="text-red-400 text-xs text-center">
+          Something went wrong. <a href="mailto:brandon@aiscoutco.com" className="underline hover:text-red-300">Email me directly.</a>
+        </p>
+      )}
+    </form>
+  );
+}
+
+function MobileStickyBar() {
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!dismissed) setVisible(window.scrollY > 600);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [dismissed]);
+
+  if (!visible) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-slate-900/97 backdrop-blur-sm border-t border-slate-700/60 px-4 py-3 flex items-center gap-3 shadow-2xl shadow-black/50">
+      <Link
+        href="/contact"
+        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors btn-shimmer"
+      >
+        Get a Free Automation Audit
+        <ArrowRight size={16} />
+      </Link>
+      <button
+        onClick={() => { setDismissed(true); setVisible(false); }}
+        className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-300 transition-colors text-lg"
+        aria-label="Dismiss"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+
 function FAQItem({ question, answer }: { question: string; answer: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
@@ -492,6 +608,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <MobileStickyBar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero Section */}
@@ -1149,13 +1266,7 @@ export default function HomePage() {
             </div>
           </FadeUp>
           <FadeUp delay={300}>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 blue-glow btn-shimmer"
-            >
-              Get My Free Automation Audit
-              <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <QuickCaptureForm />
           </FadeUp>
           <FadeUp delay={450}>
             <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
