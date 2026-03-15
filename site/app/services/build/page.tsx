@@ -247,14 +247,14 @@ export default function BuildPage() {
           <div className="text-center rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 p-12">
             <h2 className="text-3xl font-extrabold text-white mb-4">Ready to build something?</h2>
             <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free discovery call to see what is possible for your business.
+              Get a free automation audit and see exactly what we can build for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
               >
-                Book a Discovery Call
+                Get My Free Automation Audit
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
