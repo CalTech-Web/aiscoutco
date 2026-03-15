@@ -252,7 +252,7 @@ export default function HowItWorksPage() {
             Book a Free Discovery Call
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <p className="text-amber-400/80 text-xs font-semibold mt-5">I take on 3 to 5 new clients per month. April spots are available now.</p>
+          <p className="text-amber-400/80 text-xs font-semibold mt-5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
         </div>
       </div>
     </div>

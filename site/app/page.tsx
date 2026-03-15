@@ -237,8 +237,18 @@ const integrations = [
   { name: "Salesforce", color: "text-cyan-400" },
   { name: "HubSpot", color: "text-orange-300" },
   { name: "Slack", color: "text-purple-400" },
-  { name: "Vercel / Next.js", color: "text-slate-300" },
-  { name: "Resend / SendGrid", color: "text-blue-300" },
+  { name: "Microsoft 365", color: "text-blue-300" },
+  { name: "QuickBooks", color: "text-green-400" },
+  { name: "Ahrefs", color: "text-orange-400" },
+  { name: "Mailchimp", color: "text-yellow-400" },
+  { name: "Stripe", color: "text-purple-300" },
+  { name: "Notion", color: "text-slate-300" },
+  { name: "Google Analytics", color: "text-amber-400" },
+  { name: "Zapier", color: "text-orange-300" },
+  { name: "Shopify", color: "text-green-300" },
+  { name: "Calendly", color: "text-blue-400" },
+  { name: "Zoom", color: "text-blue-300" },
+  { name: "Twilio", color: "text-red-400" },
   { name: "Google Meet", color: "text-green-400" },
   { name: "Webhooks", color: "text-cyan-300" },
   { name: "OAuth / SSO", color: "text-purple-300" },
@@ -1154,7 +1164,7 @@ export default function HomePage() {
               Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
             </div>
 
-            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. April spots are available now.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
 
             <div className="w-full hidden sm:block">
               <AgentTerminal />
@@ -1402,7 +1412,7 @@ export default function HomePage() {
             <div>
               <p className="text-white font-bold text-xl">Your business can run like this.</p>
               <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
-              <p className="text-amber-400/80 text-xs font-medium mt-1.5">April spots available now.</p>
+              <p className="text-amber-400/80 text-xs font-medium mt-1.5">{["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots available now.</p>
             </div>
             <Link
               href="/contact"
@@ -1733,7 +1743,7 @@ export default function HomePage() {
                 Learn more about Brandon.
               </Link>
             </p>
-            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. April spots are available now.</p>
+            <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][(new Date().getMonth() + 1) % 12]} spots are available now.</p>
           </FadeUp>
         </div>
       </section>
