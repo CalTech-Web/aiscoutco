@@ -812,6 +812,7 @@ export default function HomePage() {
                 color: { border: "border-blue-500/30", bg: "bg-blue-500/10", text: "text-blue-400", subtle: "bg-blue-500/5" },
                 industry: "SEO & Digital Marketing",
                 pain: "Client reports, campaign summaries, and proposal decks eating up your week.",
+                link: "/industries/seo-agencies",
               },
               {
                 icon: <Briefcase size={22} />,
@@ -854,6 +855,11 @@ export default function HomePage() {
                 </div>
                 <h3 className={`font-bold text-base mb-2 ${item.color.text}`}>{item.industry}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.pain}</p>
+                {"link" in item && item.link && (
+                  <Link href={item.link} className={`inline-flex items-center gap-1 text-xs font-semibold mt-3 ${item.color.text} hover:underline`}>
+                    See how we help <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </motion.div>

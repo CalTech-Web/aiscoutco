@@ -148,7 +148,7 @@ export default function CaseStudyPage() {
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-red-500/20 bg-red-500/5 p-8 mb-8">
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              DiamondLinks, a leading SEO and online reputation management company, faced a critical crossroads. A key employee who single-handedly managed all client reporting and proposal creation received an outside job offer and requested a <span className="text-red-400 font-semibold">25% raise</span>.
+              DiamondLinks, a leading <Link href="/industries/seo-agencies" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">SEO and online reputation management</Link> company, faced a critical crossroads. A key employee who single-handedly managed all client reporting and proposal creation received an outside job offer and requested a <span className="text-red-400 font-semibold">25% raise</span>.
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               This was not just a compensation issue. This employee was the linchpin of two core business functions. Without them, the entire client reporting workflow would collapse, and the sales proposal process would grind to a halt.
