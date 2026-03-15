@@ -833,12 +833,14 @@ export default function HomePage() {
                 color: { border: "border-emerald-500/30", bg: "bg-emerald-500/10", text: "text-emerald-400", subtle: "bg-emerald-500/5" },
                 industry: "Healthcare",
                 pain: "Scheduling, documentation, patient communication, and compliance reporting.",
+                link: "/industries/healthcare",
               },
               {
                 icon: <ShoppingCart size={22} />,
                 color: { border: "border-cyan-500/30", bg: "bg-cyan-500/10", text: "text-cyan-400", subtle: "bg-cyan-500/5" },
                 industry: "E-commerce",
                 pain: "Inventory updates, customer service responses, order tracking, and performance reports.",
+                link: "/industries/ecommerce",
               },
               {
                 icon: <Layers size={22} />,

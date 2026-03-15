@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/industries/seo-agencies`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/industries/real-estate`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/industries/professional-services`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/industries/healthcare`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/industries/ecommerce`, lastModified: UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/terms-of-service`, lastModified: LAUNCH, changeFrequency: "yearly", priority: 0.2 },
   ];
