@@ -244,7 +244,18 @@ export default function HowItWorksPage() {
           <p className="text-slate-400 text-lg mb-3 max-w-xl mx-auto">
             In 30 minutes, I map every place AI can save you time and money, with real dollar savings attached. You walk away with the plan whether you hire me or not.
           </p>
-          <p className="text-slate-500 text-sm mb-8">If I can&apos;t find at least 3 automation wins in your business, I&apos;ll say so. You walk away with honest insights either way. No pitch, no pressure.</p>
+          <p className="text-slate-500 text-sm mb-6">If I can&apos;t find at least 3 automation wins in your business, I&apos;ll say so. You walk away with honest insights either way. No pitch, no pressure.</p>
+          <div className="flex items-center justify-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-sm mx-auto">
+            <div className="flex gap-0.5 flex-shrink-0">
+              {[0,1,2,3,4].map((i) => (
+                <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              ))}
+            </div>
+            <p className="text-slate-400 text-xs leading-snug italic">
+              &ldquo;Replaced every function and added seven new capabilities we never had before.&rdquo;
+              <span className="text-slate-500 not-italic ml-1">— DiamondLinks</span>
+            </p>
+          </div>
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
