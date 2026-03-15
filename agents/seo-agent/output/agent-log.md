@@ -1381,3 +1381,72 @@ Key wins:
 - **Consulting page cross-linked** — the pillar page now passes internal equity to the new BPA page via descriptive anchor text
 - **Footer placement** — the page receives site-wide link equity from day one alongside the two existing pillar pages
 [2026-03-14] Run #29 finished
+**Run 29 complete** — `3951ab5` | Deployed (Ready)
+
+## What was done
+
+| File | Change |
+|---|---|
+| `app/business-process-automation/page.tsx` | New landing page with WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/business-process-automation` added (19 pages total, priority 0.9) |
+| `components/Footer.tsx` | "Business Process Automation" added to Services nav |
+| `app/ai-automation-consulting/page.tsx` | Cross-link → `/business-process-automation` |
+
+**Keyword targets (Ahrefs-verified):**
+- "business process automation services" — 1,500 vol, KD 4 (primary, highest-volume target to date)
+- "business process automation consulting" — 500 vol, KD 0
+- "business process automation consultant" — 250 vol, KD 0
+
+The "business process automation" cluster is the highest-volume, lowest-competition opportunity found across all research runs. The three main keywords alone represent 2,250 monthly searches at near-zero competition, and the primary term (KD 4) sits well within ranking range for a new site with growing internal link equity.
+[2026-03-14 17:56:40] Run #24 finished
+[2026-03-14 17:56:45] Run #25 starting (model: sonnet)
+
+## Run 30: Document Workflow Automation Landing Page
+**Commit:** 3481cec | Deployed to Vercel (Ready)
+
+### Keyword research findings (Ahrefs)
+- "document workflow automation" — 2,800 vol, KD 4 (primary, new highest-volume keyword to date)
+- "document management workflow" — 1,500 vol, KD 3, traffic_potential 1,900
+- "document workflow solutions" — 1,300 vol, KD 4, traffic_potential 1,200
+- "document process automation" — 700 vol, KD 7, traffic_potential 1,000
+- "document workflow" — 800 vol, KD 2, traffic_potential 1,400
+- "automated document workflow" — 600 vol, KD 5, traffic_potential 1,100
+- "document workflow management" — 600 vol, KD 5, traffic_potential 1,900
+- "intelligent document automation" — 600 vol, KD 0
+- "business document automation" — 250 vol, KD 2, traffic_potential 1,200
+
+### Changes
+
+**New page `/app/document-workflow-automation/page.tsx`:**
+- Targets keywords: "document workflow automation" (2,800 vol, KD 4), "document management workflow" (1,500 vol, KD 3), "document workflow solutions" (1,300 vol, KD 4), "document process automation" (700 vol, KD 7), "automated document workflow" (600 vol, KD 5)
+- Full metadata: title (42 chars), description (155 chars), keywords, canonical, OG, Twitter
+- Structured data: WebPage JSON-LD with `@id` + `isPartOf: #website`, BreadcrumbList (Home > Document Workflow Automation), Service JSON-LD (serviceType: "Document Workflow Automation", areaServed: "US", offers), FAQPage (4 Q&As)
+- Content sections: hero, what is document workflow automation (3 pillars), how it works (3 phases linking to each service page), document types we automate (4 cards), DiamondLinks case study callout with full testimonial + stats, industries cross-links, FAQ, CTA
+- Links to: `/contact`, `/how-it-works`, `/services/discovery`, `/services/build`, `/services/support`, `/case-study`, `/business-process-automation`, `/ai-automation-consulting`, all 5 industry pages
+
+**`app/sitemap.ts`:**
+- Added `/document-workflow-automation` (priority 0.9, UPDATED date) — sitemap now covers 20 pages
+
+**`components/Footer.tsx`:**
+- Added "Document Workflow Automation" link to Services nav column — link equity on every page
+
+**`app/ai-automation-consulting/page.tsx`:**
+- Industries section: added link "See how we automate document workflows" → `/document-workflow-automation`
+
+**`app/business-process-automation/page.tsx`:**
+- Industries section: added link "See our document workflow automation services" → `/document-workflow-automation`
+
+| File | Change |
+|---|---|
+| `app/document-workflow-automation/page.tsx` | New — full landing page with WebPage, BreadcrumbList, Service, FAQPage JSON-LD |
+| `app/sitemap.ts` | `/document-workflow-automation` added (20 pages total, priority 0.9) |
+| `components/Footer.tsx` | "Document Workflow Automation" added to Services nav |
+| `app/ai-automation-consulting/page.tsx` | Cross-link → `/document-workflow-automation` |
+| `app/business-process-automation/page.tsx` | Cross-link → `/document-workflow-automation` |
+
+Key wins:
+- **2,800 vol / KD 4** — highest-volume keyword targeted to date, surpassing "business process automation services" (1,500 vol). KD 4 is extremely low competition for a term at this volume.
+- **Deep cluster** — secondary keywords add 4,600+ additional monthly searches at KD 0 to 7, all tightly related to the same intent
+- **High traffic potential** — "document management workflow" has traffic_potential 1,900 and "document workflow management" has traffic_potential 1,900, indicating the SERP winner captures significantly more than the raw volume suggests
+- **Footer placement** — page receives site-wide link equity from day one, completing a three-pillar footer Services structure: AI Automation Consulting, Business Process Automation, Document Workflow Automation
+[2026-03-14] Run #30 finished
