@@ -302,28 +302,28 @@ function IntegrationsMarquee() {
 
 const faqs = [
   {
-    q: "What does a discovery call look like?",
-    a: "We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I'll have identified several areas where AI and automation can make an immediate impact.",
-  },
-  {
     q: "Do I need to understand AI to work with you?",
     a: "Not at all. My job is to understand the technical complexity so you don't have to. You tell me what you want your work and life to look like, and I figure out how to build it.",
   },
   {
-    q: "How long does it take to build a system?",
-    a: "It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks. I'll give you a clear timeline during the discovery process.",
+    q: "What does it cost?",
+    a: "Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you're getting and what it's worth to your business. Most clients see a return within the first 60 days.",
+  },
+  {
+    q: "What does a discovery call look like?",
+    a: "We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I'll have identified several areas where AI and automation can make an immediate impact.",
   },
   {
     q: "Will this replace my employees?",
     a: "Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the DiamondLinks case study, automation can fully replace a role and deliver even more capability than the previous employee provided.",
   },
   {
-    q: "What tools and platforms do you work with?",
-    a: "I integrate with whatever you already use: Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more. The systems I build connect to your existing workflow through APIs and webhooks, so nothing changes for your team except that manual work disappears.",
+    q: "How long does it take to build a system?",
+    a: "It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks. I'll give you a clear timeline during the discovery process.",
   },
   {
-    q: "What does it cost?",
-    a: "Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you're getting and what it's worth to your business. Most clients see a return within the first 60 days.",
+    q: "What tools and platforms do you work with?",
+    a: "I integrate with whatever you already use: Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more. The systems I build connect to your existing workflow through APIs and webhooks, so nothing changes for your team except that manual work disappears.",
   },
   {
     q: "Can I see a demo or example?",
@@ -332,17 +332,17 @@ const faqs = [
 ];
 
 const faqNodes: Record<number, React.ReactNode> = {
+  1: (
+    <span>
+      Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you&apos;re getting and what it&apos;s worth to your business. Most clients see a return within the first 60 days.{" "}
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book your free discovery call to get a custom quote.</Link>
+    </span>
+  ),
   3: (
     <span>
       Not necessarily. In many cases, automation handles the repetitive work so your team can focus on higher value tasks. In other cases, like the{" "}
       <Link href="/case-study" className="text-blue-400 hover:text-blue-300 transition-colors">DiamondLinks case study</Link>
       , automation can fully replace a role and deliver even more capability than the previous employee provided.
-    </span>
-  ),
-  5: (
-    <span>
-      Every project is custom scoped based on your discovery call. I provide transparent pricing with clear ROI projections so you can see exactly what you&apos;re getting and what it&apos;s worth to your business. Most clients see a return within the first 60 days.{" "}
-      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book your free discovery call to get a custom quote.</Link>
     </span>
   ),
   6: (

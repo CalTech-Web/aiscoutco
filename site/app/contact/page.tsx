@@ -33,13 +33,14 @@ export default function ContactPage() {
         <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-purple-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Get Started</p>
+          <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Free Discovery Call</p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-            Book a <span className="gradient-text">Discovery Call</span>
+            See what AI can <span className="gradient-text">save your business</span>
           </h1>
           <p className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            A 30 to 60 minute conversation where I learn your workflows, identify automation opportunities, and show you what your business could look like with the right AI systems in place.
+            In 30 to 60 minutes, you&apos;ll know exactly where AI and automation can cut your costs, eliminate manual work, and free up your team. No technical knowledge required.
           </p>
+          <p className="text-amber-400/80 text-sm font-medium mt-4">Currently accepting new clients for March 2026. Spots are limited.</p>
         </div>
       </section>
 
@@ -155,9 +156,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1.5">What are the biggest time sinks in your business?</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-0.5">What are the biggest time sinks in your business?</label>
+                    <p className="text-slate-500 text-xs mb-1.5">This helps me prepare so we can make the most of our time together. Even a sentence or two is helpful.</p>
                     <textarea
-                      rows={5}
+                      rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell me about the manual, repetitive work your team handles. What takes the most time? What falls through the cracks?"

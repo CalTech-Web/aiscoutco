@@ -71,7 +71,7 @@ export default function Navbar() {
             href="/contact"
             className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer"
           >
-            Book a Discovery Call
+            Book a Free Discovery Call
           </Link>
         </div>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
             className="mt-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold text-center transition-all duration-200"
             onClick={() => setMobileOpen(false)}
           >
-            Book a Discovery Call
+            Book a Free Discovery Call
           </Link>
         </div>
       )}
