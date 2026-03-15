@@ -125,7 +125,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <h2 className="text-2xl font-extrabold text-white mb-1">Get your free automation roadmap</h2>
+                    <h2 className="text-2xl font-extrabold text-white mb-1">Get your free automation audit</h2>
                     <p className="text-slate-400 text-sm">Takes about 2 minutes. I typically respond same day to schedule your 30 to 60 minute call.</p>
                   </div>
 
@@ -191,7 +191,7 @@ export default function ContactPage() {
                       </>
                     ) : (
                       <>
-                        Get My Free Automation Roadmap
+                        Get My Free Automation Audit
                         <ArrowRight size={18} />
                       </>
                     )}
