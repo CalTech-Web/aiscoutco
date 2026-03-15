@@ -45,7 +45,7 @@ export default function ContactPage() {
         <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-purple-600/8 rounded-full blur-3xl animate-blob-alt" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Free Discovery Call</p>
+          <p className="text-blue-400 font-semibold text-sm uppercase tracking-wider mb-4">Free Automation Audit</p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
             Walk away knowing exactly <span className="gradient-text">what AI can save your business</span>
           </h1>
