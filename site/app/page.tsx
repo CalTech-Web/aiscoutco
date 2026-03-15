@@ -324,13 +324,13 @@ const faqNodes: Record<number, React.ReactNode> = {
   2: (
     <span>
       Not at all. My job is to understand the technical complexity so you don&apos;t have to. You tell me what you want your work and life to look like, and I figure out how to build it.{" "}
-      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call to get started.</Link>
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Get my free automation audit to get started.</Link>
     </span>
   ),
   3: (
     <span>
       It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks.{" "}
-      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call and I&apos;ll give you a clear timeline for your specific workflow.</Link>
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Get my free automation audit and I&apos;ll give you a clear timeline for your specific workflow.</Link>
     </span>
   ),
   4: (
@@ -343,7 +343,7 @@ const faqNodes: Record<number, React.ReactNode> = {
   5: (
     <span>
       Neither. What matters isn&apos;t the size of your company, it&apos;s whether your team does manual, repetitive work. A business with two employees doing the same data entry every week is a perfect fit. So is a company with fifty people losing hours to manual reporting every month.{" "}
-      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Book a free call and find out what applies to you.</Link>
+      <Link href="/contact" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">Get my free automation audit and find out what applies to you.</Link>
     </span>
   ),
   6: (
