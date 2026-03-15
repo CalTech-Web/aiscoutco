@@ -407,8 +407,8 @@ const STEP_MOCKUPS = ["ahrefs-login", "ahrefs-data", "ahrefs-copy", "sheets", "d
 type MockupKey = typeof STEP_MOCKUPS[number];
 
 const MINUTES_PER_REAL_SEC = 5;
-const HOURLY_RATE = 85;
-const TOTAL_MINUTES = 60;
+const HOURLY_RATE = 60;
+const TOTAL_MINUTES = 90;
 const TOTAL_REAL_SECS = TOTAL_MINUTES / MINUTES_PER_REAL_SEC;
 const DOLLAR_PER_REAL_SEC = (HOURLY_RATE / 60) * MINUTES_PER_REAL_SEC;
 const AUTO_DURATION = 3;
@@ -676,7 +676,7 @@ function ReportROIDemo() {
     return `${m}:${s.toString().padStart(2, "0")}`;
   };
 
-  const annualManualCost = reportsPerMonth * HOURLY_RATE * 12;
+  const annualManualCost = reportsPerMonth * HOURLY_RATE * 1.5 * 12;
   const annualAutoCost = reportsPerMonth * AUTO_COST * 12;
   const annualSavings = Math.round(annualManualCost - annualAutoCost);
 
@@ -706,12 +706,12 @@ function ReportROIDemo() {
                   <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
                     <div className="text-slate-500 text-xs mb-0.5">Time elapsed</div>
                     <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>{formatTime(manualMins)}</div>
-                    <div className="text-slate-600 text-xs">of 60:00</div>
+                    <div className="text-slate-600 text-xs">of 90:00</div>
                   </div>
                   <div className={`rounded-xl p-2.5 text-center border transition-all ${started ? "border-red-500/30 bg-red-950/30" : "border-slate-700/40 bg-slate-800/30"}`}>
                     <div className="text-slate-500 text-xs mb-0.5">Cost burned</div>
                     <div className={`font-mono font-bold text-2xl leading-tight ${started && !manualComplete ? "text-red-400" : started ? "text-red-300" : "text-slate-600"}`}>${manualDollars.toFixed(2)}</div>
-                    <div className="text-slate-600 text-xs">of $85.00</div>
+                    <div className="text-slate-600 text-xs">of $90.00</div>
                   </div>
                 </div>
                 {/* Progress bar */}
@@ -759,7 +759,7 @@ function ReportROIDemo() {
                   {started && !manualComplete && <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse flex-shrink-0" />}
                   {started && manualComplete && <span className="text-red-400 flex-shrink-0 text-xs">✓</span>}
                   <span className="text-slate-500 font-mono text-xs truncate">
-                    {started ? (manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]) : "1 hr × $85/hr per report"}
+                    {started ? (manualComplete ? "Report sent. Finally." : MANUAL_STEPS[manualStepIdx]) : "1.5 hrs × $60/hr per report"}
                   </span>
                 </div>
               </div>
@@ -860,7 +860,7 @@ function ReportROIDemo() {
               <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-4 text-center">
                 <p className="text-red-400 text-xs uppercase tracking-wider font-semibold mb-2">Manual / Year</p>
                 <p className="text-white font-extrabold text-3xl">${annualManualCost.toLocaleString()}</p>
-                <p className="text-slate-500 text-xs mt-1">{reportsPerMonth} reports × 1 hr × $85 × 12 mo</p>
+                <p className="text-slate-500 text-xs mt-1">{reportsPerMonth} reports × 1.5 hrs × $60/hr × 12 mo</p>
               </div>
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-center">
                 <p className="text-emerald-400 text-xs uppercase tracking-wider font-semibold mb-2">Automated / Year</p>
