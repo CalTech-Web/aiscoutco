@@ -10,7 +10,16 @@ export default function FloatingCTA() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 500);
+    const onScroll = () => {
+      const scrolledPast = window.scrollY > 500;
+      const footer = document.querySelector("footer");
+      let footerVisible = false;
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        footerVisible = rect.top < window.innerHeight;
+      }
+      setVisible(scrolledPast && !footerVisible);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

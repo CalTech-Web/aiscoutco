@@ -6,40 +6,38 @@ import Image from "next/image";
 import { ArrowRight, CheckCircle, TrendingUp, Zap, Users, Clock, Star, AlertTriangle, Lightbulb, Code2, BarChart3, Mic, Mail, Brain, RefreshCw, Calendar } from "lucide-react";
 
 function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
-  const [count, setCount] = useState(end);
-  const [inView, setInView] = useState(false);
-  const [started, setStarted] = useState(false);
+  const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
+  const animatedRef = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          obs.disconnect();
+          if (animatedRef.current) return;
+          animatedRef.current = true;
+          let current = 0;
+          const duration = 1800;
+          const step = (end / duration) * 16;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= end) {
+              setCount(end);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(current));
+            }
+          }, 16);
+        }
+      },
       { rootMargin: "0px 0px -50px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!inView || started) return;
-    setStarted(true);
-    setCount(0);
-    let current = 0;
-    const duration = 1800;
-    const step = (end / duration) * 16;
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [inView, end, started]);
+  }, [end]);
 
   return (
     <span ref={ref}>

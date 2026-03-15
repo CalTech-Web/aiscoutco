@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Zap, Code2, Brain, Users, CheckCircle } from "lucide-react";
 
 export default function AboutPage() {
@@ -35,9 +36,13 @@ export default function AboutPage() {
                 {/* Avatar placeholder */}
                 <div className="relative flex-shrink-0">
                   <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 opacity-70 blur-sm animate-pulse" />
-                  <div className="relative w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                    <span className="text-white text-3xl font-extrabold">B</span>
-                  </div>
+                  <Image
+                    src="/images/brandon-hopkins.jpg"
+                    alt="Brandon Hopkins"
+                    width={96}
+                    height={96}
+                    className="relative w-24 h-24 rounded-2xl object-cover shadow-lg shadow-blue-500/30"
+                  />
                 </div>
                 <div>
                   <div className="flex items-center gap-3 mb-2 flex-wrap">
