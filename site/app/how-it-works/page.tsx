@@ -249,7 +249,7 @@ export default function HowItWorksPage() {
             href="/contact"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
           >
-            Book a Free Discovery Call
+            Get My Free Automation Audit
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
           <p className="text-amber-400/80 text-xs font-semibold mt-5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
