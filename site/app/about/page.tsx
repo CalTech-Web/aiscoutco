@@ -235,6 +235,12 @@ export default function AboutPage() {
             Book a Free Discovery Call
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
+          <p className="text-slate-500 text-sm mt-6">
+            Want to learn more first?{" "}
+            <Link href="/ai-automation-consulting" className="text-blue-400 hover:text-blue-300 transition-colors">
+              See how AI automation consulting works.
+            </Link>
+          </p>
         </motion.div>
       </div>
     </div>

@@ -44,6 +44,11 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Services</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/ai-automation-consulting" className="text-slate-400 hover:text-white text-sm transition-colors">
+                  AI Automation Consulting
+                </Link>
+              </li>
+              <li>
                 <Link href="/services/discovery" className="text-slate-400 hover:text-white text-sm transition-colors">
                   AI Discovery &amp; Strategy
                 </Link>
