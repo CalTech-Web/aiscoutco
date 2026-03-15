@@ -189,7 +189,7 @@ export default function AboutPage() {
           <p className="text-slate-400 text-lg mb-3 max-w-xl mx-auto">
             In 30 minutes, I map every place AI can save you time and money, with real dollar savings attached to each one. No technical knowledge required.
           </p>
-          <p className="text-slate-500 text-sm mb-6">If I can&apos;t find at least 3 automation opportunities, I&apos;ll tell you straight. No pitch, no pressure.</p>
+          <p className="text-slate-500 text-sm mb-6">If I can&apos;t find at least 3 automation wins in your business, I&apos;ll say so. You walk away with honest insights either way. No pitch, no pressure.</p>
           <div className="flex items-center justify-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-sm mx-auto">
             <div className="flex gap-0.5 flex-shrink-0">
               {[0,1,2,3,4].map((i) => (
