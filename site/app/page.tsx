@@ -289,8 +289,8 @@ const faqs = [
     a: "It depends on the scope. Simple automations can be live in a week. More complex multi-agent systems with integrations typically take 4 to 8 weeks. I'll give you a clear timeline during the discovery process.",
   },
   {
-    q: "What tools and platforms do you work with?",
-    a: "I integrate with whatever you already use: Monday.com, Google Workspace, Salesforce, HubSpot, Slack, and dozens more. The systems I build connect to your existing workflow through APIs and webhooks, so nothing changes for your team except that manual work disappears.",
+    q: "Is my business too small or too large for this?",
+    a: "Neither. What matters isn't the size of your company, it's whether your team does manual, repetitive work. A business with two employees doing the same data entry every week is a perfect fit. So is a company with fifty people losing hours to manual reporting every month.",
   },
   {
     q: "Can I see a demo or example?",
@@ -508,6 +508,32 @@ export default function HomePage() {
       {/* Integrations Marquee */}
       <IntegrationsMarquee />
 
+      {/* Brandon - Meet the Builder */}
+      <section className="py-10 border-b border-slate-800/40">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeUp>
+            <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+              <div className="relative flex-shrink-0">
+                <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 opacity-50 blur-sm" />
+                <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-blue-500/20">
+                  B
+                </div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-blue-400 font-semibold text-xs uppercase tracking-wider mb-1">Meet Your Builder</p>
+                <p className="text-white font-bold text-lg mb-1">Brandon Hopkins, Founder &amp; AI Consultant</p>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  I&apos;ve spent 5+ years building custom digital systems across two companies. When you work with AI Scout Co, you work directly with me on every call, every line of code, and every deployment. No account managers, no handoffs.
+                </p>
+              </div>
+              <Link href="/about" className="flex-shrink-0 inline-flex items-center gap-1.5 text-slate-400 hover:text-blue-400 text-sm font-medium transition-colors whitespace-nowrap">
+                About Brandon <ArrowRight size={14} />
+              </Link>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-20 bg-slate-900/50 border-y border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -688,7 +714,7 @@ export default function HomePage() {
             <FadeUp delay={150}>
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
                 Simple for you,<br />
-                <span className="gradient-text">specialized from us</span>
+                <span className="gradient-text">specialized for you</span>
               </h2>
             </FadeUp>
             <FadeUp delay={300}>
@@ -745,6 +771,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <FadeUp delay={0}><p className="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-3">Capabilities</p></FadeUp>
             <FadeUp delay={150}><h2 className="text-4xl md:text-5xl font-extrabold mb-4">What I build</h2></FadeUp>
+            <FadeUp delay={300}><p className="text-slate-400 text-xl max-w-2xl mx-auto">Six categories of manual work I eliminate. Every system is custom built from scratch for your workflow, not adapted from a template.</p></FadeUp>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
