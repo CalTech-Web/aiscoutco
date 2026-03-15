@@ -480,7 +480,7 @@ function QuickCaptureForm() {
           <CheckCircle size={24} className="text-emerald-400" />
         </div>
         <p className="text-white font-bold text-xl mb-2">You&apos;re on my list.</p>
-        <p className="text-slate-400 text-sm">I&apos;ll reach out within one business day to schedule your call.</p>
+        <p className="text-slate-400 text-sm">I&apos;ll reach out same day to schedule your call.</p>
         <p className="text-slate-600 text-xs mt-4">$85,000+/year saved. 7 new capabilities. 6 weeks.</p>
       </div>
     );
@@ -660,7 +660,7 @@ export default function HomePage() {
             </p>
 
             <p className="text-lg text-slate-400 max-w-2xl mb-6 leading-relaxed">
-              Your team is losing hours every week to manual work that never changes. In 30 minutes, I find every automation opportunity in your business and show you the exact dollar savings. You walk away with a roadmap whether you hire me or not.
+              Your team is losing hours every week to manual work that never changes. In 30 minutes, I find every automation opportunity in your business and show you the exact dollar savings. Walk away with a concrete plan, no strings attached.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -776,9 +776,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ROI Calculator */}
-      <ROICalculator />
 
       {/* Why AI Scout Co */}
       <section className="py-20">
@@ -968,6 +965,9 @@ export default function HomePage() {
           </FadeUp>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <ROICalculator />
 
       {/* How It Works Overview */}
       <section className="py-24 bg-slate-900/30">
@@ -1252,7 +1252,7 @@ export default function HomePage() {
           </FadeUp>
           <FadeUp delay={150}>
             <p className="text-slate-400 text-xl mb-8 max-w-2xl mx-auto">
-              In 30 minutes I&apos;ll audit your workflows, find every automation opportunity, and show you the exact dollar savings attached to each one. You walk away with the roadmap whether you hire me or not.
+              In 30 minutes I&apos;ll audit your workflows, find every automation opportunity, and show you the exact dollar savings attached to each one. Walk away with a concrete roadmap, no strings attached.
             </p>
           </FadeUp>
           <FadeUp delay={200}>
