@@ -444,8 +444,8 @@ export default function HomePage() {
             background: `radial-gradient(700px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.10) 0%, rgba(6,182,212,0.04) 40%, transparent 70%)`,
           }}
         />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl" />
+        <div className="absolute top-[25vh] left-[25vw] w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-[25vh] right-[25vw] w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl animate-blob-alt" />
         <FloatingParticles />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
