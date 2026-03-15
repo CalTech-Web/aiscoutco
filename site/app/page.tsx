@@ -1207,7 +1207,7 @@ export default function HomePage() {
               {[
                 "Free 30-60 min call",
                 "Walk away with a prioritized roadmap",
-                "Keep the roadmap regardless",
+                "Keep the roadmap even if you don't hire me",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-slate-400 text-sm">
                   <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
