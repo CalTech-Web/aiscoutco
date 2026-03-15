@@ -1218,7 +1218,7 @@ export default function HomePage() {
 
             <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold text-left">
               <CheckCircle size={12} className="flex-shrink-0" />
-              Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
+              Guaranteed: I find 3+ automation wins or I say so. You walk away with honest insights either way. No pitch, no pressure.
             </div>
 
             <p className="text-amber-400/70 text-xs font-medium mt-2">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
@@ -1791,7 +1791,7 @@ export default function HomePage() {
           <FadeUp delay={450}>
             <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold text-left">
               <CheckCircle size={12} className="flex-shrink-0" />
-              Guaranteed: I find 3+ automation opportunities or I tell you straight. No pitch, no pressure.
+              Guaranteed: I find 3+ automation wins or I say so. You walk away with honest insights either way. No pitch, no pressure.
             </div>
             <p className="text-emerald-400/80 text-xs font-medium mt-3">Most clients see ROI within 60 days of going live.</p>
             <p className="text-slate-500 text-xs mt-3">
