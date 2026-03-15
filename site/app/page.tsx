@@ -444,7 +444,7 @@ export default function HomePage() {
             </p>
 
             <p className="text-lg text-slate-400 max-w-2xl mb-6 leading-relaxed">
-              In 30 minutes, I audit your workflows, find every automation opportunity, and attach real dollar savings to each one. You walk away with a prioritized roadmap whether you hire me or not.
+              Your team is losing hours every week to manual work that never changes. In 30 minutes, I find every automation opportunity in your business and show you the exact dollar savings. You walk away with a roadmap whether you hire me or not.
             </p>
 
             <div className="flex items-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
@@ -692,7 +692,7 @@ export default function HomePage() {
           {/* Mid-page CTA strip */}
           <FadeUp delay={300} className="mt-8 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-900/20 to-cyan-900/10 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div>
-              <p className="text-white font-bold text-xl">Could your business run like this?</p>
+              <p className="text-white font-bold text-xl">Your business can run like this.</p>
               <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
             </div>
             <Link
@@ -713,13 +713,13 @@ export default function HomePage() {
             <FadeUp delay={0}><p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">The Process</p></FadeUp>
             <FadeUp delay={150}>
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-                Simple for you,<br />
-                <span className="gradient-text">specialized for you</span>
+                Simple for you.<br />
+                <span className="gradient-text">Sophisticated results.</span>
               </h2>
             </FadeUp>
             <FadeUp delay={300}>
               <p className="text-slate-400 text-xl max-w-2xl mx-auto">
-                You describe what you want your business to look like. I figure out the autonomous agents, API orchestration, and custom workflows to make it real.
+                You describe the problem. I build the custom system that eliminates it, and walk you through everything.
               </p>
             </FadeUp>
           </div>
@@ -729,7 +729,7 @@ export default function HomePage() {
               { icon: <Brain size={24} />, step: "01", title: "Discovery Call", desc: "We map your workflows and find every opportunity for AI and automation to save you time and money." },
               { icon: <BarChart3 size={24} />, step: "02", title: "Opportunity Map", desc: "You receive a ranked plan with ROI projections and a clear implementation timeline." },
               { icon: <Zap size={24} />, step: "03", title: "Build & Deploy", desc: "I architect autonomous agent systems, API integrations, and intelligent workflows custom to your business." },
-              { icon: <CheckCircle size={24} />, step: "04", title: "Launch & Train", desc: "Systems go live and I walk your team through everything. Within a few days, they won't be able to imagine working without it." },
+              { icon: <CheckCircle size={24} />, step: "04", title: "Launch & Train", desc: "Systems go live and I walk your team through everything. Manual work that used to take hours runs automatically from day one." },
               { icon: <Clock size={24} />, step: "05", title: "Optimize & Evolve", desc: "As your business grows, I keep refining your systems and adding new capabilities." },
             ].map((item, i) => (
               <FadeUp

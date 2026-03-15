@@ -79,9 +79,9 @@ export default function ContactPage() {
 
             <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6">
               <Brain size={24} className="text-blue-400 mb-3" />
-              <h3 className="text-white font-bold mb-2">What happens on the call</h3>
+              <h3 className="text-white font-bold mb-2">30 minutes that change how you work</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                We spend 30 to 60 minutes walking through your daily and weekly workflows. I ask about what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, I will have identified several areas where AI and automation can make an immediate impact.
+                We walk through your workflows together. I ask what takes the most time, what falls through the cracks, and where you wish you had more help. By the end, you&apos;ll have a clear picture of exactly what AI can automate and what each automation is worth in real dollars.
               </p>
             </div>
 
