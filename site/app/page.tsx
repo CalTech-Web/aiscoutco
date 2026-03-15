@@ -4,39 +4,6 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight, Zap, Brain, BarChart3, Clock, CheckCircle, ChevronRight, Bot, Link2, FileText, Globe, Settings2, Star, TrendingUp, Briefcase, Building2, Activity, ShoppingCart, Layers, ChevronDown } from "lucide-react";
 
-const rotatingOutcomes = [
-  "Eliminate $85,000+/year in labor costs.",
-  "Save 20+ manual hours every week.",
-  "Generate reports in seconds, not hours.",
-  "Proposals auto-delivered before every meeting.",
-  "Zero manual intervention required.",
-];
-
-function RotatingText() {
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % rotatingOutcomes.length);
-        setVisible(true);
-      }, 400);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <span
-      className="gradient-text font-bold"
-      style={{ transition: "opacity 0.4s ease", opacity: visible ? 1 : 0 }}
-    >
-      {rotatingOutcomes[index]}
-    </span>
-  );
-}
-
 function useInViewOnce() {
   const ref = useRef<Element>(null);
   const [inView, setInView] = useState(false);
@@ -469,12 +436,15 @@ export default function HomePage() {
               <span className="gradient-text">I build it.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl mb-3 min-h-[2rem]">
-              <RotatingText />
+            <p className="text-xl md:text-2xl mb-3">
+              <span className="gradient-text font-bold">$85,000+/year</span>
+              <span className="text-slate-400"> saved. </span>
+              <span className="gradient-text font-bold">20+ hours/week</span>
+              <span className="text-slate-400"> back. Built in 6 weeks.</span>
             </p>
 
             <p className="text-lg text-slate-400 max-w-2xl mb-6 leading-relaxed">
-              In one free call, I map every place AI can replace manual work in your business and attach real dollar savings to each opportunity. You walk away with a prioritized roadmap. Whether you hire me afterward is entirely up to you.
+              In 30 minutes, I audit your workflows, find every automation opportunity, and attach real dollar savings to each one. You walk away with a prioritized roadmap whether you hire me or not.
             </p>
 
             <div className="flex items-center gap-3 mb-8 px-5 py-3 rounded-xl border border-slate-700/50 bg-slate-900/60 max-w-md mx-auto">
@@ -510,7 +480,7 @@ export default function HomePage() {
               {[
                 "Free 30-60 min call",
                 "Walk away with a prioritized roadmap",
-                "No pitch, no obligation",
+                "Guaranteed: I find 3+ opportunities or say so upfront",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-slate-400 text-sm">
                   <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
@@ -835,13 +805,18 @@ export default function HomePage() {
               <p className="text-white font-bold text-lg">Not sure which of these applies to you?</p>
               <p className="text-slate-400 text-sm mt-1">That&apos;s exactly what the discovery call is for. I&apos;ll identify the highest-ROI opportunities in your specific workflow.</p>
             </div>
-            <Link
-              href="/contact"
-              className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
-            >
-              Book a Free Discovery Call
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex-shrink-0 flex flex-col items-center gap-2">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 btn-shimmer whitespace-nowrap"
+              >
+                Book a Free Discovery Call
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/case-study" className="text-slate-500 hover:text-blue-400 text-xs transition-colors">
+                or see a real example →
+              </Link>
+            </div>
           </FadeUp>
         </div>
       </section>
