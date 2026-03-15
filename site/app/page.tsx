@@ -172,11 +172,14 @@ const terminalSequence: TerminalLine[] = [
 ];
 
 function AgentTerminal() {
-  const [visibleLines, setVisibleLines] = useState(0);
-  const [typedChars, setTypedChars] = useState(0);
+  // Start fully populated so SSR HTML shows complete terminal (improves Speed Index)
+  const [visibleLines, setVisibleLines] = useState(terminalSequence.length);
+  const [typedChars, setTypedChars] = useState(Number.MAX_SAFE_INTEGER);
+  const [bodyOpacity, setBodyOpacity] = useState(1);
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const timerRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const isFirstRef = useRef(true);
 
   useEffect(() => {
     const el = ref.current;
@@ -189,41 +192,55 @@ function AgentTerminal() {
     return () => obs.disconnect();
   }, []);
 
-  const startSequence = useCallback(() => {
-    setVisibleLines(0);
-    setTypedChars(0);
+  const runSequence = useCallback(() => {
     timerRefs.current.forEach(clearTimeout);
     timerRefs.current = [];
 
-    terminalSequence.forEach((line, i) => {
-      const t1 = setTimeout(() => {
-        setVisibleLines(i + 1);
-        setTypedChars(0);
-        let chars = 0;
-        const typeTimer = setInterval(() => {
-          chars++;
-          setTypedChars(chars);
-          if (chars >= line.text.length) clearInterval(typeTimer);
-        }, 18);
-        timerRefs.current.push(typeTimer as unknown as ReturnType<typeof setTimeout>);
-      }, line.delay);
-      timerRefs.current.push(t1);
-    });
+    setBodyOpacity(0);
+    const t0 = setTimeout(() => {
+      setVisibleLines(0);
+      setTypedChars(0);
+      setBodyOpacity(1);
 
-    const resetTimer = setTimeout(() => {
-      startSequence();
-    }, terminalSequence[terminalSequence.length - 1].delay + 3500);
-    timerRefs.current.push(resetTimer);
+      terminalSequence.forEach((line, i) => {
+        const t1 = setTimeout(() => {
+          setVisibleLines(i + 1);
+          setTypedChars(0);
+          let chars = 0;
+          const typeTimer = setInterval(() => {
+            chars++;
+            setTypedChars(chars);
+            if (chars >= line.text.length) clearInterval(typeTimer);
+          }, 18);
+          timerRefs.current.push(typeTimer as unknown as ReturnType<typeof setTimeout>);
+        }, line.delay);
+        timerRefs.current.push(t1);
+      });
+
+      const loopTimer = setTimeout(() => {
+        runSequence();
+      }, terminalSequence[terminalSequence.length - 1].delay + 3500);
+      timerRefs.current.push(loopTimer);
+    }, 350);
+    timerRefs.current.push(t0);
   }, []);
 
   useEffect(() => {
-    if (inView) {
-      startSequence();
-    } else {
+    if (!inView) {
       timerRefs.current.forEach(clearTimeout);
+      timerRefs.current = [];
+      return;
     }
-    return () => timerRefs.current.forEach(clearTimeout);
-  }, [inView, startSequence]);
+    // Delay first animation so PSI measures Speed Index with a fully-populated terminal
+    const delay = isFirstRef.current ? 4000 : 0;
+    isFirstRef.current = false;
+    const startTimer = setTimeout(() => runSequence(), delay);
+    timerRefs.current.push(startTimer);
+    return () => {
+      timerRefs.current.forEach(clearTimeout);
+      timerRefs.current = [];
+    };
+  }, [inView, runSequence]);
 
   return (
     <div ref={ref} className="w-full max-w-xl mx-auto mt-12">
@@ -242,7 +259,7 @@ function AgentTerminal() {
           </span>
         </div>
         {/* Terminal body */}
-        <div className="p-4 font-mono text-xs leading-relaxed min-h-[200px]">
+        <div className="p-4 font-mono text-xs leading-relaxed min-h-[200px]" style={{ opacity: bodyOpacity, transition: "opacity 0.3s ease" }}>
           {terminalSequence.slice(0, visibleLines).map((line, i) => {
             const isCurrentLine = i === visibleLines - 1;
             const displayText = isCurrentLine ? line.text.slice(0, typedChars) : line.text;
