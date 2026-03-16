@@ -18,7 +18,15 @@ export default function FloatingCTA() {
         const rect = footer.getBoundingClientRect();
         footerVisible = rect.top < window.innerHeight;
       }
-      setVisible(scrolledPast && !footerVisible);
+      // Hide when any inline CTA section is on screen to prevent overlap
+      let inlineCTAVisible = false;
+      document.querySelectorAll("[data-inline-cta]").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          inlineCTAVisible = true;
+        }
+      });
+      setVisible(scrolledPast && !footerVisible && !inlineCTAVisible);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

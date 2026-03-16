@@ -265,7 +265,7 @@ function IntegrationsMarquee() {
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0f172a] to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0f172a] to-transparent z-10 pointer-events-none" />
       <div className="text-center mb-4">
-        <span className="text-slate-500 text-xs uppercase tracking-widest font-medium">Works with the tools you already use</span>
+        <span className="text-slate-400 text-xs uppercase tracking-widest font-medium">Works with the tools you already use</span>
       </div>
       <div className="animate-marquee">
         {doubled.map((item, i) => (
@@ -1285,7 +1285,7 @@ export default function HomePage() {
                 <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-2">
                   <AnimatedCounter end={stat.value} prefix={stat.prefix || ""} suffix={stat.suffix || ""} decimal={stat.decimal || ""} />
                 </div>
-                <div className="text-slate-400 text-sm font-medium">{stat.label}</div>
+                <div className="text-slate-300 text-sm font-medium">{stat.label}</div>
               </FadeUp>
             ))}
           </div>
@@ -1465,11 +1465,11 @@ export default function HomePage() {
           </FadeUp>
 
           {/* Mid-page CTA strip */}
-          <FadeUp delay={300} className="mt-8 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-900/20 to-cyan-900/10 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <FadeUp delay={300} className="mt-8 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-900/20 to-cyan-900/10 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5" data-inline-cta>
             <div>
               <p className="text-white font-bold text-xl">Your business can run like this.</p>
               <p className="text-slate-400 text-sm mt-1">Free 30-60 min call. Walk away with a prioritized roadmap, no commitment required.</p>
-              <p className="text-amber-400/80 text-xs font-medium mt-1.5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
+              <p className="text-amber-400/70 text-xs font-medium mt-1.5">I take on 3 to 5 new clients per month. {["January","February","March","April","May","June","July","August","September","October","November","December"][new Date().getMonth()]} spots are available now.</p>
             </div>
             <Link
               href="/contact"
@@ -1523,7 +1523,7 @@ export default function HomePage() {
                 <h3 className="font-bold text-white mb-2">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
                 {i < 4 && (
-                  <div className="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-slate-600">
+                  <div className="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-blue-500/40">
                     <ChevronRight size={20} />
                   </div>
                 )}
@@ -1531,7 +1531,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <FadeUp delay={200} className="text-center mt-10">
+          <FadeUp delay={200} className="text-center mt-10" data-inline-cta>
             <Link
               href="/contact"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 btn-shimmer"
@@ -1687,6 +1687,7 @@ export default function HomePage() {
                 color: { border: "border-pink-500/30", bg: "bg-pink-500/10", text: "text-pink-400", subtle: "bg-pink-500/5" },
                 industry: "Any Business",
                 pain: "If your team does the same manual work on a schedule, I can build a system that does it for them.",
+                link: "/contact",
               },
             ].map((item, i) => (
               <FadeUp
@@ -1708,7 +1709,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <FadeUp delay={200} className="mt-10 rounded-2xl border border-slate-700/40 bg-slate-900/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <FadeUp delay={200} className="mt-10 rounded-2xl border border-slate-700/40 bg-slate-900/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5" data-inline-cta>
             <div>
               <p className="text-white font-bold text-lg">Don&apos;t see your industry?</p>
               <p className="text-slate-400 text-sm mt-1">Industry doesn&apos;t matter. Repetitive manual work does. If your team does the same steps on a schedule, I can build a system that does it for them.</p>
@@ -1756,7 +1757,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden" data-inline-cta>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-cyan-900/10" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/10 rounded-full blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

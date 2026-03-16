@@ -26,6 +26,10 @@ export default function Footer() {
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
               AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.
             </p>
+            <a href="mailto:brandon@aiscoutco.com" className="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm transition-colors mt-4">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+              brandon@aiscoutco.com
+            </a>
           </div>
 
           {/* Services */}
