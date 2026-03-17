@@ -18,20 +18,18 @@ If it doesn't return 200, check the git remote for clues but never fall back to 
 
 ## Analyzing with Lighthouse API
 
-Use the PageSpeed Insights REST API with the Google Cloud API key.
-
-API key: `AIzaSyBc_dd5AKpBawdFj5j0-cD4I0WiRqewWo4`
+Use the PageSpeed Insights REST API with the Google Cloud API key stored in the `GOOGLE_PAGESPEED_API_KEY` environment variable.
 
 To get the performance score for a page:
 
 ```
-curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance&key=AIzaSyBc_dd5AKpBawdFj5j0-cD4I0WiRqewWo4" | jq '{score: (.lighthouseResult.categories.performance.score * 100), metrics: {FCP: .lighthouseResult.audits["first-contentful-paint"].displayValue, LCP: .lighthouseResult.audits["largest-contentful-paint"].displayValue, TBT: .lighthouseResult.audits["total-blocking-time"].displayValue, CLS: .lighthouseResult.audits["cumulative-layout-shift"].displayValue, SI: .lighthouseResult.audits["speed-index"].displayValue}}'
+curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance&key=$GOOGLE_PAGESPEED_API_KEY" | jq '{score: (.lighthouseResult.categories.performance.score * 100), metrics: {FCP: .lighthouseResult.audits["first-contentful-paint"].displayValue, LCP: .lighthouseResult.audits["largest-contentful-paint"].displayValue, TBT: .lighthouseResult.audits["total-blocking-time"].displayValue, CLS: .lighthouseResult.audits["cumulative-layout-shift"].displayValue, SI: .lighthouseResult.audits["speed-index"].displayValue}}'
 ```
 
 To get the top failing audits:
 
 ```
-curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance&key=AIzaSyBc_dd5AKpBawdFj5j0-cD4I0WiRqewWo4" | jq '[.lighthouseResult.audits | to_entries[] | select(.value.score < 0.9 and .value.score >= 0) | {id: .key, title: .value.title, score: .value.score, detail: .value.displayValue}] | sort_by(.score) | .[0:5]'
+curl -s "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=URL_ENCODED_HERE&strategy=mobile&category=performance&key=$GOOGLE_PAGESPEED_API_KEY" | jq '[.lighthouseResult.audits | to_entries[] | select(.value.score < 0.9 and .value.score >= 0) | {id: .key, title: .value.title, score: .value.score, detail: .value.displayValue}] | sort_by(.score) | .[0:5]'
 ```
 
 Each API call takes 15 to 30 seconds. Run them sequentially, not in parallel.
