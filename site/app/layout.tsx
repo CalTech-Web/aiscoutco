@@ -13,6 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aiscoutco.com"),
+  verification: { google: "Bs6kzpqMWrY_iLIyBDr6JUz-Hv68DlcCKC9uJuKz_Q0" },
   title: "AI Scout Co | Custom AI Systems & Automation",
   description: "AI Scout Co helps businesses discover where AI and automation can save time, cut costs, and replace manual work, then builds the systems to make it happen.",
   keywords: "AI automation, custom AI systems, business automation, AI consulting, agent orchestration",
